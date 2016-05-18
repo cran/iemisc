@@ -32,7 +32,7 @@ library(iemisc)
 object1 <- matrix(c(1, 2, 3, 4, 5, 6), nrow = 3, ncol = 2, byrow = TRUE)
 size(object1)
 
-source("http://gsubfn.googlecode.com/svn/trunk/R/list.R")
+source("https://raw.githubusercontent.com/ggrothendieck/gsubfn/master/R/list.R")
 list[nr, nc] <- size(matrix(c(1, 2, 3, 4, 5, 6), nrow = 3, ncol = 2,
                 byrow = TRUE))
 

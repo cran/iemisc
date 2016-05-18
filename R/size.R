@@ -41,7 +41,7 @@
 #' object1 <- matrix(c(1, 2, 3, 4, 5, 6), nrow = 3, ncol = 2, byrow = TRUE)
 #' size(object1)
 #'
-#' source("http://gsubfn.googlecode.com/svn/trunk/R/list.R")
+#' source("https://raw.githubusercontent.com/ggrothendieck/gsubfn/master/R/list.R")
 #' list[nr, nc] <- size(matrix(c(1, 2, 3, 4, 5, 6), nrow = 3, ncol = 2,
 #'                 byrow = TRUE))
 #'
@@ -161,7 +161,7 @@ size <- function (x, k)
 #'
 #'
 #'
-#' @seealso \code{\link[base]{length}}, \code{\link[pracma]{size}}, \code{\link{size}}
+#' @seealso \code{\link[base]{length}}, \code{\link[base]{lengths}}, \code{\link[pracma]{size}}, \code{\link{size}}
 #'
 #'
 #' @examples
@@ -170,22 +170,22 @@ size <- function (x, k)
 #' import::from(pracma, ones)
 #' # Example from pracma isempty
 #' object1 <- matrix(0, 1, 0)
-#' lengths(object1)
+#' length_octave(object1)
 #'
 #' object2 <- 2
-#' lengths(object2)
+#' length_octave(object2)
 #'
 #' object3 <- 1:10
-#' lengths(object3)
+#' length_octave(object3)
 #'
 #' object4 <- ones(3, 4)
-#' lengths(object4)
+#' length_octave(object4)
 #'
 #' object5 <- "ss"
-#' lengths(object5)
+#' length_octave(object5)
 #'
 #' object6 <- list(letters, b <- 2)
-#' lengths(object6)
+#' length_octave(object6)
 #'
 #'
 #' \dontrun{
@@ -213,7 +213,7 @@ size <- function (x, k)
 #' @importFrom pracma isempty
 #'
 #' @export
-lengths <- function (x) {
+length_octave <- function (x) {
 if (isempty(x))
 
   0
@@ -271,7 +271,7 @@ else (is.matrix(x))
 #'
 #'
 #'
-#' @seealso \code{\link[matlab]{numel}}, \code{\link[pracma]{numel}}, \code{\link{size}}, \code{\link{length}}
+#' @seealso \code{\link[matlab]{numel}}, \code{\link[pracma]{numel}}, \code{\link{size}}, \code{\link{length_octave}}
 #'
 #'
 #' @examples

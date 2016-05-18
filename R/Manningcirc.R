@@ -131,7 +131,7 @@
 #'   if known.
 #' @param d numeric vector that contains the diameter value (m or ft),
 #'   if known.
-#' @param Sf numeric vector that contains the the bed slope (m/m or ft/ft),
+#' @param Sf numeric vector that contains the bed slope (m/m or ft/ft),
 #'   if known.
 #' @param y numeric vector that contains the flow depth (m or ft), if known.
 #' @param y_d numeric vector that contains the filling ration (y/d), if known.

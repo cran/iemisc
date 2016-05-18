@@ -1,6 +1,6 @@
 Package: iemisc
 Title: Irucka Embry's Miscellaneous Functions
-Version: 0.5.0
+Version: 0.5.1
 Author: Irucka Embry [aut, cre]. Includes R source code and/or documentation
     previously published by: Felix Andrews (zoo) and Hans Werner Borchers
     (pracma). [Borrowed from DescTools description.]
@@ -19,6 +19,6 @@ LazyData: true
 Encoding: UTF-8
 RoxygenNote: 5.0.1
 NeedsCompilation: no
-Packaged: 2016-02-09 01:56:47 UTC; uoxyh
+Packaged: 2016-05-18 01:44:38 UTC; uoxyh
 Repository: CRAN
-Date/Publication: 2016-02-09 09:46:48
+Date/Publication: 2016-05-18 06:52:53

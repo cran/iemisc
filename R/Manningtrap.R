@@ -99,7 +99,7 @@
 #' @param b numeric vector that contains the bottom width, if known.
 #' @param m numeric vector that contains the "cross-sectional side slope of m:1
 #'   (horizontal:vertical)", if known.
-#' @param Sf numeric vector that contains the the bed slope (m/m or ft/ft),
+#' @param Sf numeric vector that contains the bed slope (m/m or ft/ft),
 #'   if known.
 #' @param y numeric vector that contains the flow depth (m or ft), if known.
 #' @param units character vector that contains the system of units [options are

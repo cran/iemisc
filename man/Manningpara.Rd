@@ -21,12 +21,12 @@ if known.}
 \item{m}{numeric vector that contains the "cross-sectional side slope of m:1
 (horizontal:vertical)", if known.}
 
-\item{Sf}{numeric vector that contains the the bed slope (m/m or ft/ft),
+\item{Sf}{numeric vector that contains the bed slope (m/m or ft/ft),
 if known.}
 
 \item{y}{numeric vector that contains the flow depth (m or ft), if known.}
 
-\item{B1}{numeric vector that contains the the "bank-full width", if known.}
+\item{B1}{numeric vector that contains the "bank-full width", if known.}
 
 \item{y1}{numeric vector that contains the "bank-full depth", if known.}
 

@@ -86,6 +86,6 @@ Irucka Embry, Samit Basu (FreeMat)
 }
 }
 \seealso{
-\code{\link[matlab]{numel}}, \code{\link[pracma]{numel}}, \code{\link{size}}, \code{\link{length}}
+\code{\link[matlab]{numel}}, \code{\link[pracma]{numel}}, \code{\link{size}}, \code{\link{length_octave}}
 }
 

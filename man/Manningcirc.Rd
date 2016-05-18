@@ -22,7 +22,7 @@ if known.}
 \item{n}{numeric vector that contains the Manning's roughness coefficient n,
 if known.}
 
-\item{Sf}{numeric vector that contains the the bed slope (m/m or ft/ft),
+\item{Sf}{numeric vector that contains the bed slope (m/m or ft/ft),
 if known.}
 
 \item{y}{numeric vector that contains the flow depth (m or ft), if known.}

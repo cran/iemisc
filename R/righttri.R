@@ -23,7 +23,7 @@
 #'   if known
 #'
 #' @return \code{\link[base]{list}} of known sides a, b, and c & the interior angles
-#'   A, B, and C (right angle), in degrees, if and only if the the given
+#'   A, B, and C (right angle), in degrees, if and only if the given
 #'   sides create a right triangle.
 #'
 #'
