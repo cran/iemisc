@@ -9,7 +9,7 @@ r - Better error message for stopifnot? - Stack Overflow answered by Andrie on D
 }
 \usage{
 Manningpara(Q = NULL, n = NULL, m = NULL, Sf = NULL, y = NULL,
-  B1 = NULL, y1 = NULL, units = c("SI", "Eng"))
+  B1 = NULL, y1 = NULL, T = NULL, units = c("SI", "Eng"))
 }
 \arguments{
 \item{Q}{numeric vector that contains the discharge value [m^3/s or ft^3/s],
@@ -30,6 +30,9 @@ if known.}
 
 \item{y1}{numeric vector that contains the "bank-full depth", if known.}
 
+\item{T}{numeric vector that contains the temperature (degrees C or degrees
+Fahrenheit), if known.}
+
 \item{units}{character vector that contains the system of units [options are
 \code{SI} for International System of Units and \code{Eng} for English units
 (United States Customary System in the United States and Imperial Units in
@@ -37,7 +40,8 @@ the United Kingdom)]}
 }
 \value{
 the missing parameter (Q, n, m, Sf, B1, y1, or y) & area (A), wetted
-  perimeter (P), top width (B), and R (hydraulic radius) as a \code{\link[base]{list}}.
+  perimeter (P), velocity (V), top width (B), R (hydraulic radius), and Re
+  (Reynolds number) as a \code{\link[base]{list}}.
 }
 \description{
 This function solves for one missing variable in the Gauckler-Manning-
@@ -128,40 +132,31 @@ Other important equations regarding the parabolic cross-section follow:
 
 
 
-Assumptions: uniform flow and prismatic channel
+A rough turbulent zone check is performed on the water flowing in the
+channel using the Reynolds number (Re). The Re equation follows:
+
+\deqn{Re = \frac{\rho RV}{\mu}}
+
+\describe{
+\item{\emph{Re}}{the velocity (m/s or ft/s)}
+\item{\emph{\eqn{\rho}}}{density (kg/m^3 or slug/ft^3)}
+\item{\emph{R}}{the hydraulic radius (m or ft)}
+\item{\emph{V}}{the velocity (m/s or ft/s)}
+\item{\emph{\eqn{\mu}}}{dynamic viscosity (* 10^-3 kg/m*s or * 10^-5 lb*s/ft^2)}
+}
+}
+\note{
+Assumptions: uniform flow, prismatic channel, and surface water temperature
+of 20 degrees Celsius (68 degrees Fahrenheit) at atmospheric pressure
 
 Note: Units must be consistent
 }
 \examples{
 library(iemisc)
 library(iemiscdata)
-\dontrun{
-# The equations used in this function were solved analytically after
-# following these steps:
-library(rSymPy) # review the package to determine its system dependencies
-Q <- Var("Q")
-n <- Var("n")
-m <- Var("m")
-k <- Var("k")
-Sf <- Var("Sf")
-y <- Var("y")
-
-# Simplify with rSymPy
-eqsimp <- sympy("expr = n*Q*(2*y*sqrt(1+m**2))**(2/3)-k*(m*y**2)**(5/3)*sqrt(Sf)")
-# eqsimp is "Q*n - k*m*Sf**(1/2)*y**2"
-# This is the equation that was used to solve for the missing variables
-}
-
-
-# Modified Exercise 4.1 from Sturm (page 153)
-Manningpara(Q = 3000, m = 3, Sf = 0.002, n = 0.025, units = "Eng")
-# Q = 3000 cfs, m = 3, Sf = 0.002 ft/ft, n = 0.025, units = English units
-# This will solve for y since it is missing and y will be in ft
-
-
-# Modified Exercise 4.5 from Sturm (page 154)
-Manningpara(Q = 950, m = 2, Sf = 0.022, n = 0.023, units = "SI")
-# Q = 950 m^3/s, m = 2, Sf = 0.022 m/m, n = 0.023, units = SI units
+# Exercise 4.3 from Sturm (page 153)
+Manningpara(Q = 12.0, B1 = 10, y1 = 2.0, Sf = 0.005, n = 0.05, units = "SI")
+# Q = 12.0 m^3/s, B1 = 10 m, y1 = 2.0 m, Sf = 0.005, n = 0.05, units = SI units
 # This will solve for y since it is missing and y will be in m
 
 }
@@ -169,9 +164,11 @@ Manningpara(Q = 950, m = 2, Sf = 0.022, n = 0.023, units = "SI")
 \enumerate{
    \item Terry W. Sturm, \emph{Open Channel Hydraulics}, 2nd Edition, New York City, New York: The McGraw-Hill Companies, Inc., 2010, page 8, 36, 102, 120, 153-154.
    \item Dan Moore, P.E., NRCS Water Quality and Quantity Technology Development Team, Portland Oregon, "Using Mannings Equation with Natural Streams", August 2011, \url{http://www.wcc.nrcs.usda.gov/ftpref/wntsc/H&H/xsec/manningsNaturally.pdf}.
-   \item Gilberto E. Urroz, Utah State University Civil and Environmental Engineering, CEE6510 - Numerical Methods in Civil Engineering, Spring 2006,  "Solving selected equations and systems of equations in hydraulics using Matlab", August/September 2004, \url{http://ocw.usu.edu/Civil_and_Environmental_Engineering/Numerical_Methods_in_Civil_Engineering/}.
+   \item Gilberto E. Urroz, Utah State University Civil and Environmental Engineering, CEE6510 - Numerical Methods in Civil Engineering, Spring 2006, "Solving selected equations and systems of equations in hydraulics using Matlab", August/September 2004, \url{http://ocw.usu.edu/Civil_and_Environmental_Engineering/Numerical_Methods_in_Civil_Engineering/}.
    \item Tyler G. Hicks, P.E., \emph{Civil Engineering Formulas: Pocket Guide}, 2nd Edition, New York City, New York: The McGraw-Hill Companies, Inc., 2002, page 423, 425.
    \item Wikimedia Foundation, Inc. Wikipedia, 26 November 2015, “Manning formula”, \url{https://en.wikipedia.org/wiki/Manning_formula}.
+   \item John C. Crittenden, R. Rhodes Trussell, David W. Hand, Kerry J. Howe, George Tchobanoglous, \emph{MWH's Water Treatment: Principles and Design}, Third Edition, Hoboken, New Jersey: John Wiley & Sons, Inc., 2012, page 1861-1862.
+   \item Andrew Chadwick, John Morfett and Martin Borthwick, \emph{Hydraulics in Civil and Environmental Engineering}, Fourth Edition, New York City, New York: Spon Press, Inc., 2004, page 133.
 }
 }
 \seealso{

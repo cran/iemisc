@@ -10,7 +10,7 @@ r - Better error message for stopifnot? - Stack Overflow answered by Andrie on D
 }
 \usage{
 Manningcirc(Q = NULL, n = NULL, Sf = NULL, y = NULL, d = NULL,
-  units = c("SI", "Eng"))
+  T = NULL, units = c("SI", "Eng"))
 
 Manningcircy(y = NULL, d = NULL, y_d = NULL, theta = NULL, Sf = NULL,
   Q = NULL, units = c("SI", "Eng"))
@@ -30,6 +30,9 @@ if known.}
 \item{d}{numeric vector that contains the diameter value (m or ft),
 if known.}
 
+\item{T}{numeric vector that contains the temperature (degrees C or degrees
+Fahrenheit), if known.}
+
 \item{units}{character vector that contains the system of units [options are
 \code{SI} for International System of Units and \code{Eng} for English units
 (United States Customary System in the United States and Imperial Units in
@@ -42,12 +45,12 @@ known.}
 }
 \value{
 the missing parameter (Q, n, or Sf) & theta, area (A), wetted
-  perimeter (P), top width (B), and R (hydraulic radius) as a \code{\link[base]{list}}
-  for the Manningcirc function.
+  perimeter (P), top width (B), velocity (V), R (hydraulic radius), and Re
+  (Reynolds number) as a \code{\link[base]{list}} for the Manningcirc function.
 
 the missing parameter (d or y) & theta, area (A), wetted
-  perimeter (P), top width (B), and R (hydraulic radius) as a \code{\link[base]{list}}
-  for the Manningcircy function.
+  perimeter (P), top width (B), velocity (V), R (hydraulic radius), and Re
+  (Reynolds number) as a \code{\link[base]{list}} for the Manningcircy function.
 }
 \description{
 Manningcirc and Manningcircy solve for a missing variable for a circular
@@ -162,31 +165,39 @@ Note: This will only provide the initial conduit diameter, check the design
 
 
 
-Assumptions: uniform flow and prismatic channel
+A rough turbulent zone check is performed on the water flowing in the
+channel using the Reynolds number (Re). The Re equation follows:
+
+\deqn{Re = \frac{\rho RV}{\mu}}
+
+\describe{
+\item{\emph{Re}}{the velocity (m/s or ft/s)}
+\item{\emph{\eqn{\rho}}}{density (kg/m^3 or slug/ft^3)}
+\item{\emph{R}}{the hydraulic radius (m or ft)}
+\item{\emph{V}}{the velocity (m/s or ft/s)}
+\item{\emph{\eqn{\mu}}}{dynamic viscosity (* 10^-3 kg/m*s or * 10^-5 lb*s/ft^2)}
+}
+}
+\note{
+Assumptions: uniform flow, prismatic channel, and surface water temperature
+of 20 degrees Celsius (68 degrees Fahrenheit) at atmospheric pressure
 
 Note: Units must be consistent
 }
 \examples{
 library(iemisc)
 library(iemiscdata)
-\dontrun{
-# The equations used in this function were solved analytically after
-# following these steps:
-library(rSymPy) # review the package to determine its system dependencies
-Q <- Var("Q")
-n <- Var("n")
-k <- Var("k")
-Sf <- Var("Sf")
-y <- Var("y")
-d <- Var("d")
-theta <- Var("theta")
+# Example Problem 14.2 from Mott (page 377-378)
+y <- Manningcircy(y_d = 0.5, d = 200/1000, units = "SI")
 
-# Simplify with rSymPy
-eqsimp <- sympy("expr = n*Q*((theta*d)/2)**(2/3)-k*(theta-sin(theta))*(d**2/8)**(5/3)*sqrt(Sf)")
-# eqsimp is "Q*n - k*Sf**(1/2)*d**2*(theta - sin(theta))/8"
-# This is the equation that was used to solve for the missing variables
-}
+data(npartfull)
+nlocation <- grep("Common drainage tile",
+npartfull$"Type of Conduit and Description")
+n <- npartfull[nlocation, 3] # 3 for column 3 - Normal n
 
+Manningcirc(Sf = 1/1000, n = n, y = y$y, d = 200/1000, units = "SI")
+# Sf = 1/1000 m/m, n = 0.013, y = 0.1 m, d = 200/1000 m, units = SI units
+# This will solve for Q since it is missing and Q will be in m^3/s
 
 
 
@@ -199,15 +210,45 @@ y$y # gives the value of y
 
 
 
+# Modified Exercise 4.1 from Sturm (page 153)
+Manningcircy(Q = 15, Sf = 0.002, d = 36/12, units = "Eng")
+# Q = 15 cfs, Sf = 0.002 ft/ft, n = 0.015, d = 36/12 ft, units = English units
+# This will solve for y since it is missing and y will be in ft
+
+# C. Modified Exercise 4.1 from Sturm (page 153)
+# See \\code{\\link[iemiscdata]{nchannel}} for the Manning's n table that the
+# following example uses
+# Use the normal Manning's n value for 1) Natural streams - minor streams
+# (top width at floodstage < 100 ft), 2) Mountain streams, no vegetation
+# in channel, banks usually steep, trees and brush along banks submerged at
+# high stages and 3) bottom: gravels, cobbles, and few boulders.
+data(nchannel)
+
+nlocation <- grep("bottom: gravels, cobbles, and few boulders",
+nchannel$"Type of Channel and Description")
+n <- nchannel[nlocation, 3] # 3 for column 3 - Normal n
+Manningcirc(Sf = 0.002, n = n, y = y$y, d = 2, units = "Eng")
+# Sf = 0.002 ft/ft, n = 0.04, y = 1.6 ft, d = 2 ft, units = English units
+# This will solve for Q since it is missing and Q will be in ft^3/s
+
+# D. Modified Exercise 4.5 from Sturm (page 154)
+library(NISTunits)
+ysi <- NISTftTOmeter(y$y)
+dsi <- NISTftTOmeter(2)
+Manningcirc(Sf = 0.022, n = 0.023, y = ysi, d = dsi, units = "SI")
+# Sf = 0.022 m/m, n = 0.023, y = 0.48768 m, d = 0.6096 m, units = SI units
+# This will solve for Q since it is missing and Q will be in m^3/s
 
 }
 \references{
 \enumerate{
    \item Terry W. Sturm, \emph{Open Channel Hydraulics}, 2nd Edition, New York City, New York: The McGraw-Hill Companies, Inc., 2010, page 8, 36, 102, 120, 123-125, 153-154.
    \item Dan Moore, P.E., NRCS Water Quality and Quantity Technology Development Team, Portland Oregon, "Using Mannings Equation with Natural Streams", August 2011, \url{http://www.wcc.nrcs.usda.gov/ftpref/wntsc/H&H/xsec/manningsNaturally.pdf}.
-   \item Gilberto E. Urroz, Utah State University Civil and Environmental Engineering, CEE6510 - Numerical Methods in Civil Engineering, Spring 2006,  "Solving selected equations and systems of equations in hydraulics using Matlab", August/September 2004, \url{http://ocw.usu.edu/Civil_and_Environmental_Engineering/Numerical_Methods_in_Civil_Engineering/}.
+   \item Gilberto E. Urroz, Utah State University Civil and Environmental Engineering, CEE6510 - Numerical Methods in Civil Engineering, Spring 2006, "Solving selected equations and systems of equations in hydraulics using Matlab", August/September 2004, \url{http://ocw.usu.edu/Civil_and_Environmental_Engineering/Numerical_Methods_in_Civil_Engineering/}.
    \item Tyler G. Hicks, P.E., \emph{Civil Engineering Formulas: Pocket Guide}, 2nd Edition, New York City, New York: The McGraw-Hill Companies, Inc., 2002, page 423, 425.
    \item Wikimedia Foundation, Inc. Wikipedia, 26 November 2015, “Manning formula”, \url{https://en.wikipedia.org/wiki/Manning_formula}.
+   \item John C. Crittenden, R. Rhodes Trussell, David W. Hand, Kerry J. Howe, George Tchobanoglous, \emph{MWH's Water Treatment: Principles and Design}, Third Edition, Hoboken, New Jersey: John Wiley & Sons, Inc., 2012, page 1861-1862.
+   \item Andrew Chadwick, John Morfett and Martin Borthwick, \emph{Hydraulics in Civil and Environmental Engineering}, Fourth Edition, New York City, New York: Spon Press, Inc., 2004, page 133.
 }
 }
 \seealso{

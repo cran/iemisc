@@ -1,14 +1,14 @@
 Package: iemisc
 Title: Irucka Embry's Miscellaneous Functions
-Version: 0.5.1
+Version: 0.6.2
 Author: Irucka Embry [aut, cre]. Includes R source code and/or documentation
     previously published by: Felix Andrews (zoo) and Hans Werner Borchers
     (pracma). [Borrowed from DescTools description.]
 Maintainer: Irucka Embry <iembry@ecoccs.com>
 Depends: R (>= 3.0.0), stats, data.table (>= 1.9.4)
 Imports: zoo, pracma
-Suggests: iemiscdata, Rcpp (>= 0.11.5), RcppOctave, rSymPy, NISTunits,
-        import, financial, optiRum
+Suggests: iemiscdata, Rcpp (>= 0.11.5), RcppOctave, NISTunits, import,
+        financial, optiRum
 Description: A collection of Irucka Embry's miscellaneous functions
     (Engineering Economics, Environmental/Water Resources Engineering,
     Geometry, Statistics, GNU Octave length functions, etc.).
@@ -19,6 +19,6 @@ LazyData: true
 Encoding: UTF-8
 RoxygenNote: 5.0.1
 NeedsCompilation: no
-Packaged: 2016-05-18 01:44:38 UTC; uoxyh
+Packaged: 2016-05-30 05:56:36 UTC; uoxyh
 Repository: CRAN
-Date/Publication: 2016-05-18 06:52:53
+Date/Publication: 2016-05-30 08:37:56
