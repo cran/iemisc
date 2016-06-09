@@ -45,16 +45,18 @@ known.}
 }
 \value{
 the missing parameter (Q, n, or Sf) & theta, area (A), wetted
-  perimeter (P), top width (B), velocity (V), R (hydraulic radius), and Re
-  (Reynolds number) as a \code{\link[base]{list}} for the Manningcirc function.
+  perimeter (P), top width (B), velocity (V), R (hydraulic radius), Re
+  (Reynolds number), and Fr (Froude number) as a \code{\link[base]{list}} for the
+  Manningcirc function.
 
 the missing parameter (d or y) & theta, area (A), wetted
-  perimeter (P), top width (B), velocity (V), R (hydraulic radius), and Re
-  (Reynolds number) as a \code{\link[base]{list}} for the Manningcircy function.
+  perimeter (P), top width (B), velocity (V), and R (hydraulic radius) as a
+  \code{\link[base]{list}} for the Manningcircy function.
 }
 \description{
 Manningcirc and Manningcircy solve for a missing variable for a circular
-cross-section.
+cross-section. The \code{\link[stats]{uniroot}} function is used to obtain the
+missing parameter.
 }
 \details{
 The Manningcirc function solves for one missing variable in the Gauckler-
@@ -119,8 +121,6 @@ Other important equations regarding the circular cross-section follow:
 \item{\emph{\eqn{\theta}}}{see the equation defining this parameter}
 }
 
-
-
 \deqn{\theta = 2 \arcsin\left[1 - 2\left(\frac{y}{d}\right)\right]}
 \describe{
 \item{\emph{\eqn{\theta}}}{see the equation defining this parameter}
@@ -165,17 +165,39 @@ Note: This will only provide the initial conduit diameter, check the design
 
 
 
+\deqn{D = \frac{A}{B}}
+
+\describe{
+\item{\emph{D}}{the hydraulic depth (m or ft)}
+\item{\emph{A}}{the cross-sectional area (m^2 or ft^2)}
+\item{\emph{B}}{the top width of the channel (m or ft)}
+}
+
 A rough turbulent zone check is performed on the water flowing in the
 channel using the Reynolds number (Re). The Re equation follows:
 
 \deqn{Re = \frac{\rho RV}{\mu}}
 
 \describe{
-\item{\emph{Re}}{the velocity (m/s or ft/s)}
+\item{\emph{Re}}{Reynolds number (dimensionless)}
 \item{\emph{\eqn{\rho}}}{density (kg/m^3 or slug/ft^3)}
 \item{\emph{R}}{the hydraulic radius (m or ft)}
 \item{\emph{V}}{the velocity (m/s or ft/s)}
 \item{\emph{\eqn{\mu}}}{dynamic viscosity (* 10^-3 kg/m*s or * 10^-5 lb*s/ft^2)}
+}
+
+
+
+A critical flow check is performed on the water flowing in the channel
+using the Froude number (Fr). The Fr equation follows:
+
+\deqn{Fr = \frac{V}{\left(\sqrt{g * D}\right)}}
+
+\describe{
+\item{\emph{Fr}}{the Froude number (dimensionless)}
+\item{\emph{V}}{the velocity (m/s or ft/s)}
+\item{\emph{g}}{gravitational acceleration (m/s^2 or ft/sec^2)}
+\item{\emph{D}}{the hydraulic depth (m or ft)}
 }
 }
 \note{
@@ -187,9 +209,32 @@ Note: Units must be consistent
 \examples{
 library(iemisc)
 library(iemiscdata)
+
+# Practice Problem 14.12 from Mott (page 392)
+y <- Manningcircy(y_d = 0.5, d = 6, units = "Eng")
+
+# See npartfull in iemiscdata for the Manning's n table that the
+# following example uses
+# Use the normal Manning's n value for 1) Corrugated Metal, 2) Stormdrain.
+data(npartfull)
+
+# We are using the culvert as a stormdrain in this problem
+nlocation <- grep("Stormdrain",
+npartfull$"Type of Conduit and Description")
+n <- npartfull[nlocation, 3] # 3 for column 3 - Normal n
+
+Manningcirc(d = 6, Sf = 1 / 500, n = n, y = y$y, units = "Eng")
+# d = 6 ft, Sf = 1 / 500 ft/ft, n = 0.024, y = 3 ft, units = "Eng"
+# This will solve for Q since it is missing and Q will be in ft^3/s
+
+
+
 # Example Problem 14.2 from Mott (page 377-378)
 y <- Manningcircy(y_d = 0.5, d = 200/1000, units = "SI")
 
+# See npartfull in iemiscdata for the Manning's n table that the
+# following example uses
+# Use the normal Manning's n value for 1) Clay, 2) Common drainage tile.
 data(npartfull)
 nlocation <- grep("Common drainage tile",
 npartfull$"Type of Conduit and Description")
@@ -209,14 +254,10 @@ y$y # gives the value of y
 
 
 
-
 # Modified Exercise 4.1 from Sturm (page 153)
-Manningcircy(Q = 15, Sf = 0.002, d = 36/12, units = "Eng")
-# Q = 15 cfs, Sf = 0.002 ft/ft, n = 0.015, d = 36/12 ft, units = English units
-# This will solve for y since it is missing and y will be in ft
-
-# C. Modified Exercise 4.1 from Sturm (page 153)
-# See \\code{\\link[iemiscdata]{nchannel}} for the Manning's n table that the
+# Note: The Q in Exercise 4.1 is actually found using the Chezy equation,
+# this is a modification of that problem
+# See nchannel in iemiscdata for the Manning's n table that the
 # following example uses
 # Use the normal Manning's n value for 1) Natural streams - minor streams
 # (top width at floodstage < 100 ft), 2) Mountain streams, no vegetation
@@ -231,7 +272,9 @@ Manningcirc(Sf = 0.002, n = n, y = y$y, d = 2, units = "Eng")
 # Sf = 0.002 ft/ft, n = 0.04, y = 1.6 ft, d = 2 ft, units = English units
 # This will solve for Q since it is missing and Q will be in ft^3/s
 
-# D. Modified Exercise 4.5 from Sturm (page 154)
+
+
+# Modified Exercise 4.5 from Sturm (page 154)
 library(NISTunits)
 ysi <- NISTftTOmeter(y$y)
 dsi <- NISTftTOmeter(2)
@@ -242,13 +285,16 @@ Manningcirc(Sf = 0.022, n = 0.023, y = ysi, d = dsi, units = "SI")
 }
 \references{
 \enumerate{
-   \item Terry W. Sturm, \emph{Open Channel Hydraulics}, 2nd Edition, New York City, New York: The McGraw-Hill Companies, Inc., 2010, page 8, 36, 102, 120, 123-125, 153-154.
+   \item Terry W. Sturm, \emph{Open Channel Hydraulics}, 2nd Edition, New York City, New York: The McGraw-Hill Companies, Inc., 2010, page 2, 8, 36, 102, 120, 123-125, 153-154.
    \item Dan Moore, P.E., NRCS Water Quality and Quantity Technology Development Team, Portland Oregon, "Using Mannings Equation with Natural Streams", August 2011, \url{http://www.wcc.nrcs.usda.gov/ftpref/wntsc/H&H/xsec/manningsNaturally.pdf}.
    \item Gilberto E. Urroz, Utah State University Civil and Environmental Engineering, CEE6510 - Numerical Methods in Civil Engineering, Spring 2006, "Solving selected equations and systems of equations in hydraulics using Matlab", August/September 2004, \url{http://ocw.usu.edu/Civil_and_Environmental_Engineering/Numerical_Methods_in_Civil_Engineering/}.
    \item Tyler G. Hicks, P.E., \emph{Civil Engineering Formulas: Pocket Guide}, 2nd Edition, New York City, New York: The McGraw-Hill Companies, Inc., 2002, page 423, 425.
    \item Wikimedia Foundation, Inc. Wikipedia, 26 November 2015, “Manning formula”, \url{https://en.wikipedia.org/wiki/Manning_formula}.
    \item John C. Crittenden, R. Rhodes Trussell, David W. Hand, Kerry J. Howe, George Tchobanoglous, \emph{MWH's Water Treatment: Principles and Design}, Third Edition, Hoboken, New Jersey: John Wiley & Sons, Inc., 2012, page 1861-1862.
    \item Andrew Chadwick, John Morfett and Martin Borthwick, \emph{Hydraulics in Civil and Environmental Engineering}, Fourth Edition, New York City, New York: Spon Press, Inc., 2004, page 133.
+   \item Robert L. Mott and Joseph A. Untener, \emph{Applied Fluid Mechanics}, Seventh Edition, New York City, New York: Pearson, 2015, page 376, 377-378, 392.
+   \item Wikimedia Foundation, Inc. Wikipedia, 5 May 2016, “Gravitational acceleration”, \url{https://en.wikipedia.org/wiki/Gravitational_acceleration}.
+   \item Wikimedia Foundation, Inc. Wikipedia, 29 May 2016, “Conversion of units”, \url{https://en.wikipedia.org/wiki/Conversion_of_units}.
 }
 }
 \seealso{

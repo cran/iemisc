@@ -30,7 +30,6 @@ documentation from \code{\link[base]{length}}.
 }
 \examples{
 library(iemisc)
-library(import)
 import::from(pracma, ones)
 xx <- list(1:26, 1:10)
 numel(xx)
@@ -86,6 +85,6 @@ Irucka Embry, Samit Basu (FreeMat)
 }
 }
 \seealso{
-\code{\link[matlab]{numel}}, \code{\link[pracma]{numel}}, \code{\link{size}}, \code{\link{length_octave}}
+\code{\link[matlab]{numel}}, \code{\link[pracma]{numel}}, \code{\link{size}}, \code{\link{length}}
 }
 

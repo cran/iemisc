@@ -7,10 +7,10 @@
 #' etc.), geometry (sphere volume and right triangle), environmental/water
 #' resources engineering (Manning's n, Gauckler-Manning-Strickler equation for
 #' geometric cross-sections), a version of linear interpolation for use with
-#' NAs, & GNU Octave/MATLAB compatible size, numel, and length functions.
+#' NAs, & GNU Octave/MATLAB compatible size, numel, and length_octave functions.
 #'
 #' @docType package
 #' @name iemisc
 #' @import data.table stats
-#' @importFrom pracma isempty nthroot
+#' @importFrom pracma isempty nthroot interp1
 NULL

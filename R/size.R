@@ -90,7 +90,7 @@
 #'
 #'
 #' @export
-# Sources 1 begins
+# Source 1 begins
 size <- function (x, k)
 {
     if (length(x) == 0)
@@ -126,7 +126,7 @@ size <- function (x, k)
     }
 
     return(sz)
-# Sources 1 ends
+# Source 1 ends
     }
 
 
@@ -166,7 +166,6 @@ size <- function (x, k)
 #'
 #' @examples
 #' library(iemisc)
-#' library(import)
 #' import::from(pracma, ones)
 #' # Example from pracma isempty
 #' object1 <- matrix(0, 1, 0)
@@ -214,6 +213,7 @@ size <- function (x, k)
 #'
 #' @export
 length_octave <- function (x) {
+
 if (isempty(x))
 
   0
@@ -271,12 +271,11 @@ else (is.matrix(x))
 #'
 #'
 #'
-#' @seealso \code{\link[matlab]{numel}}, \code{\link[pracma]{numel}}, \code{\link{size}}, \code{\link{length_octave}}
+#' @seealso \code{\link[matlab]{numel}}, \code{\link[pracma]{numel}}, \code{\link{size}}, \code{\link{length}}
 #'
 #'
 #' @examples
 #' library(iemisc)
-#' library(import)
 #' import::from(pracma, ones)
 #' xx <- list(1:26, 1:10)
 #' numel(xx)

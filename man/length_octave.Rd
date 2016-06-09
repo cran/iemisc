@@ -24,7 +24,6 @@ from \code{\link[base]{length}}.
 }
 \examples{
 library(iemisc)
-library(import)
 import::from(pracma, ones)
 # Example from pracma isempty
 object1 <- matrix(0, 1, 0)

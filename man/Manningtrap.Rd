@@ -38,12 +38,13 @@ the United Kingdom)]}
 }
 \value{
 the missing parameter (Q, n, b, m, Sf, or y) & area (A), wetted
-  perimeter (P), velocity (V), top width (B), R (hydraulic radius), and Re
-  (Reynolds number) as a \code{\link[base]{list}}.
+  perimeter (P), velocity (V), top width (B), R (hydraulic radius), Re
+  (Reynolds number), and Fr (Froude number) as a \code{\link[base]{list}}.
 }
 \description{
 This function solves for one missing variable in the Gauckler-Manning-
-Strickler equation for a trapezoidal cross-section and uniform flow.
+Strickler equation for a trapezoidal cross-section and uniform flow. The
+\code{\link[stats]{uniroot}} function is used to obtain the missing parameter.
 }
 \details{
 Gauckler-Manning-Strickler equation is expressed as
@@ -121,17 +122,39 @@ Other important equations regarding the trapezoidal cross-section follow:
 
 
 
+\deqn{D = \frac{A}{B}}
+
+\describe{
+\item{\emph{D}}{the hydraulic depth (m or ft)}
+\item{\emph{A}}{the cross-sectional area (m^2 or ft^2)}
+\item{\emph{B}}{the top width of the channel (m or ft)}
+}
+
 A rough turbulent zone check is performed on the water flowing in the
 channel using the Reynolds number (Re). The Re equation follows:
 
 \deqn{Re = \frac{\rho RV}{\mu}}
 
 \describe{
-\item{\emph{Re}}{the velocity (m/s or ft/s)}
+\item{\emph{Re}}{Reynolds number (dimensionless)}
 \item{\emph{\eqn{\rho}}}{density (kg/m^3 or slug/ft^3)}
 \item{\emph{R}}{the hydraulic radius (m or ft)}
 \item{\emph{V}}{the velocity (m/s or ft/s)}
 \item{\emph{\eqn{\mu}}}{dynamic viscosity (* 10^-3 kg/m*s or * 10^-5 lb*s/ft^2)}
+}
+
+
+
+A critical flow check is performed on the water flowing in the channel
+using the Froude number (Fr). The Fr equation follows:
+
+\deqn{Fr = \frac{V}{\left(\sqrt{g * D}\right)}}
+
+\describe{
+\item{\emph{Fr}}{the Froude number (dimensionless)}
+\item{\emph{V}}{the velocity (m/s or ft/s)}
+\item{\emph{g}}{gravitational acceleration (m/s^2 or ft/sec^2)}
+\item{\emph{D}}{the hydraulic depth (m or ft)}
 }
 }
 \note{
@@ -150,40 +173,37 @@ Manningtrap(Q = 3000, b = 40, m = 3, Sf = 0.002, n = 0.025, units = "Eng")
 # This will solve for y since it is missing and y will be in ft
 
 
-# Modified Exercise 4.5 from Sturm (page 154)
-Manningtrap(Q = 950, b = 10, m = 2, Sf = 0.022, n = 0.023, units = "SI")
-# Q = 950 m^3/s, b = 10 m, m = 2, Sf = 0.022 m/m, n = 0.023, units = SI
-# units
-# This will solve for y since it is missing and y will be in m
 
-# Modified Exercise 4.5 from Sturm (page 154)
-# See \\code{\\link[iemiscdata]{nchannel}} for the Manning's n table that the
-# following example uses
+# Practice Problem 14.19 from Mott (page 392)
+# See nchannel in iemiscdata for the Manning's n table that the following
+# example uses
 # Use the minimum Manning's n value for 1) Natural streams - minor streams
-# (top width at floodstage < 100 ft), 2) Mountain streams, no vegetation
-# in channel, banks usually steep, trees and brush along banks submerged at
-# high stages and 3) bottom: gravels, cobbles, and few boulders.
+# (top width at floodstage < 100 ft), 2) Lined or Constructed Channels,
+# 3) Concrete and 4) float finish.
 data(nchannel)
 
-nlocation <- grep("bottom: gravels, cobbles, and few boulders",
+nlocation <- grep("float finish",
 nchannel$"Type of Channel and Description")
-n <- nchannel[nlocation, 2] # 2 for column 2 - Minimum n
-Manningtrap(Q = 950, b = 10, m = 2, Sf = 0.022, n = n, units = "SI")
-# Q = 950 m^3/s, b = 10 m, m = 2, Sf = 0.022 m/m, n = 0.03, units = SI
+n <- nchannel[nlocation, 3][1] # 3 for column 3 - Normal n
+Manningtrap(y = 1.5, b = 3, m = 3/2, Sf = 0.1/100, n = n, units = "SI")
+# y = 1.5 m, b = 3 m, m = 3/2, Sf = 0.1/100 m/m, n = 0.023, units = SI
 # units
-# This will solve for y since it is missing and y will be in m
+# This will solve for Q since it is missing and Q will be in m^3/s
+
 
 }
 \references{
 \enumerate{
-   \item Terry W. Sturm, \emph{Open Channel Hydraulics}, 2nd Edition, New York City, New York: The McGraw-Hill Companies, Inc., 2010, page 8, 36, 102, 120, 153-154.
+   \item Terry W. Sturm, \emph{Open Channel Hydraulics}, 2nd Edition, New York City, New York: The McGraw-Hill Companies, Inc., 2010, page 2, 8, 36, 102, 120, 153.
    \item Dan Moore, P.E., NRCS Water Quality and Quantity Technology Development Team, Portland Oregon, "Using Mannings Equation with Natural Streams", August 2011, \url{http://www.wcc.nrcs.usda.gov/ftpref/wntsc/H&H/xsec/manningsNaturally.pdf}.
    \item Gilberto E. Urroz, Utah State University Civil and Environmental Engineering, CEE6510 - Numerical Methods in Civil Engineering, Spring 2006, "Solving selected equations and systems of equations in hydraulics using Matlab", August/September 2004, \url{http://ocw.usu.edu/Civil_and_Environmental_Engineering/Numerical_Methods_in_Civil_Engineering/}.
    \item Tyler G. Hicks, P.E., \emph{Civil Engineering Formulas: Pocket Guide}, 2nd Edition, New York City, New York: The McGraw-Hill Companies, Inc., 2002, page 423, 425.
    \item Andrew Chadwick, John Morfett, and Martin Borthwick, \emph{Hydraulics in Civil and Environmental Engineering}, Fourth Edition, New York City, New York: Spon Press, 2004, pages 132-133.
    \item Wikimedia Foundation, Inc. Wikipedia, 26 November 2015, “Manning formula”, \url{https://en.wikipedia.org/wiki/Manning_formula}.
    \item John C. Crittenden, R. Rhodes Trussell, David W. Hand, Kerry J. Howe, George Tchobanoglous, \emph{MWH's Water Treatment: Principles and Design}, Third Edition, Hoboken, New Jersey: John Wiley & Sons, Inc., 2012, page 1861-1862.
-   \item Andrew Chadwick, John Morfett and Martin Borthwick, \emph{Hydraulics in Civil and Environmental Engineering}, Fourth Edition, New York City, New York: Spon Press, Inc., 2004, page 133.
+   \item Robert L. Mott and Joseph A. Untener, \emph{Applied Fluid Mechanics}, Seventh Edition, New York City, New York: Pearson, 2015, page 376, 392.
+   \item Wikimedia Foundation, Inc. Wikipedia, 5 May 2016, “Gravitational acceleration”, \url{https://en.wikipedia.org/wiki/Gravitational_acceleration}.
+   \item Wikimedia Foundation, Inc. Wikipedia, 29 May 2016, “Conversion of units”, \url{https://en.wikipedia.org/wiki/Conversion_of_units}.
 }
 }
 \seealso{
