@@ -1,6 +1,6 @@
 Package: iemisc
 Title: Irucka Embry's Miscellaneous Functions
-Version: 0.9.0
+Version: 0.9.1
 Author: Irucka Embry [aut, cre], Felix Andrews [aut, ctb] (zoo), Hans Werner
     Borchers [aut, ctb] (pracma), Samit Basu [aut, ctb] (FreeMat)
 Maintainer: Irucka Embry <iembry@ecoccs.com>
@@ -17,7 +17,8 @@ License: GPL (>= 3)
 LazyData: true
 Encoding: UTF-8
 RoxygenNote: 5.0.1
+VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2016-06-08 16:48:13 UTC; uoxyh
+Packaged: 2016-07-14 01:08:13 UTC; uoxyh
 Repository: CRAN
-Date/Publication: 2016-06-09 05:49:23
+Date/Publication: 2016-07-14 07:26:53

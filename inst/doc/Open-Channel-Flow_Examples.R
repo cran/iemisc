@@ -1,35 +1,7 @@
----
-title: "iemisc: Open Channel Flow Examples"
-author: "Irucka Embry"
-output: rmarkdown::html_vignette
-vignette: >
-  %\VignetteIndexEntry{iemisc open channel flow examples}
-  %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
----
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE}
+## ---- echo = FALSE, message = FALSE, warning = FALSE---------------------
 # devtools::load_all()
-```
 
-<br />
-<br />
-
-# About the examples
-
-The following examples only cover open channel flow problems using the Gauckler-Manning-Strickler equation to calculate the missing parameters and the determination of the critical depth.
-
-<br />
-<br />
-
-# Examples
-
-<br />
-<br />
-
-## rectangular cross-section
-
-```{r}
+## ------------------------------------------------------------------------
 library(install.load)
 load_package("iemisc", "iemiscdata", "rivr") # load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
 
@@ -87,14 +59,8 @@ Sf
 # What is the critical depth for this given discharge?
 
 critical_depth(6.25 * 8 * 14.9, 6.25, 9.80665 * (3937 / 1200), 8, 0)
-```
 
-<br />
-<br />
-
-## trapezoidal cross-section
-
-```{r}
+## ------------------------------------------------------------------------
 library(install.load)
 load_package("iemisc", "iemiscdata", "rivr") # load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
 
@@ -151,14 +117,8 @@ y
 # What is the critical depth for this given discharge?
 
 critical_depth(150, y$y, 9.80665 * (3937 / 1200), 4, 2)
-```
 
-<br />
-<br />
-
-## triangular cross-section
-
-```{r}
+## ------------------------------------------------------------------------
 library(install.load)
 load_package("iemisc", "rivr") # load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
 
@@ -192,14 +152,8 @@ y
 # What is the critical depth for this given discharge?
 
 critical_depth(150, y$y, 9.80665 * (3937 / 1200), 4, 2)
-```
 
-<br />
-<br />
-
-## circular cross-section
-
-```{r}
+## ------------------------------------------------------------------------
 library(iemisc)
 
 # 7) Modified Practice Problem 14.32/14.34 from Mott (page 393)
@@ -222,14 +176,8 @@ Q <- Manningcirc(d = 10/12, y = 3/12, Sf = 2/100, n = 0.025, units = "Eng")
 # This will solve for Q since it is missing and Q will be in ft
 
 Q
-```
 
-<br />
-<br />
-
-## parabolic cross-section
-
-```{r}
+## ------------------------------------------------------------------------
 library(iemisc)
 
 # 9) Modified Exercise 4.3 from Sturm (page 153)
@@ -241,21 +189,4 @@ B1 <- Manningpara(Q = 32.2, y = 8, y1 = 5.1, Sf = 0.0092, n = 0.025, units = "SI
 # This will solve for B1 since it is missing and B1 will be in m
 
 B1
-```
 
-<br />
-<br />
-
-# References
-
-Barbara A. Hauser, *Practical Hydraulics Handbook*, Second Edition, Boca Raton, Florida: CRC Press, Inc., 1996, page 88-89.
-
-Robert L. Mott and Joseph A. Untener, *Applied Fluid Mechanics*, Seventh Edition, New York City, New York: Pearson, 2015, page 392-393.
-
-Terry W. Sturm, *Open Channel Hydraulics*, 2nd Edition, New York City, New York: The McGraw-Hill Companies, Inc., 2010, page 153.
-
-U.S. Department of Transportation Federal Highway Administration (FHWA), "Design Charts for Open-Channel Flow HDS 3", August 1961, http://www.fhwa.dot.gov/engineering/hydraulics/pubs/hds3.pdf.
-
-Wikimedia Foundation, Inc. Wikipedia, 5 May 2016, “Gravitational acceleration”, https://en.wikipedia.org/wiki/Gravitational_acceleration.
-
-Wikimedia Foundation, Inc. Wikipedia, 26 November 2015, “Manning formula”, https://en.wikipedia.org/wiki/Manning_formula.

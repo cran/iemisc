@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+
+<meta charset="utf-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<meta name="author" content="Irucka Embry" />
+
+
+<title>iemisc: Open Channel Flow Examples</title>
+
+
+
+<style type="text/css">code{white-space: pre;}</style>
+<style type="text/css">
+div.sourceCode { overflow-x: auto; }
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; color: #aaaaaa; border-right: 1px solid #aaaaaa; }
+td.sourceCode { padding-left: 5px; }
+code > span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code > span.dt { color: #902000; } /* DataType */
+code > span.dv { color: #40a070; } /* DecVal */
+code > span.bn { color: #40a070; } /* BaseN */
+code > span.fl { color: #40a070; } /* Float */
+code > span.ch { color: #4070a0; } /* Char */
+code > span.st { color: #4070a0; } /* String */
+code > span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code > span.ot { color: #007020; } /* Other */
+code > span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code > span.fu { color: #06287e; } /* Function */
+code > span.er { color: #ff0000; font-weight: bold; } /* Error */
+code > span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+code > span.cn { color: #880000; } /* Constant */
+code > span.sc { color: #4070a0; } /* SpecialChar */
+code > span.vs { color: #4070a0; } /* VerbatimString */
+code > span.ss { color: #bb6688; } /* SpecialString */
+code > span.im { } /* Import */
+code > span.va { color: #19177c; } /* Variable */
+code > span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code > span.op { color: #666666; } /* Operator */
+code > span.bu { } /* BuiltIn */
+code > span.ex { } /* Extension */
+code > span.pp { color: #bc7a00; } /* Preprocessor */
+code > span.at { color: #7d9029; } /* Attribute */
+code > span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code > span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code > span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+</style>
+
+
+
+<link href="data:text/css;charset=utf-8,body%20%7B%0Abackground%2Dcolor%3A%20%23fff%3B%0Amargin%3A%201em%20auto%3B%0Amax%2Dwidth%3A%20700px%3B%0Aoverflow%3A%20visible%3B%0Apadding%2Dleft%3A%202em%3B%0Apadding%2Dright%3A%202em%3B%0Afont%2Dfamily%3A%20%22Open%20Sans%22%2C%20%22Helvetica%20Neue%22%2C%20Helvetica%2C%20Arial%2C%20sans%2Dserif%3B%0Afont%2Dsize%3A%2014px%3B%0Aline%2Dheight%3A%201%2E35%3B%0A%7D%0A%23header%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0A%23TOC%20%7B%0Aclear%3A%20both%3B%0Amargin%3A%200%200%2010px%2010px%3B%0Apadding%3A%204px%3B%0Awidth%3A%20400px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Aborder%2Dradius%3A%205px%3B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Afont%2Dsize%3A%2013px%3B%0Aline%2Dheight%3A%201%2E3%3B%0A%7D%0A%23TOC%20%2Etoctitle%20%7B%0Afont%2Dweight%3A%20bold%3B%0Afont%2Dsize%3A%2015px%3B%0Amargin%2Dleft%3A%205px%3B%0A%7D%0A%23TOC%20ul%20%7B%0Apadding%2Dleft%3A%2040px%3B%0Amargin%2Dleft%3A%20%2D1%2E5em%3B%0Amargin%2Dtop%3A%205px%3B%0Amargin%2Dbottom%3A%205px%3B%0A%7D%0A%23TOC%20ul%20ul%20%7B%0Amargin%2Dleft%3A%20%2D2em%3B%0A%7D%0A%23TOC%20li%20%7B%0Aline%2Dheight%3A%2016px%3B%0A%7D%0Atable%20%7B%0Amargin%3A%201em%20auto%3B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dcolor%3A%20%23DDDDDD%3B%0Aborder%2Dstyle%3A%20outset%3B%0Aborder%2Dcollapse%3A%20collapse%3B%0A%7D%0Atable%20th%20%7B%0Aborder%2Dwidth%3A%202px%3B%0Apadding%3A%205px%3B%0Aborder%2Dstyle%3A%20inset%3B%0A%7D%0Atable%20td%20%7B%0Aborder%2Dwidth%3A%201px%3B%0Aborder%2Dstyle%3A%20inset%3B%0Aline%2Dheight%3A%2018px%3B%0Apadding%3A%205px%205px%3B%0A%7D%0Atable%2C%20table%20th%2C%20table%20td%20%7B%0Aborder%2Dleft%2Dstyle%3A%20none%3B%0Aborder%2Dright%2Dstyle%3A%20none%3B%0A%7D%0Atable%20thead%2C%20table%20tr%2Eeven%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Ap%20%7B%0Amargin%3A%200%2E5em%200%3B%0A%7D%0Ablockquote%20%7B%0Abackground%2Dcolor%3A%20%23f6f6f6%3B%0Apadding%3A%200%2E25em%200%2E75em%3B%0A%7D%0Ahr%20%7B%0Aborder%2Dstyle%3A%20solid%3B%0Aborder%3A%20none%3B%0Aborder%2Dtop%3A%201px%20solid%20%23777%3B%0Amargin%3A%2028px%200%3B%0A%7D%0Adl%20%7B%0Amargin%2Dleft%3A%200%3B%0A%7D%0Adl%20dd%20%7B%0Amargin%2Dbottom%3A%2013px%3B%0Amargin%2Dleft%3A%2013px%3B%0A%7D%0Adl%20dt%20%7B%0Afont%2Dweight%3A%20bold%3B%0A%7D%0Aul%20%7B%0Amargin%2Dtop%3A%200%3B%0A%7D%0Aul%20li%20%7B%0Alist%2Dstyle%3A%20circle%20outside%3B%0A%7D%0Aul%20ul%20%7B%0Amargin%2Dbottom%3A%200%3B%0A%7D%0Apre%2C%20code%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0Aborder%2Dradius%3A%203px%3B%0Acolor%3A%20%23333%3B%0Awhite%2Dspace%3A%20pre%2Dwrap%3B%20%0A%7D%0Apre%20%7B%0Aborder%2Dradius%3A%203px%3B%0Amargin%3A%205px%200px%2010px%200px%3B%0Apadding%3A%2010px%3B%0A%7D%0Apre%3Anot%28%5Bclass%5D%29%20%7B%0Abackground%2Dcolor%3A%20%23f7f7f7%3B%0A%7D%0Acode%20%7B%0Afont%2Dfamily%3A%20Consolas%2C%20Monaco%2C%20%27Courier%20New%27%2C%20monospace%3B%0Afont%2Dsize%3A%2085%25%3B%0A%7D%0Ap%20%3E%20code%2C%20li%20%3E%20code%20%7B%0Apadding%3A%202px%200px%3B%0A%7D%0Adiv%2Efigure%20%7B%0Atext%2Dalign%3A%20center%3B%0A%7D%0Aimg%20%7B%0Abackground%2Dcolor%3A%20%23FFFFFF%3B%0Apadding%3A%202px%3B%0Aborder%3A%201px%20solid%20%23DDDDDD%3B%0Aborder%2Dradius%3A%203px%3B%0Aborder%3A%201px%20solid%20%23CCCCCC%3B%0Amargin%3A%200%205px%3B%0A%7D%0Ah1%20%7B%0Amargin%2Dtop%3A%200%3B%0Afont%2Dsize%3A%2035px%3B%0Aline%2Dheight%3A%2040px%3B%0A%7D%0Ah2%20%7B%0Aborder%2Dbottom%3A%204px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Apadding%2Dbottom%3A%202px%3B%0Afont%2Dsize%3A%20145%25%3B%0A%7D%0Ah3%20%7B%0Aborder%2Dbottom%3A%202px%20solid%20%23f7f7f7%3B%0Apadding%2Dtop%3A%2010px%3B%0Afont%2Dsize%3A%20120%25%3B%0A%7D%0Ah4%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23f7f7f7%3B%0Amargin%2Dleft%3A%208px%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Ah5%2C%20h6%20%7B%0Aborder%2Dbottom%3A%201px%20solid%20%23ccc%3B%0Afont%2Dsize%3A%20105%25%3B%0A%7D%0Aa%20%7B%0Acolor%3A%20%230033dd%3B%0Atext%2Ddecoration%3A%20none%3B%0A%7D%0Aa%3Ahover%20%7B%0Acolor%3A%20%236666ff%3B%20%7D%0Aa%3Avisited%20%7B%0Acolor%3A%20%23800080%3B%20%7D%0Aa%3Avisited%3Ahover%20%7B%0Acolor%3A%20%23BB00BB%3B%20%7D%0Aa%5Bhref%5E%3D%22http%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0Aa%5Bhref%5E%3D%22https%3A%22%5D%20%7B%0Atext%2Ddecoration%3A%20underline%3B%20%7D%0A%0Acode%20%3E%20span%2Ekw%20%7B%20color%3A%20%23555%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Edt%20%7B%20color%3A%20%23902000%3B%20%7D%20%0Acode%20%3E%20span%2Edv%20%7B%20color%3A%20%2340a070%3B%20%7D%20%0Acode%20%3E%20span%2Ebn%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Efl%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Ech%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Est%20%7B%20color%3A%20%23d14%3B%20%7D%20%0Acode%20%3E%20span%2Eco%20%7B%20color%3A%20%23888888%3B%20font%2Dstyle%3A%20italic%3B%20%7D%20%0Acode%20%3E%20span%2Eot%20%7B%20color%3A%20%23007020%3B%20%7D%20%0Acode%20%3E%20span%2Eal%20%7B%20color%3A%20%23ff0000%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%0Acode%20%3E%20span%2Efu%20%7B%20color%3A%20%23900%3B%20font%2Dweight%3A%20bold%3B%20%7D%20%20code%20%3E%20span%2Eer%20%7B%20color%3A%20%23a61717%3B%20background%2Dcolor%3A%20%23e3d2d2%3B%20%7D%20%0A" rel="stylesheet" type="text/css" />
+
+</head>
+
+<body>
+
+
+
+
+<h1 class="title toc-ignore">iemisc: Open Channel Flow Examples</h1>
+<h4 class="author"><em>Irucka Embry</em></h4>
+
+
+
+<p><br /> <br /></p>
+<div id="about-the-examples" class="section level1">
+<h1>About the examples</h1>
+<p>The following examples only cover open channel flow problems using the Gauckler-Manning-Strickler equation to calculate the missing parameters and the determination of the critical depth.</p>
+<p><br /> <br /></p>
+</div>
+<div id="examples" class="section level1">
+<h1>Examples</h1>
+<p><br /> <br /></p>
+<div id="rectangular-cross-section" class="section level2">
+<h2>rectangular cross-section</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(install.load)
+<span class="kw">load_package</span>(<span class="st">&quot;iemisc&quot;</span>, <span class="st">&quot;iemiscdata&quot;</span>, <span class="st">&quot;rivr&quot;</span>) <span class="co"># load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)</span></code></pre></div>
+<pre><code>## Loading required package: data.table</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 1) Practice Problem 14.10 from Mott (page 391-392)</span>
+
+<span class="co"># What is the Q (discharge) for this cross-section?</span>
+
+<span class="co"># See nchannel in iemiscdata for the Manning's n table that the following example uses</span>
+<span class="co"># Use the normal Manning's n value for Natural streams - minor streams (top width at floodstage &lt; 100 ft), Lined or Constructed Channels, Concrete, and unfinished.</span>
+
+<span class="co"># The 1st heading is &quot;Manning's n for Channels&quot;</span>
+<span class="co"># The 2nd heading is &quot;Natural streams - minor streams (top width at floodstage &lt; 100 ft)&quot;</span>
+<span class="co"># The 3rd heading is &quot;Lined or Constructed Channels,&quot;</span>
+<span class="co"># The 4th heading is &quot;Concrete&quot;</span>
+<span class="co"># The 5th heading is &quot;unfinished&quot;</span>
+
+
+<span class="kw">data</span>(nchannel)
+<span class="co"># load the data set nchannel from iemiscdata</span>
+
+nlocation &lt;-<span class="st"> </span><span class="kw">grep</span>(<span class="st">&quot;unfinished&quot;</span>, nchannel$<span class="st">&quot;Type of Channel and Description&quot;</span>)
+<span class="co"># search for the term &quot;unfinished&quot; in the &quot;Type of Channel and Description&quot; column in the nchannel data set</span>
+
+nlocation</code></pre></div>
+<pre><code>## [1] 72</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span>nchannel[nlocation, <span class="dv">3</span>] <span class="co"># 3 for column 3 - Normal n</span>
+<span class="co"># the value of n will be found in column 3 at the location specified by nlocation</span>
+
+n</code></pre></div>
+<pre><code>## [1] 0.017</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">Q &lt;-<span class="st"> </span><span class="kw">Manningrect</span>(<span class="dt">b =</span> <span class="fl">3.5</span>, <span class="dt">y =</span> <span class="dv">2</span>, <span class="dt">Sf =</span> <span class="fl">0.1</span>/<span class="dv">100</span>, <span class="dt">n =</span> n, <span class="dt">units =</span> <span class="st">&quot;SI&quot;</span>)</code></pre></div>
+<pre><code>## 
+## Flow is NOT in the rough turbulent zone so the Gauckler-Manning-Strickler equation is not acceptable to use.
+## 
+## 
+## This is subcritical flow.</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># b = 3.5 m, y = 2 m, Sf = 0.1 percent m/m, n = 0.017, units = SI units</span>
+<span class="co"># This will solve for Q since it is missing and Q will be in m^3/s</span>
+
+Q</code></pre></div>
+<pre><code>## $Q
+## [1] 12.4358
+## 
+## $V
+## [1] 1.776542
+## 
+## $A
+## [1] 7
+## 
+## $P
+## [1] 7.5
+## 
+## $R
+## [1] 0.9333333
+## 
+## $Re
+## [1] 1651.825
+## 
+## $Fr
+## [1] 0.401144</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># What is the critical depth for this given discharge?</span>
+
+<span class="kw">critical_depth</span>(Q$Q, <span class="dv">2</span>, <span class="fl">9.80665</span>, <span class="fl">3.5</span>, <span class="dv">0</span>)</code></pre></div>
+<pre><code>## [1] 1.087836</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 2) Problem 1 from Hauser (page 88)</span>
+
+<span class="co"># What is the Sf (slope) for this cross-section?</span>
+
+Sf &lt;-<span class="st"> </span><span class="kw">Manningrect</span>(<span class="dt">Q =</span> <span class="fl">6.25</span> *<span class="st"> </span><span class="dv">8</span> *<span class="st"> </span><span class="fl">14.9</span>, <span class="dt">b =</span> <span class="dv">8</span>, <span class="dt">y =</span> <span class="fl">6.25</span>, <span class="dt">n =</span> <span class="fl">0.01</span>, <span class="dt">units =</span> <span class="st">&quot;Eng&quot;</span>)</code></pre></div>
+<pre><code>## 
+## Flow IS in the rough turbulent zone so the Gauckler-Manning-Strickler equation is acceptable to use.
+## 
+## 
+## This is supercritical flow.</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Q = 6.25 ft * 8 ft * 14.9 ft/sec, b = 8 ft, y = 6.25 ft, n = 0.01, units = Eng units</span>
+<span class="co"># This will solve for Sf since it is missing and Sf will be in ft/ft</span>
+
+Sf</code></pre></div>
+<pre><code>## $Sf
+## [1] 0.003062629
+## 
+## $V
+## [1] 14.9
+## 
+## $A
+## [1] 50
+## 
+## $P
+## [1] 20.5
+## 
+## $R
+## [1] 2.439024
+## 
+## $Re
+## [1] 3233750
+## 
+## $Fr
+## [1] 1.050737</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># What is the critical depth for this given discharge?</span>
+
+<span class="kw">critical_depth</span>(<span class="fl">6.25</span> *<span class="st"> </span><span class="dv">8</span> *<span class="st"> </span><span class="fl">14.9</span>, <span class="fl">6.25</span>, <span class="fl">9.80665</span> *<span class="st"> </span>(<span class="dv">3937</span> /<span class="st"> </span><span class="dv">1200</span>), <span class="dv">8</span>, <span class="dv">0</span>)</code></pre></div>
+<pre><code>## [1] 6.459654</code></pre>
+<p><br /> <br /></p>
+</div>
+<div id="trapezoidal-cross-section" class="section level2">
+<h2>trapezoidal cross-section</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(install.load)
+<span class="kw">load_package</span>(<span class="st">&quot;iemisc&quot;</span>, <span class="st">&quot;iemiscdata&quot;</span>, <span class="st">&quot;rivr&quot;</span>) <span class="co"># load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)</span>
+
+
+<span class="co"># 3) Practice Problem 14.17 from Mott (page 392)</span>
+
+<span class="co"># What is the y (flow depth) for this cross-section?</span>
+
+<span class="co"># See nchannel in iemiscdata for the Manning's n table that the following example uses</span>
+<span class="co"># Use the normal Manning's n value for Natural streams - minor streams (top width at floodstage &lt; 100 ft), Lined or Constructed Channels, Concrete, and unfinished.</span>
+
+<span class="co"># The 1st heading is &quot;Manning's n for Channels&quot;</span>
+<span class="co"># The 2nd heading is &quot;Natural streams - minor streams (top width at floodstage &lt; 100 ft)&quot;</span>
+<span class="co"># The 3rd heading is &quot;Lined or Constructed Channels,&quot;</span>
+<span class="co"># The 4th heading is &quot;Concrete&quot;</span>
+<span class="co"># The 5th heading is &quot;unfinished&quot;</span>
+
+<span class="kw">data</span>(nchannel)
+<span class="co"># load the data set nchannel from iemiscdata</span>
+
+nlocation &lt;-<span class="st"> </span><span class="kw">grep</span>(<span class="st">&quot;unfinished&quot;</span>, nchannel$<span class="st">&quot;Type of Channel and Description&quot;</span>)
+<span class="co"># search for the term &quot;unfinished&quot; in the &quot;Type of Channel and Description&quot; column in the nchannel data set</span>
+
+nlocation</code></pre></div>
+<pre><code>## [1] 72</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">n &lt;-<span class="st"> </span>nchannel[nlocation, <span class="dv">3</span>] <span class="co"># 3 for column 3 - Normal n</span>
+<span class="co"># the value of n will be found in column 3 at the location specified by nlocation</span>
+
+n</code></pre></div>
+<pre><code>## [1] 0.017</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">y &lt;-<span class="st"> </span><span class="kw">Manningtrap</span>(<span class="dt">Q =</span> <span class="dv">15</span>, <span class="dt">b =</span> <span class="dv">3</span>, <span class="dt">m =</span> <span class="dv">1</span> /<span class="st"> </span><span class="kw">tan</span>(<span class="dv">40</span> *<span class="st"> </span>pi /<span class="st"> </span><span class="dv">180</span>), <span class="dt">Sf =</span> <span class="fl">0.1</span>/<span class="dv">100</span>, <span class="dt">n =</span> n, <span class="dt">units =</span> <span class="st">&quot;SI&quot;</span>)</code></pre></div>
+<pre><code>## 
+## Flow is NOT in the rough turbulent zone so the Gauckler-Manning-Strickler equation is not acceptable to use.
+## 
+## 
+## This is subcritical flow.</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Q = 15, b = 3 m, m = 1 / tan(40 * pi / 180), Sf = 0.1 percent m/m, n = 0.017, units = SI units</span>
+<span class="co"># This will solve for y since it is missing and y will be in m</span>
+
+y</code></pre></div>
+<pre><code>## $y
+## [1] 1.631874
+## 
+## $V
+## [1] 1.858903
+## 
+## $A
+## [1] 8.069276
+## 
+## $P
+## [1] 8.07749
+## 
+## $R
+## [1] 0.9989831
+## 
+## $Re
+## [1] 1849.978
+## 
+## $Fr
+## [1] 0.5484986</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># What is the critical depth for this given discharge?</span>
+
+<span class="kw">critical_depth</span>(<span class="dv">15</span>, y$y, <span class="fl">9.80665</span>, <span class="dv">3</span>, <span class="dv">1</span> /<span class="st"> </span><span class="kw">tan</span>(<span class="dv">40</span> *<span class="st"> </span>pi /<span class="st"> </span><span class="dv">180</span>))</code></pre></div>
+<pre><code>## [1] 1.16226</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 4) Example 2 from FHWA</span>
+
+<span class="co"># What is the y (flow depth) for this cross-section?</span>
+
+y &lt;-<span class="st"> </span><span class="kw">Manningtrap</span>(<span class="dt">Q =</span> <span class="dv">150</span>, <span class="dt">b =</span> <span class="dv">4</span>, <span class="dt">m =</span> <span class="dv">2</span>, <span class="dt">Sf =</span> <span class="dv">2</span>/<span class="dv">100</span>, <span class="dt">n =</span> <span class="fl">0.030</span>, <span class="dt">units =</span> <span class="st">&quot;Eng&quot;</span>)</code></pre></div>
+<pre><code>## 
+## Flow IS in the rough turbulent zone so the Gauckler-Manning-Strickler equation is acceptable to use.
+## 
+## 
+## This is supercritical flow.</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Q = 150 cfs, b = 4 ft, m = 2, Sf = 2/100 ft/ft, n = 0.030, units = Eng units</span>
+<span class="co"># This will solve for y since it is missing and y will be in ft</span>
+
+y</code></pre></div>
+<pre><code>## $y
+## [1] 2.152071
+## 
+## $V
+## [1] 8.393437
+## 
+## $A
+## [1] 17.87111
+## 
+## $P
+## [1] 13.62436
+## 
+## $R
+## [1] 1.311703
+## 
+## $Re
+## [1] 979668.9
+## 
+## $Fr
+## [1] 1.24291</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># What is the critical depth for this given discharge?</span>
+
+<span class="kw">critical_depth</span>(<span class="dv">150</span>, y$y, <span class="fl">9.80665</span> *<span class="st"> </span>(<span class="dv">3937</span> /<span class="st"> </span><span class="dv">1200</span>), <span class="dv">4</span>, <span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 2.40582</code></pre>
+<p><br /> <br /></p>
+</div>
+<div id="triangular-cross-section" class="section level2">
+<h2>triangular cross-section</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(install.load)
+<span class="kw">load_package</span>(<span class="st">&quot;iemisc&quot;</span>, <span class="st">&quot;rivr&quot;</span>) <span class="co"># load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)</span>
+
+<span class="co"># 5) Problem 17 from Hauser (page 89)</span>
+
+<span class="co"># What is the Q (discharge) for this cross-section?</span>
+
+Q &lt;-<span class="st"> </span><span class="kw">Manningtri</span>(<span class="dt">y =</span> <span class="dv">6</span>, <span class="dt">m =</span> <span class="dv">4</span>, <span class="dt">Sf =</span> <span class="fl">0.006</span>, <span class="dt">n =</span> <span class="fl">0.025</span>, <span class="dt">units =</span> <span class="st">&quot;Eng&quot;</span>)</code></pre></div>
+<pre><code>## 
+## Flow IS in the rough turbulent zone so the Gauckler-Manning-Strickler equation is acceptable to use.
+## 
+## 
+## This is subcritical flow.</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># y = 6 ft, m = 4 ft/ft, Sf = 0.006 ft/ft, n = 0.025, units = Eng units</span>
+<span class="co"># This will solve for Q since it is missing and Q will be in ft^3/s</span>
+
+Q</code></pre></div>
+<pre><code>## $Q
+## [1] 1351.443
+## 
+## $V
+## [1] 9.385019
+## 
+## $A
+## [1] 144
+## 
+## $P
+## [1] 49.47727
+## 
+## $R
+## [1] 2.910428
+## 
+## $Re
+## [1] 2430502
+## 
+## $Fr
+## [1] 0.9552611</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># What is the critical depth for this given discharge?</span>
+
+<span class="kw">critical_depth</span>(Q$Q, <span class="dv">6</span>, <span class="fl">9.80665</span> *<span class="st"> </span>(<span class="dv">3937</span> /<span class="st"> </span><span class="dv">1200</span>), <span class="dv">0</span>, <span class="dv">4</span>)</code></pre></div>
+<pre><code>## [1] 5.89115</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 6) Example 2 from FHWA</span>
+
+<span class="co"># What is the y (flow depth) for this cross-section?</span>
+
+y &lt;-<span class="st"> </span><span class="kw">Manningtri</span>(<span class="dt">Q =</span> <span class="dv">150</span>, <span class="dt">m =</span> <span class="dv">2</span>, <span class="dt">Sf =</span> <span class="dv">2</span>/<span class="dv">100</span>, <span class="dt">n =</span> <span class="fl">0.030</span>, <span class="dt">units =</span> <span class="st">&quot;Eng&quot;</span>)</code></pre></div>
+<pre><code>## 
+## Flow IS in the rough turbulent zone so the Gauckler-Manning-Strickler equation is acceptable to use.
+## 
+## 
+## This is supercritical flow.</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Q = 150 cfs, m = 2, Sf = 2/100 ft/ft, n = 0.030, units = Eng units</span>
+<span class="co"># This will solve for y since it is missing and y will be in ft</span>
+
+y</code></pre></div>
+<pre><code>## $y
+## [1] 2.975079
+## 
+## $V
+## [1] 8.473527
+## 
+## $A
+## [1] 17.70219
+## 
+## $P
+## [1] 13.30496
+## 
+## $R
+## [1] 1.330496
+## 
+## $Re
+## [1] 1003187
+## 
+## $Fr
+## [1] 1.224835</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># What is the critical depth for this given discharge?</span>
+
+<span class="kw">critical_depth</span>(<span class="dv">150</span>, y$y, <span class="fl">9.80665</span> *<span class="st"> </span>(<span class="dv">3937</span> /<span class="st"> </span><span class="dv">1200</span>), <span class="dv">4</span>, <span class="dv">2</span>)</code></pre></div>
+<pre><code>## [1] 2.40582</code></pre>
+<p><br /> <br /></p>
+</div>
+<div id="circular-cross-section" class="section level2">
+<h2>circular cross-section</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(iemisc)
+
+<span class="co"># 7) Modified Practice Problem 14.32/14.34 from Mott (page 393)</span>
+
+<span class="co"># What is the Q (discharge) for this cross-section?</span>
+
+Q &lt;-<span class="st"> </span><span class="kw">Manningcirc</span>(<span class="dt">d =</span> <span class="dv">375</span>/<span class="dv">1000</span>, <span class="dt">y =</span> <span class="dv">225</span>/<span class="dv">1000</span>, <span class="dt">Sf =</span> <span class="fl">0.12</span>/<span class="dv">100</span>, <span class="dt">n =</span> <span class="fl">0.015</span>, <span class="dt">units =</span> <span class="st">&quot;SI&quot;</span>)</code></pre></div>
+<pre><code>## 
+## Flow is NOT in the rough turbulent zone so the Gauckler-Manning-Strickler equation is not acceptable to use.
+## 
+## 
+## This is subcritical flow.</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># d = 375/1000 m, y = 225/1000 m, Sf = 0.12/100 m/m, n = 0.015, units = SI units</span>
+<span class="co"># This will solve for Q since it is missing and Q will be in m^3/s</span>
+
+Q</code></pre></div>
+<pre><code>## $Q
+## [1] 0.03536432
+## 
+## $V
+## [1] 0.5111079
+## 
+## $A
+## [1] 0.06919149
+## 
+## $P
+## [1] 0.6645578
+## 
+## $R
+## [1] 0.1041166
+## 
+## $Re
+## [1] 53.01321
+## 
+## $Fr
+## [1] 0.3761052</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 8) Problem 18 from Hauser (page 89)</span>
+
+<span class="co"># What is the Q (discharge) for this cross-section?</span>
+
+Q &lt;-<span class="st"> </span><span class="kw">Manningcirc</span>(<span class="dt">d =</span> <span class="dv">10</span>/<span class="dv">12</span>, <span class="dt">y =</span> <span class="dv">3</span>/<span class="dv">12</span>, <span class="dt">Sf =</span> <span class="dv">2</span>/<span class="dv">100</span>, <span class="dt">n =</span> <span class="fl">0.025</span>, <span class="dt">units =</span> <span class="st">&quot;Eng&quot;</span>)</code></pre></div>
+<pre><code>## 
+## Flow IS in the rough turbulent zone so the Gauckler-Manning-Strickler equation is acceptable to use.
+## 
+## 
+## This is subcritical flow.</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># d = 10/12 ft, y = 3/12 ft, Sf = 2/100 ft/ft, n = 0.025, units = Eng units</span>
+<span class="co"># This will solve for Q since it is missing and Q will be in ft</span>
+
+Q</code></pre></div>
+<pre><code>## $Q
+## [1] 0.3155138
+## 
+## $V
+## [1] 2.292697
+## 
+## $A
+## [1] 0.1376169
+## 
+## $P
+## [1] 0.9660662
+## 
+## $R
+## [1] 0.1424508
+## 
+## $Re
+## [1] 29061.33
+## 
+## $Fr
+## [1] 0.9522204</code></pre>
+<p><br /> <br /></p>
+</div>
+<div id="parabolic-cross-section" class="section level2">
+<h2>parabolic cross-section</h2>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(iemisc)
+
+<span class="co"># 9) Modified Exercise 4.3 from Sturm (page 153)</span>
+
+<span class="co"># What is the B1 (&quot;bank-full width&quot;) for this cross-section?</span>
+
+B1 &lt;-<span class="st"> </span><span class="kw">Manningpara</span>(<span class="dt">Q =</span> <span class="fl">32.2</span>, <span class="dt">y =</span> <span class="dv">8</span>, <span class="dt">y1 =</span> <span class="fl">5.1</span>, <span class="dt">Sf =</span> <span class="fl">0.0092</span>, <span class="dt">n =</span> <span class="fl">0.025</span>, <span class="dt">units =</span> <span class="st">&quot;SI&quot;</span>)</code></pre></div>
+<pre><code>## 
+## Flow is NOT in the rough turbulent zone so the Gauckler-Manning-Strickler equation is not acceptable to use.
+## 
+## 
+## This is subcritical flow.</code></pre>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="co"># Q = 32.2 m^3/s, y = 8 m, y1 = 5.1 m, Sf = 0.0092 m/m, n = 0.025, units = SI units</span>
+<span class="co"># This will solve for B1 since it is missing and B1 will be in m</span>
+
+B1</code></pre></div>
+<pre><code>## $B1
+## [1] 0.982228
+## 
+## $V
+## [1] 4.907778
+## 
+## $A
+## [1] 6.561014
+## 
+## $P
+## [1] 16.10527
+## 
+## $R
+## [1] 0.407383
+## 
+## $Re
+## [1] 1991.771
+## 
+## $Fr
+## [1] 0.6786177</code></pre>
+<p><br /> <br /></p>
+</div>
+</div>
+<div id="references" class="section level1">
+<h1>References</h1>
+<p>Barbara A. Hauser, <em>Practical Hydraulics Handbook</em>, Second Edition, Boca Raton, Florida: CRC Press, Inc., 1996, page 88-89.</p>
+<p>Robert L. Mott and Joseph A. Untener, <em>Applied Fluid Mechanics</em>, Seventh Edition, New York City, New York: Pearson, 2015, page 392-393.</p>
+<p>Terry W. Sturm, <em>Open Channel Hydraulics</em>, 2nd Edition, New York City, New York: The McGraw-Hill Companies, Inc., 2010, page 153.</p>
+<p>U.S. Department of Transportation Federal Highway Administration (FHWA), “Design Charts for Open-Channel Flow HDS 3”, August 1961, <a href="http://www.fhwa.dot.gov/engineering/hydraulics/pubs/hds3.pdf" class="uri">http://www.fhwa.dot.gov/engineering/hydraulics/pubs/hds3.pdf</a>.</p>
+<p>Wikimedia Foundation, Inc. Wikipedia, 5 May 2016, “Gravitational acceleration”, <a href="https://en.wikipedia.org/wiki/Gravitational_acceleration" class="uri">https://en.wikipedia.org/wiki/Gravitational_acceleration</a>.</p>
+<p>Wikimedia Foundation, Inc. Wikipedia, 26 November 2015, “Manning formula”, <a href="https://en.wikipedia.org/wiki/Manning_formula" class="uri">https://en.wikipedia.org/wiki/Manning_formula</a>.</p>
+</div>
+
+
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

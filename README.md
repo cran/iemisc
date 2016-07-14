@@ -11,12 +11,13 @@ install.packages("iemisc")
 ```
 
 
-# Examples
+# Examples (see more examples in the vignette and in the function descriptions)
 
 ```R
 library(iemisc)
 require(stats)
 
+# 1)
 set.seed(200) # makes the example reproducible
 
 samp <- rnorm(200) # sample
@@ -32,12 +33,31 @@ shm(samp1)
 
 
 
+# 2)
 # Compute the relative error of the 210 values
 set.seed(210) # makes the example reproducible
 true <- rnorm(210) # true
 approx <- rnorm(210) # approximation
 
 relerror(true, approx)
+
+
+
+# 3)
+# Are any of the following right triangles?
+
+righttri(2, 7) # a = 2, b = 7
+
+righttri(a = 4, c = 11)
+
+righttri(b = 4, c = 5)
+
+
+
+# 4)
+# What is the future worth of $2,390.90 in the present 13 years from now with a 0.25% interest rate compounded annually?
+
+FgivenP(2,390.90, 13, 0.25, frequency = "annual") # the interest rate is 0.25%
 ```
 
 

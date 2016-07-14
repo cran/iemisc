@@ -200,6 +200,7 @@
 #' # defines all list values within the object named y
 #' # Q = 12.0 m^3/s, B1 = 10 m, y1 = 2.0 m, Sf = 0.005 m/m, n = 0.05, units = SI units
 #' # This will solve for y since it is missing and y will be in m
+#'
 #' y$y # gives the value of y
 #'
 #'
@@ -208,6 +209,7 @@
 #' # y = 1.254427 m, B1 = 10 m, y1 = 2.0 m, Sf = 0.005 m/m, n = 0.05, units = SI units
 #' # This will solve for Q since it is missing and Q will be in m^3/s
 #'
+#' 
 #' @importFrom pracma interp1
 #' @import data.table
 #'
