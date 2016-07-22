@@ -1,16 +1,16 @@
 ---
 title: "iemisc: Open Channel Flow Examples"
 author: "Irucka Embry"
-output: rmarkdown::html_vignette
+date: "`r Sys.Date()`"
+output:
+  rmarkdown::html_document:
+    highlight: kate
+    theme: readable
 vignette: >
   %\VignetteIndexEntry{iemisc open channel flow examples}
   %\VignetteEngine{knitr::rmarkdown}
   \usepackage[utf8]{inputenc}
 ---
-
-```{r, echo = FALSE, message = FALSE, warning = FALSE}
-# devtools::load_all()
-```
 
 <br />
 <br />
@@ -20,13 +20,8 @@ vignette: >
 The following examples only cover open channel flow problems using the Gauckler-Manning-Strickler equation to calculate the missing parameters and the determination of the critical depth.
 
 <br />
-<br />
 
 # Examples
-
-<br />
-<br />
-
 ## rectangular cross-section
 
 ```{r}
@@ -73,6 +68,8 @@ Q
 critical_depth(Q$Q, 2, 9.80665, 3.5, 0)
 
 
+
+
 # 2) Problem 1 from Hauser (page 88)
 
 # What is the Sf (slope) for this cross-section?
@@ -97,6 +94,8 @@ critical_depth(6.25 * 8 * 14.9, 6.25, 9.80665 * (3937 / 1200), 8, 0)
 ```{r}
 library(install.load)
 load_package("iemisc", "iemiscdata", "rivr") # load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
+
+
 
 
 # 3) Practice Problem 14.17 from Mott (page 392)
@@ -135,6 +134,8 @@ y
 # What is the critical depth for this given discharge?
 
 critical_depth(15, y$y, 9.80665, 3, 1 / tan(40 * pi / 180))
+
+
 
 
 # 4) Example 2 from FHWA
@@ -178,6 +179,8 @@ Q
 critical_depth(Q$Q, 6, 9.80665 * (3937 / 1200), 0, 4)
 
 
+
+
 # 6) Example 2 from FHWA
 
 # What is the y (flow depth) for this cross-section?
@@ -211,6 +214,8 @@ Q <- Manningcirc(d = 375/1000, y = 225/1000, Sf = 0.12/100, n = 0.015, units = "
 # This will solve for Q since it is missing and Q will be in m^3/s
 
 Q
+
+
 
 
 # 8) Problem 18 from Hauser (page 89)
@@ -250,12 +255,22 @@ B1
 
 Barbara A. Hauser, *Practical Hydraulics Handbook*, Second Edition, Boca Raton, Florida: CRC Press, Inc., 1996, page 88-89.
 
+<br />
+
 Robert L. Mott and Joseph A. Untener, *Applied Fluid Mechanics*, Seventh Edition, New York City, New York: Pearson, 2015, page 392-393.
+
+<br />
 
 Terry W. Sturm, *Open Channel Hydraulics*, 2nd Edition, New York City, New York: The McGraw-Hill Companies, Inc., 2010, page 153.
 
+<br />
+
 U.S. Department of Transportation Federal Highway Administration (FHWA), "Design Charts for Open-Channel Flow HDS 3", August 1961, http://www.fhwa.dot.gov/engineering/hydraulics/pubs/hds3.pdf.
 
+<br />
+
 Wikimedia Foundation, Inc. Wikipedia, 5 May 2016, “Gravitational acceleration”, https://en.wikipedia.org/wiki/Gravitational_acceleration.
+
+<br />
 
 Wikimedia Foundation, Inc. Wikipedia, 26 November 2015, “Manning formula”, https://en.wikipedia.org/wiki/Manning_formula.

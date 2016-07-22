@@ -1,6 +1,3 @@
-## ---- echo = FALSE, message = FALSE, warning = FALSE---------------------
-# devtools::load_all()
-
 ## ------------------------------------------------------------------------
 library(install.load)
 load_package("iemisc", "iemiscdata", "rivr") # load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
@@ -45,6 +42,8 @@ Q
 critical_depth(Q$Q, 2, 9.80665, 3.5, 0)
 
 
+
+
 # 2) Problem 1 from Hauser (page 88)
 
 # What is the Sf (slope) for this cross-section?
@@ -63,6 +62,8 @@ critical_depth(6.25 * 8 * 14.9, 6.25, 9.80665 * (3937 / 1200), 8, 0)
 ## ------------------------------------------------------------------------
 library(install.load)
 load_package("iemisc", "iemiscdata", "rivr") # load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
+
+
 
 
 # 3) Practice Problem 14.17 from Mott (page 392)
@@ -103,6 +104,8 @@ y
 critical_depth(15, y$y, 9.80665, 3, 1 / tan(40 * pi / 180))
 
 
+
+
 # 4) Example 2 from FHWA
 
 # What is the y (flow depth) for this cross-section?
@@ -138,6 +141,8 @@ Q
 critical_depth(Q$Q, 6, 9.80665 * (3937 / 1200), 0, 4)
 
 
+
+
 # 6) Example 2 from FHWA
 
 # What is the y (flow depth) for this cross-section?
@@ -165,6 +170,8 @@ Q <- Manningcirc(d = 375/1000, y = 225/1000, Sf = 0.12/100, n = 0.015, units = "
 # This will solve for Q since it is missing and Q will be in m^3/s
 
 Q
+
+
 
 
 # 8) Problem 18 from Hauser (page 89)

@@ -55,7 +55,8 @@ righttri(b = 4, c = 5)
 
 
 # 4)
-# What is the future worth of $2,390.90 in the present 13 years from now with a 0.25% interest rate compounded annually?
+# What is the future worth of $2,390.90 in the present 13 years from now with a
+# 0.25% interest rate compounded annually?
 
 FgivenP(2,390.90, 13, 0.25, frequency = "annual") # the interest rate is 0.25%
 ```

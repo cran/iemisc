@@ -1,3 +1,8 @@
+# iemisc 0.9.2
+
+* Added `ie2misc`, `ie2miscdata` as suggested R packages
+
+
 # iemisc 0.9.1
 
 * Added more examples to the README.md

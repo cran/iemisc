@@ -1,6 +1,6 @@
-9fc649e14437ad77cf39a8931defe419 *DESCRIPTION
+c5b31c48987b5a1975d707f6b3b06e70 *DESCRIPTION
 b189a91e7fd0214d18c902f063473919 *NAMESPACE
-e871d4795ad61e7ffabf63ef8aab9531 *NEWS.md
+5fc7e28414fe50bccb2774ea2457d743 *NEWS.md
 a42763242715b7ab5e690f64e20bd247 *R/AgivenF.R
 3b2ab84bbd404c78d3720966646e6d40 *R/AgivenFcont.R
 4365972eaccf5756a37b73d97b39e1cf *R/AgivenP.R
@@ -32,12 +32,12 @@ b8e28aa72eaedf760077f00ecabed70a *R/relerror.R
 2e834c62557a1cb1c34da2da2f44e4c7 *R/shm.R
 d0ab7e9951aecdad36d849e2a3c7e636 *R/size.R
 ff4c0f5a52a4379fe7c6b8269f29055f *R/volsphere.R
-fff3c04fda7c1aa0fc87e368fb809997 *README.md
+f7e732a609979fb90fb233fc5573ecdb *README.md
 347d48e8c9fd2da0bd116bbba4f0a18d *build/vignette.rds
 3c2af51ee71c293e9e00eeb23bef0fdb *inst/CITATION
-6a8f73c03c893ad10467f8cccdfe2940 *inst/doc/Open-Channel-Flow_Examples.R
-4546177dc363b38d11019c3b3250f898 *inst/doc/Open-Channel-Flow_Examples.Rmd
-18f1e30705620cb8125f0e9ba860b4ed *inst/doc/Open-Channel-Flow_Examples.html
+10600d00fa454db96b1baf14a7a3167a *inst/doc/Open-Channel-Flow_Examples.R
+44873f7db7be268eaa56fb7991812736 *inst/doc/Open-Channel-Flow_Examples.Rmd
+7658eb6383c486b78efb07715ee923fa *inst/doc/Open-Channel-Flow_Examples.html
 a0aba065ba2b98a4baa6e6224ac3dc79 *man/AgivenF.Rd
 26b66fd0f2fea4f8d6d4affa20fb3aa2 *man/AgivenFcont.Rd
 a5be986112fb5df1feba48f3b0e442cd *man/AgivenG.Rd
@@ -84,4 +84,4 @@ a648a81ce69d86648db033825a2a2e8b *man/sgm.Rd
 531cdc99464969b77e579f45d69fbdcd *man/shm.Rd
 6c0e12ea745e0f2311090226dbe329a5 *man/size.Rd
 ea244b7aa6e60a092b1fe2c893cd39ca *man/volsphere.Rd
-4546177dc363b38d11019c3b3250f898 *vignettes/Open-Channel-Flow_Examples.Rmd
+44873f7db7be268eaa56fb7991812736 *vignettes/Open-Channel-Flow_Examples.Rmd
