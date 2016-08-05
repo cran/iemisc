@@ -1,7 +1,6 @@
 # iemisc
 
-R package that contains Irucka Embry's miscellaneous functions: statistical analysis [RMS, coefficient of variation (CV), approximate and relative error, range, harmonic mean, geometric mean], engineering economics (benefit-cost, future value, present value, annual value, gradients, interest, periods, etc.), geometry (sphere volume and right triangle), environmental/water resources engineering (Manning's n, Gauckler-Manning-Strickler equation), a
-version of linear interpolation for use with NAs, & GNU Octave/MATLAB compatible size, numel, and length functions.
+R package that contains Irucka Embry's miscellaneous functions: statistical analysis [RMS, coefficient of variation (CV), approximate and relative error, range, harmonic mean, geometric mean], engineering economics (benefit-cost, future value, present value, annual value, gradients, interest, periods, etc.), geometry (sphere volume and right triangle), environmental/water resources engineering (Manning's n, Gauckler-Manning-Strickler equation), a version of linear interpolation for use with NAs, GNU Octave/MATLAB compatible trigonometric functions in degrees, & GNU Octave/MATLAB compatible size, numel, and length functions.
 
 
 # Installation

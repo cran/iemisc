@@ -1,6 +1,6 @@
 Package: iemisc
 Title: Irucka Embry's Miscellaneous Functions
-Version: 0.9.2
+Version: 0.9.5
 Author: Irucka Embry [aut, cre], Felix Andrews [aut, ctb] (zoo), Hans Werner
     Borchers [aut, ctb] (pracma), Samit Basu [aut, ctb] (FreeMat)
 Maintainer: Irucka Embry <iembry@ecoccs.com>
@@ -11,7 +11,8 @@ Suggests: install.load, iemiscdata, ie2misc, ie2miscdata, Rcpp (>=
         knitr, rmarkdown
 Description: A collection of Irucka Embry's miscellaneous functions
     (Engineering Economics, Environmental/Water Resources Engineering,
-    Geometry, Statistics, GNU Octave length functions, etc.).
+    Geometry, Statistics, GNU Octave length functions, Trigonometric functions
+    in degrees, etc.).
 URL: https://gitlab.com/iembry/iemisc
 BugReports: https://gitlab.com/iembry/iemisc/issue
 License: GPL (>= 3)
@@ -20,6 +21,6 @@ Encoding: UTF-8
 RoxygenNote: 5.0.1
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2016-07-22 03:26:22 UTC; uoxyh
+Packaged: 2016-08-04 21:49:41 UTC; uoxyh
 Repository: CRAN
-Date/Publication: 2016-07-22 18:52:59
+Date/Publication: 2016-08-05 00:09:34

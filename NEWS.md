@@ -1,3 +1,8 @@
+# iemisc 0.9.5
+
+* Added GNU Octave/MATLAB compatible trigonometric functions in degrees (`cosd`, `acosd`, `sind`, `asind`, `tand`, `atand`, `secd`, `asecd`, `cscd`, `acscd`, `cotd`, `acotd`, `atan2d`)
+
+
 # iemisc 0.9.2
 
 * Added `ie2misc`, `ie2miscdata` as suggested R packages

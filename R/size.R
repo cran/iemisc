@@ -15,7 +15,7 @@
 #'
 #'
 #' @source
-#' pracma size function definition - R package pracma created and maintained by Hans Werner Borchers. See \code{\link[pracma]{interp1}}.
+#' pracma size function definition - R package pracma created and maintained by Hans Werner Borchers. See \code{\link[pracma]{size}}.
 #'
 #'
 #' @references
