@@ -1,32 +1,5 @@
----
-title: "iemisc: Open Channel Flow Examples"
-author: "Irucka Embry"
-date: "`r Sys.Date()`"
-output:
-  rmarkdown::html_document:
-    highlight: kate
-    theme: readable
-vignette: >
-  %\VignetteIndexEntry{iemisc open channel flow examples}
-  %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
----
-
-<br />
-<br />
-
-# About the examples
-
-The following examples only cover open channel flow problems using the Gauckler-Manning-Strickler equation to calculate the missing parameters and the determination of the critical depth.
-
-<br />
-
-# Examples
-## rectangular cross-section
-
-```{r}
-library(install.load)
-load_package("iemisc", "iemiscdata", "rivr") # load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
+## ---- warning = FALSE, message = FALSE-----------------------------------
+install.load::load_package("iemisc", "iemiscdata", "rivr") # load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
 
 
 # 1) Practice Problem 14.10 from Mott (page 391-392)
@@ -60,6 +33,8 @@ Q <- Manningrect(b = 3.5, y = 2, Sf = 0.1/100, n = n, units = "SI")
 # b = 3.5 m, y = 2 m, Sf = 0.1 percent m/m, n = 0.017, units = SI units
 # This will solve for Q since it is missing and Q will be in m^3/s
 
+# Note: Q (discharge), velocity (V), area (A), wetted perimeter (P), R (hydraulic radius), Re (Reynolds number), and Fr (Froude number) are returned as an R list
+
 Q
 
 
@@ -78,24 +53,17 @@ Sf <- Manningrect(Q = 6.25 * 8 * 14.9, b = 8, y = 6.25, n = 0.01, units = "Eng")
 # Q = 6.25 ft * 8 ft * 14.9 ft/sec, b = 8 ft, y = 6.25 ft, n = 0.01, units = Eng units
 # This will solve for Sf since it is missing and Sf will be in ft/ft
 
+# Note: Sf (slope), velocity (V), area (A), wetted perimeter (P), R (hydraulic radius), Re (Reynolds number), and Fr (Froude number) are returned as an R list
+
 Sf
 
 
 # What is the critical depth for this given discharge?
 
 critical_depth(6.25 * 8 * 14.9, 6.25, 9.80665 * (3937 / 1200), 8, 0)
-```
 
-<br />
-<br />
-
-## trapezoidal cross-section
-
-```{r}
-library(install.load)
-load_package("iemisc", "iemiscdata", "rivr") # load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
-
-
+## ---- warning = FALSE, message = FALSE-----------------------------------
+install.load::load_package("iemisc", "iemiscdata", "rivr") # load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
 
 
 # 3) Practice Problem 14.17 from Mott (page 392)
@@ -124,16 +92,18 @@ n <- nchannel[nlocation, 3] # 3 for column 3 - Normal n
 
 n
 
-y <- Manningtrap(Q = 15, b = 3, m = 1 / tan(40 * pi / 180), Sf = 0.1/100, n = n, units = "SI")
-# Q = 15, b = 3 m, m = 1 / tan(40 * pi / 180), Sf = 0.1 percent m/m, n = 0.017, units = SI units
+y <- Manningtrap(Q = 15, b = 3, m = 1 / tand(40), Sf = 0.1/100, n = n, units = "SI")
+# Q = 15, b = 3 m, m = 1 / tand(40), Sf = 0.1 percent m/m, n = 0.017, units = SI units
 # This will solve for y since it is missing and y will be in m
+
+# Note: y (flow depth), velocity (V), area (A), wetted perimeter (P), R (hydraulic radius), Re (Reynolds number), and Fr (Froude number) are returned as an R list
 
 y
 
 
 # What is the critical depth for this given discharge?
 
-critical_depth(15, y$y, 9.80665, 3, 1 / tan(40 * pi / 180))
+critical_depth(15, y$y, 9.80665, 3, 1 / tand(40))
 
 
 
@@ -146,22 +116,18 @@ y <- Manningtrap(Q = 150, b = 4, m = 2, Sf = 2/100, n = 0.030, units = "Eng")
 # Q = 150 cfs, b = 4 ft, m = 2, Sf = 2/100 ft/ft, n = 0.030, units = Eng units
 # This will solve for y since it is missing and y will be in ft
 
+# Note: y (flow depth), velocity (V), area (A), wetted perimeter (P), R (hydraulic radius), Re (Reynolds number), and Fr (Froude number) are returned as an R list
+
 y
 
 
 # What is the critical depth for this given discharge?
 
 critical_depth(150, y$y, 9.80665 * (3937 / 1200), 4, 2)
-```
 
-<br />
-<br />
+## ---- warning = FALSE, message = FALSE-----------------------------------
+install.load::load_package("iemisc", "rivr") # load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
 
-## triangular cross-section
-
-```{r}
-library(install.load)
-load_package("iemisc", "rivr") # load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
 
 # 5) Problem 17 from Hauser (page 89)
 
@@ -170,6 +136,8 @@ load_package("iemisc", "rivr") # load needed packages using the load_package fun
 Q <- Manningtri(y = 6, m = 4, Sf = 0.006, n = 0.025, units = "Eng")
 # y = 6 ft, m = 4 ft/ft, Sf = 0.006 ft/ft, n = 0.025, units = Eng units
 # This will solve for Q since it is missing and Q will be in ft^3/s
+
+# Note: Q (discharge), velocity (V), area (A), wetted perimeter (P), R (hydraulic radius), Re (Reynolds number), and Fr (Froude number) are returned as an R list
 
 Q
 
@@ -189,20 +157,16 @@ y <- Manningtri(Q = 150, m = 2, Sf = 2/100, n = 0.030, units = "Eng")
 # Q = 150 cfs, m = 2, Sf = 2/100 ft/ft, n = 0.030, units = Eng units
 # This will solve for y since it is missing and y will be in ft
 
+# Note: y (flow depth), velocity (V), area (A), wetted perimeter (P), R (hydraulic radius), Re (Reynolds number), and Fr (Froude number) are returned as an R list
+
 y
 
 
 # What is the critical depth for this given discharge?
 
 critical_depth(150, y$y, 9.80665 * (3937 / 1200), 4, 2)
-```
 
-<br />
-<br />
-
-## circular cross-section
-
-```{r}
+## ------------------------------------------------------------------------
 library(iemisc)
 
 # 7) Modified Practice Problem 14.32/14.34 from Mott (page 393)
@@ -212,6 +176,8 @@ library(iemisc)
 Q <- Manningcirc(d = 375/1000, y = 225/1000, Sf = 0.12/100, n = 0.015, units = "SI")
 # d = 375/1000 m, y = 225/1000 m, Sf = 0.12/100 m/m, n = 0.015, units = SI units
 # This will solve for Q since it is missing and Q will be in m^3/s
+
+# Note: Q (discharge), velocity (V), area (A), wetted perimeter (P), R (hydraulic radius), Re (Reynolds number), and Fr (Froude number) are returned as an R list
 
 Q
 
@@ -226,15 +192,11 @@ Q <- Manningcirc(d = 10/12, y = 3/12, Sf = 2/100, n = 0.025, units = "Eng")
 # d = 10/12 ft, y = 3/12 ft, Sf = 2/100 ft/ft, n = 0.025, units = Eng units
 # This will solve for Q since it is missing and Q will be in ft
 
+# Note: Q (discharge), velocity (V), area (A), wetted perimeter (P), R (hydraulic radius), Re (Reynolds number), and Fr (Froude number) are returned as an R list
+
 Q
-```
 
-<br />
-<br />
-
-## parabolic cross-section
-
-```{r}
+## ------------------------------------------------------------------------
 library(iemisc)
 
 # 9) Modified Exercise 4.3 from Sturm (page 153)
@@ -245,32 +207,7 @@ B1 <- Manningpara(Q = 32.2, y = 8, y1 = 5.1, Sf = 0.0092, n = 0.025, units = "SI
 # Q = 32.2 m^3/s, y = 8 m, y1 = 5.1 m, Sf = 0.0092 m/m, n = 0.025, units = SI units
 # This will solve for B1 since it is missing and B1 will be in m
 
+# Note: B1 ("bank-full width"), velocity (V), area (A), wetted perimeter (P), R (hydraulic radius), Re (Reynolds number), and Fr (Froude number) are returned as an R list
+
 B1
-```
 
-<br />
-<br />
-
-# References
-
-Barbara A. Hauser, *Practical Hydraulics Handbook*, Second Edition, Boca Raton, Florida: CRC Press, Inc., 1996, page 88-89.
-
-<br />
-
-Robert L. Mott and Joseph A. Untener, *Applied Fluid Mechanics*, Seventh Edition, New York City, New York: Pearson, 2015, page 392-393.
-
-<br />
-
-Terry W. Sturm, *Open Channel Hydraulics*, 2nd Edition, New York City, New York: The McGraw-Hill Companies, Inc., 2010, page 153.
-
-<br />
-
-U.S. Department of Transportation Federal Highway Administration (FHWA), "Design Charts for Open-Channel Flow HDS 3", August 1961, http://www.fhwa.dot.gov/engineering/hydraulics/pubs/hds3.pdf.
-
-<br />
-
-Wikimedia Foundation, Inc. Wikipedia, 5 May 2016, “Gravitational acceleration”, https://en.wikipedia.org/wiki/Gravitational_acceleration.
-
-<br />
-
-Wikimedia Foundation, Inc. Wikipedia, 26 November 2015, “Manning formula”, https://en.wikipedia.org/wiki/Manning_formula.

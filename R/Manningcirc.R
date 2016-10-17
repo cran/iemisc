@@ -315,7 +315,7 @@
 #'
 #'
 #' @importFrom pracma interp1
-#' @import data.table
+#' @import data.table iemiscdata
 #'
 #' @name Manningcirc
 NULL

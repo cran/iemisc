@@ -42,6 +42,7 @@
 #' size(object1)
 #'
 #' source("https://raw.githubusercontent.com/ggrothendieck/gsubfn/master/R/list.R")
+#'
 #' list[nr, nc] <- size(matrix(c(1, 2, 3, 4, 5, 6), nrow = 3, ncol = 2,
 #'                 byrow = TRUE))
 #'
@@ -209,7 +210,8 @@ size <- function (x, k)
 #' }
 #'
 #'
-#' @importFrom pracma isempty
+#' @importFrom pracma isempty ones
+#' @import import
 #'
 #' @export
 length_octave <- function (x) {
@@ -318,6 +320,10 @@ else (is.matrix(x))
 #' numel(f, g)
 #' ")
 #' }
+#'
+#'
+#' @importFrom pracma ones
+#' @import import
 #'
 #'
 #' @export

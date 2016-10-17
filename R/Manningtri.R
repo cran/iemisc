@@ -215,7 +215,7 @@
 #' # This will solve for y since it is missing and y will be in m
 #'
 #' @importFrom pracma interp1
-#' @import data.table
+#' @import data.table iemiscdata
 #'
 #' @export
 Manningtri <- function (Q = NULL, n = NULL, m = NULL, Sf = NULL, y = NULL, T = NULL, units = c("SI", "Eng")) {

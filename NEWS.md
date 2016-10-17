@@ -1,3 +1,12 @@
+# iemisc 0.9.6
+
+* Revised the vignette and changed the vignette filename and title
+* Added `iemiscdata` and `import` as imported R packages (Issue #1 by jangorecki)
+* Added `iemiscdata` and `import` as imports in functions as needed (Issue #1 by jangorecki)
+* Added the concr_mix_normal_strength function
+* Added `gsubfn` and `fpCompare` as imported R packages for the concr_mix_normal_strength function
+
+
 # iemisc 0.9.5
 
 * Added GNU Octave/MATLAB compatible trigonometric functions in degrees (`cosd`, `acosd`, `sind`, `asind`, `tand`, `atand`, `secd`, `asecd`, `cscd`, `acscd`, `cotd`, `acotd`, `atan2d`)
@@ -30,7 +39,7 @@
 # iemisc 0.5.1
 
 * Renamed lengths to length_octave
-* Updated these functions: `size`, `righttri`, `Manningtri`, `Manningtrap`, `Manningrect`, `Manningpara`, `Manningcirc`\
+* Updated these functions: `size`, `righttri`, `Manningtri`, `Manningtrap`, `Manningrect`, `Manningpara`, `Manningcirc`
 * Added `iemiscdata` as a suggested R package
 
 

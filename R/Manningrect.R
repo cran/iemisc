@@ -195,7 +195,7 @@
 #' nlocation <- grep("unfinished", nchannel$"Type of Channel and Description")
 #'
 #' n <- nchannel[nlocation, 3] # 3 for column 3 - Normal n
-#' 
+#'
 #' Manningrect(Q = 5.75, b = (4.50) ^ (3 / 8), Sf = 1.2/100, n = n, units =
 #' "SI")
 #' # Q = 5.75 m^3/s, b = (4.50) ^ (3 / 8) m, Sf = 1.2 percent m/m, n = 0.017,
@@ -224,7 +224,7 @@
 #'
 #'
 #' @importFrom pracma interp1
-#' @import data.table
+#' @import data.table iemiscdata
 #'
 #' @export
 Manningrect <- function (Q = NULL, n = NULL, b = NULL, Sf = NULL, y = NULL, T = NULL, units = c("SI", "Eng")) {

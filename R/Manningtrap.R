@@ -188,7 +188,7 @@
 #' library(iemisc)
 #' library(iemiscdata)
 #' # Exercise 4.1 from Sturm (page 153)
-#' 
+#'
 #' Manningtrap(Q = 3000, b = 40, m = 3, Sf = 0.002, n = 0.025, units = "Eng")
 #' # Q = 3000 cfs, b = 40 ft, m = 3, Sf = 0.002 ft/ft, n = 0.025,
 #' # units = English units
@@ -217,7 +217,7 @@
 #'
 #'
 #' @importFrom pracma interp1
-#' @import data.table
+#' @import data.table iemiscdata
 #'
 #' @export
 Manningtrap <- function (Q = NULL, n = NULL, m = NULL, Sf = NULL, y = NULL, b = NULL, T = NULL, units = c("SI", "Eng")) {

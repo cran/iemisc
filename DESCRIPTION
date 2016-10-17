@@ -1,26 +1,26 @@
 Package: iemisc
 Title: Irucka Embry's Miscellaneous Functions
-Version: 0.9.5
+Version: 0.9.6
 Author: Irucka Embry [aut, cre], Felix Andrews [aut, ctb] (zoo), Hans Werner
     Borchers [aut, ctb] (pracma), Samit Basu [aut, ctb] (FreeMat)
 Maintainer: Irucka Embry <iembry@ecoccs.com>
 Depends: R (>= 3.0.0), stats, data.table (>= 1.9.4)
-Imports: zoo, pracma
-Suggests: install.load, iemiscdata, ie2misc, ie2miscdata, Rcpp (>=
-        0.11.5), RcppOctave, NISTunits, import, financial, optiRum,
-        knitr, rmarkdown
+Imports: zoo, pracma, iemiscdata, import, gsubfn, fpCompare
+Suggests: install.load, ie2misc, ie2miscdata, Rcpp (>= 0.11.5),
+        RcppOctave, NISTunits, financial, optiRum, rivr, knitr,
+        rmarkdown
 Description: A collection of Irucka Embry's miscellaneous functions
-    (Engineering Economics, Environmental/Water Resources Engineering,
+    (Engineering Economics, Civil & Environmental/Water Resources Engineering,
     Geometry, Statistics, GNU Octave length functions, Trigonometric functions
     in degrees, etc.).
 URL: https://gitlab.com/iembry/iemisc
-BugReports: https://gitlab.com/iembry/iemisc/issue
+BugReports: https://gitlab.com/iembry/iemisc/issues
 License: GPL (>= 3)
 LazyData: true
 Encoding: UTF-8
 RoxygenNote: 5.0.1
 VignetteBuilder: knitr
 NeedsCompilation: no
-Packaged: 2016-08-04 21:49:41 UTC; uoxyh
+Packaged: 2016-10-17 02:00:05 UTC; uoxyh
 Repository: CRAN
-Date/Publication: 2016-08-05 00:09:34
+Date/Publication: 2016-10-17 11:09:30
