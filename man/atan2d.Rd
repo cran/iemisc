@@ -33,10 +33,9 @@ atan2d (a <- seq(-1, 1, by = 0.1), b <- seq(1, -1, by = -0.1))
 
 
 }
-\author{
-Rik Wehbring (GNU Octave atan2d), Irucka Embry
-}
 \references{
 John W. Eaton, David Bateman, and Søren Hauberg (2009). \emph{GNU Octave version 3.0.1 manual: a high-level interactive language for numerical computations}. CreateSpace Independent Publishing Platform. ISBN 1441413006, URL \url{http://www.gnu.org/software/octave/doc/interpreter/}. Page 358.
 }
-
+\author{
+Rik Wehbring (GNU Octave atan2d), Irucka Embry
+}

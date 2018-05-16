@@ -25,10 +25,9 @@ acscd (seq(0, 90, by = 10))
 
 
 }
-\author{
-David Bateman (GNU Octave acscd), Irucka Embry
-}
 \references{
 John W. Eaton, David Bateman, and Søren Hauberg (2009). \emph{GNU Octave version 3.0.1 manual: a high-level interactive language for numerical computations}. CreateSpace Independent Publishing Platform. ISBN 1441413006, URL \url{http://www.gnu.org/software/octave/doc/interpreter/}. Page 359.
 }
-
+\author{
+David Bateman (GNU Octave acscd), Irucka Embry
+}

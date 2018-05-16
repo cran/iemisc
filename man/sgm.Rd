@@ -57,4 +57,3 @@ Nathabandu T. Kottegoda and Renzo Rosso, \emph{Statistics, Probability, and Reli
  approximate error, \code{\link{rms}} for root-mean-square (RMS), and \code{\link{ranges}}
  for sample range.
 }
-

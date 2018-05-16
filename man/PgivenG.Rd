@@ -39,7 +39,7 @@ Compute P given G
 \examples{
 library(iemisc)
 # Example 4-20 from the Reference text (pages 153-154)
-PgivenG(1000, 4, 15) # the interest rate is 15\%
+PgivenG(1000, 4, 15, "annual") # the interest rate is 15\%
 
 
 
@@ -48,4 +48,3 @@ PgivenG(1000, 4, 15) # the interest rate is 15\%
 \references{
 William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 142, 150, 152-154.
 }
-

@@ -47,4 +47,3 @@ FgivenPcont(10000, 2, 5) # the interest rate is 5\%
 \references{
 William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 169-170.
 }
-

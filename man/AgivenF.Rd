@@ -2,8 +2,9 @@
 % Please edit documentation in R/AgivenF.R
 \encoding{UTF-8}
 \name{AgivenF}
-\alias{AF}
 \alias{AgivenF}
+\alias{AgivenF}
+\alias{AF}
 \title{Annual value given Future value (Engineering Economics)}
 \usage{
 AgivenF(F, n, i, frequency = c("annual", "semiannual", "quarter", "bimonth",
@@ -60,4 +61,3 @@ AF(309*10^6, 60, 0.5, "annual")
 \references{
 William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 135-136, 142, 164.
 }
-

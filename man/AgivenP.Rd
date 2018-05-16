@@ -2,8 +2,9 @@
 % Please edit documentation in R/AgivenP.R
 \encoding{UTF-8}
 \name{AgivenP}
-\alias{AP}
 \alias{AgivenP}
+\alias{AgivenP}
+\alias{AP}
 \title{Annual value given Present value (Engineering Economics)}
 \usage{
 AgivenP(P, n, i, frequency = c("annual", "semiannual", "quarter", "bimonth",
@@ -69,4 +70,3 @@ AP(10000, 5, 12, "month")
 \references{
 William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 136, 142, 164, 166.
 }
-

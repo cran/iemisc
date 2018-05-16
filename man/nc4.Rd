@@ -57,4 +57,3 @@ nc4(n = c(0.0024, 0.035), P = c(23.65, 36.08), y = c(10.23, 7.38))
   method for composite Manning's n, and \code{\link{nc3}} for Lotter method for
   composite Manning's n.
 }
-

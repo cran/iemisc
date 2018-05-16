@@ -2,8 +2,9 @@
 % Please edit documentation in R/FgivenA.R
 \encoding{UTF-8}
 \name{FgivenA}
-\alias{FA}
 \alias{FgivenA}
+\alias{FgivenA}
+\alias{FA}
 \title{Future value given Annual value (Engineering Economics)}
 \usage{
 FgivenA(A, n, i, frequency = c("annual", "semiannual", "quarter", "bimonth",
@@ -58,4 +59,3 @@ FA(23000, 40, 6, "annual") # the interest rate is 6\%
 \references{
 William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 131-132, 142, 164.
 }
-

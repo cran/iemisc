@@ -75,9 +75,6 @@ numel(f, g)
 
 
 }
-\author{
-Irucka Embry, Samit Basu (FreeMat)
-}
 \references{
 \enumerate{
    \item Samit Basu (2002-2006). FreeMat v4.0, \url{http://freemat.sourceforge.net/}.
@@ -87,4 +84,6 @@ Irucka Embry, Samit Basu (FreeMat)
 \seealso{
 \code{\link[matlab]{numel}}, \code{\link[pracma]{numel}}, \code{\link{size}}, \code{\link{length}}
 }
-
+\author{
+Irucka Embry, Samit Basu (FreeMat)
+}

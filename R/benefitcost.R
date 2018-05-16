@@ -64,15 +64,15 @@
 #' @param salvage2 numeric vector that contains the salvage value for option 2
 #' @param option2 character vector that contains the name of option for
 #'    option 2
-#' @param table character vector that contains the table output table format
+#' @param table character vector that contains the table output format
 #'    (ptable, rtable, or both)
 #'
 #'
-#' @return data.frame with character vectors with the monetary values having
-#' thousands separator in a pretty table (ptable) & message with the best
-#' option, data.frame with numeric vectors without the thousands separator in
-#' regular table (rtable) & a message with the best option, or both options
-#' combined in a list
+#' @return \code{\link[data.table]{data.table}} with character vectors with the monetary
+#' values having thousands separator in a pretty table (ptable) & message with
+#' the best option, data.frame with numeric vectors without the thousands
+#' separator in regular table (rtable) & a message with the best option, or both
+#' options combined in a list
 #'
 #'
 #' @references
@@ -97,11 +97,15 @@
 #' i1 = 10, salvage1 = 0, ic2 = 400000, n2 = 10, ac2 = 35000, ab2 = 200000,
 #' i2 = 10, salvage2 = 10000, option1 = "A", option2 = "B", table = "rtable")
 #'
+#' rtable
+#'
 #'
 #' # This is useful for saving the results as the named data.frame ptable
 #' ptable <- benefitcost(ic1 = 300000, n1 = 10, ac1 = 45000, ab1 = 150000,
 #' i1 = 10, salvage1 = 0, ic2 = 400000, n2 = 10, ac2 = 35000, ab2 = 200000,
 #' i2 = 10, salvage2 = 10000, option1 = "A", option2 = "B", table = "ptable")
+#'
+#' ptable
 #'
 #'
 #' # This is useful for saving the results as the named list of 2 data.frames
@@ -111,6 +115,7 @@
 #' i2 = 10, salvage2 = 10000, option1 = "A", option2 = "B", table = "both")
 #'
 #'
+#' both
 #'
 #'
 #' # Example 10-8 from the Sullivan Reference text (page 452-453)
@@ -119,6 +124,7 @@
 #' i2 = 9, salvage2 = 0, option1 = "Project I", option2 = "Project II",
 #' table = "rtable")
 #'
+#' project
 #'
 #'
 #'
@@ -165,7 +171,7 @@ cat("\n", paste("The Benefit-Cost ratio of", option2, "to", option1, "is", round
 
 # code block below modified from data.frame function
 attr(ptable, "col.names") <- col.names
-attr(ptable, "class") <- "data.frame"
+attr(ptable, "class") <- "data.table"
 ptable
 
 
@@ -179,7 +185,7 @@ cat("\n", paste("The Benefit-Cost ratio of", option2, "to", option1, "is", round
 
 # code block below modified from data.frame function
 attr(rtable, "col.names") <- col.names
-attr(rtable, "class") <- "data.frame"
+attr(rtable, "class") <- "data.table"
 rtable
 
 
@@ -195,7 +201,7 @@ cat("\n", paste("The Benefit-Cost ratio of", option2, "to", option1, "is", round
 
 # code block below modified from data.frame function
 attr(ptable, "col.names") <- col.names
-attr(ptable, "class") <- "data.frame"
+attr(ptable, "class") <- "data.table"
 
 
 # rtable
@@ -205,7 +211,7 @@ colnames(rtable) <- col.names
 
 # code block below modified from data.frame function
 attr(rtable, "col.names") <- col.names
-attr(rtable, "class") <- "data.frame"
+attr(rtable, "class") <- "data.table"
 
 return(list(rtable, ptable))
 }

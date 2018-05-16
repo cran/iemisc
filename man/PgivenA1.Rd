@@ -59,4 +59,3 @@ PgivenA1(1000, 25, -20, 4) # i is 25\% and f is -20\%
 \references{
 William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 156-159.
 }
-

@@ -55,4 +55,3 @@ CompIntPaid(100, 5, 10, frequency = "annual") # the interest rate is 10\%
 \item Chinyere Onwubiko, \emph{An Introduction to Engineering}, Mission, Kansas: Schroff Development Corporation, 1997, page 205-206.
 }
 }
-

@@ -2,8 +2,9 @@
 % Please edit documentation in R/FgivenP.R
 \encoding{UTF-8}
 \name{FgivenP}
-\alias{FP}
 \alias{FgivenP}
+\alias{FgivenP}
+\alias{FP}
 \title{Future value given Present value (Engineering Economics)}
 \usage{
 FgivenP(P, n, i, frequency = c("annual", "semiannual", "quarter", "bimonth",
@@ -69,4 +70,3 @@ FP(100, 10, 6, "quarter") # the interest rate is 6\% per quarter
 \references{
 William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 124, 142, 164-166.
 }
-

@@ -47,4 +47,3 @@ AgivenFcont(300, 2, 11) # 11\% interest
 \references{
 William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 169.
 }
-

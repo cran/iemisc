@@ -1,6 +1,7 @@
 # iemisc
 
-R package that contains Irucka Embry's miscellaneous functions: statistical analysis [RMS, coefficient of variation (CV), approximate and relative error, range, harmonic mean, geometric mean], engineering economics (benefit-cost, future value, present value, annual value, gradients, interest, periods, etc.), geometry (sphere volume and right triangle), civil &  environmental/water resources engineering (Concrete Mix Design for Normal Strength Concrete, Manning's n, Gauckler-Manning-Strickler equation), a version of linear interpolation for use with NAs, GNU Octave/MATLAB compatible trigonometric functions in degrees, & GNU Octave/MATLAB compatible size, numel, and length functions.
+R package that contains Irucka Embry's miscellaneous functions: statistical analysis [RMS, coefficient of variation (CV), approximate and relative error, range, harmonic mean, geometric mean], engineering economics (benefit-cost, future value, present value, annual value, gradients, interest, periods, etc.), geometry (sphere volume and right triangle), civil &  environmental/water resources engineering (Concrete Mix Design for Normal Strength & Structural Lightweight Concrete, Manning's n, Gauckler-Manning-Strickler equation), a version of linear interpolation for use with NAs, GNU Octave/MATLAB compatible trigonometric functions in degrees, & GNU Octave/MATLAB compatible size, numel, and length functions.
+
 
 
 # Installation
@@ -8,6 +9,7 @@ R package that contains Irucka Embry's miscellaneous functions: statistical anal
 ```R
 install.packages("iemisc")
 ```
+
 
 
 # Examples (see more examples in the vignette and in the function descriptions)
@@ -57,7 +59,7 @@ righttri(b = 4, c = 5)
 # What is the future worth of $2,390.90 in the present 13 years from now with a
 # 0.25% interest rate compounded annually?
 
-FgivenP(2,390.90, 13, 0.25, frequency = "annual") # the interest rate is 0.25%
+FgivenP(2390.90, 13, 0.25, frequency = "annual") # the interest rate is 0.25%
 ```
 
 

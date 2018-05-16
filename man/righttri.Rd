@@ -73,4 +73,3 @@ righttri(a = 5, c = 10)
    \item Wikimedia Foundation, Inc. Wikipedia, 9 December 2015, “Right triangle”, \url{https://en.wikipedia.org/wiki/Right_triangle}.
 }
 }
-

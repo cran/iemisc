@@ -44,4 +44,3 @@ ngivenPFi(P = 500, F = 1000, i = 15)
 \references{
 William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 129, 142.
 }
-

@@ -1,5 +1,6 @@
-## ---- warning = FALSE, message = FALSE-----------------------------------
-install.load::load_package("iemisc", "iemiscdata", "rivr") # load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
+## ---- warning = FALSE, message = FALSE, tidy = TRUE----------------------
+install.load::load_package("iemisc", "iemiscdata", "rivr")
+# load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
 
 
 # 1) Practice Problem 14.10 from Mott (page 391-392)
@@ -62,8 +63,9 @@ Sf
 
 critical_depth(6.25 * 8 * 14.9, 6.25, 9.80665 * (3937 / 1200), 8, 0)
 
-## ---- warning = FALSE, message = FALSE-----------------------------------
-install.load::load_package("iemisc", "iemiscdata", "rivr") # load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
+## ---- warning = FALSE, message = FALSE, tidy = TRUE----------------------
+install.load::load_package("iemisc", "iemiscdata", "rivr")
+# load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
 
 
 # 3) Practice Problem 14.17 from Mott (page 392)
@@ -125,8 +127,9 @@ y
 
 critical_depth(150, y$y, 9.80665 * (3937 / 1200), 4, 2)
 
-## ---- warning = FALSE, message = FALSE-----------------------------------
-install.load::load_package("iemisc", "rivr") # load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
+## ---- warning = FALSE, message = FALSE, tidy = TRUE----------------------
+install.load::load_package("iemisc", "rivr")
+# load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
 
 
 # 5) Problem 17 from Hauser (page 89)

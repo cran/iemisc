@@ -8,8 +8,9 @@
 r - Better error message for stopifnot? - Stack Overflow answered by Andrie on Dec 1 2011. See \url{http://stackoverflow.com/questions/8343509/better-error-message-for-stopifnot}.
 }
 \usage{
-Manningtrap(Q = NULL, n = NULL, m = NULL, Sf = NULL, y = NULL,
-  b = NULL, T = NULL, units = c("SI", "Eng"))
+Manningtrap(Q = NULL, n = NULL, m = NULL, m1 = NULL, m2 = NULL,
+  Sf = NULL, y = NULL, b = NULL, T = NULL, units = c("SI", "Eng"),
+  type = c("symmetrical", "non-symmetrical"))
 }
 \arguments{
 \item{Q}{numeric vector that contains the discharge value [m^3/s or ft^3/s],
@@ -19,6 +20,12 @@ if known.}
 if known.}
 
 \item{m}{numeric vector that contains the "cross-sectional side slope of m:1
+(horizontal:vertical)", if known.}
+
+\item{m1}{numeric vector that contains the "cross-sectional side slope of m1:1
+(horizontal:vertical)", if known.}
+
+\item{m2}{numeric vector that contains the "cross-sectional side slope of m2:1
 (horizontal:vertical)", if known.}
 
 \item{Sf}{numeric vector that contains the bed slope (m/m or ft/ft),
@@ -35,11 +42,15 @@ Fahrenheit), if known.}
 \code{SI} for International System of Units and \code{Eng} for English units
 (United States Customary System in the United States and Imperial Units in
 the United Kingdom)]}
+
+\item{type}{character vector that contains the type of trapezoid (symmetrical
+or non-symmetrical). The symmetrical trapezoid uses \code{m} while the non-
+symmetrical trapezoid uses \code{m1} and \code{m2}.}
 }
 \value{
 the missing parameter (Q, n, b, m, Sf, or y) & area (A), wetted
-  perimeter (P), velocity (V), top width (B), R (hydraulic radius), Re
-  (Reynolds number), and Fr (Froude number) as a \code{\link[base]{list}}.
+  perimeter (P), velocity (V), top width (B), hydraulic depth (D), hydraulic
+  radius (R), Reynolds number (Re), and Froude number (Fr) as a \code{\link[base]{list}}.
 }
 \description{
 This function solves for one missing variable in the Gauckler-Manning-
@@ -206,7 +217,7 @@ Manningtrap(y = 1.5, b = 3, m = 3/2, Sf = 0.1/100, n = n, units = "SI")
    \item Wikimedia Foundation, Inc. Wikipedia, 26 November 2015, “Manning formula”, \url{https://en.wikipedia.org/wiki/Manning_formula}.
    \item John C. Crittenden, R. Rhodes Trussell, David W. Hand, Kerry J. Howe, George Tchobanoglous, \emph{MWH's Water Treatment: Principles and Design}, Third Edition, Hoboken, New Jersey: John Wiley & Sons, Inc., 2012, page 1861-1862.
    \item Robert L. Mott and Joseph A. Untener, \emph{Applied Fluid Mechanics}, Seventh Edition, New York City, New York: Pearson, 2015, page 376, 392.
-   \item Wikimedia Foundation, Inc. Wikipedia, 5 May 2016, “Gravitational acceleration”, \url{https://en.wikipedia.org/wiki/Gravitational_acceleration}.
+   \item Wikimedia Foundation, Inc. Wikipedia, 17 March 2017, “Gravitational acceleration”, \url{https://en.wikipedia.org/wiki/Gravitational_acceleration}.
    \item Wikimedia Foundation, Inc. Wikipedia, 29 May 2016, “Conversion of units”, \url{https://en.wikipedia.org/wiki/Conversion_of_units}.
 }
 }
@@ -215,4 +226,3 @@ Manningtrap(y = 1.5, b = 3, m = 3/2, Sf = 0.1/100, n = n, units = "SI")
   for a triangular cross-section, \code{\link{Manningpara}} for a parabolic
   cross-section, and \code{\link{Manningcirc}} for a circular cross-section.
 }
-

@@ -35,8 +35,8 @@ the United Kingdom)]}
 }
 \value{
 the missing parameter (Q, n, b, Sf, or y) & area (A), wetted
-  perimeter (P), velocity (V), top width (B), R (hydraulic radius), Re
-  (Reynolds number), and Fr (Froude number) as a \code{\link[base]{list}}.
+  perimeter (P), velocity (V), top width (B), hydraulic radius (R),
+  Reynolds number (Re), and Froude number (Fr) as a \code{\link[base]{list}}.
 }
 \description{
 This function solves for one missing variable in the Gauckler-Manning-
@@ -210,7 +210,7 @@ Manningrect(Q = 12, b = 2, Sf = 1.2/100, n = n, units = "SI")
    \item John C. Crittenden, R. Rhodes Trussell, David W. Hand, Kerry J. Howe, George Tchobanoglous, \emph{MWH's Water Treatment: Principles and Design}, Third Edition, Hoboken, New Jersey: John Wiley & Sons, Inc., 2012, page 1861-1862.
    \item Andrew Chadwick, John Morfett and Martin Borthwick, \emph{Hydraulics in Civil and Environmental Engineering}, Fourth Edition, New York City, New York: Spon Press, Inc., 2004, page 133.
    \item Robert L. Mott and Joseph A. Untener, \emph{Applied Fluid Mechanics}, Seventh Edition, New York City, New York: Pearson, 2015, page 376, 379-380.
-   \item Wikimedia Foundation, Inc. Wikipedia, 5 May 2016, “Gravitational acceleration”, \url{https://en.wikipedia.org/wiki/Gravitational_acceleration}.
+   \item Wikimedia Foundation, Inc. Wikipedia, 17 March 2017, “Gravitational acceleration”, \url{https://en.wikipedia.org/wiki/Gravitational_acceleration}.
    \item Wikimedia Foundation, Inc. Wikipedia, 29 May 2016, “Conversion of units”, \url{https://en.wikipedia.org/wiki/Conversion_of_units}.
 }
 }
@@ -219,4 +219,3 @@ Manningrect(Q = 12, b = 2, Sf = 1.2/100, n = n, units = "SI")
   for a triangular cross-section, \code{\link{Manningpara}} for a parabolic
   cross-section, and \code{\link{Manningcirc}} for a circular cross-section.
 }
-

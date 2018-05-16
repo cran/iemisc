@@ -57,4 +57,3 @@ nc3(n = c(0.0024, 0.035), P = c(23.65, 36.08), R = c(2.02, 6.23))
   Einstein and Banks method for composite Manning's n, and \code{\link{nc4}}
   for Krishnamurthy and Christensen method for composite Manning's n.
 }
-

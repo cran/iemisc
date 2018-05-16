@@ -11,9 +11,9 @@ coefficient of variation (CV), approximate and relative error, range,
 harmonic mean, geometric mean], engineering economics (benefit-cost,
 future value, present value, annual value, gradients, interest, periods,
 etc.), geometry (sphere volume and right triangle), civil & environmental/
-water resources engineering (Normal Strength Concrete Mix Design, Manning's
+water resources engineering (Air Stripper, Concrete Mix Design for Normal Strength &
+Structural Lightweight Concrete, Manning's
 n, Gauckler-Manning-Strickler equation for geometric cross-sections), a
 version of linear interpolation for use with NAs, & GNU Octave/MATLAB
 compatible size, numel, and length_octave functions.
 }
-

@@ -2,8 +2,9 @@
 % Please edit documentation in R/PgivenF.R
 \encoding{UTF-8}
 \name{PgivenF}
-\alias{PF}
 \alias{PgivenF}
+\alias{PgivenF}
+\alias{PF}
 \title{Present value given Future value (Engineering Economics)}
 \usage{
 PgivenF(F, n, i, frequency = c("annual", "semiannual", "quarter", "bimonth",
@@ -57,4 +58,3 @@ PF(10000, 6, 8, "annual") # the interest rate is 8\%
 \references{
 William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 128, 142, 164.
 }
-

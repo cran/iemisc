@@ -55,4 +55,3 @@ Chinyere Onwubiko, \emph{An Introduction to Engineering}, Mission, Kansas: Schro
  coefficient of variation (CV), \code{\link{rms}} for root-mean-square (RMS), \code{\link{relerror}}
  for relative error, and \code{\link{approxerror}} for approximate error.
 }
-

@@ -64,4 +64,3 @@ volsphere(df2)
 \references{
 Wikimedia Foundation, Inc. Wikipedia, 30 December 2015, “Volume”, \url{https://en.wikipedia.org/wiki/Volume}.
 }
-

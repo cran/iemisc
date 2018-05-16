@@ -28,11 +28,13 @@ GNU Octave/MATLAB. This function is the same as \code{\link[pracma]{size}}, exce
 }
 \examples{
 library(iemisc)
+library(gsubfn)
+
+
 # Examples from GNU Octave size
 object1 <- matrix(c(1, 2, 3, 4, 5, 6), nrow = 3, ncol = 2, byrow = TRUE)
 size(object1)
 
-source("https://raw.githubusercontent.com/ggrothendieck/gsubfn/master/R/list.R")
 
 list[nr, nc] <- size(matrix(c(1, 2, 3, 4, 5, 6), nrow = 3, ncol = 2,
                 byrow = TRUE))
@@ -82,13 +84,12 @@ size(ss)
 
 
 }
-\author{
-Hans Werner Borchers (pracma size), Irucka Embry
-}
 \references{
 John W. Eaton, David Bateman, and Søren Hauberg (2009). \emph{GNU Octave version 3.0.1 manual: a high-level interactive language for numerical computations}. CreateSpace Independent Publishing Platform. ISBN 1441413006, URL \url{http://www.gnu.org/software/octave/doc/interpreter/}. Page 42.
 }
 \seealso{
 \code{\link[base]{dim}}, \code{\link[pracma]{size}}
 }
-
+\author{
+Hans Werner Borchers (pracma size), Irucka Embry
+}

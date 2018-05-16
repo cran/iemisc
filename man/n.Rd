@@ -74,4 +74,3 @@ n(nb = 0.025, n4 = 0.005, m = 1.00)
  Lotter method for composite Manning's n, and \code{\link{nc4}} for
  Krishnamurthy and Christensen method for composite Manning's n.
 }
-

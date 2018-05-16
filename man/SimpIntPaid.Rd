@@ -56,4 +56,3 @@ SimpIntPaid(1000, 3, 10) # the interest rate is 10\%
 \item William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 116.
 }
 }
-

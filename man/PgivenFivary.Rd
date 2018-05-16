@@ -53,4 +53,3 @@ PgivenFivary(Fn = 1000, ik = c(10, 12, 13, 10), k = 1)
 \references{
 William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 142, 162.
 }
-

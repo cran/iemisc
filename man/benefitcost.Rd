@@ -43,15 +43,15 @@ option 1}
 \item{option2}{character vector that contains the name of option for
 option 2}
 
-\item{table}{character vector that contains the table output table format
+\item{table}{character vector that contains the table output format
 (ptable, rtable, or both)}
 }
 \value{
-data.frame with character vectors with the monetary values having
-thousands separator in a pretty table (ptable) & message with the best
-option, data.frame with numeric vectors without the thousands separator in
-regular table (rtable) & a message with the best option, or both options
-combined in a list
+\code{\link[data.table]{data.table}} with character vectors with the monetary
+values having thousands separator in a pretty table (ptable) & message with
+the best option, data.frame with numeric vectors without the thousands
+separator in regular table (rtable) & a message with the best option, or both
+options combined in a list
 }
 \description{
 Compute the benefit-cost ratio between two alternatives
@@ -110,11 +110,15 @@ rtable <- benefitcost(ic1 = 300000, n1 = 10, ac1 = 45000, ab1 = 150000,
 i1 = 10, salvage1 = 0, ic2 = 400000, n2 = 10, ac2 = 35000, ab2 = 200000,
 i2 = 10, salvage2 = 10000, option1 = "A", option2 = "B", table = "rtable")
 
+rtable
+
 
 # This is useful for saving the results as the named data.frame ptable
 ptable <- benefitcost(ic1 = 300000, n1 = 10, ac1 = 45000, ab1 = 150000,
 i1 = 10, salvage1 = 0, ic2 = 400000, n2 = 10, ac2 = 35000, ab2 = 200000,
 i2 = 10, salvage2 = 10000, option1 = "A", option2 = "B", table = "ptable")
+
+ptable
 
 
 # This is useful for saving the results as the named list of 2 data.frames
@@ -124,6 +128,7 @@ i1 = 10, salvage1 = 0, ic2 = 400000, n2 = 10, ac2 = 35000, ab2 = 200000,
 i2 = 10, salvage2 = 10000, option1 = "A", option2 = "B", table = "both")
 
 
+both
 
 
 # Example 10-8 from the Sullivan Reference text (page 452-453)
@@ -132,6 +137,7 @@ i1 = 9, salvage1 = 0, ic2 = 625000, n2 = 25, ac2 = 110000, ab2 = 230000,
 i2 = 9, salvage2 = 0, option1 = "Project I", option2 = "Project II",
 table = "rtable")
 
+project
 
 
 
@@ -142,4 +148,3 @@ table = "rtable")
 \item William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 133, 142, 442-443, 452-453.
 }
 }
-

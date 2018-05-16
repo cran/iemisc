@@ -68,9 +68,6 @@ length(object5)
 
 
 }
-\author{
-Irucka Embry, Samit Basu (FreeMat)
-}
 \references{
 \enumerate{
    \item Samit Basu (2002-2006). FreeMat v4.0, \url{http://freemat.sourceforge.net/}.
@@ -80,4 +77,6 @@ Irucka Embry, Samit Basu (FreeMat)
 \seealso{
 \code{\link[base]{length}}, \code{\link[base]{lengths}}, \code{\link[pracma]{size}}, \code{\link{size}}
 }
-
+\author{
+Irucka Embry, Samit Basu (FreeMat)
+}

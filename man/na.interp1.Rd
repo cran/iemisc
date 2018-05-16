@@ -123,11 +123,10 @@ dt1
 
 
 }
+\seealso{
+\code{\link[zoo]{na.approx}}, \code{\link[pracma]{interp1}}
+}
 \author{
 Hans Werner Borchers (pracma interp1), Felix Andrews
         (zoo na.approx), Irucka Embry
 }
-\seealso{
-\code{\link[zoo]{na.approx}}, \code{\link[pracma]{interp1}}
-}
-

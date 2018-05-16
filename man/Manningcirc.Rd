@@ -3,6 +3,7 @@
 \encoding{UTF-8}
 \name{Manningcirc}
 \alias{Manningcirc}
+\alias{Manningcirc}
 \alias{Manningcircy}
 \title{Circular cross-section using the Gauckler-Manning-Strickler equation}
 \source{
@@ -45,12 +46,12 @@ known.}
 }
 \value{
 the missing parameter (Q, n, or Sf) & theta, area (A), wetted
-  perimeter (P), top width (B), velocity (V), R (hydraulic radius), Re
-  (Reynolds number), and Fr (Froude number) as a \code{\link[base]{list}} for the
+  perimeter (P), velocity (V), top width (B), hydraulic radius (R),
+  Reynolds number (Re), and Froude number (Fr) as a \code{\link[base]{list}} for the
   Manningcirc function.
 
 the missing parameter (d or y) & theta, area (A), wetted
-  perimeter (P), top width (B), velocity (V), and R (hydraulic radius) as a
+  perimeter (P), top width (B), velocity (V), and hydraulic radius (R) as a
   \code{\link[base]{list}} for the Manningcircy function.
 }
 \description{
@@ -307,7 +308,7 @@ Manningcirc(Sf = 0.022, n = 0.023, y = ysi, d = dsi, units = "SI")
    \item John C. Crittenden, R. Rhodes Trussell, David W. Hand, Kerry J. Howe, George Tchobanoglous, \emph{MWH's Water Treatment: Principles and Design}, Third Edition, Hoboken, New Jersey: John Wiley & Sons, Inc., 2012, page 1861-1862.
    \item Andrew Chadwick, John Morfett and Martin Borthwick, \emph{Hydraulics in Civil and Environmental Engineering}, Fourth Edition, New York City, New York: Spon Press, Inc., 2004, page 133.
    \item Robert L. Mott and Joseph A. Untener, \emph{Applied Fluid Mechanics}, Seventh Edition, New York City, New York: Pearson, 2015, page 376, 377-378, 392.
-   \item Wikimedia Foundation, Inc. Wikipedia, 5 May 2016, “Gravitational acceleration”, \url{https://en.wikipedia.org/wiki/Gravitational_acceleration}.
+   \item Wikimedia Foundation, Inc. Wikipedia, 17 March 2017, “Gravitational acceleration”, \url{https://en.wikipedia.org/wiki/Gravitational_acceleration}.
    \item Wikimedia Foundation, Inc. Wikipedia, 29 May 2016, “Conversion of units”, \url{https://en.wikipedia.org/wiki/Conversion_of_units}.
 }
 }
@@ -316,4 +317,3 @@ Manningcirc(Sf = 0.022, n = 0.023, y = ysi, d = dsi, units = "SI")
   rectangular cross-section, \code{\link{Manningtri}} for a triangular cross-section,
   and \code{\link{Manningpara}} for a parabolic cross-section.
 }
-

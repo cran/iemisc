@@ -71,4 +71,3 @@ cv(df2)
  for root-mean-square (RMS), \code{\link{relerror}} for relative error, \code{\link{approxerror}} for
  approximate error, and \code{\link{ranges}} for sample range.
 }
-

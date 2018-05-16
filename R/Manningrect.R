@@ -146,8 +146,8 @@
 #'   the United Kingdom)]
 #'
 #' @return the missing parameter (Q, n, b, Sf, or y) & area (A), wetted
-#'   perimeter (P), velocity (V), top width (B), R (hydraulic radius), Re
-#'   (Reynolds number), and Fr (Froude number) as a \code{\link[base]{list}}.
+#'   perimeter (P), velocity (V), top width (B), hydraulic radius (R),
+#'   Reynolds number (Re), and Froude number (Fr) as a \code{\link[base]{list}}.
 #'
 #'
 #' @source
@@ -164,7 +164,7 @@
 #'    \item John C. Crittenden, R. Rhodes Trussell, David W. Hand, Kerry J. Howe, George Tchobanoglous, \emph{MWH's Water Treatment: Principles and Design}, Third Edition, Hoboken, New Jersey: John Wiley & Sons, Inc., 2012, page 1861-1862.
 #'    \item Andrew Chadwick, John Morfett and Martin Borthwick, \emph{Hydraulics in Civil and Environmental Engineering}, Fourth Edition, New York City, New York: Spon Press, Inc., 2004, page 133.
 #'    \item Robert L. Mott and Joseph A. Untener, \emph{Applied Fluid Mechanics}, Seventh Edition, New York City, New York: Pearson, 2015, page 376, 379-380.
-#'    \item Wikimedia Foundation, Inc. Wikipedia, 5 May 2016, “Gravitational acceleration”, \url{https://en.wikipedia.org/wiki/Gravitational_acceleration}.
+#'    \item Wikimedia Foundation, Inc. Wikipedia, 17 March 2017, “Gravitational acceleration”, \url{https://en.wikipedia.org/wiki/Gravitational_acceleration}.
 #'    \item Wikimedia Foundation, Inc. Wikipedia, 29 May 2016, “Conversion of units”, \url{https://en.wikipedia.org/wiki/Conversion_of_units}.
 #' }
 #'
@@ -324,11 +324,11 @@ Re <- (rho * R * V) / mu
 
 if (Re > 2000) {
 
-cat("\nFlow IS in the rough turbulent zone so the Gauckler-Manning-Strickler equation is acceptable to use.\n\n")
+cat("\nFlow IS in the rough turbulent zone so the Gauckler-Manning-Strickler equation\n is acceptable to use.\n\n")
 
 } else {
 
-cat("\nFlow is NOT in the rough turbulent zone so the Gauckler-Manning-Strickler equation is not acceptable to use.\n\n")
+cat("\nFlow is NOT in the rough turbulent zone so the Gauckler-Manning-Strickler equation\n is not acceptable to use.\n\n")
 
 }
 
@@ -348,7 +348,7 @@ cat("\nThis is supercritical flow.\n\n")
 
 }
 
-return(list(Q = Q, V = V, A = A, P = P, R = R, Re = Re, Fr = Fr))
+return(list(Q = Q, V = V, A = A, P = P, R = R, B = B, D = D, Re = Re, Fr = Fr))
 
 
 } else if (missing(n)) {
@@ -371,11 +371,11 @@ Re <- (rho * R * V) / mu
 
 if (Re > 2000) {
 
-cat("\nFlow IS in the rough turbulent zone so the Gauckler-Manning-Strickler equation is acceptable to use.\n\n")
+cat("\nFlow IS in the rough turbulent zone so the Gauckler-Manning-Strickler equation\n is acceptable to use.\n\n")
 
 } else {
 
-cat("\nFlow is NOT in the rough turbulent zone so the Gauckler-Manning-Strickler equation is not acceptable to use.\n\n")
+cat("\nFlow is NOT in the rough turbulent zone so the Gauckler-Manning-Strickler equation\n is not acceptable to use.\n\n")
 
 }
 
@@ -395,7 +395,7 @@ cat("\nThis is supercritical flow.\n\n")
 
 }
 
-return(list(n = n, V = V, A = A, P = P, R = R, Re = Re, Fr = Fr))
+return(list(n = n, V = V, A = A, P = P, R = R, B = B, D = D, Re = Re, Fr = Fr))
 
 
 } else if (missing(b)) {
@@ -418,11 +418,11 @@ Re <- (rho * R * V) / mu
 
 if (Re > 2000) {
 
-cat("\nFlow IS in the rough turbulent zone so the Gauckler-Manning-Strickler equation is acceptable to use.\n\n")
+cat("\nFlow IS in the rough turbulent zone so the Gauckler-Manning-Strickler equation\n is acceptable to use.\n\n")
 
 } else {
 
-cat("\nFlow is NOT in the rough turbulent zone so the Gauckler-Manning-Strickler equation is not acceptable to use.\n\n")
+cat("\nFlow is NOT in the rough turbulent zone so the Gauckler-Manning-Strickler equation\n is not acceptable to use.\n\n")
 
 }
 
@@ -442,7 +442,7 @@ cat("\nThis is supercritical flow.\n\n")
 
 }
 
-return(list(b = b, V = V, A = A, P = P, R = R, Re = Re, Fr = Fr))
+return(list(b = b, V = V, A = A, P = P, R = R, B = B, D = D, Re = Re, Fr = Fr))
 
 
 } else if (missing(y)) {
@@ -465,11 +465,11 @@ Re <- (rho * R * V) / mu
 
 if (Re > 2000) {
 
-cat("\nFlow IS in the rough turbulent zone so the Gauckler-Manning-Strickler equation is acceptable to use.\n\n")
+cat("\nFlow IS in the rough turbulent zone so the Gauckler-Manning-Strickler equation\n is acceptable to use.\n\n")
 
 } else {
 
-cat("\nFlow is NOT in the rough turbulent zone so the Gauckler-Manning-Strickler equation is not acceptable to use.\n\n")
+cat("\nFlow is NOT in the rough turbulent zone so the Gauckler-Manning-Strickler equation\n is not acceptable to use.\n\n")
 
 }
 
@@ -489,7 +489,7 @@ cat("\nThis is supercritical flow.\n\n")
 
 }
 
-return(list(y = y, V = V, A = A, P = P, R = R, Re = Re, Fr = Fr))
+return(list(y = y, V = V, A = A, P = P, R = R, B = B, D = D, Re = Re, Fr = Fr))
 
 
 } else if (missing(Sf)) {
@@ -512,11 +512,11 @@ Re <- (rho * R * V) / mu
 
 if (Re > 2000) {
 
-cat("\nFlow IS in the rough turbulent zone so the Gauckler-Manning-Strickler equation is acceptable to use.\n\n")
+cat("\nFlow IS in the rough turbulent zone so the Gauckler-Manning-Strickler equation\n is acceptable to use.\n\n")
 
 } else {
 
-cat("\nFlow is NOT in the rough turbulent zone so the Gauckler-Manning-Strickler equation is not acceptable to use.\n\n")
+cat("\nFlow is NOT in the rough turbulent zone so the Gauckler-Manning-Strickler equation\n is not acceptable to use.\n\n")
 
 }
 
@@ -536,7 +536,7 @@ cat("\nThis is supercritical flow.\n\n")
 
 }
 
-return(list(Sf = Sf, V = V, A = A, P = P, R = R, Re = Re, Fr = Fr))
+return(list(Sf = Sf, V = V, A = A, P = P, R = R, B = B, D = D, Re = Re, Fr = Fr))
 }
 }
 }

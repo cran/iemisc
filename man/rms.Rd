@@ -47,4 +47,3 @@ Masoud Olia, Ph.D., P.E. and Contributing Authors, \emph{Barron’s FE (Fundamen
  for coefficient of variation (CV), \code{\link{relerror}} for relative error,
  \code{\link{approxerror}} for approximate error, and \code{\link{ranges}} for sample range.
 }
-

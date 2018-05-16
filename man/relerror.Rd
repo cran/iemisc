@@ -45,4 +45,3 @@ Steven C. Chapra, \emph{Applied Numerical Methods with MATLAB for Engineers and 
  coefficient of variation (CV), \code{\link{rms}} for root-mean-square (RMS), \code{\link{approxerror}}
  for approximate error, and \code{\link{ranges}} for sample range.
 }
-

@@ -2,8 +2,9 @@
 % Please edit documentation in R/PgivenA.R
 \encoding{UTF-8}
 \name{PgivenA}
-\alias{PA}
 \alias{PgivenA}
+\alias{PgivenA}
+\alias{PA}
 \title{Present value given Annual value (Engineering Economics)}
 \usage{
 PgivenA(A, n, i, frequency = c("annual", "semiannual", "quarter", "bimonth",
@@ -58,4 +59,3 @@ PA(20000, 5, 15, "annual") # the interest rate is 15\%
 \references{
 William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 133-134, 142, 164.
 }
-
