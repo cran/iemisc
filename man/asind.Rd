@@ -18,7 +18,7 @@ Calculates the value of inverse sine for each element of \code{x} in degrees
 in a manner compatible with GNU Octave/MATLAB.
 }
 \examples{
-library(iemisc)
+library("iemisc")
 
 # Examples from GNU Octave asind
 asind (seq(0, 1, by = 0.1))

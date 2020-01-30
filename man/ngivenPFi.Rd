@@ -23,7 +23,7 @@ Compute n given P, F, and i
 \details{
 n is expressed as
 
-\deqn{n = \frac{\log \left(\frac{F}{P}\right)}{\log \left(1 + i\right)}}
+	\deqn{n = \frac{\log \left(\frac{F}{P}\right)}{\log \left(1 + i\right)}}
 
 \describe{
 \item{\emph{n}}{the "number of interest periods"}
@@ -33,7 +33,7 @@ n is expressed as
 }
 }
 \examples{
-library(iemisc)
+library("iemisc")
 # Example for equation 4-7 from the Reference text (page
 ngivenPFi(P = 500, F = 1000, i = 15)
 

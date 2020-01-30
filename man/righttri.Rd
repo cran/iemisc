@@ -47,7 +47,7 @@ This function makes the following calculations:
 }
 }
 \examples{
-library(iemisc)
+library("iemisc")
 \dontrun{
 righttri(0, 2) # a = 0, b = 2
 

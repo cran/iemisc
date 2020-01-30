@@ -25,7 +25,7 @@ Compute A given P with interest compounded continuously
 \details{
 A is expressed as
 
-\deqn{A = P\left[\frac{e^{rn}\left(e^{r} - 1\right)}{e^{rn} - 1}\right]}
+	\deqn{A = P\left[\frac{e^{rn}\left(e^{r} - 1\right)}{e^{rn} - 1}\right]}
 
 \describe{
 \item{\emph{A}}{the "annual equivalent amount (occurs at the end of
@@ -37,7 +37,7 @@ A is expressed as
 }
 }
 \examples{
-library(iemisc)
+library("iemisc")
 # Example for equation 4-34 from the Reference text (page 170)
 AgivenPcont(1000, 10, 20) # 20\% interest
 

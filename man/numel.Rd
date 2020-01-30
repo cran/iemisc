@@ -29,7 +29,7 @@ Obtain the number of elements of R objects [arrays, matrices, and vectors
 documentation from \code{\link[base]{length}}.
 }
 \examples{
-library(iemisc)
+library("iemisc")
 import::from(pracma, ones)
 xx <- list(1:26, 1:10)
 numel(xx)
@@ -56,7 +56,7 @@ library(RcppOctave) # requires Octave (>= 3.2.4) and its development files
 o_source(text = "
 xx = {1:26, 1:10}
 
-\\\% Examples from GNU Octave numel
+\\% Examples from GNU Octave numel
 a = 1;
 b = ones(2, 3);
 numel(a, b)

@@ -25,7 +25,7 @@ Compute F given A with interest compounded continuously
 \details{
 F is expressed as
 
-\deqn{F = A\left[\frac{e^{rn} - 1}{e^{r} - 1}\right]}
+	\deqn{F = A\left[\frac{e^{rn} - 1}{e^{r} - 1}\right]}
 
 \describe{
 \item{\emph{F}}{the "future equivalent"}
@@ -37,7 +37,7 @@ F is expressed as
 }
 }
 \examples{
-library(iemisc)
+library("iemisc")
 FgivenAcont(2100, 13, 7) # the interest rate is 7\%
 
 

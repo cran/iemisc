@@ -20,7 +20,7 @@ manner compatible with GNU Octave/MATLAB. Zero is returned for any "elements
 where \code{x} / 180 is an integer." Source: Eaton.
 }
 \examples{
-library(iemisc)
+library("iemisc")
 
 # Examples from GNU Octave sind
 sind(seq(10, 90, by = 10))

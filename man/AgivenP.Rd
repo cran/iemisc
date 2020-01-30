@@ -3,15 +3,22 @@
 \encoding{UTF-8}
 \name{AgivenP}
 \alias{AgivenP}
-\alias{AgivenP}
 \alias{AP}
 \title{Annual value given Present value (Engineering Economics)}
 \usage{
-AgivenP(P, n, i, frequency = c("annual", "semiannual", "quarter", "bimonth",
-  "month", "daily"))
+AgivenP(
+  P,
+  n,
+  i,
+  frequency = c("annual", "semiannual", "quarter", "bimonth", "month", "daily")
+)
 
-AP(P, n, i, frequency = c("annual", "semiannual", "quarter", "bimonth",
-  "month", "daily"))
+AP(
+  P,
+  n,
+  i,
+  frequency = c("annual", "semiannual", "quarter", "bimonth", "month", "daily")
+)
 }
 \arguments{
 \item{P}{numeric vector that contains the present value(s)}
@@ -37,7 +44,7 @@ Compute A given P
 \details{
 A is expressed as
 
-\deqn{A = P\left[\frac{i\left(1 + i\right)^n}{\left(1 + i\right)^n - 1}\right]}
+	\deqn{A = P\left[\frac{i\left(1 + i\right)^n}{\left(1 + i\right)^n - 1}\right]}
 
 \describe{
 \item{\emph{A}}{the "uniform series amount (occurs at the end of each
@@ -48,7 +55,7 @@ A is expressed as
 }
 }
 \examples{
-library(iemisc)
+library("iemisc")
 # Example for equation 4-14 from the Reference text (page 136)
 AgivenP(17000, 4, 1, "annual")
 # the interest rate is 1\% per month and n is 4 months

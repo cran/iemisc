@@ -24,8 +24,8 @@
 #'
 #' @source
 #' \enumerate{
-#'    \item r - Add a Column to a Dataframe From a List of Values - Stack Overflow answered by Matthew Plourde on Jun 21 2012. See \url{http://stackoverflow.com/questions/11130037/add-a-column-to-a-dataframe-from-a-list-of-values/11130178}.
-#'    \item r - Why does is.vector() return TRUE for list? - Stack Overflow answered by Andrie on May 17 2011. See \url{http://stackoverflow.com/questions/6032772/why-does-is-vector-return-true-for-list/6032909}.
+#'    \item r - Add a Column to a Dataframe From a List of Values - Stack Overflow answered by Matthew Plourde on Jun 21 2012. See \url{https://stackoverflow.com/questions/11130037/add-a-column-to-a-dataframe-from-a-list-of-values/11130178}.
+#'    \item r - Why does is.vector() return TRUE for list? - Stack Overflow answered by Andrie on May 17 2011. See \url{https://stackoverflow.com/questions/6032772/why-does-is-vector-return-true-for-list/6032909}.
 #' }
 #'
 #' @references
@@ -35,7 +35,7 @@
 #'
 #'
 #' @examples
-#' library(iemisc)
+#' library("iemisc")
 #' # Example for equation 4-31 from the Reference text (page 162)
 #' PgivenFivary(Fn = 1000, ik = c(10, 12, 13, 10), k = 1)
 #' # i1 is 10%, i2 is 12%, i3 is 14%, and i4 is 10% & k = 1 year

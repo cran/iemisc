@@ -5,8 +5,12 @@
 \alias{CompIntPaid}
 \title{Compound Interest Paid (Engineering Economics)}
 \usage{
-CompIntPaid(P, n, i, frequency = c("annual", "semiannual", "quarter",
-  "bimonth", "month", "daily"))
+CompIntPaid(
+  P,
+  n,
+  i,
+  frequency = c("annual", "semiannual", "quarter", "bimonth", "month", "daily")
+)
 }
 \arguments{
 \item{P}{numeric vector that contains the present value(s)}
@@ -40,7 +44,7 @@ Compound Interest is expressed as
 }
 }
 \examples{
-library(iemisc)
+library("iemisc")
 # Compound Interest example from SFPE Reference text
 CompIntPaid(100, 5, 10, frequency = "annual") # the interest rate is 10\%
 

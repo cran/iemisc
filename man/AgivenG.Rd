@@ -5,8 +5,12 @@
 \alias{AgivenG}
 \title{Annual value given Gradient value (Engineering Economics)}
 \usage{
-AgivenG(G, n, i, frequency = c("annual", "semiannual", "quarter", "bimonth",
-  "month", "daily"))
+AgivenG(
+  G,
+  n,
+  i,
+  frequency = c("annual", "semiannual", "quarter", "bimonth", "month", "daily")
+)
 }
 \arguments{
 \item{G}{numeric vector that contains the gradient value(s)}
@@ -38,7 +42,7 @@ Compute A given G
 }
 }
 \examples{
-library(iemisc)
+library("iemisc")
 # Example 4-20 from the Reference text (pages 153-154)
   AgivenG(1000, 4, 15, "annual") # the interest rate is 15\%
 

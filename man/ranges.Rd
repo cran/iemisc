@@ -38,7 +38,7 @@ values are ignored."
 computed, i.e., \code{finite = TRUE} includes \code{na.rm = TRUE}."
 }
 \examples{
-library(iemisc)
+library("iemisc")
 require(stats)
 set.seed(100) # makes the example reproducible
 x <- rnorm(100)

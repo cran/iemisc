@@ -5,8 +5,10 @@
 \alias{EffInt}
 \title{Effective Interest rate (Engineering Economics)}
 \usage{
-EffInt(r, frequency = c("annual", "semiannual", "quarter", "bimonth", "month",
-  "daily"))
+EffInt(
+  r,
+  frequency = c("annual", "semiannual", "quarter", "bimonth", "month", "daily")
+)
 }
 \arguments{
 \item{r}{numeric vector that contains the nominal interest rate(s) per
@@ -28,7 +30,7 @@ period
 \details{
 i is expressed as
 
-\deqn{i = \left(1 + \frac{r}{n}\right)^n - 1}
+	\deqn{i = \left(1 + \frac{r}{n}\right)^n - 1}
 
 \describe{
 \item{\emph{i}}{the "effective interest rate per interest period"}
@@ -37,7 +39,7 @@ i is expressed as
 }
 }
 \examples{
-library(iemisc)
+library("iemisc")
 # Example 4-28 from Sullivan Reference text (page 165)
 EffInt(1.375, frequency = "month")
 # the nominal interest rate per period (month) is 1.375\%

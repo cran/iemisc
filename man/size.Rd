@@ -27,7 +27,7 @@ GNU Octave/MATLAB. This function is the same as \code{\link[pracma]{size}}, exce
 \code{\link[pracma]{size}}.
 }
 \examples{
-library(iemisc)
+library("iemisc")
 library(gsubfn)
 
 
@@ -58,7 +58,7 @@ size(ss)
 # check against GNU Octave
 library(RcppOctave) # requires Octave (>= 3.2.4) and its development files
 o_source(text = "
-\\\% Examples from GNU Octave size
+\\% Examples from GNU Octave size
 object1 = [1, 2; 3, 4; 5, 6];
 size(object1)
 
@@ -66,7 +66,7 @@ size(object1)
 
 size([1, 2; 3, 4; 5, 6], 2)
 
-\\\% Examples from pracma size
+\\% Examples from pracma size
 size(1:8)
 
 object2 = [1 3 5 7; 2 4 6 8];

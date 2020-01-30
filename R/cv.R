@@ -45,7 +45,8 @@
 #'
 #'
 #' @examples
-#' library(iemisc)
+#' library("iemisc")
+#' library("data.table")
 #'
 #' # Example 2.60 from Miller (page 38)
 #' x <- c(14, 12, 21, 28, 30, 63, 29, 63, 55, 19, 20) # suspended solids in
@@ -70,6 +71,7 @@
 #'
 #'
 #' @import stats
+#' @import data.table
 #'
 #' @export
 cv <- function (x, na.rm = FALSE) {

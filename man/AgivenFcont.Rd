@@ -25,7 +25,7 @@ Compute A given F with interest compounded continuously
 \details{
 A is expressed as
 
-\deqn{A = F\left[\frac{e^{r} - 1}{e^{rn} - 1}\right]}
+	\deqn{A = F\left[\frac{e^{r} - 1}{e^{rn} - 1}\right]}
 
 \describe{
 \item{\emph{A}}{the "annual equivalent amount (occurs at the end of
@@ -37,7 +37,7 @@ A is expressed as
 }
 }
 \examples{
-library(iemisc)
+library("iemisc")
 AgivenFcont(300, 2, 11) # 11\% interest
 
 

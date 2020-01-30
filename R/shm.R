@@ -48,7 +48,9 @@
 #'
 #'
 #' @examples
-#' library(iemisc)
+#' library("iemisc")
+#' library("data.table")
+#'
 #' # Example 1.12 from Kottegoda (page 13)
 #' x <- c(0.20, 0.24, 0.16) # stream velocities in m/s
 #' shm(x)
@@ -156,7 +158,7 @@ else shm(as.vector(x), na.rm = na.rm)
 #'
 #'
 #' @examples
-#' library(iemisc)
+#' library("iemisc")
 #' # Example 1.13 from Kottegoda (page 13)
 #' city_pop <- c(230000, 310000)
 #' sgm(city_pop)

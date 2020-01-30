@@ -85,7 +85,7 @@
 #'
 #'
 #' @examples
-#' library(iemisc)
+#' library("iemisc")
 #' # Example from Lindeburg Reference text (page 14-4)
 #' benefitcost(ic1 = 300000, n1 = 10, ac1 = 45000, ab1 = 150000, i1 = 10,
 #' salvage1 = 0, ic2 = 400000, n2 = 10, ac2 = 35000, ab2 = 200000, i2 = 10,

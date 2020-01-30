@@ -18,7 +18,7 @@ Calculates the value of secant for each element of \code{x} in degrees in a
 manner compatible with GNU Octave/MATLAB.
 }
 \examples{
-library(iemisc)
+library("iemisc")
 
 # Examples from GNU Octave secd
 secd (seq(0, 80, by = 10))

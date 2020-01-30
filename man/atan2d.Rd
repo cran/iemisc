@@ -24,7 +24,7 @@ Calculates the value of the "two-argument arc-tangent" for each element of
 (\code{y}, \code{x}) in degrees in a manner compatible with GNU Octave/MATLAB.
 }
 \examples{
-library(iemisc)
+library("iemisc")
 
 # Examples from GNU Octave atan2d
 atan2d (a <- seq(-1, 1, by = 0.1), b <- seq(1, -1, by = -0.1))

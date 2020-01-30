@@ -31,7 +31,7 @@ Compute P given F and i that varies
 \details{
 P is expressed as
 
-\deqn{P = \frac{F_n}{\prod \limits_{k=1}^n{\left(1 + i_k\right)}}}
+	\deqn{P = \frac{F_n}{\prod \limits_{k=1}^n{\left(1 + i_k\right)}}}
 
 \describe{
 \item{\emph{P}}{the "present equivalent"}
@@ -41,7 +41,7 @@ P is expressed as
 }
 }
 \examples{
-library(iemisc)
+library("iemisc")
 # Example for equation 4-31 from the Reference text (page 162)
 PgivenFivary(Fn = 1000, ik = c(10, 12, 13, 10), k = 1)
 # i1 is 10\%, i2 is 12\%, i3 is 14\%, and i4 is 10\% & k = 1 year

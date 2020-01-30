@@ -25,7 +25,7 @@ Compute P given F with interest compounded continuously
 \details{
 P is expressed as
 
-\deqn{P = Fe^{-rn}}
+	\deqn{P = Fe^{-rn}}
 
 \describe{
 \item{\emph{P}}{the "present equivalent"}
@@ -36,7 +36,7 @@ P is expressed as
 }
 }
 \examples{
-library(iemisc)
+library("iemisc")
 PgivenFcont(1000, 9, 7) # the interest rate is 7\%
 
 

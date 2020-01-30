@@ -41,7 +41,7 @@ The equation to find Manning's composite n using the Lotter method is
 }
 }
 \examples{
-library(iemisc)
+library("iemisc")
 nc3(n = c(0.0024, 0.035), P = c(23.65, 36.08), R = c(2.02, 6.23))
 
 

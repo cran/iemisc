@@ -5,8 +5,12 @@
 \alias{PgivenG}
 \title{Present value given Gradient value (Engineering Economics)}
 \usage{
-PgivenG(G, n, i, frequency = c("annual", "semiannual", "quarter", "bimonth",
-  "month", "daily"))
+PgivenG(
+  G,
+  n,
+  i,
+  frequency = c("annual", "semiannual", "quarter", "bimonth", "month", "daily")
+)
 }
 \arguments{
 \item{G}{numeric vector that contains the gradient value(s)}
@@ -37,7 +41,7 @@ Compute P given G
 }
 }
 \examples{
-library(iemisc)
+library("iemisc")
 # Example 4-20 from the Reference text (pages 153-154)
 PgivenG(1000, 4, 15, "annual") # the interest rate is 15\%
 

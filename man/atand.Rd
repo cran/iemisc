@@ -18,7 +18,7 @@ Calculates the value of inverse tangent for each element of \code{x} in
 degrees in a manner compatible with GNU Octave/MATLAB.
 }
 \examples{
-library(iemisc)
+library("iemisc")
 
 # Examples from GNU Octave atand
 atand (seq(0, 90, by = 10))

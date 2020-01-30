@@ -28,7 +28,9 @@
 #'
 #'
 #' @examples
-#' library(iemisc)
+#' library("iemisc")
+#' library("data.table")
+#'
 #' volsphere(3) # in
 #'
 #' volsphere(4.5) # in

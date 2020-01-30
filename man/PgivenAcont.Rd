@@ -25,7 +25,7 @@ Compute P given A with interest compounded continuously
 \details{
 P is expressed as
 
-\deqn{P = A\left[\frac{e^{rn} - 1}{e^{rn}\left(e^{r} - 1\right)}\right]}
+	\deqn{P = A\left[\frac{e^{rn} - 1}{e^{rn}\left(e^{r} - 1\right)}\right]}
 
 \describe{
 \item{\emph{P}}{the "present equivalent"}
@@ -37,7 +37,7 @@ P is expressed as
 }
 }
 \examples{
-library(iemisc)
+library("iemisc")
   PgivenAcont(2000, 3, 12) # the interest rate is 12\%
 
 

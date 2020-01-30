@@ -24,7 +24,7 @@ Compute i given F, n, and P
 \details{
 i is expressed as
 
-\deqn{i = \sqrt[n]{\frac{F}{P}} - 1}
+	\deqn{i = \sqrt[n]{\frac{F}{P}} - 1}
 
 \describe{
 \item{\emph{i}}{the "effective interest rate per interest period"}
@@ -34,7 +34,7 @@ i is expressed as
 }
 }
 \examples{
-library(iemisc)
+library("iemisc")
 # Example for equation 4-6 from the Reference text (page 128)
 igivenPFn(P = 500, F = 1000, n = 10)
 

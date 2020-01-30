@@ -36,7 +36,7 @@
 #'
 #'
 #' @examples
-#' library(iemisc)
+#' library("iemisc")
 #' library(gsubfn)
 #'
 #'
@@ -168,7 +168,7 @@ size <- function (x, k)
 #'
 #'
 #' @examples
-#' library(iemisc)
+#' library("iemisc")
 #' import::from(pracma, ones)
 #' # Example from pracma isempty
 #' object1 <- matrix(0, 1, 0)
@@ -255,8 +255,8 @@ else (is.matrix(x))
 #'
 #' @source
 #' \enumerate{
-#'    \item r - Add a Column to a Dataframe From a List of Values - Stack Overflow answered by Matthew Plourde on Jun 21 2012. See \url{http://stackoverflow.com/questions/11130037/add-a-column-to-a-dataframe-from-a-list-of-values/11130178}.
-#'    \item r - Why does is.vector() return TRUE for list? - Stack Overflow answered by Andrie on May 17 2011. See \url{http://stackoverflow.com/questions/6032772/why-does-is-vector-return-true-for-list/6032909}.
+#'    \item r - Add a Column to a Dataframe From a List of Values - Stack Overflow answered by Matthew Plourde on Jun 21 2012. See \url{https://stackoverflow.com/questions/11130037/add-a-column-to-a-dataframe-from-a-list-of-values/11130178}.
+#'    \item r - Why does is.vector() return TRUE for list? - Stack Overflow answered by Andrie on May 17 2011. See \url{https://stackoverflow.com/questions/6032772/why-does-is-vector-return-true-for-list/6032909}.
 #' }
 #'
 #'
@@ -279,7 +279,7 @@ else (is.matrix(x))
 #'
 #'
 #' @examples
-#' library(iemisc)
+#' library("iemisc")
 #' import::from(pracma, ones)
 #' xx <- list(1:26, 1:10)
 #' numel(xx)

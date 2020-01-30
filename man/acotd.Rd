@@ -18,7 +18,7 @@ Calculates the value of inverse cotangent for each element of \code{x} in
 degrees in a manner compatible with GNU Octave/MATLAB.
 }
 \examples{
-library(iemisc)
+library("iemisc")
 
 # Examples from GNU Octave acotd
 acotd (seq(0, 90, by = 10))

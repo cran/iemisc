@@ -22,7 +22,7 @@ where \code{x} / 180 is an integer and \code{Inf} for elements where
 (\code{x} - 90) / 180 is an integer." Source: Eaton.
 }
 \examples{
-library(iemisc)
+library("iemisc")
 
 # Examples from GNU Octave tand
 tand(seq(10, 80, by = 10))

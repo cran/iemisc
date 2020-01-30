@@ -3,15 +3,22 @@
 \encoding{UTF-8}
 \name{PgivenF}
 \alias{PgivenF}
-\alias{PgivenF}
 \alias{PF}
 \title{Present value given Future value (Engineering Economics)}
 \usage{
-PgivenF(F, n, i, frequency = c("annual", "semiannual", "quarter", "bimonth",
-  "month", "daily"))
+PgivenF(
+  F,
+  n,
+  i,
+  frequency = c("annual", "semiannual", "quarter", "bimonth", "month", "daily")
+)
 
-PF(F, n, i, frequency = c("annual", "semiannual", "quarter", "bimonth",
-  "month", "daily"))
+PF(
+  F,
+  n,
+  i,
+  frequency = c("annual", "semiannual", "quarter", "bimonth", "month", "daily")
+)
 }
 \arguments{
 \item{F}{numeric vector that contains the future value(s)}
@@ -37,7 +44,7 @@ Compute P given F
 \details{
 P is expressed as
 
-\deqn{P = F\left[\frac{1}{\left(1 + i\right)^n}\right]}
+	\deqn{P = F\left[\frac{1}{\left(1 + i\right)^n}\right]}
 
 \describe{
 \item{\emph{P}}{the "present equivalent"}
@@ -47,7 +54,7 @@ P is expressed as
 }
 }
 \examples{
-library(iemisc)
+library("iemisc")
 # Example 4-4 from the Reference text (page 128)
 PgivenF(10000, 6, 8, "annual") # the interest rate is 8\%
 

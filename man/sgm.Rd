@@ -33,11 +33,11 @@ Geometric mean is expressed as
 \item{\emph{n}}{the number of positive values}
 }
 
-"The geometric mean is used in averaging values that represent a rate of
+  "The geometric mean is used in averaging values that represent a rate of
   change. It is the positive nth root of the product of the n values."
 }
 \examples{
-library(iemisc)
+library("iemisc")
 # Example 1.13 from Kottegoda (page 13)
 city_pop <- c(230000, 310000)
 sgm(city_pop)

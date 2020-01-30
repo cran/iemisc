@@ -3,15 +3,22 @@
 \encoding{UTF-8}
 \name{FgivenA}
 \alias{FgivenA}
-\alias{FgivenA}
 \alias{FA}
 \title{Future value given Annual value (Engineering Economics)}
 \usage{
-FgivenA(A, n, i, frequency = c("annual", "semiannual", "quarter", "bimonth",
-  "month", "daily"))
+FgivenA(
+  A,
+  n,
+  i,
+  frequency = c("annual", "semiannual", "quarter", "bimonth", "month", "daily")
+)
 
-FA(A, n, i, frequency = c("annual", "semiannual", "quarter", "bimonth",
-  "month", "daily"))
+FA(
+  A,
+  n,
+  i,
+  frequency = c("annual", "semiannual", "quarter", "bimonth", "month", "daily")
+)
 }
 \arguments{
 \item{A}{numeric vector that contains the annual value(s)}
@@ -37,7 +44,7 @@ Compute F given A
 \details{
 F is expressed as
 
-\deqn{F = A\left[\frac{\left(1 + i\right)^n - 1}{i}\right]}
+	\deqn{F = A\left[\frac{\left(1 + i\right)^n - 1}{i}\right]}
 
 \describe{
 \item{\emph{F}}{the "future equivalent"}
@@ -48,7 +55,7 @@ F is expressed as
 }
 }
 \examples{
-library(iemisc)
+library("iemisc")
 # Example 4-7 from the Reference text (page 131-132)
 FgivenA(23000, 40, 6, "annual") # the interest rate is 6\%
 

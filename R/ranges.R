@@ -46,7 +46,7 @@
 #'
 #'
 #' @examples
-#' library(iemisc)
+#' library("iemisc")
 #' require(stats)
 #' set.seed(100) # makes the example reproducible
 #' x <- rnorm(100)

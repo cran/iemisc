@@ -32,11 +32,13 @@ Harmonic mean is expressed as
 \item{\emph{n}}{the number of values}
 }
 
-"The harmonic mean is the reciprocal of the mean of the reciprocals. It is
+  "The harmonic mean is the reciprocal of the mean of the reciprocals. It is
   applied in situations where the reciprocal of a variable is averaged."
 }
 \examples{
-library(iemisc)
+library("iemisc")
+library("data.table")
+
 # Example 1.12 from Kottegoda (page 13)
 x <- c(0.20, 0.24, 0.16) # stream velocities in m/s
 shm(x)

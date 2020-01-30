@@ -30,9 +30,9 @@ Relative error is expressed as
 }
 }
 \examples{
-library(iemisc)
+library("iemisc")
 # Example 4.1 from the Reference text (page 83)
-relerror(1.648721, 1.5) # answer as a percent (\\\%)
+relerror(1.648721, 1.5) # answer as a percent (\\%)
 
 
 

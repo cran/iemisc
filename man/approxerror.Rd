@@ -32,9 +32,9 @@ Approximate error is expressed as
 }
 }
 \examples{
-library(iemisc)
+library("iemisc")
 # Example 4.1 from the Reference text (page 84)
-approxerror(1.5, 1) # answer as a percent (\\\%)
+approxerror(1.5, 1) # answer as a percent (\\%)
 
 
 

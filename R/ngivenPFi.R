@@ -27,7 +27,7 @@
 #'
 #'
 #' @examples
-#' library(iemisc)
+#' library("iemisc")
 #' # Example for equation 4-7 from the Reference text (page
 #' ngivenPFi(P = 500, F = 1000, i = 15)
 #'

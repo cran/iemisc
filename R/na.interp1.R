@@ -47,7 +47,8 @@
 #'
 #'
 #' @examples
-#' library(iemisc)
+#' library("iemisc")
+#' library("data.table")
 #'
 #' # zoo time series example
 #' zoo1 <- structure(c(1.6, 1.7, 1.7, 1.7, 1.7, 1.7, 1.6, 1.7, 1.7, 1.7,

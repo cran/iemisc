@@ -20,7 +20,7 @@ vignette: >
 
 The following examples only cover open channel flow problems using the Gauckler-Manning-Strickler equation (commonly called Manning's equation) [Wikimedia] to calculate the missing parameters and the critical depth.
 
-Other examples using the Gauckler-Manning-Strickler equation can be found in [Open Channel Flow Examples using the Gauckler-Manning-Strickler equation](http://www.ecoccs.com/R_Examples/open_channel_flow.html) written by the author.
+Other examples using the Gauckler-Manning-Strickler equation can be found in [Open Channel Flow Examples using the Gauckler-Manning-Strickler equation](https://www.ecoccs.com/R_Examples/open_channel_flow.html) written by the author.
 
 <br />
 
@@ -279,7 +279,7 @@ Robert L. Mott and Joseph A. Untener, *Applied Fluid Mechanics*, Seventh Edition
 
 Terry W. Sturm, *Open Channel Hydraulics*, 2nd Edition, New York City, New York: The McGraw-Hill Companies, Inc., 2010, page 153.
 
-U.S. Department of Transportation Federal Highway Administration (FHWA), "Design Charts for Open-Channel Flow HDS 3", August 1961, http://www.fhwa.dot.gov/engineering/hydraulics/pubs/hds3.pdf.
+U.S. Department of Transportation Federal Highway Administration (FHWA), "Design Charts for Open-Channel Flow HDS 3", August 1961, https://www.fhwa.dot.gov/engineering/hydraulics/pubs/hds3.pdf.
 
 Wikimedia Foundation, Inc. Wikipedia, 5 May 2016, “Gravitational acceleration”, https://en.wikipedia.org/wiki/Gravitational_acceleration.
 

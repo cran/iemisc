@@ -35,7 +35,7 @@
 #'
 #'
 #' @examples
-#' library(iemisc)
+#' library("iemisc")
 #' # Example 4-28 from Sullivan Reference text (page 165)
 #' EffInt(1.375, frequency = "month")
 #' # the nominal interest rate per period (month) is 1.375%

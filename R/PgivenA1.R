@@ -39,7 +39,7 @@
 #'
 #'
 #' @examples
-#' library(iemisc)
+#' library("iemisc")
 #' # Example 4-23 from the Reference text (page 158-159)
 #' PgivenA1(1000, 25, 20, 4) # i is 25% and f is 20%
 #'

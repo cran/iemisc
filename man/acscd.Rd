@@ -18,7 +18,7 @@ Calculates the value of inverse cosecant for each element of \code{x} in
 degrees in a manner compatible with GNU Octave/MATLAB.
 }
 \examples{
-library(iemisc)
+library("iemisc")
 
 # Examples from GNU Octave acscd
 acscd (seq(0, 90, by = 10))

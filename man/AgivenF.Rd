@@ -3,15 +3,22 @@
 \encoding{UTF-8}
 \name{AgivenF}
 \alias{AgivenF}
-\alias{AgivenF}
 \alias{AF}
 \title{Annual value given Future value (Engineering Economics)}
 \usage{
-AgivenF(F, n, i, frequency = c("annual", "semiannual", "quarter", "bimonth",
-  "month", "daily"))
+AgivenF(
+  F,
+  n,
+  i,
+  frequency = c("annual", "semiannual", "quarter", "bimonth", "month", "daily")
+)
 
-AF(F, n, i, frequency = c("annual", "semiannual", "quarter", "bimonth",
-  "month", "daily"))
+AF(
+  F,
+  n,
+  i,
+  frequency = c("annual", "semiannual", "quarter", "bimonth", "month", "daily")
+)
 }
 \arguments{
 \item{F}{numeric vector that contains the future value(s)}
@@ -37,7 +44,7 @@ Compute A given F
 \details{
 A is expressed as
 
-\deqn{A = F\left[\frac{i}{\left(1 + i\right)^n - 1}\right]}
+	\deqn{A = F\left[\frac{i}{\left(1 + i\right)^n - 1}\right]}
 
 \describe{
 \item{\emph{A}}{the "uniform series amount (occurs at the end of each
@@ -48,7 +55,7 @@ A is expressed as
 }
 }
 \examples{
-library(iemisc)
+library("iemisc")
 # Example for equation 4-12 from the Reference text (page 135-136)
 AgivenF(309*10^6, 60, 0.5, "annual")
 # the interest rate is 0.5\% per month and n is 60 months

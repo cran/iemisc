@@ -15,8 +15,8 @@ install.packages("iemisc")
 # Examples (see more examples in the vignette and in the function descriptions)
 
 ```R
-library(iemisc)
-require(stats)
+library("iemisc")
+require("stats")
 
 # 1)
 set.seed(200) # makes the example reproducible

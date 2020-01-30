@@ -5,8 +5,23 @@
 \alias{benefitcost}
 \title{Benefit-Cost Ratio (Engineering Economics)}
 \usage{
-benefitcost(ic1, n1, ac1, ab1, i1, salvage1, ic2, n2, ac2, ab2, i2, salvage2,
-  option1, option2, table = c("ptable", "rtable", "both"))
+benefitcost(
+  ic1,
+  n1,
+  ac1,
+  ab1,
+  i1,
+  salvage1,
+  ic2,
+  n2,
+  ac2,
+  ab2,
+  i2,
+  salvage2,
+  option1,
+  option2,
+  table = c("ptable", "rtable", "both")
+)
 }
 \arguments{
 \item{ic1}{numeric vector that contains the initial cost for option 1}
@@ -59,7 +74,7 @@ Compute the benefit-cost ratio between two alternatives
 \details{
 Benefit is expressed as
 
-\deqn{Benefit = AB\left[\frac{\left(1 + i\right)^n - 1}{i\left(1 + i\right)^n}\right]}
+	\deqn{Benefit = AB\left[\frac{\left(1 + i\right)^n - 1}{i\left(1 + i\right)^n}\right]}
 
 \describe{
 \item{\emph{Benefit}}{the present equivalent benefit}
@@ -72,7 +87,7 @@ Benefit is expressed as
 
 Cost is expressed as
 
-\deqn{Cost = PC + OM\left[\frac{\left(1 + i\right)^n - 1}{i\left(1 + i\right)^n}\right] - S\left[\frac{1}{\left(1 + i\right)^n}\right]}
+	\deqn{Cost = PC + OM\left[\frac{\left(1 + i\right)^n - 1}{i\left(1 + i\right)^n}\right] - S\left[\frac{1}{\left(1 + i\right)^n}\right]}
 
 \describe{
 \item{\emph{Cost}}{the present equivalent cost}
@@ -87,7 +102,7 @@ Cost is expressed as
 
 Benefit-Cost ratio is expressed as
 
-\deqn{BC = \frac{B_2 - B_1}{C_2 - C_1} \geq 1}
+	\deqn{BC = \frac{B_2 - B_1}{C_2 - C_1} \geq 1}
 
 \describe{
 \item{\emph{BC}}{the present equivalent cost}
@@ -98,7 +113,7 @@ Benefit-Cost ratio is expressed as
 }
 }
 \examples{
-library(iemisc)
+library("iemisc")
 # Example from Lindeburg Reference text (page 14-4)
 benefitcost(ic1 = 300000, n1 = 10, ac1 = 45000, ab1 = 150000, i1 = 10,
 salvage1 = 0, ic2 = 400000, n2 = 10, ac2 = 35000, ab2 = 200000, i2 = 10,

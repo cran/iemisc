@@ -13,7 +13,6 @@
 #'
 #' @docType package
 #' @name iemisc
-#' @import data.table stats iemiscdata import zoo gsubfn fpCompare units CHNOSZ listless stringi rgdal IAPWS95 sp
+#' @import data.table stats iemiscdata import zoo gsubfn fpCompare units CHNOSZ stringi rgdal IAPWS95 sp
 #' @importFrom pracma isempty nthroot interp1 interp2 ones
-#' @importFrom testit assert
 NULL

@@ -3,15 +3,22 @@
 \encoding{UTF-8}
 \name{PgivenA}
 \alias{PgivenA}
-\alias{PgivenA}
 \alias{PA}
 \title{Present value given Annual value (Engineering Economics)}
 \usage{
-PgivenA(A, n, i, frequency = c("annual", "semiannual", "quarter", "bimonth",
-  "month", "daily"))
+PgivenA(
+  A,
+  n,
+  i,
+  frequency = c("annual", "semiannual", "quarter", "bimonth", "month", "daily")
+)
 
-PA(A, n, i, frequency = c("annual", "semiannual", "quarter", "bimonth",
-  "month", "daily"))
+PA(
+  A,
+  n,
+  i,
+  frequency = c("annual", "semiannual", "quarter", "bimonth", "month", "daily")
+)
 }
 \arguments{
 \item{A}{numeric vector that contains the annual value(s)}
@@ -37,7 +44,7 @@ Compute P given A
 \details{
 P is expressed as
 
-\deqn{P = A\left[\frac{\left(1 + i\right)^n - 1}{i\left(1 + i\right)^n}\right]}
+	\deqn{P = A\left[\frac{\left(1 + i\right)^n - 1}{i\left(1 + i\right)^n}\right]}
 
 \describe{
 \item{\emph{P}}{the "present equivalent"}
@@ -48,7 +55,7 @@ P is expressed as
 }
 }
 \examples{
-library(iemisc)
+library("iemisc")
 # Example 4-9 from the Reference text (page 133-134)
 PgivenA(20000, 5, 15, "annual") # the interest rate is 15\%
 

@@ -3,7 +3,6 @@
 \docType{package}
 \name{iemisc}
 \alias{iemisc}
-\alias{iemisc-package}
 \title{iemisc: Irucka Embry's miscellaneous functions}
 \description{
 iemisc provides many useful functions. There are statistical analysis [RMS,

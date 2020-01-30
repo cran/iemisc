@@ -55,7 +55,7 @@ The equation to find Manning's n for natural channels is expressed as
 Source: Sturm page 114.
 }
 \examples{
-library(iemisc)
+library("iemisc")
 # Example from Table 4. from the USGS Reference text page 35
 n(nb = 0.025, n4 = 0.005, m = 1.00)
 

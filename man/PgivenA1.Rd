@@ -27,11 +27,11 @@ Compute P given A1
 \details{
 P is expressed as
 
-\deqn{P = \frac{A_1\left[1 - \left(1 + i\right)^{-n}\left(1 + f\right)^{n}\right]}{i - f}, \: where \: f \neq i}
+	\deqn{P = \frac{A_1\left[1 - \left(1 + i\right)^{-n}\left(1 + f\right)^{n}\right]}{i - f}, \: where \: f \neq i}
 
 or
 
-\deqn{P = A_1n\left(1 + i\right)^{-1}, \: where \: f = i}
+  \deqn{P = A_1n\left(1 + i\right)^{-1}, \: where \: f = i}
 
 \describe{
 \item{\emph{P}}{"the present equivalent of the geometric gradient
@@ -43,10 +43,10 @@ or
   \item{\emph{n}}{the "number of interest periods"}
 }
 
-Note: "f can be positive or negative"
+	Note: "f can be positive or negative"
 }
 \examples{
-library(iemisc)
+library("iemisc")
 # Example 4-23 from the Reference text (page 158-159)
 PgivenA1(1000, 25, 20, 4) # i is 25\% and f is 20\%
 
