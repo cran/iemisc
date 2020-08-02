@@ -1,3 +1,8 @@
+# iemisc 0.9.9
+
+* CRAN request for `IAPWS95` package to be corrected or archived which would impact this package. The functions requiring `IAPWS95` have been re-written so that `IAPWS95` can be removed from Imports
+
+
 # iemisc 0.9.8
 
 * CRAN request for `listless` package to be corrected or archived which would impact this package. The functions requiring `listless` have been re-written so that `listless` can be removed from Imports

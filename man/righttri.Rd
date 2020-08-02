@@ -6,9 +6,9 @@
 \title{Right triangle calculations}
 \source{
 \enumerate{
-   \item r - Better error message for stopifnot? - Stack Overflow answered by Andrie on Dec 1 2011. See \url{http://stackoverflow.com/questions/8343509/better-error-message-for-stopifnot}.
-   \item r - switch() statement usage - Stack Overflow answered by Tommy on Oct 19 2011 and edited by Tommy on Mar 6 2012. See \url{http://stackoverflow.com/questions/7825501/switch-statement-usage}.
-   \item Using Switch Statement in R - Stack Overflow answered by Gavin Simpson on Jul 25 2013. See \url{http://stackoverflow.com/questions/17847034/using-switch-statement-in-r}.
+   \item r - Better error message for stopifnot? - Stack Overflow answered by Andrie on Dec 1 2011. See \url{https://stackoverflow.com/questions/8343509/better-error-message-for-stopifnot}.
+   \item r - switch() statement usage - Stack Overflow answered by Tommy on Oct 19 2011 and edited by Tommy on Mar 6 2012. See \url{https://stackoverflow.com/questions/7825501/switch-statement-usage}.
+   \item Using Switch Statement in R - Stack Overflow answered by Gavin Simpson on Jul 25 2013. See \url{https://stackoverflow.com/questions/17847034/using-switch-statement-in-r}.
 }
 }
 \usage{
@@ -66,7 +66,7 @@ righttri(a = 5, c = 10)
 }
 \references{
 \enumerate{
-   \item r - Better error message for stopifnot? - Stack Overflow answered by Andrie on Dec 1 2011. See \url{http://stackoverflow.com/questions/8343509/better-error-message-for-stopifnot}.
+   \item r - Better error message for stopifnot? - Stack Overflow answered by Andrie on Dec 1 2011. See \url{https://stackoverflow.com/questions/8343509/better-error-message-for-stopifnot}.
    \item Masoud Olia, Ph.D., P.E. and Contributing Authors, \emph{Barron’s FE (Fundamentals of Engineering Exam)}, 3rd Edition, Hauppauge, New York: Barron’s Educational Series, Inc., 2015, page 44-45.
    \item Wikimedia Foundation, Inc. Wikipedia, 28 December 2015, “Pythagorean theorem”, \url{https://en.wikipedia.org/wiki/Pythagorean_theorem}.
    \item Wikimedia Foundation, Inc. Wikipedia, 26 November 2015, “Radian”, \url{https://en.wikipedia.org/wiki/Radian}.

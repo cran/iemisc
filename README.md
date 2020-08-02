@@ -11,12 +11,23 @@ install.packages("iemisc")
 ```
 
 
+# Help
+
+With credit due to the `matlab` package, for a complete list of functions and the package DESCRIPTION file, use `R library(help = "iemisc")`
+
+https://www.r-project.org/help.html | Getting Help with R
+help(shm, package = "iemisc")
+help(package = "iemisc")
+
+
+
 
 # Examples (see more examples in the vignette and in the function descriptions)
 
 ```R
 library("iemisc")
 require("stats")
+
 
 # 1)
 set.seed(200) # makes the example reproducible

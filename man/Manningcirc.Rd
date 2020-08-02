@@ -6,7 +6,7 @@
 \alias{Manningcircy}
 \title{Circular cross-section using the Gauckler-Manning-Strickler equation}
 \source{
-r - Better error message for stopifnot? - Stack Overflow answered by Andrie on Dec 1 2011. See \url{http://stackoverflow.com/questions/8343509/better-error-message-for-stopifnot}.
+r - Better error message for stopifnot? - Stack Overflow answered by Andrie on Dec 1 2011. See \url{https://stackoverflow.com/questions/8343509/better-error-message-for-stopifnot}.
 }
 \usage{
 Manningcirc(
