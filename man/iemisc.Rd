@@ -6,13 +6,24 @@
 \title{iemisc: Irucka Embry's miscellaneous functions}
 \description{
 iemisc provides many useful functions. There are statistical analysis [RMS,
-coefficient of variation (CV), approximate and relative error, range,
-harmonic mean, geometric mean], engineering economics (benefit-cost,
-future value, present value, annual value, gradients, interest, periods,
-etc.), geometry (sphere volume and right triangle), civil & environmental/
-water resources engineering (Air Stripper, Concrete Mix Design for Normal Strength &
-Structural Lightweight Concrete, Manning's n,
-Gauckler-Manning-Strickler equation for geometric cross-sections), a
-version of linear interpolation for use with NAs, & GNU Octave/MATLAB
-compatible size, numel, and length_octave functions.
+approximate and relative error, maximum mean relative error (MAXRE), and
+mean relative error (MRE), coefficient of variation (CV), range, harmonic
+mean, geometric mean], engineering economics (benefit-cost, future value,
+present value, annual value, gradients, interest, periods, etc.), geometry
+(polygon area, sphere volume, and right triangle validation), civil &
+environmental/water resources engineering [Concrete Mix Design for Normal
+Strength & Structural Lightweight Concrete, Construction Measurements with
+and without Fractions, Engineering Surveying Calculations, Air Stripping,
+Saturated Vapor Pressure for Ice and Water, Density of Water, Dynamic and
+Kinematic Viscosity of Water, Specific Gravity and Volume, Unit Weight,
+Surface Tension of Water, Weighted C Factor, Weighted Curve Number, Darcy
+friction factor (f), the Reynolds number, Manning's n,
+Gauckler-Manning-Strickler equations for open channel flow], quick search,
+mortality rate calculations, proportion solver, sum of all digits in a
+vector to a single integer, string manipulation, a version of linear
+interpolation for use with NAs, Python compatible floor division function,
+GNU Octave/MATLAB compatible trigonometric functions in degrees, GNU
+Octave/MATLAB compatible section properties, remainder, modulus, number of
+dimensions, row vector and column vector tests, fractional differences,
+size, numel, and length functions.
 }

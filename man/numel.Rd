@@ -29,60 +29,28 @@ Obtain the number of elements of R objects [arrays, matrices, and vectors
 documentation from \code{\link[base]{length}}.
 }
 \examples{
+
 library("iemisc")
-import::from(pracma, ones)
+
+import::from(matlab, ones)
+
 xx <- list(1:26, 1:10)
+
 numel(xx)
 
-# Examples from GNU Octave numel
-a <- 1
-b <- ones(2, 3)
-numel(a, b)
-
-a <- 2
-b <- ones(2, 3)
-c <- ones(3, 4)
-numel(a, b)
-numel(a, b, c)
-
-f <- matrix(c(10, 12, 23, 21, 62, 93), nrow = 2, ncol = 3, byrow = TRUE)
-g <- c(2, 4)
-numel(f, g)
 
 
-\dontrun{
-# check against GNU Octave
-library(RcppOctave) # requires Octave (>= 3.2.4) and its development files
-o_source(text = "
-xx = {1:26, 1:10}
-
-\\% Examples from GNU Octave numel
-a = 1;
-b = ones(2, 3);
-numel(a, b)
-
-a = 2;
-b = ones(2, 3);
-c = ones(3, 4);
-numel(a, b)
-numel(a, b, c)
-
-f = [10 12 23; 21 62 93];
-g = [2 4];
-numel(f, g)
-")
-}
 
 
 }
 \references{
 \enumerate{
-   \item Samit Basu (2002-2006). FreeMat v4.0, \url{http://freemat.sourceforge.net/}.
-   \item John W. Eaton, David Bateman, and Søren Hauberg (2009). \emph{GNU Octave version 3.0.1 manual: a high-level interactive language for numerical computations}. CreateSpace Independent Publishing Platform. ISBN 1441413006, URL \url{http://www.gnu.org/software/octave/doc/interpreter/}. Page 41.
+   \item Samit Basu (2002-2006). FreeMat v4.0, \url{https://freemat.sourceforge.net/help/inspection_numel.html}.
+   \item John W. Eaton, David Bateman, Søren Hauberg, and Rik Wehbring (November 2022). \emph{GNU Octave: A high-level interactive language for numerical computations: Edition 7 for Octave version 7.3.0}. \url{https://docs.octave.org/octave.pdf}. Page 46-47.
 }
 }
 \seealso{
-\code{\link[matlab]{numel}}, \code{\link[pracma]{numel}}, \code{\link{size}}, \code{\link{length}}
+\code{\link[matlab]{numel}}, \code{\link[pracma]{numel}}, \code{\link{size}}, \code{\link[base]{length}}, \code{\link{length_octave}}
 }
 \author{
 Irucka Embry, Samit Basu (FreeMat)

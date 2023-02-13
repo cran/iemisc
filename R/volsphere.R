@@ -17,19 +17,33 @@
 #' @param r numeric vector, matrix, data.frame, or data.table
 #'   that contains the radius of a sphere.
 #'
-#' @return volume of a sphere (as L^3 units) as an R object: a numeric \code{\link{vector}}
-#'   or a named numeric vector if using a named object (\code{\link{matrix}}, \code{\link{data.frame}},
-#'   or \code{\link{data.table}}).
+#' @return volume of a sphere (as L^3 units) as an R object: a numeric \code{\link[base]{vector}}
+#'   or a named numeric vector if using a named object (\code{\link[base]{matrix}}, \code{\link[base]{data.frame}},
+#'   or \code{\link[data.table]{data.table}}).
+#'
+#'
 #'
 #' @references
-#' Wikimedia Foundation, Inc. Wikipedia, 30 December 2015, “Volume”, \url{https://en.wikipedia.org/wiki/Volume}.
+#' Wikimedia Foundation, Inc. Wikipedia, 30 December 2015, "Volume", \url{https://en.wikipedia.org/wiki/Volume}.
+#'
+#'
+#'
+#'
+#' @author Irucka Embry
+#'
+#'
 #'
 #' @encoding UTF-8
 #'
 #'
+#'
+#'
+#'
+#'
+#'
 #' @examples
-#' library("iemisc")
-#' library("data.table")
+#'
+#' install.load::load_package("iemisc", "data.table")
 #'
 #' volsphere(3) # in
 #'
@@ -56,7 +70,7 @@
 #' volsphere(df2)
 #'
 #'
-#'
+#' @importFrom data.table is.data.table
 #'
 #' @export
 volsphere <- function (r) {

@@ -46,16 +46,21 @@ or
 	Note: "f can be positive or negative"
 }
 \examples{
+
 library("iemisc")
+
 # Example 4-23 from the Reference text (page 158-159)
-PgivenA1(1000, 25, 20, 4) # i is 25\% and f is 20\%
+PgivenA1(A1 = 1000, i = 25, f = 20, n = 4) # i is 25\\% and f is 20\\%
 
 
 # Example 4-24 from the Reference text (page 159)
-PgivenA1(1000, 25, -20, 4) # i is 25\% and f is -20\%
+PgivenA1(A1 = 1000, i = 25, f = -20, n = 4) # i is 25\\% and f is -20\\%
 
 
 }
 \references{
 William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 156-159.
+}
+\author{
+Irucka Embry
 }

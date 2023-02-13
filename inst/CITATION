@@ -1,13 +1,5 @@
-citHeader("To cite iemisc in publications use:")
-
-citEntry(entry = "Manual",
-  title        = "Irucka Embry's miscellaneous R functions",
-  author       = personList(as.person("Irucka Embry, E.I.T.")),
-  year         = "2016-2019",
-  url          = "https://gitlab.com/iembry/iemisc",
-
-  textVersion  =
-  paste("Irucka Embry, E.I.T. (2016-2019).",
-        "Irucka Embry's miscellaneous R functions.",
-        "URL https://gitlab.com/iembry/iemisc.")
+bibentry(bibtype = "Misc",
+title = "Irucka Embry's miscellaneous R functions",
+author = c(person("Irucka", c("Embry", "E.I.T."))),
+year = "2016-2023", url = "https://gitlab.com/iembry/iemisc"
 )

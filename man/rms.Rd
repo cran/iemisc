@@ -33,17 +33,24 @@ RMS is expressed as
 }
 }
 \examples{
+
 library("iemisc")
+
 samp <- c(0.5, 100, 1000.25, 345, 0.0213, 0, 45, 99, 23, 11, 1, 89, 0, 34,
         65, 98, 3)
+
 rms(samp)
+
 
 }
 \references{
-Masoud Olia, Ph.D., P.E. and Contributing Authors, \emph{Barron’s FE (Fundamentals of Engineering Exam)}, 3rd Edition, Hauppauge, New York: Barron’s Educational Series, Inc., 2015, page 84.
+Masoud Olia, Ph.D., P.E. and Contributing Authors, \emph{Barron's FE (Fundamentals of Engineering Exam)}, 3rd Edition, Hauppauge, New York: Barron's Educational Series, Inc., 2015, page 84.
 }
 \seealso{
 \code{\link{sgm}} for geometric mean, \code{\link{shm}} for harmonic mean, \code{\link{cv}}
  for coefficient of variation (CV), \code{\link{relerror}} for relative error,
  \code{\link{approxerror}} for approximate error, and \code{\link{ranges}} for sample range.
+}
+\author{
+Irucka Embry
 }

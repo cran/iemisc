@@ -8,7 +8,7 @@
 nc3(P, n, R)
 }
 \arguments{
-\item{P}{numeric vector that contains "wetted perimeter of any section i"}
+\item{P}{numeric vector that contains "wetted perimeters of any section i"}
 
 \item{n}{numeric vector that contains "Manning's n of any section i"}
 
@@ -31,17 +31,19 @@ The equation to find Manning's composite n using the Lotter method is
 
 \describe{
 \item{\emph{\eqn{n_c}}}{Manning's composite n}
-\item{\emph{P}}{"wetted perimeter of the entire cross section"}
+\item{\emph{P}}{"wetted perimeters of the entire cross section"}
 \item{\emph{R}}{"hydraulic radius of the entire cross section"}
-\item{\emph{\eqn{P_i}}}{"wetted perimeter of any section i"}
+\item{\emph{\eqn{P_i}}}{"wetted perimeters of any section i"}
 \item{\emph{\eqn{R_i}}}{"hydraulic radius of any section i"}
 \item{\emph{\eqn{n_i}}}{"Manning's n of any section i"}
 \item{\emph{N}}{"total number of sections into which the wetted
-       perimeter and hydraulic radius are divided"}
+       perimeters and hydraulic radius are divided"}
 }
 }
 \examples{
+
 library("iemisc")
+
 nc3(n = c(0.0024, 0.035), P = c(23.65, 36.08), R = c(2.02, 6.23))
 
 
@@ -56,4 +58,7 @@ nc3(n = c(0.0024, 0.035), P = c(23.65, 36.08), R = c(2.02, 6.23))
   for Horton method for composite Manning's n, \code{\link{nc2}} for
   Einstein and Banks method for composite Manning's n, and \code{\link{nc4}}
   for Krishnamurthy and Christensen method for composite Manning's n.
+}
+\author{
+Irucka Embry
 }

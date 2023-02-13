@@ -15,7 +15,7 @@ value(s)}
 value(s)}
 }
 \value{
-approximate error, as a percent (\%), as a numeric \code{\link{vector}}.
+approximate error, as a percent (\%), as a numeric \code{\link[base]{vector}}.
 }
 \description{
 This function computes the "approximate estimate of the error" ("percent relative error").
@@ -32,8 +32,11 @@ Approximate error is expressed as
 }
 }
 \examples{
+
 library("iemisc")
+
 # Example 4.1 from the Reference text (page 84)
+
 approxerror(1.5, 1) # answer as a percent (\\%)
 
 
@@ -46,4 +49,7 @@ Steven C. Chapra, \emph{Applied Numerical Methods with MATLAB for Engineers and 
 \code{\link{sgm}} for geometric mean, \code{\link{shm}} for harmonic mean, \code{\link{cv}} for
  coefficient of variation (CV), \code{\link{rms}} for root-mean-square (RMS), \code{\link{relerror}}
  for relative error, and \code{\link{ranges}} for sample range.
+}
+\author{
+Irucka Embry
 }

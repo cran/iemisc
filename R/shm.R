@@ -24,10 +24,24 @@
 #'   any NA values will be kept (\code{na.rm = FALSE}). This can be changed by
 #'   specifying \code{na.rm = TRUE}, such as \code{shm(x, na.rm = TRUE)}.
 #'
+#'
+#'
 #' @references
 #' Nathabandu T. Kottegoda and Renzo Rosso, \emph{Statistics, Probability, and Reliability for Civil and Environmental Engineers}, New York City, New York: The McGraw-Hill Companies, Inc., 1997, page 13.
 #'
+#'
+#'
+#'
+#' @author Irucka Embry
+#'
+#'
+#'
 #' @encoding UTF-8
+#'
+#'
+#'
+#'
+#'
 #'
 #'
 #' @seealso \code{\link[base]{mean}} for arithmetic mean
@@ -48,10 +62,11 @@
 #'
 #'
 #' @examples
-#' library("iemisc")
-#' library("data.table")
 #'
 #' # Example 1.12 from Kottegoda (page 13)
+#'
+#' install.load::load_package("iemisc", "data.table")
+#'
 #' x <- c(0.20, 0.24, 0.16) # stream velocities in m/s
 #' shm(x)
 #'
@@ -71,8 +86,18 @@
 #' shm(df2)
 #'
 #'
+#'
+#' @importFrom checkmate qtest
+#' @importFrom assertthat assert_that
+#' @importFrom data.table is.data.table
+#'
+#'
 #' @export
 shm <- function (x, na.rm = FALSE) {
+
+# Check
+assert_that(qtest(na.rm, "B==1"), msg = "There is not a logical value for na.rm or more than 1 logical value for na.rm.")
+# only process with enough known variables and provide an error message if the check fails
 
 # The moments::kurtosis code has been helpful with regards to the treatment of na.rm
 
@@ -138,7 +163,19 @@ else shm(as.vector(x), na.rm = na.rm)
 #' @references
 #' Nathabandu T. Kottegoda and Renzo Rosso, \emph{Statistics, Probability, and Reliability for Civil and Environmental Engineers}, New York City, New York: The McGraw-Hill Companies, Inc., 1997, page 13.
 #'
+#'
+#'
+#'
+#' @author Irucka Embry
+#'
+#'
+#'
 #' @encoding UTF-8
+#'
+#'
+#'
+#'
+#'
 #'
 #'
 #' @seealso \code{\link[base]{mean}} for arithmetic mean
@@ -158,18 +195,33 @@ else shm(as.vector(x), na.rm = na.rm)
 #'
 #'
 #' @examples
-#' library("iemisc")
+#'
 #' # Example 1.13 from Kottegoda (page 13)
+#'
+#' library("iemisc")
+#'
 #' city_pop <- c(230000, 310000)
 #' sgm(city_pop)
 #'
 #' # Compare the geometric mean to the arithmetic mean
 #' mean(city_pop)
 #'
-#' @importFrom pracma nthroot
+#'
+#'
+#' @importFrom checkmate qtest
+#' @importFrom assertthat assert_that
+#'
 #'
 #' @export
 sgm <- function (x, na.rm = FALSE) {
+
+# Check
+assert_that(!any(qtest(x, "N+(,)") == FALSE), msg = "Either x is NA, NaN, Inf, -Inf, empty, or a string. Please try again.")
+# only process with finite values and provide an error message if the check fails
+
+assert_that(qtest(na.rm, "B==1"), msg = "There is not a logical value for na.rm or more than 1 logical value for na.rm.")
+# only process with enough known variables and provide an error message if the check fails
+
 
 # The moments::kurtosis code has been helpful with regards to the treatment of na.rm
 

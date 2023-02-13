@@ -54,14 +54,20 @@ P is expressed as
 }
 }
 \examples{
+
 library("iemisc")
+
 # Example 4-4 from the Reference text (page 128)
 PgivenF(10000, 6, 8, "annual") # the interest rate is 8\%
 
 PF(10000, 6, 8, "annual") # the interest rate is 8\%
 
 
+
 }
 \references{
 William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 128, 142, 164.
+}
+\author{
+Irucka Embry
 }

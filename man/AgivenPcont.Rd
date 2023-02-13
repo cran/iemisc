@@ -37,14 +37,18 @@ A is expressed as
 }
 }
 \examples{
-library("iemisc")
-# Example for equation 4-34 from the Reference text (page 170)
-AgivenPcont(1000, 10, 20) # 20\% interest
 
+library("iemisc")
+
+# Example for equation 4-34 from the Reference text (page 170)
+AgivenPcont(1000, 10, 20) # 20\\% interest
 
 
 
 }
 \references{
 William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 169-170.
+}
+\author{
+Irucka Embry
 }

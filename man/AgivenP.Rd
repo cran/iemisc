@@ -55,13 +55,15 @@ A is expressed as
 }
 }
 \examples{
+
 library("iemisc")
+
 # Example for equation 4-14 from the Reference text (page 136)
 AgivenP(17000, 4, 1, "annual")
-# the interest rate is 1\% per month and n is 4 months
+# the interest rate is 1\\% per month and n is 4 months
 
 AP(17000, 4, 1, "annual")
-# the interest rate is 1\% per month and n is 4 months
+# the interest rate is 1\\% per month and n is 4 months
 
 
 # Example 4-30 from the Reference text (page 166)
@@ -76,4 +78,7 @@ AP(10000, 5, 12, "month")
 }
 \references{
 William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 136, 142, 164, 166.
+}
+\author{
+Irucka Embry
 }

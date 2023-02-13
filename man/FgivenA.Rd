@@ -55,14 +55,19 @@ F is expressed as
 }
 }
 \examples{
-library("iemisc")
-# Example 4-7 from the Reference text (page 131-132)
-FgivenA(23000, 40, 6, "annual") # the interest rate is 6\%
 
-FA(23000, 40, 6, "annual") # the interest rate is 6\%
+library("iemisc")
+
+# Example 4-7 from the Reference text (page 131-132)
+FgivenA(23000, 40, 6, "annual") # the interest rate is 6\\%
+
+FA(23000, 40, 6, "annual") # the interest rate is 6\\%
 
 
 }
 \references{
 William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 131-132, 142, 164.
+}
+\author{
+Irucka Embry
 }

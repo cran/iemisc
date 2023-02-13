@@ -36,10 +36,11 @@ Harmonic mean is expressed as
   applied in situations where the reciprocal of a variable is averaged."
 }
 \examples{
-library("iemisc")
-library("data.table")
 
 # Example 1.12 from Kottegoda (page 13)
+
+install.load::load_package("iemisc", "data.table")
+
 x <- c(0.20, 0.24, 0.16) # stream velocities in m/s
 shm(x)
 
@@ -59,6 +60,7 @@ df2 <- data.table(x)
 shm(df2)
 
 
+
 }
 \references{
 Nathabandu T. Kottegoda and Renzo Rosso, \emph{Statistics, Probability, and Reliability for Civil and Environmental Engineers}, New York City, New York: The McGraw-Hill Companies, Inc., 1997, page 13.
@@ -70,4 +72,7 @@ Nathabandu T. Kottegoda and Renzo Rosso, \emph{Statistics, Probability, and Reli
  variation (CV), \code{\link{relerror}} for relative error, \code{\link{approxerror}} for
  approximate error, \code{\link{rms}} for root-mean-square (RMS), and \code{\link{ranges}}
  for sample range.
+}
+\author{
+Irucka Embry
 }

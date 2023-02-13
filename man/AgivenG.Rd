@@ -42,13 +42,15 @@ Compute A given G
 }
 }
 \examples{
+
 library("iemisc")
+
 # Example 4-20 from the Reference text (pages 153-154)
-  AgivenG(1000, 4, 15, "annual") # the interest rate is 15\%
+  AgivenG(1000, 4, 15, "annual") # the interest rate is 15\\%
 
 
 # Example 4-31 from the Reference text (pages 166-167)
-  AgivenG(1000, 4, 20, "semiannual") # the nominal interest rate is 20\% compounded semiannually
+  AgivenG(1000, 4, 20, "semiannual") # the nominal interest rate is 20\\% compounded semiannually
 
 
 
@@ -56,4 +58,7 @@ library("iemisc")
 }
 \references{
 William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 142, 150, 152-154, 164, 166-167.
+}
+\author{
+Irucka Embry
 }

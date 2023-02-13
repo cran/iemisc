@@ -32,57 +32,75 @@
 #'    \item r - Better error message for stopifnot? - Stack Overflow answered by Andrie on Dec 1 2011. See \url{https://stackoverflow.com/questions/8343509/better-error-message-for-stopifnot}.
 #'    \item r - switch() statement usage - Stack Overflow answered by Tommy on Oct 19 2011 and edited by Tommy on Mar 6 2012. See \url{https://stackoverflow.com/questions/7825501/switch-statement-usage}.
 #'    \item Using Switch Statement in R - Stack Overflow answered by Gavin Simpson on Jul 25 2013. See \url{https://stackoverflow.com/questions/17847034/using-switch-statement-in-r}.
+#'    \item r - How to not run an example using roxygen2? - Stack Overflow answered and edited by samkart on Jul 9 2017. (Also see the additional comments in response to the answer.) See \url{https://stackoverflow.com/questions/12038160/how-to-not-run-an-example-using-roxygen2}.
+#'    \item devtools - Issues in R package after CRAN asked to replace dontrun by donttest - Stack Overflow answered by Hong Ooi on Sep 1 2020. (Also see the additional comments in response to the answer.) See \url{https://stackoverflow.com/questions/63693563/issues-in-r-package-after-cran-asked-to-replace-dontrun-by-donttest}.
 #' }
 #'
 #'
 #' @references
 #' \enumerate{
 #'    \item r - Better error message for stopifnot? - Stack Overflow answered by Andrie on Dec 1 2011. See \url{https://stackoverflow.com/questions/8343509/better-error-message-for-stopifnot}.
-#'    \item Masoud Olia, Ph.D., P.E. and Contributing Authors, \emph{Barron’s FE (Fundamentals of Engineering Exam)}, 3rd Edition, Hauppauge, New York: Barron’s Educational Series, Inc., 2015, page 44-45.
-#'    \item Wikimedia Foundation, Inc. Wikipedia, 28 December 2015, “Pythagorean theorem”, \url{https://en.wikipedia.org/wiki/Pythagorean_theorem}.
-#'    \item Wikimedia Foundation, Inc. Wikipedia, 26 November 2015, “Radian”, \url{https://en.wikipedia.org/wiki/Radian}.
-#'    \item Wikimedia Foundation, Inc. Wikipedia, 9 December 2015, “Right triangle”, \url{https://en.wikipedia.org/wiki/Right_triangle}.
+#'    \item Masoud Olia, Ph.D., P.E. and Contributing Authors, \emph{Barron's FE (Fundamentals of Engineering Exam)}, 3rd Edition, Hauppauge, New York: Barron's Educational Series, Inc., 2015, page 44-45.
+#'    \item Wikimedia Foundation, Inc. Wikipedia, 28 December 2015, "Pythagorean theorem", \url{https://en.wikipedia.org/wiki/Pythagorean_theorem}.
+#'    \item Wikimedia Foundation, Inc. Wikipedia, 26 November 2015, "Radian", \url{https://en.wikipedia.org/wiki/Radian}.
+#'    \item Wikimedia Foundation, Inc. Wikipedia, 9 December 2015, "Right triangle", \url{https://en.wikipedia.org/wiki/Right_triangle}.
 #' }
+#'
+#'
+#'
+#'
+#'
+#' @author Irucka Embry
+#'
 #'
 #'
 #' @encoding UTF-8
 #'
 #'
+#'
+#'
+#'
+#'
+#'
 #' @examples
+#'
 #' library("iemisc")
-#' \dontrun{
-#' righttri(0, 2) # a = 0, b = 2
 #'
-#' righttri(1, 2) # a = 1, b = 2
+#' righttri(a = 3, b = 4, c = 5)
 #'
-#' righttri(a = 5, c = 10)
 #'
-#' righttri(a = 3, c = 5)
 #'
-#' righttri(a = 5, c = 10)
+#'
+#' \donttest{
+#' # See Source 4 and Source 5
+#'
+#' library("iemisc")
+#'
+#' try(righttri(0, 2)) # a = 0, b = 2
+#'
+#' try(righttri(1, 2)) # a = 1, b = 2
+#'
+#' try(righttri(a = 5, c = 10))
+#'
+#' try(righttri(a = 3, c = 10))
 #' }
 #'
 #'
 #'
+#'
+#'
+#'
+#' @importFrom checkmate qtest
+#' @importFrom assertthat assert_that
 #'
 #' @export
 righttri <- function (a = NULL, b = NULL, c = NULL) {
 
 checks <- c(a, b, c)
 
-if (length(checks) < 2) {
+assert_that(!any(all(qtest(checks, "N<=3(0,)") & qtest(checks, "N>1(0,)")) == FALSE), msg = "Either a, b, or c is 0, NA, NaN, Inf, -Inf, empty, or a string. Or, there are not at least 2 sides.  Please try again.")
+# only process with finite values with a length of either 2 or 3 and provide an error message if the check fails
 
-stop("There are not at least 2 sides. Try again with at least 2 sides.")
-# Source 1 / only process with at least 2 known sides and provide a stop warning if this is not true
-
-} else {
-
-if (any(checks == 0)) {
-
-stop("Either a, b, or c is 0. Neither a nor b nor c can be 0. Try again.")
-# Source 1 / only process with a non-zero value for a, b, and c and provide a stop warning if a, b, or c = 0
-
-} else {
 
 if (missing(c)) {
 
@@ -104,12 +122,15 @@ b <- sqrt(bsquared) # sqrt(bsquared) = sqrt(b ^ 2) = b (the missing side)
 
 }
 
+
 csquared <- a ^ 2 + b ^ 2 # csquared = c ^ 2
 
 c <- sqrt(csquared) # sqrt(csquared) = sqrt(c ^ 2) = c (the missing hypotenuse)
 
 a1 <- a
 b1 <- b
+
+
 
 if (a <= b & b < c) {
 
@@ -132,7 +153,7 @@ R <- c / 2 # radius of circumcircle
 
 r <- (a + b - c) / 2 # radius of the incircle of a right triangle
 
-s <- (a + b + c) / 2 # semi-perimeter
+s <- (a + b + c) / 2 # semi-perimeters
 
 Aanglerad <- atan(a / b) # radians
 Aangle <- Aanglerad * (180 / pi) # degrees
@@ -161,12 +182,11 @@ checked <- c(check1a, check1b, check2, check3, check4, check5, check6, check7)
 
 if (all(checked) == FALSE) {
 
-  cat("This is not a right triangle so the Pythagorean theorem will not work.\n")
-
+assert_that(any(checked) == FALSE, msg = "This is not a right triangle so the Pythagorean theorem will not work.")
+# message that the given sides do not produce a right triangle
+  
 } else {
 
 return(list(a = a, b = b, c = c, Aangle = Aangle, Bangle = Bangle, Cangle = Cangle))
-}
-}
 }
 }

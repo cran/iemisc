@@ -56,8 +56,12 @@ Source: Sturm page 114.
 }
 \examples{
 library("iemisc")
+
 # Example from Table 4. from the USGS Reference text page 35
 n(nb = 0.025, n4 = 0.005, m = 1.00)
+
+
+
 
 
 }
@@ -73,4 +77,7 @@ n(nb = 0.025, n4 = 0.005, m = 1.00)
  Einstein and Banks method for composite Manning's n, \code{\link{nc3}} for
  Lotter method for composite Manning's n, and \code{\link{nc4}} for
  Krishnamurthy and Christensen method for composite Manning's n.
+}
+\author{
+Irucka Embry
 }

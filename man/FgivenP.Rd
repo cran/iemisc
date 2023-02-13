@@ -54,26 +54,31 @@ F is expressed as
 }
 }
 \examples{
-library("iemisc")
-# Example 4-3 from the Reference text (page 124)
-FgivenP(8000, 4, 10, frequency = "annual") # the interest rate is 10\%
 
-FP(8000, 4, 10, frequency = "annual") # the interest rate is 10\%
+library("iemisc")
+
+# Example 4-3 from the Reference text (page 124)
+FgivenP(8000, 4, 10, frequency = "annual") # the interest rate is 10\\%
+
+FP(8000, 4, 10, frequency = "annual") # the interest rate is 10\\%
 
 
 FgivenP(P = c(1000, 340, 23), n = c(12, 1.3, 3), i = c(10, 2, 0.3),
 "annual")
-# is is 10\%, 2\%, and 0.3\%
+# is is 10\\%, 2\\%, and 0.3\%
 # Can't use FP for this example
 
 
 # Example 4-29 from the Reference text (page 165-166)
-FgivenP(100, 10, 6, "quarter") # the interest rate is 6\% per quarter
+FgivenP(100, 10, 6, "quarter") # the interest rate is 6\\% per quarter
 
-FP(100, 10, 6, "quarter") # the interest rate is 6\% per quarter
+FP(100, 10, 6, "quarter") # the interest rate is 6\\% per quarter
 
 
 }
 \references{
 William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 124, 142, 164-166.
+}
+\author{
+Irucka Embry
 }

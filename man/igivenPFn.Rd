@@ -30,12 +30,15 @@ i is expressed as
 \item{\emph{i}}{the "effective interest rate per interest period"}
 \item{\emph{F}}{the "future equivalent"}
 \item{\emph{P}}{the "present equivalent"}
-\item{\emph{n}}{the "number of interest periods}
+\item{\emph{n}}{the "number of interest periods"}
 }
 }
 \examples{
-library("iemisc")
+
 # Example for equation 4-6 from the Reference text (page 128)
+
+library("iemisc")
+
 igivenPFn(P = 500, F = 1000, n = 10)
 
 
@@ -43,4 +46,7 @@ igivenPFn(P = 500, F = 1000, n = 10)
 }
 \references{
 William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 128-129, 142.
+}
+\author{
+Irucka Embry
 }

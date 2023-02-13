@@ -44,7 +44,9 @@ Compound Interest is expressed as
 }
 }
 \examples{
+
 library("iemisc")
+
 # Compound Interest example from SFPE Reference text
 CompIntPaid(100, 5, 10, frequency = "annual") # the interest rate is 10\%
 
@@ -54,8 +56,11 @@ CompIntPaid(100, 5, 10, frequency = "annual") # the interest rate is 10\%
 }
 \references{
 \enumerate{
- \item \emph{SFPE Handbook of Fire Protection Engineering}. 3rd Edition, DiNenno, P. J.; Drysdale, D.; Beyler, C. L.; Walton, W. D., Editor(s), 5/93-104 p., 2002. Chapter 7; Section 5; NFPA HFPE-02. See \url{http://fire.nist.gov/bfrlpubs//build02/art155.html}.
+ \item \emph{SFPE Handbook of Fire Protection Engineering}. 3rd Edition, DiNenno, P. J.; Drysdale, D.; Beyler, C. L.; Walton, W. D., Editor(s), page 5-94, 2002. Chapter 7; Section 5; NFPA HFPE-02. See \url{https://web.archive.org/web/20180127185316/http://fire.nist.gov/bfrlpubs/build02/PDF/b02155.pdf}.
  \item William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 120.
-\item Chinyere Onwubiko, \emph{An Introduction to Engineering}, Mission, Kansas: Schroff Development Corporation, 1997, page 205-206.
+\item Chinyere Onwubiko, \emph{An Introduction to Engineering}, Mission, Kansas: Schroff Development Corporation, 1997, pages 205-206.
 }
+}
+\author{
+Irucka Embry
 }

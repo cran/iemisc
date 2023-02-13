@@ -27,21 +27,40 @@
 #' @return FA data.frame of both n (0 to n) and the resulting future values
 #'    rounded to 2 decimal places
 #'
+#'
+#'
 #' @references
 #' William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 131-132, 142, 164.
+#'
+#'
+#'
+#'
+#' @author Irucka Embry
+#'
+#'
 #'
 #' @encoding UTF-8
 #'
 #'
+#'
+#'
+#'
+#'
+#'
 #' @examples
+#' 
 #' library("iemisc")
+#'
 #' # Example 4-7 from the Reference text (page 131-132)
-#' FgivenA(23000, 40, 6, "annual") # the interest rate is 6%
+#' FgivenA(23000, 40, 6, "annual") # the interest rate is 6\%
 #'
-#' FA(23000, 40, 6, "annual") # the interest rate is 6%
+#' FA(23000, 40, 6, "annual") # the interest rate is 6\%
 #'
 #'
-#' @import data.table
+#' @importFrom assertthat assert_that
+#' @importFrom checkmate qtest
+#' @importFrom data.table data.table setnames setDF
+#' @importFrom round round_r3
 #'
 #' @name FgivenA
 NULL
@@ -49,6 +68,24 @@ NULL
 #' @export
 #' @rdname FgivenA
 FgivenA <- function (A, n, i, frequency = c("annual", "semiannual", "quarter", "bimonth", "month", "daily")) {
+
+
+frequency <- frequency
+
+checks <- c(A, n, i)
+
+# Check
+assert_that(!any(qtest(checks, "N+(0,)") == FALSE), msg = "Either A, n, or i is 0, NA, NaN, Inf, -Inf, empty, or a string. Please try again.")
+# only process with finite values and provide an error message if the check fails
+
+assert_that(qtest(frequency, "S==1"), msg = "There is not a frequency or more than 1 frequency is stated. Please specify either 'annual', 'semiannual', 'quarter', 'bimonth', 'month', or 'daily'.")
+# only process with enough known variables and provide an error message if the check fails
+
+assert_that(isTRUE(any(c("annual", "semiannual", "quarter", "bimonth", "month", "daily") %in% frequency)), msg = "Incorrect frequency. The only options are annual, semiannual, quarter, bimonth, month, daily. Please try again.")
+# only process with a specified frequency and provide a stop warning if not
+
+
+
 
 i <- i / 100
 
@@ -62,7 +99,7 @@ i <- i / fr
 
 FgivenA <- A * (((1 + i) ^ n - 1) / i)
 
-return(round(FgivenA, digits = 2))
+return(round_r3(FgivenA, d = 2))
 
 } else if (fr == "semiannual") {
 
@@ -73,7 +110,7 @@ i <- i / fr
 
 FgivenA <- A * (((1 + i) ^ n - 1) / i)
 
-return(round(FgivenA, digits = 2))
+return(round_r3(FgivenA, d = 2))
 
 } else if (fr == "quarter") {
 
@@ -84,7 +121,7 @@ i <- i / fr
 
 FgivenA <- A * (((1 + i) ^ n - 1) / i)
 
-return(round(FgivenA, digits = 2))
+return(round_r3(FgivenA, d = 2))
 
 } else if (fr == "bimonth") {
 
@@ -95,7 +132,7 @@ i <- i / fr
 
 FgivenA <- A * (((1 + i) ^ n - 1) / i)
 
-return(round(FgivenA, digits = 2))
+return(round_r3(FgivenA, d = 2))
 
 } else if (fr == "month") {
 
@@ -106,7 +143,7 @@ i <- i / fr
 
 FgivenA <- A * (((1 + i) ^ n - 1) / i)
 
-return(round(FgivenA, digits = 2))
+return(round_r3(FgivenA, d = 2))
 
 } else if (fr == "daily") {
 
@@ -117,7 +154,7 @@ i <- i / fr
 
 FgivenA <- A * (((1 + i) ^ n - 1) / i)
 
-return(round(FgivenA, digits = 2))
+return(round_r3(FgivenA, d = 2))
 
 }
 }
@@ -128,6 +165,27 @@ return(round(FgivenA, digits = 2))
 #' @rdname FgivenA
 FA <- function (A, n, i, frequency = c("annual", "semiannual", "quarter", "bimonth", "month", "daily")) {
 
+frequency <- frequency
+
+
+# check on A, n, i, and frequency
+assert_that(!any(qtest(A, "N==1(,)") == FALSE), msg = "A is NA, NaN, Inf, -Inf, empty, or a string. Or, A has more than 1 value. Please check the A value and try again.")
+# only process with enough known variables and provide an error message if the check fails
+
+assert_that(!any(qtest(n, "N==1(,)") == FALSE), msg = "n is NA, NaN, Inf, -Inf, empty, or a string. Or, n has more than 1 value. Please check the n value and try again.")
+# only process with enough known variables and provide an error message if the check fails
+
+assert_that(!any(qtest(i, "N==1(,)") == FALSE), msg = "i is NA, NaN, Inf, -Inf, empty, or a string. Or, i has more than 1 value. Please check the i value and try again.")
+# only process with enough known variables and provide an error message if the check fails
+
+
+assert_that(qtest(frequency, "S==1"), msg = "There is not a frequency type or more than 1 frequency type.")
+# only process with enough known variables and provide an error message if the check fails
+
+assert_that(isTRUE(any(c("annual", "semiannual", "quarter", "bimonth", "month", "daily") %in% frequency)), msg = "The unit system has not been identified correctly as either 'annual', 'semiannual', 'quarter', 'bimonth', 'month', or 'daily'. Please try again.")
+# only process with a specified unit and provide a stop warning if not
+
+
 i <- i / 100
 
 fr <- frequency
@@ -152,9 +210,28 @@ F0 <- setnames(F0, 2, "V2")
 FA <- rbind(F0, FA)
 
 setnames(FA, c("n (periods)", "Future Worth ($US)"))
-FA <- setDF(FA)
 
-return(round(FA, digits = 2))
+
+# Round the numeric values to 2 decimal places
+cols <- "Future Worth ($US)"
+
+for (col in cols) {
+
+idx <- which(!is.na(FA[[col]]))
+
+data.table::set(FA, i = idx, j = col, value = round_r3(FA[[col]][idx], d = 2))
+
+}
+
+
+
+col.names <- c("n (periods)", "Future Worth ($US)")
+
+# code block below modified from data.table function
+setattr(FA, "col.names", setnames(FA, col.names))
+setattr(FA, "class", c("data.table", "data.frame"))
+FA
+
 
 } else if (fr == "semiannual") {
 
@@ -179,9 +256,28 @@ F0 <- setnames(F0, 2, "V2")
 FA <- rbind(F0, FA)
 
 setnames(FA, c("n (periods)", "Future Worth ($US)"))
-FA <- setDF(FA)
 
-return(round(FA, digits = 2))
+
+# Round the numeric values to 2 decimal places
+cols <- "Future Worth ($US)"
+
+for (col in cols) {
+
+idx <- which(!is.na(FA[[col]]))
+
+data.table::set(FA, i = idx, j = col, value = round_r3(FA[[col]][idx], d = 2))
+
+}
+
+
+
+col.names <- c("n (periods)", "Future Worth ($US)")
+
+# code block below modified from data.table function
+setattr(FA, "col.names", setnames(FA, col.names))
+setattr(FA, "class", c("data.table", "data.frame"))
+FA
+
 
 } else if (fr == "quarter") {
 
@@ -206,9 +302,28 @@ F0 <- setnames(F0, 2, "V2")
 FA <- rbind(F0, FA)
 
 setnames(FA, c("n (periods)", "Future Worth ($US)"))
-FA <- setDF(FA)
 
-return(round(FA, digits = 2))
+
+# Round the numeric values to 2 decimal places
+cols <- "Future Worth ($US)"
+
+for (col in cols) {
+
+idx <- which(!is.na(FA[[col]]))
+
+data.table::set(FA, i = idx, j = col, value = round_r3(FA[[col]][idx], d = 2))
+
+}
+
+
+
+col.names <- c("n (periods)", "Future Worth ($US)")
+
+# code block below modified from data.table function
+setattr(FA, "col.names", setnames(FA, col.names))
+setattr(FA, "class", c("data.table", "data.frame"))
+FA
+
 
 } else if (fr == "bimonth") {
 
@@ -233,9 +348,28 @@ F0 <- setnames(F0, 2, "V2")
 FA <- rbind(F0, FA)
 
 setnames(FA, c("n (periods)", "Future Worth ($US)"))
-FA <- setDF(FA)
 
-return(round(FA, digits = 2))
+
+# Round the numeric values to 2 decimal places
+cols <- "Future Worth ($US)"
+
+for (col in cols) {
+
+idx <- which(!is.na(FA[[col]]))
+
+data.table::set(FA, i = idx, j = col, value = round_r3(FA[[col]][idx], d = 2))
+
+}
+
+
+
+col.names <- c("n (periods)", "Future Worth ($US)")
+
+# code block below modified from data.table function
+setattr(FA, "col.names", setnames(FA, col.names))
+setattr(FA, "class", c("data.table", "data.frame"))
+FA
+
 
 } else if (fr == "month") {
 
@@ -260,9 +394,28 @@ F0 <- setnames(F0, 2, "V2")
 FA <- rbind(F0, FA)
 
 setnames(FA, c("n (periods)", "Future Worth ($US)"))
-FA <- setDF(FA)
 
-return(round(FA, digits = 2))
+
+# Round the numeric values to 2 decimal places
+cols <- "Future Worth ($US)"
+
+for (col in cols) {
+
+idx <- which(!is.na(FA[[col]]))
+
+data.table::set(FA, i = idx, j = col, value = round_r3(FA[[col]][idx], d = 2))
+
+}
+
+
+
+col.names <- c("n (periods)", "Future Worth ($US)")
+
+# code block below modified from data.table function
+setattr(FA, "col.names", setnames(FA, col.names))
+setattr(FA, "class", c("data.table", "data.frame"))
+FA
+
 
 } else if (fr == "daily") {
 
@@ -287,9 +440,27 @@ F0 <- setnames(F0, 2, "V2")
 FA <- rbind(F0, FA)
 
 setnames(FA, c("n (periods)", "Future Worth ($US)"))
-FA <- setDF(FA)
 
-return(round(FA, digits = 2))
+
+# Round the numeric values to 2 decimal places
+cols <- "Future Worth ($US)"
+
+for (col in cols) {
+
+idx <- which(!is.na(FA[[col]]))
+
+data.table::set(FA, i = idx, j = col, value = round_r3(FA[[col]][idx], d = 2))
+
+}
+
+
+
+col.names <- c("n (periods)", "Future Worth ($US)")
+
+# code block below modified from data.table function
+setattr(FA, "col.names", setnames(FA, col.names))
+setattr(FA, "class", c("data.table", "data.frame"))
+FA
 
 }
 }

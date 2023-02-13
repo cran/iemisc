@@ -27,65 +27,17 @@ GNU Octave/MATLAB. This function is the same as \code{\link[pracma]{size}}, exce
 \code{\link[pracma]{size}}.
 }
 \examples{
-library("iemisc")
-library(gsubfn)
+
+# Example from GNU Octave ndims function reference
+
+size(matlab::ones(4, 1, 2, 1))
 
 
-# Examples from GNU Octave size
-object1 <- matrix(c(1, 2, 3, 4, 5, 6), nrow = 3, ncol = 2, byrow = TRUE)
-size(object1)
-
-
-list[nr, nc] <- size(matrix(c(1, 2, 3, 4, 5, 6), nrow = 3, ncol = 2,
-                byrow = TRUE))
-
-size(matrix(c(1, 2, 3, 4, 5, 6), nrow = 3, ncol = 2, byrow = TRUE), 2)
-
-# Examples from pracma size
-size(1:8)
-
-size(matrix(1:8, 2, 4))
-
-size(matrix(1:8, 2, 4), 2)
-
-size(matrix(1:8, 2, 4), 3)
-
-ss <- "object"
-size(ss)
-
-
-\dontrun{
-# check against GNU Octave
-library(RcppOctave) # requires Octave (>= 3.2.4) and its development files
-o_source(text = "
-\\% Examples from GNU Octave size
-object1 = [1, 2; 3, 4; 5, 6];
-size(object1)
-
-[nr, nc] = size([1, 2; 3, 4; 5, 6])
-
-size([1, 2; 3, 4; 5, 6], 2)
-
-\\% Examples from pracma size
-size(1:8)
-
-object2 = [1 3 5 7; 2 4 6 8];
-
-size(object2)
-
-size(object2, 2)
-
-size(object2, 3)
-
-ss = 'object';
-size(ss)
-")
-}
 
 
 }
 \references{
-John W. Eaton, David Bateman, and Søren Hauberg (2009). \emph{GNU Octave version 3.0.1 manual: a high-level interactive language for numerical computations}. CreateSpace Independent Publishing Platform. ISBN 1441413006, URL \url{http://www.gnu.org/software/octave/doc/interpreter/}. Page 42.
+John W. Eaton, David Bateman, Søren Hauberg, and Rik Wehbring (November 2022). \emph{GNU Octave: A high-level interactive language for numerical computations: Edition 7 for Octave version 7.3.0}. \url{https://docs.octave.org/octave.pdf}. Page 47-48.
 }
 \seealso{
 \code{\link[base]{dim}}, \code{\link[pracma]{size}}

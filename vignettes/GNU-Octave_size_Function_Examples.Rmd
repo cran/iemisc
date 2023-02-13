@@ -1,0 +1,440 @@
+---
+title: "iemisc: Additional Examples from GNU Octave size Compatible Functions"
+author: "Irucka Embry, E.I.T. (EcoC²S)"
+date: "`r Sys.Date()`"
+lang: en-us
+urlcolor: blue
+output:
+  rmarkdown::pdf_document:
+    highlight: kate
+    toc: true
+    latex_engine: xelatex
+vignette: >
+  %\VignetteIndexEntry{iemisc Additional Examples from GNU Octave size Compatible Functions}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+\bigskip
+
+# size Examples (R style)
+
+```{r, warning = FALSE, message = FALSE, tidy = TRUE}
+
+library("iemisc")
+
+import::from(gsubfn, list)
+import::from(ramify, mat)
+
+# Example from GNU Octave ndims function reference
+
+size(matlab::ones(4, 1, 2, 1))
+
+
+# Examples from GNU Octave size function reference
+
+object1 <- matrix(c(1, 2, 3, 4, 5, 6), nrow = 3, ncol = 2, byrow = TRUE)
+
+size(object1)
+
+
+list[nr, nc] <- size(matrix(c(1, 2, 3, 4, 5, 6), nrow = 3, ncol = 2,
+                byrow = TRUE)); nr; nc
+
+size(matrix(c(1, 2, 3, 4, 5, 6), nrow = 3, ncol = 2, byrow = TRUE), 2)
+
+
+# using ramify's mat
+
+size(mat("1, 2; 3, 4; 5, 6"))
+
+size(mat("1, 2; 3, 4; 5, 6"), 2)
+
+list[nr, nc] <- size(mat("1, 2; 3, 4; 5, 6")); nr; nc
+
+size(matlab::ones(4, 3, 4, 8), 4)
+
+size(matlab::ones(4, 3, 4, 5), 3)
+
+## The following can't be done currently with this function:
+
+# list[nr, remainder] <- size(matlab::ones(2, 3, 4, 5)); nr; remainder
+
+## As a work around to get similar results to GNU Octave, do the following:
+
+nr <- size(matlab::ones(2, 3, 4, 5), 1); nr
+
+remainder <- size(matlab::ones(2, 3, 4, 5), 2); remainder
+
+
+
+
+# Examples from pracma size
+
+size(1:8)
+
+size(matrix(1:8, 2, 4))
+
+size(matrix(1:8, 2, 4), 2)
+
+size(matrix(1:8, 2, 4), 3)
+
+ss <- "object"
+
+size(ss)
+```
+
+\bigskip
+\bigskip
+
+# size Examples (GNU Octave style)
+
+```{octave}
+
+% check against GNU Octave
+
+% Example from GNU Octave ndims function reference
+
+size(ones(4, 1, 2, 1))
+
+
+% Examples from GNU Octave size function reference
+
+object1 = [1, 2; 3, 4; 5, 6]
+
+size(object1)
+
+
+[nr, nc] = size([1, 2; 3, 4; 5, 6])
+
+size([1, 2; 3, 4; 5, 6], 2)
+
+size([1 2; 3 4; 5 6])
+
+size([1 2; 3 4; 5 6], 2)
+
+[nr, nc] = size([1, 2; 3, 4; 5, 6])
+nr
+nc
+
+size(ones(2, 3, 4, 5))
+
+[nr, remainder] = size(ones(2, 3, 4, 5))
+nr
+remainder
+
+size(ones(4, 3, 4, 8), 4)
+
+size(ones(4, 3, 4, 5), 3)
+
+
+
+
+% Examples from pracma size
+
+size(1:8)
+
+object2 = [1 3 5 7; 2 4 6 8]
+
+size(object2)
+
+size(object2, 2)
+
+size(object2, 3)
+
+ss = 'object'
+
+size(ss)
+```
+
+\bigskip
+\bigskip
+
+# length_octave Examples (R style)
+
+```{r, warning = FALSE, message = FALSE, tidy = TRUE}
+
+library("iemisc")
+
+import::from(matlab, ones)
+
+# Example from pracma isempty
+
+object1 <- matrix(0, 1, 0)
+
+length_octave(object1)
+
+object2 <- 2
+
+length_octave(object2)
+
+object3 <- 1:10
+
+length_octave(object3)
+
+object4 <- ones(3, 4)
+
+length_octave(object4)
+
+object5 <- "ss"
+
+length_octave(object5)
+
+object6 <- list(letters, b <- 2)
+
+length_octave(object6)
+```
+
+\bigskip
+\bigskip
+
+# length Examples (GNU Octave style)
+
+```{octave}
+
+% check against GNU Octave
+
+object1 = [];
+
+length(object1)
+
+
+object2 = 2;
+
+length(object2)
+
+
+object3 = 1:10;
+
+length(object3)
+
+
+object4 = ones(3, 4);
+
+length(object4)
+
+
+object5 = 'ss';
+
+length(object5)
+```
+
+\bigskip
+\bigskip
+
+# numel Examples (R style)
+
+```{r, warning = FALSE, message = FALSE, tidy = TRUE}
+
+library("iemisc")
+
+import::from(matlab, ones)
+
+xx <- list(1:26, 1:10)
+
+numel(xx)
+
+
+# Examples from GNU Octave numel
+
+a <- 1
+
+b <- ones(2, 3)
+
+numel(a, b)
+
+
+a <- 2
+
+b <- ones(2, 3)
+
+c <- ones(3, 4)
+
+numel(a, b)
+
+numel(a, b, c)
+
+f <- matrix(c(10, 12, 23, 21, 62, 93), nrow = 2, ncol = 3, byrow = TRUE)
+
+g <- c(2, 4)
+
+numel(f, g)
+```
+
+\bigskip
+\bigskip
+
+# numel Examples (GNU Octave style)
+
+```{octave}
+
+% check against GNU Octave
+
+xx = {1:26, 1:10}
+
+
+\% Examples from GNU Octave numel
+a = 1;
+
+b = ones(2, 3);
+
+numel(a, b)
+
+
+a = 2;
+
+b = ones(2, 3);
+
+c = ones(3, 4);
+
+numel(a, b)
+
+numel(a, b, c)
+
+
+f = [10 12 23; 21 62 93];
+
+g = [2 4];
+
+numel(f, g)
+
+```
+
+\bigskip
+\bigskip
+
+# ndims Examples (R style)
+
+```{r, warning = FALSE, message = FALSE, tidy = TRUE}
+
+library("iemisc")
+
+# Examples from GNU Octave ndims
+
+b <- matlab::ones(c(4, 1, 2, 1))
+
+ndims(b)
+
+```
+
+\bigskip
+\bigskip
+
+# ndims Examples (GNU Octave style)
+
+```{octave}
+
+% check against GNU Octave
+
+% Example from GNU Octave ndims
+
+ndims(ones(4, 1, 2, 1))
+
+```
+
+\bigskip
+\bigskip
+
+# isrow Examples (R style)
+
+```{r, warning = FALSE, message = FALSE, tidy = TRUE}
+
+library("iemisc")
+
+# Examples
+
+xx <- ramify::mat("1, 2"); xx
+
+isrow(xx)
+
+
+xy <- ramify::mat("1, 2; 3, 4"); xy
+
+isrow(xy)
+```
+
+\bigskip
+\bigskip
+
+# isrow Examples (GNU Octave style)
+
+```{octave}
+
+% check against GNU Octave
+
+isrow([1 2])
+
+isrow([1 2; 3 4])
+
+```
+
+\bigskip
+\bigskip
+
+# iscolumn Examples (R style)
+
+```{r, warning = FALSE, message = FALSE, tidy = TRUE}
+
+library("iemisc")
+
+# Examples
+
+xxx <- ramify::mat("1, 2"); xxx
+
+iscolumn(xxx)
+
+
+
+xyy <- ramify::mat("1; 2"); xyy
+
+iscolumn(xyy)
+```
+
+\bigskip
+\bigskip
+
+# iscolumn Examples (GNU Octave style)
+
+```{octave}
+
+% check against GNU Octave
+
+iscolumn([1 2])
+
+iscolumn([1; 2])
+```
+
+\bigskip
+\bigskip
+
+## Works Cited
+
+Design Guide No. 1110-1-3: Air Stripping Engineering and Design Appendix D: Example Air Stripping By Packed Column, Department Of The Army U.S. Army Corps of Engineers, 31 October 2001, pages D-1 - D-18, http://www.publications.usace.army.mil/Portals/76/Publications/EngineerDesignGuides/DG_1110-1-3.pdf?ver=2013-08-16-101222-003.  
+
+\bigskip
+\bigskip
+
+# EcoC²S Links
+
+EcoC²S Home -- https://www.ecoccs.com/  
+About EcoC²S -- https://www.ecoccs.com/about_ecoc2s.html  
+Products -- https://www.questionuniverse.com/products.html  
+EcoC²S Media -- https://www.ecoccs.com/media.html  
+EcoC²S Resources -- https://www.ecoccs.com/resources.html  
+R Trainings and Resources provided by EcoC²S (Irucka Embry, E.I.T.) -- https://www.ecoccs.com/rtraining.html  
+
+\bigskip
+\bigskip
+
+# Copyright and License
+
+All R code written by Irucka Embry is distributed under the GPL-3 (or later) license, see the [GNU General Public License {GPL} page](https://www.gnu.org/licenses/gpl-3.0.html).  
+
+All written content originally created by Irucka Embry is copyrighted under the Creative Commons Attribution-ShareAlike 4.0 International License. All other written content retains the copyright of the original author(s).  
+
+
+```{r, echo = FALSE, out.width = '100%'}
+linguisticsdown::include_graphics2("https://i.creativecommons.org/l/by-sa/4.0/88x31.png")
+```
+
+This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).  

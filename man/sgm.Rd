@@ -37,13 +37,18 @@ Geometric mean is expressed as
   change. It is the positive nth root of the product of the n values."
 }
 \examples{
-library("iemisc")
+
 # Example 1.13 from Kottegoda (page 13)
+
+library("iemisc")
+
 city_pop <- c(230000, 310000)
 sgm(city_pop)
 
 # Compare the geometric mean to the arithmetic mean
 mean(city_pop)
+
+
 
 }
 \references{
@@ -56,4 +61,7 @@ Nathabandu T. Kottegoda and Renzo Rosso, \emph{Statistics, Probability, and Reli
  variation (CV), \code{\link{relerror}} for relative error, \code{\link{approxerror}} for
  approximate error, \code{\link{rms}} for root-mean-square (RMS), and \code{\link{ranges}}
  for sample range.
+}
+\author{
+Irucka Embry
 }

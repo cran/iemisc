@@ -23,19 +23,45 @@
 #' @references
 #' William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 129, 142.
 #'
+#'
+#'
+#'
+#' @author Irucka Embry
+#'
+#'
+#'
 #' @encoding UTF-8
 #'
 #'
+#'
+#'
+#'
+#'
+#'
 #' @examples
+#'
+#' # Example for equation 4-7 from the Reference text (page 142)
+#'
 #' library("iemisc")
-#' # Example for equation 4-7 from the Reference text (page
+#'
 #' ngivenPFi(P = 500, F = 1000, i = 15)
 #'
 #'
 #'
 #'
+#' @importFrom assertthat assert_that
+#' @importFrom checkmate qtest
+#'
 #' @export
 ngivenPFi <- function (P, F, i) {
+
+checks <- c(P, F, i)
+
+# Check
+assert_that(!any(qtest(checks, "N+(0,)") == FALSE), msg = "Either P, F, or i is 0, NA, NaN, Inf, -Inf, empty, or a string. Please try again.")
+# only process with finite values and provide an error message if the check fails
+
+
 
 i <- i / 100
 

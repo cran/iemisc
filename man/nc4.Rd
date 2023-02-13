@@ -8,7 +8,7 @@
 nc4(P, n, y)
 }
 \arguments{
-\item{P}{numeric vector that contains "wetted perimeter of any section i"}
+\item{P}{numeric vector that contains "wetted perimeters of any section i"}
 
 \item{n}{numeric vector that contains "Manning's n of any section i"}
 
@@ -33,15 +33,17 @@ Christensen method is
 
 \describe{
 \item{\emph{\eqn{n_c}}}{Manning's composite n}
-\item{\emph{\eqn{P_i}}}{"wetted perimeter of any section i"}
+\item{\emph{\eqn{P_i}}}{"wetted perimeters of any section i"}
 \item{\emph{\eqn{y_i}}}{"flow depth in the ith section"}
 \item{\emph{\eqn{n_i}}}{"Manning's n of any section i"}
 \item{\emph{N}}{"total number of sections into which the wetted
-       perimeter and hydraulic radius are divided"}
+       perimeters and hydraulic radius are divided"}
 }
 }
 \examples{
+
 library("iemisc")
+
 nc4(n = c(0.0024, 0.035), P = c(23.65, 36.08), y = c(10.23, 7.38))
 
 
@@ -56,4 +58,7 @@ nc4(n = c(0.0024, 0.035), P = c(23.65, 36.08), y = c(10.23, 7.38))
   Horton method for composite Manning's n, \code{\link{nc2}} for Einstein and Banks
   method for composite Manning's n, and \code{\link{nc3}} for Lotter method for
   composite Manning's n.
+}
+\author{
+Irucka Embry
 }

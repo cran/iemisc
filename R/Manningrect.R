@@ -2,7 +2,7 @@
 #'
 #' This function solves for one missing variable in the Gauckler-Manning-
 #' Strickler equation for a rectangular cross-section and uniform flow. The
-#' \code{\link[stats]{uniroot}} function is used to obtain the missing parameter.
+#' \code{\link[stats]{uniroot}} function is used to obtain the missing parameters.
 #'
 #'
 #'
@@ -12,11 +12,11 @@
 #' \deqn{V = \frac{K_n}{n}R^\frac{2}{3}S^\frac{1}{2}}
 #'
 #' \describe{
-#'	\item{\emph{V}}{the velocity (m/s or ft/s)}
-#'	\item{\emph{n}}{Manning's roughness coefficient (dimensionless)}
-#'	\item{\emph{R}}{the hydraulic radius (m or ft)}
-#'	\item{\emph{S}}{the slope of the channel bed (m/m or ft/ft)}
-#'	\item{\emph{\eqn{K_n}}}{the conversion constant -- 1.0 for SI and
+#'   \item{\emph{V}}{the velocity (m/s or ft/s)}
+#'   \item{\emph{n}}{Manning's roughness coefficient (dimensionless)}
+#'   \item{\emph{R}}{the hydraulic radius (m or ft)}
+#'   \item{\emph{S}}{the slope of the channel bed (m/m or ft/ft)}
+#'   \item{\emph{K_n}}{the conversion constant -- 1.0 for SI and
 #'        3.2808399 ^ (1 / 3) for English units -- m^(1/3)/s or ft^(1/3)/s}
 #' }
 #'
@@ -28,12 +28,12 @@
 #' \deqn{Q = \frac{K_n}{n}\frac{A^\frac{5}{3}}{P^\frac{2}{3}}S^\frac{1}{2}}
 #'
 #' \describe{
-#'	\item{\emph{Q}}{the discharge [m^3/s or ft^3/s (cfs)] is VA}
-#'	\item{\emph{n}}{Manning's roughness coefficient (dimensionless)}
-#'	\item{\emph{P}}{the wetted perimeter of the channel (m or ft)}
-#'	\item{\emph{A}}{the cross-sectional area (m^2 or ft^2)}
-#'	\item{\emph{S}}{the slope of the channel bed (m/m or ft/ft)}
-#'	\item{\emph{\eqn{K_n}}}{the conversion constant -- 1.0 for SI and
+#'   \item{\emph{Q}}{the discharge {m^3/s or ft^3/s (cfs)} is VA}
+#'   \item{\emph{n}}{Manning's roughness coefficient (dimensionless)}
+#'   \item{\emph{P}}{the wetted perimeters of the channel (m or ft)}
+#'   \item{\emph{A}}{the cross-sectional area (m^2 or ft^2)}
+#'   \item{\emph{S}}{the slope of the channel bed (m/m or ft/ft)}
+#'   \item{\emph{K_n}}{the conversion constant -- 1.0 for SI and
 #'        3.2808399 ^ (1 / 3) for English units -- m^(1/3)/s or ft^(1/3)/s}
 #' }
 #'
@@ -44,9 +44,9 @@
 #' \deqn{R = \frac{A}{P}}
 #'
 #' \describe{
-#'	\item{\emph{R}}{the hydraulic radius (m or ft)}
-#'	\item{\emph{A}}{the cross-sectional area (m^2 or ft^2)}
-#'	\item{\emph{P}}{the wetted perimeter of the channel (m or ft)}
+#'   \item{\emph{R}}{the hydraulic radius (m or ft)}
+#'   \item{\emph{A}}{the cross-sectional area (m^2 or ft^2)}
+#'   \item{\emph{P}}{the wetted perimeters of the channel (m or ft)}
 #' }
 #'
 #'
@@ -55,9 +55,9 @@
 #' \deqn{A = by}
 #'
 #' \describe{
-#'	\item{\emph{A}}{the cross-sectional area (m^2 or ft^2)}
-#'	\item{\emph{y}}{the flow depth (normal depth in this function) [m or ft]}
-#'	\item{\emph{b}}{the bottom width (m or ft)}
+#'   \item{\emph{A}}{the cross-sectional area (m^2 or ft^2)}
+#'   \item{\emph{y}}{the flow depth (normal depth in this function) [m or ft]}
+#'   \item{\emph{b}}{the bottom width (m or ft)}
 #' }
 #'
 #'
@@ -66,9 +66,9 @@
 #' \deqn{P = b + 2y}
 #'
 #' \describe{
-#'	\item{\emph{P}}{the wetted perimeter of the channel (m or ft)}
-#'	\item{\emph{y}}{the flow depth (normal depth in this function) [m or ft]}
-#'	\item{\emph{b}}{the bottom width (m or ft)}
+#'   \item{\emph{P}}{the wetted perimeters of the channel (m or ft)}
+#'   \item{\emph{y}}{the flow depth (normal depth in this function) [m or ft]}
+#'   \item{\emph{b}}{the bottom width (m or ft)}
 #' }
 #'
 #'
@@ -77,8 +77,8 @@
 #' \deqn{B = b}
 #'
 #' \describe{
-#'	\item{\emph{B}}{the top width of the channel (m or ft)}
-#'	\item{\emph{b}}{the bottom width (m or ft)}
+#'   \item{\emph{B}}{the top width of the channel (m or ft)}
+#'   \item{\emph{b}}{the bottom width (m or ft)}
 #' }
 #'
 #'
@@ -86,23 +86,57 @@
 #' \deqn{D = \frac{A}{B}}
 #'
 #' \describe{
-#'	\item{\emph{D}}{the hydraulic depth (m or ft)}
-#'	\item{\emph{A}}{the cross-sectional area (m^2 or ft^2)}
-#'	\item{\emph{B}}{the top width of the channel (m or ft)}
+#'   \item{\emph{D}}{the hydraulic depth (m or ft)}
+#'   \item{\emph{A}}{the cross-sectional area (m^2 or ft^2)}
+#'   \item{\emph{B}}{the top width of the channel (m or ft)}
 #' }
+#'
+#'
+#'
+#' \deqn{Z = \frac{\sqrt{2}}{2}my^2.5}
+#'
+#' \describe{
+#'   \item{\emph{Z}}{the Section factor (m or ft)}
+#'   \item{\emph{y}}{the flow depth (normal depth in this function) [m or ft]}
+#'   \item{\emph{m}}{the horizontal side slope}
+#' }
+#'
+#'
+#'
+#' \deqn{E = y + \frac{Q^2}{2gA^2}}
+#'
+#' \describe{
+#'   \item{\emph{E}}{the Specific Energy (m or ft)}
+#'   \item{\emph{Q}}{the discharge {m^3/s or ft^3/s (cfs)} is VA}
+#'   \item{\emph{g}}{gravitational acceleration (m/s^2 or ft/sec^2)}
+#'   \item{\emph{A}}{the cross-sectional area (m^2 or ft^2)}
+#'   \item{\emph{y}}{the flow depth (normal depth in this function) [m or ft]}
+#' }
+#'
+#'
+#'
+#'
+#' \deqn{VH = \frac{V^2}{2g}}
+#'
+#' \describe{
+#'   \item{\emph{VH}}{the Velocity Head (m or ft)}
+#'   \item{\emph{V}}{the velocity (m/s or ft/s)}
+#'   \item{\emph{g}}{gravitational acceleration (m/s^2 or ft/sec^2)}
+#' }
+#'
 #'
 #'
 #' A rough turbulent zone check is performed on the water flowing in the
 #' channel using the Reynolds number (Re). The Re equation follows:
 #'
-#' \deqn{Re = \frac{\rho RV}{\mu}}
+#' \deqn{Re = \frac{\\rho RV}{\\mu}}
 #'
 #' \describe{
-#'	\item{\emph{Re}}{Reynolds number (dimensionless)}
-#'	\item{\emph{\eqn{\rho}}}{density (kg/m^3 or slug/ft^3)}
-#'	\item{\emph{R}}{the hydraulic radius (m or ft)}
-#'	\item{\emph{V}}{the velocity (m/s or ft/s)}
-#'	\item{\emph{\eqn{\mu}}}{dynamic viscosity (* 10^-3 kg/m*s or * 10^-5 lb*s/ft^2)}
+#'   \item{\emph{Re}}{Reynolds number (dimensionless)}
+#'   \item{\emph{\\rho}}{density (kg/m^3 or slug/ft^3)}
+#'   \item{\emph{R}}{the hydraulic radius (m or ft)}
+#'   \item{\emph{V}}{the velocity (m/s or ft/s)}
+#'   \item{\emph{\\mu}}{dynamic viscosity (* 10^-3 kg/m*s or * 10^-5 lb*s/ft^2)}
 #' }
 #'
 #'
@@ -113,10 +147,10 @@
 #' \deqn{Fr = \frac{V}{\left(\sqrt{g * D}\right)}}
 #'
 #' \describe{
-#'	\item{\emph{Fr}}{the Froude number (dimensionless)}
-#'	\item{\emph{V}}{the velocity (m/s or ft/s)}
-#'	\item{\emph{g}}{gravitational acceleration (m/s^2 or ft/sec^2)}
-#'	\item{\emph{D}}{the hydraulic depth (m or ft)}
+#'   \item{\emph{Fr}}{the Froude number (dimensionless)}
+#'   \item{\emph{V}}{the velocity (m/s or ft/s)}
+#'   \item{\emph{g}}{gravitational acceleration (m/s^2 or ft/sec^2)}
+#'   \item{\emph{D}}{the hydraulic depth (m or ft)}
 #' }
 #'
 #'
@@ -130,7 +164,7 @@
 #'
 #'
 #'
-#' @param Q numeric vector that contains the discharge value [m^3/s or ft^3/s],
+#' @param Q numeric vector that contains the discharge value {m^3/s or ft^3/s},
 #'   if known.
 #' @param n numeric vector that contains the Manning's roughness coefficient n,
 #'   if known.
@@ -140,35 +174,44 @@
 #' @param y numeric vector that contains the flow depth (m or ft), if known.
 #' @param T numeric vector that contains the temperature (degrees C or degrees
 #'   Fahrenheit), if known.
-#' @param units character vector that contains the system of units [options are
-#'   \code{SI} for International System of Units and \code{Eng} for English units
+#' @param units character vector that contains the system of units {options are
+#'   \code{SI} for International System of Units or \code{Eng} for English units
 #'   (United States Customary System in the United States and Imperial Units in
-#'   the United Kingdom)]
+#'   the United Kingdom)}
 #'
-#' @return the missing parameter (Q, n, b, Sf, or y) & area (A), wetted
+#' @return the missing parameters (Q, n, b, Sf, or y) & area (A), wetted
 #'   perimeter (P), velocity (V), top width (B), hydraulic radius (R),
 #'   Reynolds number (Re), and Froude number (Fr) as a \code{\link[base]{list}}.
-#'
-#'
-#' @source
-#' r - Better error message for stopifnot? - Stack Overflow answered by Andrie on Dec 1 2011. See \url{https://stackoverflow.com/questions/8343509/better-error-message-for-stopifnot}.
 #'
 #'
 #' @references
 #' \enumerate{
 #'    \item Terry W. Sturm, \emph{Open Channel Hydraulics}, 2nd Edition, New York City, New York: The McGraw-Hill Companies, Inc., 2010, page 2, 8, 36, 102, 120, 153-154.
-#'    \item Dan Moore, P.E., NRCS Water Quality and Quantity Technology Development Team, Portland Oregon, "Using Mannings Equation with Natural Streams", August 2011, \url{http://www.wcc.nrcs.usda.gov/ftpref/wntsc/H&H/xsec/manningsNaturally.pdf}.
-#'    \item Gilberto E. Urroz, Utah State University Civil and Environmental Engineering - OCW, CEE6510 - Numerical Methods in Civil Engineering, Spring 2006 (2006). Course 3. "Solving selected equations and systems of equations in hydraulics using Matlab", August/September 2004, \url{https://digitalcommons.usu.edu/ocw_cee/3}.
+#'    \item Dan Moore, P.E., NRCS Water Quality and Quantity Technology Development Team, Portland Oregon, "Using Mannings Equation with Natural Streams", August 2011, \url{https://web.archive.org/web/20210416091858/https://www.wcc.nrcs.usda.gov/ftpref/wntsc/H&H/xsec/manningsNaturally.pdf}. Retrieved thanks to the Internet Archive: Wayback Machine
+#'    \item Gilberto E. Urroz, Utah State University Civil and Environmental Engineering - OCW, CEE6510 - Numerical Methods in Civil Engineering, Spring 2006 (2006). Course 3. "Solving selected equations and systems of equations in hydraulics using Matlab", August/September 2004, \url{https://digitalcommons.usu.edu/ocw_cee/3/}.
 #'    \item Tyler G. Hicks, P.E., \emph{Civil Engineering Formulas: Pocket Guide}, 2nd Edition, New York City, New York: The McGraw-Hill Companies, Inc., 2002, page 423, 425.
-#'    \item Wikimedia Foundation, Inc. Wikipedia, 26 November 2015, “Manning formula”, \url{https://en.wikipedia.org/wiki/Manning_formula}.
+#'    \item Wikimedia Foundation, Inc. Wikipedia, 26 November 2015, "Manning formula", \url{https://en.wikipedia.org/wiki/Manning_formula}.
 #'    \item John C. Crittenden, R. Rhodes Trussell, David W. Hand, Kerry J. Howe, George Tchobanoglous, \emph{MWH's Water Treatment: Principles and Design}, Third Edition, Hoboken, New Jersey: John Wiley & Sons, Inc., 2012, page 1861-1862.
 #'    \item Andrew Chadwick, John Morfett and Martin Borthwick, \emph{Hydraulics in Civil and Environmental Engineering}, Fourth Edition, New York City, New York: Spon Press, Inc., 2004, page 133.
 #'    \item Robert L. Mott and Joseph A. Untener, \emph{Applied Fluid Mechanics}, Seventh Edition, New York City, New York: Pearson, 2015, page 376, 379-380.
-#'    \item Wikimedia Foundation, Inc. Wikipedia, 17 March 2017, “Gravitational acceleration”, \url{https://en.wikipedia.org/wiki/Gravitational_acceleration}.
-#'    \item Wikimedia Foundation, Inc. Wikipedia, 29 May 2016, “Conversion of units”, \url{https://en.wikipedia.org/wiki/Conversion_of_units}.
+#'    \item Ven Te Chow, Ph.D., \emph{Open-Channel Hydraulics}, McGraw-Hill Classic Textbook Reissue, New York City, New York: McGraw-Hill Book Company, 1988, pages 21, 40-41.
+#'    \item Gary P. Merkley, "BIE6300 - Irrigation & Conveyance Control Systems, Spring 2004", 2004, Biological and Irrigation Engineering - OCW. Course 2, \url{https://digitalcommons.usu.edu/ocw_bie/2/}.
+#'    \item The NIST Reference on Constants, Units, and Uncertainty, Fundamental Constants Data Center of the NIST Physical Measurement Laboratory, "standard acceleration of gravity g_n", \url{https://physics.nist.gov/cgi-bin/cuu/Value?gn}.
+#'    \item Wikimedia Foundation, Inc. Wikipedia, 15 May 2019, "Conversion of units", \url{https://en.wikipedia.org/wiki/Conversion_of_units}.
 #' }
 #'
+#'
+#'
+#' @author Irucka Embry
+#'
+#'
+#'
 #' @encoding UTF-8
+#'
+#'
+#'
+#'
+#'
 #'
 #'
 #'
@@ -181,8 +224,10 @@
 #'
 #'
 #' @examples
-#' library("iemisc")
-#' library(iemiscdata)
+#'
+#' install.load::load_package("iemisc", "iemiscdata")
+#'
+#'
 #' # Example Problem 14.4 from Mott (page 379)
 #' # See nchannel in iemiscdata for the Manning's n table that the following
 #' # example uses
@@ -223,86 +268,165 @@
 #' # This will solve for y since it is missing and y will be in m
 #'
 #'
-#' @importFrom pracma interp1
-#' @import data.table iemiscdata
+#' 
+#' @importFrom fpCompare %==%
+#' @importFrom assertthat assert_that
+#' @importFrom checkmate qtest
+#' @importFrom units set_units make_units drop_units
+#' @importFrom round round_r3
+#' @importFrom stats uniroot
 #'
 #' @export
 Manningrect <- function (Q = NULL, n = NULL, b = NULL, Sf = NULL, y = NULL, T = NULL, units = c("SI", "Eng")) {
 
+
+K <- NULL
+# due to NSE notes in R CMD check
+
+
 checks <- c(Q, n, b, Sf, y)
+
 units <- units
 
-if (length(checks) < 4) {
 
-stop("There are not at least 4 known variables. Try again with at least 4 known variables.")
-# Source 1 / only process enough known variables and provide a stop warning if not enough
 
-} else {
 
-if (any(checks == 0)) {
+# Check
+assert_that(!any(qtest(checks, "N+(0,)") == FALSE), msg = "Either Q, n, b, Sf, or y is 0, NA, NaN, Inf, -Inf, empty, or a string. Please try again.")
+# only process with finite values and provide an error message if the check fails
 
-stop("Either Q, n, b, Sf, or y is 0. None of the variables can be 0. Try again.")
-# Source 1 / only process with a non-zero value for Q, n, b, Sf, and y and provide a stop warning if Q, n, b, Sf, or y = 0
+assert_that(qtest(units, "S==1"), msg = "There is not an unit type or more than 1 unit type. Please specify either 'SI' or 'Eng'.")
+# only process with enough known variables and provide an error message if the check fails
 
-} else {
+assert_that(isTRUE(any(c("SI", "Eng") %in% units)), msg = "The unit system has not been identified correctly as either 'SI' or 'Eng'. Please try again.")
+# only process with a specified unit and provide a stop warning if not
 
+
+
+
+
+
+
+# units
 if (units == "SI") {
 
-   k <- 1
+# use the temperature to determine the density & absolute and kinematic viscosities
+T <- ifelse(is.null(T), 20, T) # degrees C
 
-   g <- 9.80665 # m / s^2
+assert_that(qtest(T, "N+(0,)"), msg = "Either T is equal to or less than 0 C, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 0 C / 32 F. Please try again.")
+# only process with specified, finite values and provide an error message if the check fails
 
-   T <- ifelse(is.null(T), 20, T) # degrees C
+# create a numeric vector with the units of degrees Celsius
+T_C <- set_units(T, "degree_C")
 
-   rho = (999.83952 + 16.945176 * T - 7.9870401 * 10 ^ -3 * T ^ 2 - 46.170461 * 10 ^ -6 * T ^ 3 + 105.56302 * 10 ^ -9 * T ^ 4 - 280.54253 * 10 ^ -12 * T ^ 5) / (1 + 16.879850 * 10 ^ -3 * T) # kg / m ^ 3 as density
 
-   if (between(T, 0, 20, incbounds = FALSE)) {
+# create a numeric vector to convert from degrees Celsius to Kelvin
+T_K <- T_C
 
-   A <- (1301 / (998.333 + 8.1855 * (T - 20) + 0.00585 * (T - 20) ^ 2)) - 1.30223
 
-   mu <- 10 ^ -3 * 10 ^ A # * 10 ^ -3 kg / m * s as dynamic viscosity
+# create a numeric vector with the units of Kelvin
+units(T_K) <- make_units(K)
 
-   } else if (between(T, 20, 100, incbounds = FALSE)) {
 
-   B <- (1.3272 * (20 - T) - 0.001053 * (T - 20) ^ 2) / (T + 105)
+# create viscosities based on temperatures
+# saturated liquid density at given temperature in degrees Celsius (SI units)
+rho_SI <- density_water(T, "SI")
 
-   mu <- (1.002 * 10 ^ -3) * (10 ^ B) # * 10 ^ -3 kg / m * s as dynamic viscosity
+# absolute or dynamic viscosity at given temperature in degrees Celsius and density of rho (SI units)
+mu_SI <- dyn_visc_water(T, "SI")
 
-   } else if (T == 0) {
+# kinematic viscosity at given temperature in degrees Celsius and density of rho (SI units)
+nu_SI <- kin_visc_water(rho_SI, mu_SI, rho_units = "kg/m^3", mu_units = "Pa*s or kg/m/s")
 
-   mu <- 1.781 # * 10 ^ -3 kg / m * s as dynamic viscosity
 
-   } else if (T == 20) {
+k <- 1
 
-   mu <- 1.002 # * 10 ^ -3 kg / m * s as dynamic viscosity
+g <- 9.80665 # m / s^2
 
-   } else if (T == 100) {
+rho <- rho_SI
 
-   mu <-  0.282 # * 10 ^ -3 kg / m * s as dynamic viscosity
+nu <- nu_SI
 
-   }
+mu <- mu_SI
+
+# unit weight of water at given temperature in degrees Celsius and density of rho (SI units)
+gamma <- unit_wt(rho = rho, units = "SI")
+
+
+density_water_units <- "kg/m^3"
+
+dyn_visc_water_units <- "Pa * s or kg/m*s"
+
+kin_visc_water_units <- "m^2/s"
+
+
+result_units <- c("m", "m^2", "m", "m", "m", "m", "m", "m/s", "m^3/s", "dimensionless", "m/m", "degrees Celsius", "Kelvin", density_water_units, dyn_visc_water_units, kin_visc_water_units, "dimensionless", "dimensionless", "m/m", "m/m", "m/m", "m", "m", "m", "m", "m^3/s", "m", "m", "pascal (N/m^2)", "pascal (N/m^2)")
+
 
 } else if (units == "Eng") {
 
-   k <- 3.2808399 ^ (1 / 3)
+# use the temperature to determine the density & absolute and kinematic viscosities
+T <- ifelse(is.null(T), 68, T) # degrees F
 
-   g <- 9.80665 * (3937 / 1200) # ft / sec^2
+assert_that(qtest(T, "N+(32,)"), msg = "Either T is equal to or less than 32 F, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 32 F / 0 C. Please try again.")
+# only process with specified, finite values and provide an error message if the check fails
 
-   T <- ifelse(is.null(T), 68, T) # degrees F
+T_F <- T
 
-  x <- c(32, 49, 50, 60, 70, 80, 90, 100, 110, 120, 130, 140, 150, 160, 170, 180, 190, 200, 212)
-  y1 <- c(1.94, 1.94, 1.94, 1.938, 1.936, 1.934, 1.931, 1.927, 1.923, 1.918, 1.913, 1.908, 1.902, 1.896, 1.89, 1.883, 1.876, 1.868, 1.86)
-  y2 <- c(3.746, 3.229, 2.735, 2.359, 2.05, 1.799, 1.595, 1.424, 1.284, 1.168, 1.069, 0.981, 0.905, 0.838, 0.78, 0.726, 0.678, 0.637, 0.593)
+# create a numeric vector with the units of degrees Fahrenheit
+T_F <- set_units(T_F, "degree_F")
 
-  rho <- interp1(x, y1, T, method = "spline") # slug / ft ^ 3 as density
-  mu <- interp1(x, y2, T, method = "spline") * 10 ^ -5 # * 10 ^ -5 lb * s / ft ^ 2
 
-} else if (all(c("SI", "Eng") %in% units == FALSE) == FALSE) {
+# create a numeric vector to convert from degrees Fahrenheit to Kelvin
+T_K <- T_F
 
-stop("Incorrect unit system. Try again.")
-# Source 1 / only process with a specified unit and provide a stop warning if not
+
+# create a numeric vector with the units of Kelvin
+units(T_K) <- make_units(K)
+
+
+# create viscosities based on temperatures
+# saturated liquid density at given temperature in degrees Fahrenheit (US Customary units)
+rho_Eng <- density_water(T, "Eng", Eng_units = "slug/ft^3")
+
+
+# absolute or dynamic viscosity at given temperature in degrees Fahrenheit and density of rho (US Customary units)
+mu_Eng <- dyn_visc_water(T, "Eng", Eng_units = "slug/ft/s")
+
+
+# kinematic viscosity at given temperature in degrees Fahrenheit and density of rho (US Customary units)
+nu_Eng <- kin_visc_water(rho_Eng, mu_Eng, rho_units = "slug/ft^3", mu_units = "slug/ft/s")
+
+
+
+k <- 3.2808399 ^ (1 / 3)
+
+g <- 9.80665 * (3937 / 1200) # ft / sec^2
+
+gc <- 9.80665 * (3937 / 1200) # lbm-ft/lbf-sec^2
+
+rho <- rho_Eng
+
+nu <- nu_Eng
+
+mu <- mu_Eng
+
+# unit weight of water at given temperature in degrees Fahrenheit and density of rho (US Customary units)
+gamma <- unit_wt(rho = rho, units = "Eng", Eng_units = "slug/ft^3")
+
+
+density_water_units <- "slug/ft^3"
+
+dyn_visc_water_units <- "slug/ft*s"
+
+kin_visc_water_units <- "ft^2/s"
+
+
+result_units <- c("ft", "ft^2", "ft", "ft", "ft", "ft", "ft", "ft/sec (fps)", "ft^3/sec (cfs)", "dimensionless", "ft/ft", "degrees Fahrenheit", "Kelvin", density_water_units, dyn_visc_water_units, kin_visc_water_units, "dimensionless", "dimensionless", "ft/ft", "ft/ft", "ft/ft", "ft", "ft", "ft", "ft", "ft^3/sec (cfs)", "ft", "ft", "lb/ft^2", "lb/ft^2")
 
 }
+
+
 
 if (missing(Q)) {
 
@@ -334,7 +458,7 @@ cat("\nFlow is NOT in the rough turbulent zone so the Gauckler-Manning-Strickler
 
 Fr <- V / (sqrt(g * D))
 
-if (Fr == 1) {
+if (Fr %==% 1) {
 
 cat("\nThis is critical flow.\n\n")
 
@@ -381,7 +505,7 @@ cat("\nFlow is NOT in the rough turbulent zone so the Gauckler-Manning-Strickler
 
 Fr <- V / (sqrt(g * D))
 
-if (Fr == 1) {
+if (Fr %==% 1) {
 
 cat("\nThis is critical flow.\n\n")
 
@@ -428,7 +552,7 @@ cat("\nFlow is NOT in the rough turbulent zone so the Gauckler-Manning-Strickler
 
 Fr <- V / (sqrt(g * D))
 
-if (Fr == 1) {
+if (Fr %==% 1) {
 
 cat("\nThis is critical flow.\n\n")
 
@@ -475,7 +599,7 @@ cat("\nFlow is NOT in the rough turbulent zone so the Gauckler-Manning-Strickler
 
 Fr <- V / (sqrt(g * D))
 
-if (Fr == 1) {
+if (Fr %==% 1) {
 
 cat("\nThis is critical flow.\n\n")
 
@@ -522,7 +646,7 @@ cat("\nFlow is NOT in the rough turbulent zone so the Gauckler-Manning-Strickler
 
 Fr <- V / (sqrt(g * D))
 
-if (Fr == 1) {
+if (Fr %==% 1) {
 
 cat("\nThis is critical flow.\n\n")
 
@@ -537,7 +661,5 @@ cat("\nThis is supercritical flow.\n\n")
 }
 
 return(list(Sf = Sf, V = V, A = A, P = P, R = R, B = B, D = D, Re = Re, Fr = Fr))
-}
-}
 }
 }

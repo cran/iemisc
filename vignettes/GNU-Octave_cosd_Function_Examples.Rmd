@@ -1,0 +1,104 @@
+---
+title: "iemisc: Additional Examples from GNU Octave Compatible cosd Function"
+author: "Irucka Embry, E.I.T. (EcoC²S)"
+date: "`r Sys.Date()`"
+lang: en-us
+urlcolor: blue
+output:
+  rmarkdown::pdf_document:
+    highlight: kate
+    toc: true
+    latex_engine: xelatex
+vignette: >
+  %\VignetteIndexEntry{iemisc Additional Examples from GNU Octave Compatible cosd Function}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+\bigskip
+
+# cosd Examples (R style)
+
+```{r, warning = FALSE, message = FALSE, tidy = TRUE}
+
+library("iemisc")
+
+# Examples from GNU Octave cosd
+
+cosd(c(0, 180, 360))
+
+
+cosd(c(90, 270, 45))
+
+
+
+try(cosd(pi * seq(0, 80, by = 10) / 180))
+# gives error message since the computed value is in radians rather than degrees
+
+
+cos(pi * seq(0, 80, by = 10) / 180)
+# this is correct since `cos` expects the angle in radians
+
+try(cosd(seq(0, 80, by = 10) * 180 / pi))
+# converts angles in radians to degrees; however, it will still receive an error message with this current implementation. You can use the work-around below:
+
+xx <- seq(0, 80, by = 10) * 180 / pi
+
+cosd(xx)
+
+
+try(cos(seq(0, 80, by = 10) * 180 / pi))
+# converts angles in radians to degrees; however, this is incorrect since `cos` expects the angle in radians and not degrees
+
+
+cosd(90)
+
+cos(pi/2)
+```
+
+\bigskip
+\bigskip
+
+# cosd and cos Examples (GNU Octave style)
+
+```{octave}
+
+cosd(90)
+
+cos(pi/2)
+```
+
+\bigskip
+\bigskip
+
+## Works Cited
+
+Design Guide No. 1110-1-3: Air Stripping Engineering and Design Appendix D: Example Air Stripping By Packed Column, Department Of The Army U.S. Army Corps of Engineers, 31 October 2001, pages D-1 - D-18, http://www.publications.usace.army.mil/Portals/76/Publications/EngineerDesignGuides/DG_1110-1-3.pdf?ver=2013-08-16-101222-003.  
+
+\bigskip
+\bigskip
+
+# EcoC²S Links
+
+EcoC²S Home -- https://www.ecoccs.com/  
+About EcoC²S -- https://www.ecoccs.com/about_ecoc2s.html  
+Products -- https://www.questionuniverse.com/products.html  
+EcoC²S Media -- https://www.ecoccs.com/media.html  
+EcoC²S Resources -- https://www.ecoccs.com/resources.html  
+R Trainings and Resources provided by EcoC²S (Irucka Embry, E.I.T.) -- https://www.ecoccs.com/rtraining.html  
+
+\bigskip
+\bigskip
+
+# Copyright and License
+
+All R code written by Irucka Embry is distributed under the GPL-3 (or later) license, see the [GNU General Public License {GPL} page](https://www.gnu.org/licenses/gpl-3.0.html).  
+
+All written content originally created by Irucka Embry is copyrighted under the Creative Commons Attribution-ShareAlike 4.0 International License. All other written content retains the copyright of the original author(s).  
+
+
+```{r, echo = FALSE, out.width = '100%'}
+linguisticsdown::include_graphics2("https://i.creativecommons.org/l/by-sa/4.0/88x31.png")
+```
+
+This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).  

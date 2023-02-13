@@ -5,6 +5,12 @@
 \alias{PgivenA}
 \alias{PA}
 \title{Present value given Annual value (Engineering Economics)}
+\source{
+\enumerate{
+   \item r - Convert column classes in data.table - Stack Overflow answered by Matt Dowle on Dec 27 2013. See https://stackoverflow.com/questions/7813578/convert-column-classes-in-data-table.
+   \item r - foreach loop not replicating traditional loop - Stack Overflow answered by F. Privé on Oct 19 2019. See https://stackoverflow.com/questions/58459665/r-foreach-loop-not-replicating-traditional-loop.
+}
+}
 \usage{
 PgivenA(
   A,
@@ -35,7 +41,7 @@ bimonth (6), month (12), daily (365)]}
 PgivenA numeric vector that contains the present value(s) rounded
    to 2 decimal places
 
-PA data.frame of both n (0 to n) and the resulting present values
+PA data.table of both n (0 to n) and the resulting present values
    rounded to 2 decimal places
 }
 \description{
@@ -55,14 +61,37 @@ P is expressed as
 }
 }
 \examples{
+
 library("iemisc")
-# Example 4-9 from the Reference text (page 133-134)
-PgivenA(20000, 5, 15, "annual") # the interest rate is 15\%
+
+# Example 1 -- Example 4-9 from the Sullivan Reference text (page 133-134)
+PgivenA(A = 20000, n = 5, i = 15, frequency = "annual") # the interest rate is 15\%
 
 PA(20000, 5, 15, "annual") # the interest rate is 15\%
 
 
+# Example 2
+
+PgivenA(A = 93.22, n = 5, i = 4.50, frequency = "month")
+
+# Using LibreOffice Calc 6.1.5.2 version
+# A1 4.50\%
+# A2 -93.22
+# A3 60
+# A4 12
+# A5 =PV(A1/A4,A3,A2) = $5,000.26
+
+
+
+
+
 }
 \references{
-William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 133-134, 142, 164.
+\enumerate{
+   \item William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 133-134, 142, 164.
+   \item Dave Bruns, Exceljet: "Calculate original loan amount", \url{https://exceljet.net/formulas/calculate-original-loan-amount}.
+}
+}
+\author{
+Irucka Embry
 }

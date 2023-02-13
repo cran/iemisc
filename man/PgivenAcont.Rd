@@ -37,13 +37,17 @@ P is expressed as
 }
 }
 \examples{
-library("iemisc")
-  PgivenAcont(2000, 3, 12) # the interest rate is 12\%
 
+library("iemisc")
+
+PgivenAcont(2000, 3, 12) # the interest rate is 12\%
 
 
 
 }
 \references{
 William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 169.
+}
+\author{
+Irucka Embry
 }

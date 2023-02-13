@@ -23,7 +23,11 @@ The "two-argument arc-tangent" of each element of (\code{y}, \code{x})
 Calculates the value of the "two-argument arc-tangent" for each element of
 (\code{y}, \code{x}) in degrees in a manner compatible with GNU Octave/MATLAB.
 }
+\note{
+Note: If you have a radian (rad) angle value, use \code{\link[base]{atan2}} instead.
+}
 \examples{
+
 library("iemisc")
 
 # Examples from GNU Octave atan2d
@@ -31,10 +35,9 @@ atan2d (a <- seq(-1, 1, by = 0.1), b <- seq(1, -1, by = -0.1))
 
 
 
-
 }
 \references{
-John W. Eaton, David Bateman, and Søren Hauberg (2009). \emph{GNU Octave version 3.0.1 manual: a high-level interactive language for numerical computations}. CreateSpace Independent Publishing Platform. ISBN 1441413006, URL \url{http://www.gnu.org/software/octave/doc/interpreter/}. Page 358.
+John W. Eaton, David Bateman, Søren Hauberg, and Rik Wehbring (November 2022). \emph{GNU Octave: A high-level interactive language for numerical computations: Edition 7 for Octave version 7.3.0}. \url{https://docs.octave.org/octave.pdf}. Page 554.
 }
 \author{
 Rik Wehbring (GNU Octave atan2d), Irucka Embry

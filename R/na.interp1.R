@@ -8,21 +8,21 @@
 #' of \code{xout} in na.approx. The Arguments list was obtained from both
 #' interp1 and na.approx.
 #'
-#' @param x Numeric vector; points on the x-axis; at least two points
-#' 	required; will be sorted if necessary.
-#' @param y Numeric vector; values of the assumed underlying function;
-#' 	\code{x} and \code{y} must be of the same length.
-#' @param xi Numeric vector; points at which to compute the
-#' 	interpolation; all points must lie between \code{min(x)} and
-#' 	\code{max(x)}.
+#' @param x numeric vector; points on the x-axis; at least two points
+#'   required; will be sorted if necessary.
+#' @param y numeric vector; values of the assumed underlying function;
+#'   \code{x} and \code{y} must be of the same length.
+#' @param xi numeric vector; points at which to compute the
+#'   interpolation; all points must lie between \code{min(x)} and
+#'   \code{max(x)}.
 #' @param na.rm logical. If the result of the (\code{spline})
-#' 	interpolation still results in \code{NA}s, should these be removed?
+#'   interpolation still results in \code{NA}s, should these be removed?
 #' @param maxgap maximum number of consecutive \code{NA}s to fill. Any
-#' 	longer gaps will be left unchanged. Note that all methods listed
-#' 	above can accept \code{maxgap} as it is ultimately passed to the
-#' 	default method.
-#' @param ...	further arguments passed to methods. The \code{n}
-#' 	argument of \code{approx} is currently not supported.
+#'   longer gaps will be left unchanged. Note that all methods listed
+#'   above can accept \code{maxgap} as it is ultimately passed to the
+#'   default method.
+#' @param ... further arguments passed to methods. The \code{n}
+#'   argument of \code{approx} is currently not supported.
 #'
 #' @return Numeric vector representing values at points \code{xi}.
 #'
@@ -33,9 +33,10 @@
 #'
 #' @source
 #' \enumerate{
-#'	\item zoo's na.approx.R - modified on Fri Aug 6 00:26:22 2010 UTC by felix. See \url{https://r-forge.r-project.org/scm/viewvc.php/pkg/zoo/R/na.approx.R?view=markup&revision=781&root=zoo}.
-#'	\item pracma interp1 function definition - R package pracma created and maintained by Hans Werner Borchers. See \code{\link[pracma]{interp1}}.
+#'    \item zoo's na.approx.R - modified on Fri Aug 6 00:26:22 2010 UTC by felix. See \url{https://r-forge.r-project.org/scm/viewvc.php/pkg/zoo/R/na.approx.R?view=markup&revision=781&root=zoo}.
+#'    \item pracma interp1 function definition - R package pracma created and maintained by Hans Werner Borchers. See \code{\link[pracma]{interp1}}.
 #' }
+#'
 #'
 #' @encoding UTF-8
 #'
@@ -47,10 +48,11 @@
 #'
 #'
 #' @examples
-#' library("iemisc")
-#' library("data.table")
 #'
 #' # zoo time series example
+#'
+#' install.load::load_package("iemisc", "data.table")
+#'
 #' zoo1 <- structure(c(1.6, 1.7, 1.7, 1.7, 1.7, 1.7, 1.6, 1.7, 1.7, 1.7,
 #' 1.7, 1.7, 2, 2.1, 2.1, NA, NA, 2.1, 2.1, NA, 2.3, NA, 2, 2.1), .Dim = c(12L,
 #' 2L), .Dimnames = list(NULL, c("V1", "V2")), index = structure(c(1395242100,
@@ -59,27 +61,41 @@
 #' c("POSIXct", "POSIXt"), tzone = "GMT"), class = "zoo")
 #'
 #' zoo1 <- as.data.frame(zoo1) # to data.frame from zoo
+#'
 #' zoo1[, "Time"] <- as.POSIXct(rownames(zoo1)) # create column named Time as a
 #' # POSIXct class
+#'
 #' zoo1 <- setDT(zoo1) # create data.table out of data.frame
+#'
 #' setcolorder(zoo1, c(3, 1, 2)) # set the column order as the 3rd column
 #' # followed by the 2nd and 1st columns
+#'
 #' zoo1 <- setDF(zoo1) # return to data.frame
 #'
 #' rowsinterps1 <- which(is.na(zoo1$V2 == TRUE))
+#'
 #' # index of rows of zoo1 that have NA (to be interpolated)
 #' xi <- as.numeric(zoo1[which(is.na(zoo1$V2 == TRUE)), 1])
+#'
 #' # the Date-Times for V2 to be interpolated in numeric format
 #' interps1 <- na.interp1(as.numeric(zoo1$Time), zoo1$V2, xi = xi,
 #' na.rm = FALSE, maxgap = 1)
+#'
 #' # the interpolated values where only gap sizes of 1 are filled
 #' zoo1[rowsinterps1, 3] <- interps1
+#'
 #' # replace the NAs in V2 with the interpolated V2 values
 #' zoo1
 #'
 #'
 #'
+#'
+#'
+#'
 #' # data frame time series example
+#'
+#' library("iemisc")
+#'
 #' df1 <- structure(list(Time = structure(c(1395242100, 1395243000, 1395243900,
 #'  1395244800, 1395245700, 1395256500, 1395257400, 1395258300, 1395259200,
 #'  1395260100, 1395261000, 1395261900), class = c("POSIXct", "POSIXt"),
@@ -89,19 +105,29 @@
 #'  class = "data.frame")
 #'
 #' rowsinterps1 <- which(is.na(df1$V2 == TRUE))
+#'
 #' # index of rows of df1 that have NA (to be interpolated)
 #' xi <- as.numeric(df1[which(is.na(df1$V2 == TRUE)), 1])
+#'
 #' # the Date-Times for V2 to be interpolated in numeric format
 #' interps1 <- na.interp1(as.numeric(df1$Time), df1$V2, xi = xi,
 #'  na.rm = FALSE, maxgap = 1)
+#'
 #' # the interpolated values where only gap sizes of 1 are filled
 #' df1[rowsinterps1, 3] <- interps1
+#'
 #' # replace the NAs in V2 with the interpolated V2 values
 #' df1
 #'
 #'
 #'
+#'
+#'
+#'
 #' # data.table time series example
+#' 
+#' install.load::load_package("iemisc", "data.table")
+#' 
 #' dt1 <- structure(list(Time = structure(c(1395242100, 1395243000, 1395243900,
 #'  1395244800, 1395245700, 1395256500, 1395257400, 1395258300, 1395259200,
 #'  1395260100, 1395261000, 1395261900), class = c("POSIXct", "POSIXt"),
@@ -111,23 +137,39 @@
 #'  c("data.table", "data.frame"), sorted = "Time")
 #'
 #' rowsinterps2 <- which(is.na(dt1[, 3, with = FALSE] == TRUE))
+#'
 #' # index of rows of x that have NA (to be interpolated)
 #' xi <- as.numeric(dt1[rowsinterps2, Time])
+#'
 #' # the Date-Times for V2 to be interpolated in numeric format
 #' interps2 <- dt1[, na.interp1(as.numeric(Time), V2, xi = xi,
 #'  na.rm = FALSE, maxgap = 1)]
+#'
 #' # the interpolated values where only gap sizes of 1 are filled
 #' dt1[rowsinterps2, `:=` (V2 = interps2)]
+#'
 #' # replace the NAs in V2 with the interpolated V2 values
 #' dt1
 #'
 #'
-#' @import stats
-#' @import zoo
+#'
+#'
+#' @importFrom stats approx
+#' @importFrom assertthat assert_that
+#' @importFrom checkmate qtest testDataTable
 #'
 #' @export
 # Sources 1 and 2 begin
 na.interp1 <- function (x, y, xi = x, ..., na.rm = TRUE, maxgap = Inf) {
+
+checks <- c(x, y)
+
+# Check
+#assert_that(!any(qtest(checks, "N+(,)") == FALSE), msg = "Either x or y is 0, NA, NaN, Inf, -Inf, empty, or a string. Please try again.")
+# only process with finite values and provide an error message if the check fails
+
+assert_that(qtest(na.rm, "B==1"), msg = "There is not a logical value for na.rm or more than 1 logical value for na.rm.")
+# only process with enough known variables and provide an error message if the check fails
 
   na.interp1.vec <- function (x, y, xi = x, ...) {
 
@@ -156,10 +198,9 @@ if (maxgap < length(y)) {
 }
 }
 
-if (!identical(length(x), length(y))) {
-
-  stop("x and y must have the same length")
-}
+# Check
+assert_that(identical(length(x), length(y)), msg = "x and y are not the same length. x and y must have the same length. Please try again.")
+# only process with finite values and provide an error message if the check fails
 
   x. <- as.numeric(x)
 

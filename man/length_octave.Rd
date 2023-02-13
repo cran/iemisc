@@ -23,55 +23,24 @@ lists)] in a manner compatible with GNU Octave/MATLAB. Some documentation
 from \code{\link[base]{length}}.
 }
 \examples{
+
 library("iemisc")
-import::from(pracma, ones)
+
+import::from(matlab, ones)
+
 # Example from pracma isempty
+
 object1 <- matrix(0, 1, 0)
+
 length_octave(object1)
 
-object2 <- 2
-length_octave(object2)
-
-object3 <- 1:10
-length_octave(object3)
-
-object4 <- ones(3, 4)
-length_octave(object4)
-
-object5 <- "ss"
-length_octave(object5)
-
-object6 <- list(letters, b <- 2)
-length_octave(object6)
-
-
-\dontrun{
-# check against GNU Octave
-library(RcppOctave) # requires Octave (>= 3.2.4) and its development files
-o_source(text = "
-object1 = [];
-length(object1)
-
-object2 = 2;
-length(object2)
-
-object3 = 1:10;
-length(object3)
-
-object4 = ones(3, 4);
-length(object4)
-
-object5 = 'ss';
-length(object5)
-")
-}
 
 
 }
 \references{
 \enumerate{
-   \item Samit Basu (2002-2006). FreeMat v4.0, \url{http://freemat.sourceforge.net/}.
-   \item John W. Eaton, David Bateman, and Søren Hauberg (2009). \emph{GNU Octave version 3.0.1 manual: a high-level interactive language for numerical computations}. CreateSpace Independent Publishing Platform. ISBN 1441413006, URL \url{http://www.gnu.org/software/octave/doc/interpreter/}. Page 41.
+   \item Samit Basu (2002-2006). FreeMat v4.0, \url{https://freemat.sourceforge.net/help/inspection_length.html}.
+   \item John W. Eaton, David Bateman, Søren Hauberg, and Rik Wehbring (November 2022). \emph{GNU Octave: A high-level interactive language for numerical computations: Edition 7 for Octave version 7.3.0}. \url{https://docs.octave.org/octave.pdf}. Page 47.
 }
 }
 \seealso{

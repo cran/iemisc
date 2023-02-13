@@ -22,22 +22,54 @@
 #' @return PgivenG numeric vector that contains the present value(s) rounded to
 #'    2 decimal places
 #'
+#'
 #' @references
 #' William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 142, 150, 152-154.
+#'
+#'
+#'
+#'
+#' @author Irucka Embry
+#'
+#'
 #'
 #' @encoding UTF-8
 #'
 #'
+#'
+#'
+#'
+#'
+#'
 #' @examples
+#' 
 #' library("iemisc")
+#'
 #' # Example 4-20 from the Reference text (pages 153-154)
 #' PgivenG(1000, 4, 15, "annual") # the interest rate is 15%
 #'
 #'
-#'
+#' @importFrom assertthat assert_that
+#' @importFrom checkmate qtest
+#' @importFrom round round_r3
 #'
 #' @export
 PgivenG <- function (G, n, i, frequency = c("annual", "semiannual", "quarter", "bimonth", "month", "daily")) {
+
+frequency <- frequency
+
+checks <- c(G, n, i)
+
+# Check
+assert_that(!any(qtest(checks, "N+(0,)") == FALSE), msg = "Either G, n, or i is 0, NA, NaN, Inf, -Inf, empty, or a string. Please try again.")
+# only process with finite values and provide an error message if the check fails
+
+assert_that(qtest(frequency, "S==1"), msg = "There is not a frequency or more than 1 frequency is stated. Please specify either 'annual', 'semiannual', 'quarter', 'bimonth', 'month', or 'daily'.")
+# only process with enough known variables and provide an error message if the check fails
+
+assert_that(isTRUE(any(c("annual", "semiannual", "quarter", "bimonth", "month", "daily") %in% frequency)), msg = "Incorrect frequency. The only options are annual, semiannual, quarter, bimonth, month, daily. Please try again.")
+# only process with a specified frequency and provide a stop warning if not
+
 
 i <- i / 100
 
@@ -51,7 +83,7 @@ i <- i / fr
 
 PgivenG <- G * (1 / i) * (((((1 + i) ^ n) - 1) / (i * ((1 + i) ^ n))) - (n / (1 + i) ^ n))
 
-return(round(PgivenG, digits = 2))
+return(round_r3(PgivenG, d = 2))
 
 } else if (fr == "semiannual") {
 
@@ -62,7 +94,7 @@ i <- i / fr
 
 PgivenG <- G * (1 / i) * (((((1 + i) ^ n) - 1) / (i * ((1 + i) ^ n))) - (n / (1 + i) ^ n))
 
-return(round(PgivenG, digits = 2))
+return(round_r3(PgivenG, d = 2))
 
 } else if (fr == "quarter") {
 
@@ -73,7 +105,7 @@ i <- i / fr
 
 PgivenG <- G * (1 / i) * (((((1 + i) ^ n) - 1) / (i * ((1 + i) ^ n))) - (n / (1 + i) ^ n))
 
-return(round(PgivenG, digits = 2))
+return(round_r3(PgivenG, d = 2))
 
 } else if (fr == "bimonth") {
 
@@ -84,7 +116,7 @@ i <- i / fr
 
 PgivenG <- G * (1 / i) * (((((1 + i) ^ n) - 1) / (i * ((1 + i) ^ n))) - (n / (1 + i) ^ n))
 
-return(round(PgivenG, digits = 2))
+return(round_r3(PgivenG, d = 2))
 
 } else if (fr == "month") {
 
@@ -95,7 +127,7 @@ i <- i / fr
 
 PgivenG <- G * (1 / i) * (((((1 + i) ^ n) - 1) / (i * ((1 + i) ^ n))) - (n / (1 + i) ^ n))
 
-return(round(PgivenG, digits = 2))
+return(round_r3(PgivenG, d = 2))
 
 } else if (fr == "daily") {
 
@@ -106,10 +138,12 @@ i <- i / fr
 
 PgivenG <- G * (1 / i) * (((((1 + i) ^ n) - 1) / (i * ((1 + i) ^ n))) - (n / (1 + i) ^ n))
 
-return(round(PgivenG, digits = 2))
+return(round_r3(PgivenG, d = 2))
 
 }
 }
+
+
 
 
 
@@ -140,26 +174,62 @@ return(round(PgivenG, digits = 2))
 #' @return AgivenG numeric vector that contains the annual value(s) rounded to
 #'    2 decimal places
 #'
+#'
 #' @references
 #' William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 142, 150, 152-154, 164, 166-167.
+#'
+#'
+#'
+#'
+#' @author Irucka Embry
+#'
+#'
 #'
 #' @encoding UTF-8
 #'
 #'
+#'
+#'
+#'
+#'
+#'
 #' @examples
+##' 
 #' library("iemisc")
+#'
 #' # Example 4-20 from the Reference text (pages 153-154)
-#'   AgivenG(1000, 4, 15, "annual") # the interest rate is 15%
+#'   AgivenG(1000, 4, 15, "annual") # the interest rate is 15\%
 #'
 #'
 #' # Example 4-31 from the Reference text (pages 166-167)
-#'   AgivenG(1000, 4, 20, "semiannual") # the nominal interest rate is 20% compounded semiannually
+#'   AgivenG(1000, 4, 20, "semiannual") # the nominal interest rate is 20\% compounded semiannually
 #'
 #'
 #'
+#'
+#' @importFrom assertthat assert_that
+#' @importFrom checkmate qtest
 #'
 #' @export
 AgivenG <- function (G, n, i, frequency = c("annual", "semiannual", "quarter", "bimonth", "month", "daily")) {
+
+
+frequency <- frequency
+
+checks <- c(G, n, i)
+
+# Check
+assert_that(!any(qtest(checks, "N+(0,)") == FALSE), msg = "Either G, n, or i is 0, NA, NaN, Inf, -Inf, empty, or a string. Please try again.")
+# only process with finite values and provide an error message if the check fails
+
+assert_that(qtest(frequency, "S==1"), msg = "There is not a frequency or more than 1 frequency is stated. Please specify either 'annual', 'semiannual', 'quarter', 'bimonth', 'month', or 'daily'.")
+# only process with enough known variables and provide an error message if the check fails
+
+assert_that(isTRUE(any(c("annual", "semiannual", "quarter", "bimonth", "month", "daily") %in% frequency)), msg = "Incorrect frequency. The only options are annual, semiannual, quarter, bimonth, month, daily. Please try again.")
+# only process with a specified frequency and provide a stop warning if not
+
+
+
 
 i <- i / 100
 
@@ -171,9 +241,9 @@ n <- n * fr
 
 i <- i / fr
 
-AgivenG <- G * ((1 / i) - (n / (((1 + i) ^ n) - 1)))
+AgivenG <- G * ((1 / i) - (n / ((1 + i) ^ n - 1)))
 
-return(round(AgivenG, digits = 2))
+return(round_r3(AgivenG, d = 2))
 
 } else if (fr == "semiannual") {
 
@@ -182,9 +252,9 @@ n <- n * fr
 
 i <- i / fr
 
-AgivenG <- G * ((1 / i) - (n / (((1 + i) ^ n) - 1)))
+AgivenG <- G * ((1 / i) - (n / ((1 + i) ^ n - 1)))
 
-return(round(AgivenG, digits = 2))
+return(round_r3(AgivenG, d = 2))
 
 } else if (fr == "quarter") {
 
@@ -193,9 +263,9 @@ n <- n * fr
 
 i <- i / fr
 
-AgivenG <- G * ((1 / i) - (n / (((1 + i) ^ n) - 1)))
+AgivenG <- G * ((1 / i) - (n / ((1 + i) ^ n - 1)))
 
-return(round(AgivenG, digits = 2))
+return(round_r3(AgivenG, d = 2))
 
 } else if (fr == "bimonth") {
 
@@ -204,9 +274,9 @@ n <- n * fr
 
 i <- i / fr
 
-AgivenG <- G * ((1 / i) - (n / (((1 + i) ^ n) - 1)))
+AgivenG <- G * ((1 / i) - (n / ((1 + i) ^ n - 1)))
 
-return(round(AgivenG, digits = 2))
+return(round_r3(AgivenG, d = 2))
 
 } else if (fr == "month") {
 
@@ -215,9 +285,9 @@ n <- n * fr
 
 i <- i / fr
 
-AgivenG <- G * ((1 / i) - (n / (((1 + i) ^ n) - 1)))
+AgivenG <- G * ((1 / i) - (n / ((1 + i) ^ n - 1)))
 
-return(round(AgivenG, digits = 2))
+return(round_r3(AgivenG, d = 2))
 
 } else if (fr == "daily") {
 
@@ -226,9 +296,9 @@ n <- n * fr
 
 i <- i / fr
 
-AgivenG <- G * ((1 / i) - (n / (((1 + i) ^ n) - 1)))
+AgivenG <- G * ((1 / i) - (n / ((1 + i) ^ n - 1)))
 
-return(round(AgivenG, digits = 2))
+return(round_r3(AgivenG, d = 2))
 
 }
 }

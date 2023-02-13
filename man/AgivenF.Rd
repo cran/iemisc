@@ -55,16 +55,23 @@ A is expressed as
 }
 }
 \examples{
+
 library("iemisc")
+
 # Example for equation 4-12 from the Reference text (page 135-136)
-AgivenF(309*10^6, 60, 0.5, "annual")
-# the interest rate is 0.5\% per month and n is 60 months
+AgivenF(309*10^6, 60, 0.5, "month")
+
+# the interest rate is 0.5\\% per month and n is 60 months
+# "$4.4187 million per month" is the answer
 
 AF(309*10^6, 60, 0.5, "annual")
-# the interest rate is 0.5\% per month and n is 60 months
+# the interest rate is 0.5\\% per month and n is 60 months
 
 
 }
 \references{
 William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 135-136, 142, 164.
+}
+\author{
+Irucka Embry
 }

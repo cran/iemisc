@@ -39,22 +39,26 @@ i is expressed as
 }
 }
 \examples{
+
 library("iemisc")
+
 # Example 4-28 from Sullivan Reference text (page 165)
 EffInt(1.375, frequency = "month")
-# the nominal interest rate per period (month) is 1.375\%
+# the nominal interest rate per period (month) is 1.375\\%
 
 
 # Example from SFPE Reference text
 EffInt(18 / 12, frequency = "month")
-# the nominal interest rate is 18\% per year or 18\% / 12 months
-
+# the nominal interest rate is 18\\% per year or 18\\% / 12 months
 
 
 }
 \references{
 \enumerate{
- \item \emph{SFPE Handbook of Fire Protection Engineering}. 3rd Edition, DiNenno, P. J.; Drysdale, D.; Beyler, C. L.; Walton, W. D., Editor(s), 5/93-104 p., 2002. Chapter 7; Section 5; NFPA HFPE-02. See \url{http://fire.nist.gov/bfrlpubs//build02/art155.html}.
- \item William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 164-165.
+ \item \emph{SFPE Handbook of Fire Protection Engineering}. 3rd Edition, DiNenno, P. J.; Drysdale, D.; Beyler, C. L.; Walton, W. D., Editor(s), page 5-95, 2002. Chapter 7; Section 5; NFPA HFPE-02. See \url{https://web.archive.org/web/20180127185316/http://fire.nist.gov/bfrlpubs/build02/PDF/b02155.pdf}.
+ \item William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, pages 164-165.
 }
+}
+\author{
+Irucka Embry
 }

@@ -4,6 +4,12 @@
 \name{cv}
 \alias{cv}
 \title{Coefficient of variation (CV)}
+\source{
+\enumerate{
+   \item r - How to not run an example using roxygen2? - Stack Overflow answered and edited by samkart on Jul 9 2017. (Also see the additional comments in response to the answer.) See \url{https://stackoverflow.com/questions/12038160/how-to-not-run-an-example-using-roxygen2}.
+   \item devtools - Issues in R package after CRAN asked to replace dontrun by donttest - Stack Overflow answered by Hong Ooi on Sep 1 2020. (Also see the additional comments in response to the answer.) See \url{https://stackoverflow.com/questions/63693563/issues-in-r-package-after-cran-asked-to-replace-dontrun-by-donttest}.
+}
+}
 \usage{
 cv(x, na.rm = FALSE)
 }
@@ -16,8 +22,8 @@ should be removed or not.}
 }
 \value{
 coefficient of variation (CV), as a percent (\%), as an R object: a numeric
-  \code{\link{vector}} or a named numeric vector if using a named object (\code{\link{matrix}},
-  \code{\link{data.frame}}, or \code{\link{data.table}}). The default choice is that any NA values
+  \code{\link[base]{vector}} or a named numeric vector if using a named object (\code{\link[base]{matrix}},
+  \code{\link[base]{data.frame}}, or \code{\link[data.table]{data.table}}). The default choice is that any NA values
   will be kept (\code{na.rm = FALSE}). This can be changed by specifying \code{na.rm = TRUE},
   such as \code{cv(x, na.rm = TRUE)}.
 }
@@ -35,12 +41,14 @@ CV is expressed as
 }
 }
 \examples{
-library("iemisc")
-library("data.table")
 
 # Example 2.60 from Miller (page 38)
-x <- c(14, 12, 21, 28, 30, 63, 29, 63, 55, 19, 20) # suspended solids in
-     # parts per million (ppm)
+
+library("iemisc")
+
+x <- c(14, 12, 21, 28, 30, 63, 29, 63, 55, 19, 20)
+# suspended solids in parts per million (ppm)
+
 cv(x)
 
 
@@ -51,19 +59,62 @@ cv(mat1)
 
 
 # using a data.frame of the numeric vector x
-df1 <- data.frame(x)
-cv(df1)
+df <- data.frame(x)
+cv(df)
 
 
 # using a data.table of the numeric vector x
-df2 <- data.table(x)
-cv(df2)
+
+library("data.table")
+
+dt <- data.table(x)
+cv(dt)
+
+
+
+# modified Example 2.60 from Miller (page 38)
+xx <- c(14, 12, 21, 28, 30, 63, 29, 63, 55, 19, 20, NA)
+# suspended solids in parts per million (ppm)
+
+cv(xx) # na.rm = FALSE is the default
+cv(xx, na.rm = TRUE)
+
+
+
+
+\donttest{
+# See Source 1 and Source 2
+
+# Example 3
+
+# Please see the error messages
+
+library("iemisc")
+
+try(cv(0))
+try(cv(1))
+try(cv(1003.23))
+
+}
+
+
+
+
+# Example 4 - from the archived cvcqv README
+
+xu <- c(0.2, 0.5, 1.1, 1.4, 1.8, 2.3, 2.5, 2.7, 3.5, 4.4, 4.6, 5.4,
+5.4, 5.7, 5.8, 5.9, 6.0, 6.6, 7.1, 7.9)
+
+results2 <- cv(xu)
+results2
+
+
 
 
 }
 \references{
 \enumerate{
-   \item Masoud Olia, Ph.D., P.E. and Contributing Authors, \emph{Barron’s FE (Fundamentals of Engineering Exam)}, 3rd Edition, Hauppauge, New York: Barron’s Educational Series, Inc., 2015, page 84.
+   \item Masoud Olia, Ph.D., P.E. and Contributing Authors, \emph{Barron's FE (Fundamentals of Engineering Exam)}, 3rd Edition, Hauppauge, New York: Barron's Educational Series, Inc., 2015, page 84.
    \item Irwin R. Miller, John E. Freund, and Richard Johnson, \emph{Probability and Statistics for Engineers}, Fourth Edition, Englewood Cliffs, New Jersey: Prentice-Hall, Inc., 1990, page 25, 38.
 }
 }
@@ -71,4 +122,7 @@ cv(df2)
 \code{\link{sgm}} for geometric mean, \code{\link{shm}} for harmonic mean, \code{\link{rms}}
  for root-mean-square (RMS), \code{\link{relerror}} for relative error, \code{\link{approxerror}} for
  approximate error, and \code{\link{ranges}} for sample range.
+}
+\author{
+Irucka Embry
 }

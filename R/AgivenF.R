@@ -27,23 +27,43 @@
 #' @return AF data.frame of both n (0 to n) and the resulting annual values
 #'    rounded to 2 decimal places
 #'
+#'
+#'
 #' @references
 #' William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 135-136, 142, 164.
+#'
+#'
+#'
+#'
+#' @author Irucka Embry
+#'
+#'
 #'
 #' @encoding UTF-8
 #'
 #'
+#'
+#'
+#'
+#'
+#'
 #' @examples
+#'
 #' library("iemisc")
+#'
 #' # Example for equation 4-12 from the Reference text (page 135-136)
-#' AgivenF(309*10^6, 60, 0.5, "annual")
-#' # the interest rate is 0.5% per month and n is 60 months
+#' AgivenF(309*10^6, 60, 0.5, "month")
+#' 
+#' # the interest rate is 0.5\% per month and n is 60 months
+#' # "$4.4187 million per month" is the answer
 #'
 #' AF(309*10^6, 60, 0.5, "annual")
-#' # the interest rate is 0.5% per month and n is 60 months
+#' # the interest rate is 0.5\% per month and n is 60 months
 #'
 #'
-#' @import data.table
+#' @importFrom data.table data.table setnames setDF
+#' @importFrom assertthat assert_that
+#' @importFrom round round_r3
 #'
 #' @name AgivenF
 NULL
@@ -51,6 +71,21 @@ NULL
 #' @export
 #' @rdname AgivenF
 AgivenF <- function (F, n, i, frequency = c("annual", "semiannual", "quarter", "bimonth", "month", "daily")) {
+
+frequency <- frequency
+
+checks <- c(F, n, i)
+
+# Check
+assert_that(!any(qtest(checks, "N+(0,)") == FALSE), msg = "Either F, n, or i is 0, NA, NaN, Inf, -Inf, empty, or a string. Please try again.")
+# only process with finite values and provide an error message if the check fails
+
+assert_that(qtest(frequency, "S==1"), msg = "There is not a frequency or more than 1 frequency is stated. Please specify either 'annual', 'semiannual', 'quarter', 'bimonth', 'month', or 'daily'.")
+# only process with enough known variables and provide an error message if the check fails
+
+assert_that(isTRUE(any(c("annual", "semiannual", "quarter", "bimonth", "month", "daily") %in% frequency)), msg = "Incorrect frequency. The only options are annual, semiannual, quarter, bimonth, month, daily. Please try again.")
+# only process with a specified frequency and provide a stop warning if not
+
 
 i <- i / 100
 
@@ -64,7 +99,7 @@ i <- i / fr
 
 AgivenF <- F * (i / (((1 + i) ^ n) - 1))
 
-return(round(AgivenF, digits = 2))
+return(round_r3(AgivenF, d = 2))
 
 } else if (fr == "semiannual") {
 
@@ -75,7 +110,7 @@ i <- i / fr
 
 AgivenF <- F * (i / (((1 + i) ^ n) - 1))
 
-return(round(AgivenF, digits = 2))
+return(round_r3(AgivenF, d = 2))
 
 } else if (fr == "quarter") {
 
@@ -86,7 +121,7 @@ i <- i / fr
 
 AgivenF <- F * (i / (((1 + i) ^ n) - 1))
 
-return(round(AgivenF, digits = 2))
+return(round_r3(AgivenF, d = 2))
 
 } else if (fr == "bimonth") {
 
@@ -97,7 +132,7 @@ i <- i / fr
 
 AgivenF <- F * (i / (((1 + i) ^ n) - 1))
 
-return(round(AgivenF, digits = 2))
+return(round_r3(AgivenF, d = 2))
 
 } else if (fr == "month") {
 
@@ -108,7 +143,7 @@ i <- i / fr
 
 AgivenF <- F * (i / (((1 + i) ^ n) - 1))
 
-return(round(AgivenF, digits = 2))
+return(round_r3(AgivenF, d = 2))
 
 } else if (fr == "daily") {
 
@@ -119,7 +154,7 @@ i <- i / fr
 
 AgivenF <- F * (i / (((1 + i) ^ n) - 1))
 
-return(round(AgivenF, digits = 2))
+return(round_r3(AgivenF, d = 2))
 
 }
 }
@@ -130,11 +165,28 @@ return(round(AgivenF, digits = 2))
 #' @rdname AgivenF
 AF <- function (F, n, i, frequency = c("annual", "semiannual", "quarter", "bimonth", "month", "daily")) {
 
+frequency <- frequency
+
+checks <- c(F, n, i)
+
+# Check
+assert_that(!any(qtest(checks, "N+(0,)") == FALSE), msg = "Either F, n, or i is 0, NA, NaN, Inf, -Inf, empty, or a string. Please try again.")
+# only process with finite values and provide an error message if the check fails
+
+assert_that(qtest(frequency, "S==1"), msg = "There is not a frequency or more than 1 frequency is stated. Please specify either 'annual', 'semiannual', 'quarter', 'bimonth', 'month', or 'daily'.")
+# only process with enough known variables and provide an error message if the check fails
+
+assert_that(isTRUE(any(c("annual", "semiannual", "quarter", "bimonth", "month", "daily") %in% frequency)), msg = "Incorrect frequency. The only options are annual, semiannual, quarter, bimonth, month, daily. Please try again.")
+# only process with a specified frequency and provide a stop warning if not
+
+
+
 i <- i / 100
 
 fr <- frequency
 
 if (fr == "annual") {
+
 fr <- 1
 n <- n * fr
 
@@ -154,9 +206,28 @@ P0 <- setnames(P0, 2, "V2")
 AF <- rbind(P0, AF)
 
 setnames(AF, c("n (periods)", "Annual Worth ($US)"))
-AF <- setDF(AF)
 
-return(round(AF, digits = 2))
+
+# Round the numeric values to 2 decimal places
+cols <- "Annual Worth ($US)"
+
+for (col in cols) {
+
+idx <- which(!is.na(AF[[col]]))
+
+data.table::set(AF, i = idx, j = col, value = round_r3(AF[[col]][idx], d = 2))
+
+}
+
+
+
+col.names <- c("n (periods)", "Annual Worth ($US)")
+
+# code block below modified from data.table function
+setattr(AF, "col.names", setnames(AF, col.names))
+setattr(AF, "class", c("data.table", "data.frame"))
+AF
+
 
 } else if (fr == "semiannual") {
 
@@ -181,9 +252,28 @@ P0 <- setnames(P0, 2, "V2")
 AF <- rbind(P0, AF)
 
 setnames(AF, c("n (periods)", "Annual Worth ($US)"))
-AF <- setDF(AF)
 
-return(round(AF, digits = 2))
+
+# Round the numeric values to 2 decimal places
+cols <- "Annual Worth ($US)"
+
+for (col in cols) {
+
+idx <- which(!is.na(AF[[col]]))
+
+data.table::set(AF, i = idx, j = col, value = round_r3(AF[[col]][idx], d = 2))
+
+}
+
+
+
+col.names <- c("n (periods)", "Annual Worth ($US)")
+
+# code block below modified from data.table function
+setattr(AF, "col.names", setnames(AF, col.names))
+setattr(AF, "class", c("data.table", "data.frame"))
+AF
+
 
 } else if (fr == "quarter") {
 
@@ -208,9 +298,28 @@ P0 <- setnames(P0, 2, "V2")
 AF <- rbind(P0, AF)
 
 setnames(AF, c("n (periods)", "Annual Worth ($US)"))
-AF <- setDF(AF)
 
-return(round(AF, digits = 2))
+
+# Round the numeric values to 2 decimal places
+cols <- "Annual Worth ($US)"
+
+for (col in cols) {
+
+idx <- which(!is.na(AF[[col]]))
+
+data.table::set(AF, i = idx, j = col, value = round_r3(AF[[col]][idx], d = 2))
+
+}
+
+
+
+col.names <- c("n (periods)", "Annual Worth ($US)")
+
+# code block below modified from data.table function
+setattr(AF, "col.names", setnames(AF, col.names))
+setattr(AF, "class", c("data.table", "data.frame"))
+AF
+
 
 } else if (fr == "bimonth") {
 
@@ -235,9 +344,28 @@ P0 <- setnames(P0, 2, "V2")
 AF <- rbind(P0, AF)
 
 setnames(AF, c("n (periods)", "Annual Worth ($US)"))
-AF <- setDF(AF)
 
-return(round(AF, digits = 2))
+
+# Round the numeric values to 2 decimal places
+cols <- "Annual Worth ($US)"
+
+for (col in cols) {
+
+idx <- which(!is.na(AF[[col]]))
+
+data.table::set(AF, i = idx, j = col, value = round_r3(AF[[col]][idx], d = 2))
+
+}
+
+
+
+col.names <- c("n (periods)", "Annual Worth ($US)")
+
+# code block below modified from data.table function
+setattr(AF, "col.names", setnames(AF, col.names))
+setattr(AF, "class", c("data.table", "data.frame"))
+AF
+
 
 } else if (fr == "month") {
 
@@ -262,9 +390,28 @@ P0 <- setnames(P0, 2, "V2")
 AF <- rbind(P0, AF)
 
 setnames(AF, c("n (periods)", "Annual Worth ($US)"))
-AF <- setDF(AF)
 
-return(round(AF, digits = 2))
+
+# Round the numeric values to 2 decimal places
+cols <- "Annual Worth ($US)"
+
+for (col in cols) {
+
+idx <- which(!is.na(AF[[col]]))
+
+data.table::set(AF, i = idx, j = col, value = round_r3(AF[[col]][idx], d = 2))
+
+}
+
+
+
+col.names <- c("n (periods)", "Annual Worth ($US)")
+
+# code block below modified from data.table function
+setattr(AF, "col.names", setnames(AF, col.names))
+setattr(AF, "class", c("data.table", "data.frame"))
+AF
+
 
 } else if (fr == "daily") {
 
@@ -289,9 +436,27 @@ P0 <- setnames(P0, 2, "V2")
 AF <- rbind(P0, AF)
 
 setnames(AF, c("n (periods)", "Annual Worth ($US)"))
-AF <- setDF(AF)
 
-return(round(AF, digits = 2))
+
+# Round the numeric values to 2 decimal places
+cols <- "Annual Worth ($US)"
+
+for (col in cols) {
+
+idx <- which(!is.na(AF[[col]]))
+
+data.table::set(AF, i = idx, j = col, value = round_r3(AF[[col]][idx], d = 2))
+
+}
+
+
+
+col.names <- c("n (periods)", "Annual Worth ($US)")
+
+# code block below modified from data.table function
+setattr(AF, "col.names", setnames(AF, col.names))
+setattr(AF, "class", c("data.table", "data.frame"))
+AF
 
 }
 }

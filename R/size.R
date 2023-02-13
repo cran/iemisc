@@ -19,7 +19,7 @@
 #'
 #'
 #' @references
-#' John W. Eaton, David Bateman, and Søren Hauberg (2009). \emph{GNU Octave version 3.0.1 manual: a high-level interactive language for numerical computations}. CreateSpace Independent Publishing Platform. ISBN 1441413006, URL \url{http://www.gnu.org/software/octave/doc/interpreter/}. Page 42.
+#' John W. Eaton, David Bateman, Søren Hauberg, and Rik Wehbring (November 2022). \emph{GNU Octave: A high-level interactive language for numerical computations: Edition 7 for Octave version 7.3.0}. \url{https://docs.octave.org/octave.pdf}. Page 47-48.
 #'
 #'
 #'
@@ -36,94 +36,60 @@
 #'
 #'
 #' @examples
-#' library("iemisc")
-#' library(gsubfn)
+#' 
+#' # Example from GNU Octave ndims function reference
+#' 
+#' size(matlab::ones(4, 1, 2, 1))
+#' 
 #'
-#'
-#' # Examples from GNU Octave size
-#' object1 <- matrix(c(1, 2, 3, 4, 5, 6), nrow = 3, ncol = 2, byrow = TRUE)
-#' size(object1)
-#'
-#'
-#' list[nr, nc] <- size(matrix(c(1, 2, 3, 4, 5, 6), nrow = 3, ncol = 2,
-#'                 byrow = TRUE))
-#'
-#' size(matrix(c(1, 2, 3, 4, 5, 6), nrow = 3, ncol = 2, byrow = TRUE), 2)
-#'
-#' # Examples from pracma size
-#' size(1:8)
-#'
-#' size(matrix(1:8, 2, 4))
-#'
-#' size(matrix(1:8, 2, 4), 2)
-#'
-#' size(matrix(1:8, 2, 4), 3)
-#'
-#' ss <- "object"
-#' size(ss)
-#'
-#'
-#' \dontrun{
-#' # check against GNU Octave
-#' library(RcppOctave) # requires Octave (>= 3.2.4) and its development files
-#' o_source(text = "
-#' \% Examples from GNU Octave size
-#' object1 = [1, 2; 3, 4; 5, 6];
-#' size(object1)
-#'
-#' [nr, nc] = size([1, 2; 3, 4; 5, 6])
-#'
-#' size([1, 2; 3, 4; 5, 6], 2)
-#'
-#' \% Examples from pracma size
-#' size(1:8)
-#'
-#' object2 = [1 3 5 7; 2 4 6 8];
-#'
-#' size(object2)
-#'
-#' size(object2, 2)
-#'
-#' size(object2, 3)
-#'
-#' ss = 'object';
-#' size(ss)
-#' ")
-#' }
 #'
 #'
 #' @export
 # Source 1 begins
-size <- function (x, k)
-{
-    if (length(x) == 0)
+size <- function (x, k) {
+
+    if (length(x) == 0) {
 
         sz <- 0
 
-    else if (is.vector(x) & is.vector(x, mode = "character") == FALSE)
+    } else if (is.vector(x) & is.vector(x, mode = "character") == FALSE) {
 
     sz <- c(1, length(x))
 
-	else if (is.vector(x) & is.vector(x, mode = "character"))
+	} else if (is.vector(x) & is.vector(x, mode = "character")) {
 
 	sz <- c(1, nchar(x))
 
-    else if (is.array(x))
+    } else if (all(is.array(x) & !is.matrix(x))) {
 
+    ifelse(x[length(x)] == 1, sz <- dim(x)[1:length(dim(x))-1L], sz <- dim(x))
+    
+    } else if (is.matrix(x)) {
+    
     sz <- dim(x)
 
-    else sz <- NULL
+    } else sz <- NULL
+    
 
     if (!missing(k)) {
 
-    if (k > length(sz))
+    if (k > length(sz)+1L) {
 
     sz <- 1
 
-    else if (k >= 1)
+    } else if (k == 1) {
+    
+    sz <- nrow(x)
+    
+    } else if (k == 2) {
+        
+    ifelse(is.array(x), sz <- length(x) / nrow(x), sz <- ncol(x))
+    
+    } else if (k > 2) {
 
     sz <- sz[k]
-
+    }
+    
     else stop("Requested dimension 'k' is out of range.")
 
     }
@@ -133,6 +99,10 @@ size <- function (x, k)
     }
 
 
+
+    
+    
+    
 
 #' Length of R objects (GNU Octave/MATLAB compatible)
 #'
@@ -151,8 +121,8 @@ size <- function (x, k)
 #'
 #' @references
 #' \enumerate{
-#'    \item Samit Basu (2002-2006). FreeMat v4.0, \url{http://freemat.sourceforge.net/}.
-#'    \item John W. Eaton, David Bateman, and Søren Hauberg (2009). \emph{GNU Octave version 3.0.1 manual: a high-level interactive language for numerical computations}. CreateSpace Independent Publishing Platform. ISBN 1441413006, URL \url{http://www.gnu.org/software/octave/doc/interpreter/}. Page 41.
+#'    \item Samit Basu (2002-2006). FreeMat v4.0, \url{https://freemat.sourceforge.net/help/inspection_length.html}.
+#'    \item John W. Eaton, David Bateman, Søren Hauberg, and Rik Wehbring (November 2022). \emph{GNU Octave: A high-level interactive language for numerical computations: Edition 7 for Octave version 7.3.0}. \url{https://docs.octave.org/octave.pdf}. Page 47.
 #' }
 #'
 #'
@@ -168,57 +138,25 @@ size <- function (x, k)
 #'
 #'
 #' @examples
+#' 
 #' library("iemisc")
-#' import::from(pracma, ones)
+#'
+#' import::from(matlab, ones)
+#' 
 #' # Example from pracma isempty
+#' 
 #' object1 <- matrix(0, 1, 0)
+#' 
 #' length_octave(object1)
 #'
-#' object2 <- 2
-#' length_octave(object2)
-#'
-#' object3 <- 1:10
-#' length_octave(object3)
-#'
-#' object4 <- ones(3, 4)
-#' length_octave(object4)
-#'
-#' object5 <- "ss"
-#' length_octave(object5)
-#'
-#' object6 <- list(letters, b <- 2)
-#' length_octave(object6)
 #'
 #'
-#' \dontrun{
-#' # check against GNU Octave
-#' library(RcppOctave) # requires Octave (>= 3.2.4) and its development files
-#' o_source(text = "
-#' object1 = [];
-#' length(object1)
-#'
-#' object2 = 2;
-#' length(object2)
-#'
-#' object3 = 1:10;
-#' length(object3)
-#'
-#' object4 = ones(3, 4);
-#' length(object4)
-#'
-#' object5 = 'ss';
-#' length(object5)
-#' ")
-#' }
-#'
-#'
-#' @importFrom pracma isempty ones
-#' @import import
+#' @importFrom sjmisc is_empty
 #'
 #' @export
 length_octave <- function (x) {
 
-if (isempty(x))
+if (is_empty(x))
 
   0
 
@@ -237,6 +175,10 @@ else (is.matrix(x))
   }
 
 
+  
+  
+  
+  
 
 #' Number of elements (GNU Octave/MATLAB compatible)
 #'
@@ -262,8 +204,8 @@ else (is.matrix(x))
 #'
 #' @references
 #' \enumerate{
-#'    \item Samit Basu (2002-2006). FreeMat v4.0, \url{http://freemat.sourceforge.net/}.
-#'    \item John W. Eaton, David Bateman, and Søren Hauberg (2009). \emph{GNU Octave version 3.0.1 manual: a high-level interactive language for numerical computations}. CreateSpace Independent Publishing Platform. ISBN 1441413006, URL \url{http://www.gnu.org/software/octave/doc/interpreter/}. Page 41.
+#'    \item Samit Basu (2002-2006). FreeMat v4.0, \url{https://freemat.sourceforge.net/help/inspection_numel.html}.
+#'    \item John W. Eaton, David Bateman, Søren Hauberg, and Rik Wehbring (November 2022). \emph{GNU Octave: A high-level interactive language for numerical computations: Edition 7 for Octave version 7.3.0}. \url{https://docs.octave.org/octave.pdf}. Page 46-47.
 #' }
 #'
 #'
@@ -275,57 +217,21 @@ else (is.matrix(x))
 #'
 #'
 #'
-#' @seealso \code{\link[matlab]{numel}}, \code{\link[pracma]{numel}}, \code{\link{size}}, \code{\link{length}}
+#' @seealso \code{\link[matlab]{numel}}, \code{\link[pracma]{numel}}, \code{\link{size}}, \code{\link[base]{length}}, \code{\link{length_octave}}
 #'
 #'
 #' @examples
+#' 
 #' library("iemisc")
-#' import::from(pracma, ones)
+#'
+#' import::from(matlab, ones)
+#' 
 #' xx <- list(1:26, 1:10)
+#' 
 #' numel(xx)
 #'
-#' # Examples from GNU Octave numel
-#' a <- 1
-#' b <- ones(2, 3)
-#' numel(a, b)
+#' 
 #'
-#' a <- 2
-#' b <- ones(2, 3)
-#' c <- ones(3, 4)
-#' numel(a, b)
-#' numel(a, b, c)
-#'
-#' f <- matrix(c(10, 12, 23, 21, 62, 93), nrow = 2, ncol = 3, byrow = TRUE)
-#' g <- c(2, 4)
-#' numel(f, g)
-#'
-#'
-#' \dontrun{
-#' # check against GNU Octave
-#' library(RcppOctave) # requires Octave (>= 3.2.4) and its development files
-#' o_source(text = "
-#' xx = {1:26, 1:10}
-#'
-#' \% Examples from GNU Octave numel
-#' a = 1;
-#' b = ones(2, 3);
-#' numel(a, b)
-#'
-#' a = 2;
-#' b = ones(2, 3);
-#' c = ones(3, 4);
-#' numel(a, b)
-#' numel(a, b, c)
-#'
-#' f = [10 12 23; 21 62 93];
-#' g = [2 4];
-#' numel(f, g)
-#' ")
-#' }
-#'
-#'
-#' @importFrom pracma ones
-#' @import import
 #'
 #'
 #' @export
@@ -355,4 +261,207 @@ for (k in 1:numel(varargin)) {
 
 return(lens)
 
+}
+
+
+
+
+
+
+
+
+
+
+
+
+#' Number of dimensions in an Array (GNU Octave/MATLAB compatible)
+#'
+#' Obtain the number of dimensions of an array [arrays, matrices, and vectors]
+#' in a manner compatible with GNU Octave/MATLAB.
+#'
+#'
+#' @param x An array (array, matrix, vector)
+#'
+#' @return "Return the number of dimensions of a. For any array, the result
+#'   will always be greater than or equal to 2. Trailing singleton dimensions
+#'   are not counted." Source: Eaton page 46.
+#'
+#'
+#'
+#' @author Irucka Embry, Samit Basu (FreeMat)
+#'
+#'
+#' @encoding UTF-8
+#'
+#'
+#'
+#' @references
+#' \enumerate{
+#'    \item Samit Basu (2002-2006). FreeMat v4.0, \url{https://freemat.sourceforge.net/help/inspection_ndims.html}.
+#'    \item John W. Eaton, David Bateman, Søren Hauberg, and Rik Wehbring (November 2022). \emph{GNU Octave: A high-level interactive language for numerical computations: Edition 7 for Octave version 7.3.0}. \url{https://docs.octave.org/octave.pdf}. Page 46.
+#' }
+#'
+#' @seealso \code{\link{size}}
+#'
+#'
+#' @examples
+#' 
+#' library("iemisc")
+#'
+#' # Examples from GNU Octave ndims
+#' 
+#' b <- matlab::ones(c(4, 1, 2, 1))
+#' 
+#' ndims(b)
+#'
+#' 
+#'
+#'
+#'
+#' @export
+ndims <- function (x) {
+
+n <- length_octave(size(x))
+
+return(n)
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#' Row Vector (GNU Octave/MATLAB compatible)
+#'
+#' Test for row vector that is compatible with GNU Octave/MATLAB.
+#'
+#'
+#' @param x An array (array, matrix, vector)
+#'
+#' @return "Return true if x is a row vector. A row vector is a 2-D array for
+#'   which size (x) returns [1, N] with non-negative N." Source: Eaton page 68.
+#'
+#'
+#'
+#' @author Irucka Embry, Rik Wehbring (GNU Octave), Colin B. Macdonald (OctSymPy)
+#'
+#'
+#' @encoding UTF-8
+#'
+#'
+#'
+#' @references
+#'
+#' John W. Eaton, David Bateman, Søren Hauberg, and Rik Wehbring (November 2022). \emph{GNU Octave: A high-level interactive language for numerical computations: Edition 7 for Octave version 7.3.0}. \url{https://docs.octave.org/octave.pdf}. Page 68.
+#'
+#' @seealso \code{\link{iscolumn}}
+#'
+#'
+#' @examples
+#' 
+#' library("iemisc")
+#'
+#' # Examples
+#' 
+#' xx <- ramify::mat("1, 2"); xx
+#' 
+#' isrow(xx)
+#' 
+#' 
+#' 
+#'
+#'
+#'
+#'
+#'
+#' @importFrom checkmate qtest
+#' @importFrom assertthat assert_that
+#'
+#' @export
+isrow <- function(x) {
+
+assert_that(!any(all(qtest(x, "N+(,)")) == FALSE), msg = "Either x is NA, NaN, Inf, -Inf, empty, or a string. Or, there is not at least 1 argument. Please try again.")
+# only process with finite values with a length greater than 1 and provide an error message if the check fails
+
+sz <- size(x)
+
+r <- (ndims(x) == 2 && (sz[1] == 1))
+
+return(r)
+}
+
+
+
+
+
+
+
+#' Column Vector (GNU Octave/MATLAB compatible)
+#'
+#' Test for column vector that is compatible with GNU Octave/MATLAB.
+#'
+#'
+#' @param x An array (array, matrix, vector)
+#'
+#' @return "Return true if x is a column vector. A column vector is a 2-D array
+#'   for which size (x) returns [N, 1] with non-negative N." Source: Eaton page
+#'   68.
+#'
+#'
+#'
+#' @author Irucka Embry, Rik Wehbring (GNU Octave), Colin B. Macdonald (OctSymPy)
+#'
+#'
+#' @encoding UTF-8
+#'
+#'
+#'
+#' @references
+#'
+#' John W. Eaton, David Bateman, Søren Hauberg, and Rik Wehbring (November 2022). \emph{GNU Octave: A high-level interactive language for numerical computations: Edition 7 for Octave version 7.3.0}. \url{https://docs.octave.org/octave.pdf}. Page 68.
+#'
+#' @seealso \code{\link{isrow}}
+#'
+#'
+#' @examples
+#' 
+#' library("iemisc")
+#'
+#' # Examples
+#' 
+#' xxx <- ramify::mat("1, 2"); xxx
+#' 
+#' iscolumn(xxx)
+#' 
+#' 
+#' 
+#'
+#'
+#'
+#'
+#'
+#' @importFrom checkmate qtest
+#' @importFrom assertthat assert_that
+#'
+#' @export
+iscolumn <- function(x) {
+
+assert_that(!any(all(qtest(x, "N+(,)")) == FALSE), msg = "Either x is NA, NaN, Inf, -Inf, empty, or a string. Or, there is not at least 1 argument. Please try again.")
+# only process with finite values with a length greater than 1 and provide an error message if the check fails
+
+sz <- size(x)
+
+r <- (ndims(x) == 2 && (sz[2] == 1))
+
+return(r)
 }

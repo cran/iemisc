@@ -52,10 +52,10 @@ period as a percent for option 2}
 
 \item{salvage2}{numeric vector that contains the salvage value for option 2}
 
-\item{option1}{character vector that contains the name of option for
+\item{option1}{character vector that contains the option name for
 option 1}
 
-\item{option2}{character vector that contains the name of option for
+\item{option2}{character vector that contains the option name for
 option 2}
 
 \item{table}{character vector that contains the table output format
@@ -113,7 +113,9 @@ Benefit-Cost ratio is expressed as
 }
 }
 \examples{
+
 library("iemisc")
+
 # Example from Lindeburg Reference text (page 14-4)
 benefitcost(ic1 = 300000, n1 = 10, ac1 = 45000, ab1 = 150000, i1 = 10,
 salvage1 = 0, ic2 = 400000, n2 = 10, ac2 = 35000, ab2 = 200000, i2 = 10,
@@ -128,6 +130,7 @@ i2 = 10, salvage2 = 10000, option1 = "A", option2 = "B", table = "rtable")
 rtable
 
 
+
 # This is useful for saving the results as the named data.frame ptable
 ptable <- benefitcost(ic1 = 300000, n1 = 10, ac1 = 45000, ab1 = 150000,
 i1 = 10, salvage1 = 0, ic2 = 400000, n2 = 10, ac2 = 35000, ab2 = 200000,
@@ -136,14 +139,15 @@ i2 = 10, salvage2 = 10000, option1 = "A", option2 = "B", table = "ptable")
 ptable
 
 
+
 # This is useful for saving the results as the named list of 2 data.frames
 # called both
 both <- benefitcost(ic1 = 300000, n1 = 10, ac1 = 45000, ab1 = 150000,
 i1 = 10, salvage1 = 0, ic2 = 400000, n2 = 10, ac2 = 35000, ab2 = 200000,
 i2 = 10, salvage2 = 10000, option1 = "A", option2 = "B", table = "both")
 
-
 both
+
 
 
 # Example 10-8 from the Sullivan Reference text (page 452-453)
@@ -156,10 +160,14 @@ project
 
 
 
+
 }
 \references{
 \enumerate{
 \item Michael R. Lindeburg, PE, \emph{EIT Review Manual}, Belmont, California: Professional Publications, Inc., 1996, page 14-2, 14-4.
 \item William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 133, 142, 442-443, 452-453.
 }
+}
+\author{
+Irucka Embry
 }

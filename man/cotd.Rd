@@ -18,6 +18,7 @@ Calculates the value of inverse secant for each element of \code{x} in
 degrees in a manner compatible with GNU Octave/MATLAB.
 }
 \examples{
+
 library("iemisc")
 
 # Examples from GNU Octave cotd
@@ -29,10 +30,9 @@ cotd (c(90, 270))
 
 
 
-
 }
 \references{
-John W. Eaton, David Bateman, and Søren Hauberg (2009). \emph{GNU Octave version 3.0.1 manual: a high-level interactive language for numerical computations}. CreateSpace Independent Publishing Platform. ISBN 1441413006, URL \url{http://www.gnu.org/software/octave/doc/interpreter/}. Page 358.
+John W. Eaton, David Bateman, Søren Hauberg, and Rik Wehbring (November 2022). \emph{GNU Octave: A high-level interactive language for numerical computations: Edition 7 for Octave version 7.3.0}. \url{https://docs.octave.org/octave.pdf}. Page 554.
 }
 \author{
 David Bateman (GNU Octave cotd), Irucka Embry

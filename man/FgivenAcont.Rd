@@ -37,13 +37,17 @@ F is expressed as
 }
 }
 \examples{
-library("iemisc")
-FgivenAcont(2100, 13, 7) # the interest rate is 7\%
 
+library("iemisc")
+
+FgivenAcont(2100, 13, 7) # the interest rate is 7\%
 
 
 
 }
 \references{
 William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 169.
+}
+\author{
+Irucka Embry
 }

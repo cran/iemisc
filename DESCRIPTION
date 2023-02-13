@@ -1,29 +1,62 @@
 Package: iemisc
 Title: Irucka Embry's Miscellaneous Functions
-Version: 0.9.9
-Author: Irucka Embry [aut, cre], Felix Andrews [aut, ctb] (zoo code), Hans
-    Werner Borchers [aut, ctb] (pracma code), Samit Basu [aut, ctb]
-    (FreeMat code), David Bateman [aut, ctb] (GNU Octave code), Rik Wehbring
-    [aut, ctb] (GNU Octave code)
+Version: 1.0.0
+Authors@R: c(person("Irucka", "Embry", role = c("aut", "cre"), email = "iembry@ecoccs.com"),
+    person("Felix", "Andrews", role = c("aut", "ctb"), comment = "zoo code"),
+    person("Hans Werner", "Borchers", role = c("aut", "ctb"), comment = "pracma code"),
+    person("Samit", "Basu", role = c("aut", "ctb"), comment = "FreeMat code"), 
+    person("David", "Bateman", role = c("aut", "ctb"), comment = "GNU Octave code"),
+    person("Rik", "Wehbring", role = c("aut", "ctb"), comment = "GNU Octave code"),
+    person("Didier", "Clamond", role = c("aut", "ctb"), comment = "MATLAB code"),
+    person("Berry", "Boessenkool", role = c("aut", "ctb"), comment = "checkLL and degree functions from OSMscale"),
+    person("Colin", "Caprani", role = c("aut", "ctb"), comment = "secprop MATLAB function"),
+    person("Teodor", "Ciuraru", role = c("aut", "ctb"), comment = "stackoverflow R code"),
+    person("Dylan", "Russell", role = c("aut", "ctb"), comment = "stackoverflow R code"),
+    person("Colin B.", "Macdonald", role = c("aut", "ctb"), comment = "OctSymPy code"),
+    person("John D", "Page", role = c("aut", "ctb"), comment = "JavaScript code"), 
+    person("Josh", "O'Brien", role = c("aut", "ctb"), comment = "stackoverflow R code"),
+    person("R.", "van Twisk", role = c("aut", "ctb"), comment = "LibreCAD code"))
 Maintainer: Irucka Embry <iembry@ecoccs.com>
-Depends: R (>= 3.0.0)
-Imports: zoo, pracma, iemiscdata, import, gsubfn (>= 0.7), fpCompare,
-        units, CHNOSZ, testit, stringi, rgdal, sp, stats, data.table
-        (>= 1.10.2)
-Suggests: install.load, ie2misc, Rcpp (>= 0.11.5), NISTunits, optiRum,
-        rivr, knitr, rmarkdown, ramify
+Depends: R (>= 3.3.0)
+Imports: zoo, pracma, iemiscdata, gsubfn (>= 0.7), fpCompare, units (>=
+        0.7-0), CHNOSZ (>= 1.3.3), stringi, assertthat, rivr (>=
+        1.2-2), checkmate, qdapTools, ramify, foreach, stats,
+        data.table (>= 1.10.2), measurements, roperators,
+        berryFunctions, round, USA.state.boundaries (>= 1.0.1), sf,
+        ggplot2, ggpubr, matlab, sjmisc, lubridate, anytime, qdapRegex,
+        mgsub, geosphere, matlab2r, signal, utils, methods
+Suggests: install.load, knitr, import, fractional, fracture, MASS,
+        rmarkdown, tinytest, maps, spelling, sampler, callr, rando,
+        geometry, linguisticsdown, flextable, aiRthermo, hydraulics
 Description: A collection of Irucka Embry's miscellaneous functions
     (Engineering Economics, Civil & Environmental/Water Resources Engineering,
-    Geometry, Statistics, GNU Octave length functions, Trigonometric functions
-    in degrees, etc.).
+    Construction Measurements, GNU Octave compatible functions, Python
+    compatible function, Trigonometric functions in degrees and function in
+    radians, Geometry, Statistics, Mortality Calculators, Quick Search, etc.).
 URL: https://gitlab.com/iembry/iemisc
-BugReports: https://gitlab.com/iembry/iemisc/issues
+BugReports: https://gitlab.com/iembry/iemisc/-/issues
 License: GPL (>= 3) | file LICENSE
 Language: en-US
 Encoding: UTF-8
-LazyData: true
+VignetteBuilder: knitr
+RoxygenNote: 7.2.3
 NeedsCompilation: no
-RoxygenNote: 7.1.1
-Packaged: 2020-07-31 03:05:08 UTC; xbyri
+Packaged: 2023-02-13 00:10:58 UTC; xbyri
+Author: Irucka Embry [aut, cre],
+  Felix Andrews [aut, ctb] (zoo code),
+  Hans Werner Borchers [aut, ctb] (pracma code),
+  Samit Basu [aut, ctb] (FreeMat code),
+  David Bateman [aut, ctb] (GNU Octave code),
+  Rik Wehbring [aut, ctb] (GNU Octave code),
+  Didier Clamond [aut, ctb] (MATLAB code),
+  Berry Boessenkool [aut, ctb] (checkLL and degree functions from
+    OSMscale),
+  Colin Caprani [aut, ctb] (secprop MATLAB function),
+  Teodor Ciuraru [aut, ctb] (stackoverflow R code),
+  Dylan Russell [aut, ctb] (stackoverflow R code),
+  Colin B. Macdonald [aut, ctb] (OctSymPy code),
+  John D Page [aut, ctb] (JavaScript code),
+  Josh O'Brien [aut, ctb] (stackoverflow R code),
+  R. van Twisk [aut, ctb] (LibreCAD code)
 Repository: CRAN
-Date/Publication: 2020-08-02 01:30:02 UTC
+Date/Publication: 2023-02-13 09:20:02 UTC

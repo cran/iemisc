@@ -42,10 +42,11 @@ or
 }
 }
 \examples{
+
 library("iemisc")
+
 # Example for equation 4-1 from the Sullivan Reference text (page 116)
 SimpIntPaid(1000, 3, 10) # the interest rate is 10\%
-
 
 
 
@@ -55,4 +56,7 @@ SimpIntPaid(1000, 3, 10) # the interest rate is 10\%
 \item Chinyere Onwubiko, \emph{An Introduction to Engineering}, Mission, Kansas: Schroff Development Corporation, 1997, page 205-206.
 \item William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 116.
 }
+}
+\author{
+Irucka Embry
 }

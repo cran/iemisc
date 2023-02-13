@@ -28,27 +28,53 @@
 #'    \item r - Why does is.vector() return TRUE for list? - Stack Overflow answered by Andrie on May 17 2011. See \url{https://stackoverflow.com/questions/6032772/why-does-is-vector-return-true-for-list/6032909}.
 #' }
 #'
+#'
 #' @references
 #' William G. Sullivan, Elin M. Wicks, and C. Patrick Koelling, \emph{Engineering Economy}, Fourteenth Edition, Upper Saddle River, New Jersey: Pearson/Prentice Hall, 2009, page 142, 162.
+#'
+#'
+#'
+#'
+#' @author Irucka Embry
+#'
+#'
 #'
 #' @encoding UTF-8
 #'
 #'
+#'
+#'
+#'
+#'
+#'
 #' @examples
+#' 
 #' library("iemisc")
+#'
 #' # Example for equation 4-31 from the Reference text (page 162)
 #' PgivenFivary(Fn = 1000, ik = c(10, 12, 13, 10), k = 1)
-#' # i1 is 10%, i2 is 12%, i3 is 14%, and i4 is 10% & k = 1 year
+#' # i1 is 10\%, i2 is 12\%, i3 is 14\%, and i4 is 10\% & k = 1 year
 #'
 #'
 #'
+#' @importFrom checkmate qtest
+#' @importFrom assertthat assert_that
+#' @importFrom round round_r3
 #'
 #' @export
 PgivenFivary <- function (Fn, ik, k) {
 
+checks <- c(Fn, ik, k)
+
+# Check
+assert_that(!any(qtest(checks, "N+(0,)") == FALSE), msg = "Either Fn, ik, or k is 0, NA, NaN, Inf, -Inf, empty, or a string. Please try again.")
+# only process with finite values and provide an error message if the check fails
+
+
 ik <- ik / 100
 
-ika <- vector("list", length(ik)) # Source 1 and 2 / pre-allocate the list since it is being used in a for loop
+ika <- vector("list", length(ik))
+# Source 1 and 2 / pre-allocate the list since it is being used in a for loop
 
 for (t in 1:length(ik)) {
 
@@ -57,5 +83,5 @@ ika[[t]] <- (1 / (1 + ik[t])) ^ k
 
 PgivenFivary <- Fn * prod(unlist(ika))
 
-return(round(PgivenFivary, digits = 2))
+return(round_r3(PgivenFivary, d = 2))
 }

@@ -1,0 +1,102 @@
+---
+title: "iemisc: Air Stripping By Packed Column Examples"
+author: "Irucka Embry, E.I.T. (EcoC²S)"
+date: "`r Sys.Date()`"
+lang: en-us
+urlcolor: blue
+output:
+  rmarkdown::pdf_document:
+    highlight: kate
+    toc: true
+    latex_engine: xelatex
+vignette: >
+  %\VignetteIndexEntry{iemisc Air Stripping By Packed Column Examples}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+\bigskip
+
+# Replicate the R code
+
+Note: If you wish to replicate the R code below, then you will need to copy and paste the following commands in R first (to make sure you have all the packages and their dependencies):  
+
+```{r eval = FALSE}
+install.packages("install.load", "iemisc", "CHNOSZ")
+# install the required packages
+```
+
+\bigskip
+\bigskip
+
+# Example 1 ["Appendix D Example Air Stripping By Packed Column" from Design (page D-1 - D-18)]
+
+```{r, warning = FALSE, message = FALSE, tidy = TRUE}
+
+install.load::load_package("iemisc", "CHNOSZ")
+
+# values to match the Reference document
+T = 20; pTe = 1; contam1 = c("Benzene", "Toluene", "Trichloroethylene"); Cai = c(750, 1000, 750); Cae = c(10, 100, 100); contam2 = c("Benzene", "Toluene", "Trichloroethylene"); cas = c("71-43-2", "108-88-3", "79-01-6"); Ha = c(309.2, 353.1, 506.1); Q = 440; loading = 45; ns = 2; DL = c(8.91 * 10 ^ -10, NA_real_, NA_real_); DG = c(9.37 * 10 ^ -6, NA_real_, NA_real_); dP = 0.0508; at = 157; Sc = 0.033; cf = 15; R = 3.5; dP_units = "inch"; at_units = "ft^2/ft^3"; Sc_units = "kg/s^2"; contaminants_table = 1; removal_requirements_table = 1; critical_contaminant_table = 1
+
+
+air_stripper(T = T, pTe = pTe, contam1 = contam1, Cai = Cai, Cae = Cae, contam2 = contam2, cas = cas, Ha = Ha, Q = Q, loading = loading, ns = ns, DL = DL, DG = DG, dP = dP, at = at, Sc = Sc, cf = cf, R = R, T_units = "SI", dP_units = "inch", at_units = "ft^2/ft^3", Sc_units = "kg/s^2", contaminants_table = 1, removal_requirements_table = 1, critical_contaminant_table = 1)
+
+
+# Changes to reflect the manufacturer's values
+T = 20; pTe = 1; contam1 = c("Benzene", "Toluene", "Trichloroethylene"); Cai = c(750, 1000, 750); Cae = c(10, 100, 100); contam2 = c("Benzene", "Toluene", "Trichloroethylene"); cas = c("71-43-2", "108-88-3", "79-01-6"); Ha = c(309.2, 353.1, 506.1); Q = 440; loading = 45; ns = 2; DL = c(8.91 * 10 ^ -10, NA_real_, NA_real_); DG = c(9.37 * 10 ^ -6, NA_real_, NA_real_); dP = 2; at = 48; Sc = 0.033; cf = 16; R = 3.5; T_units = "SI"; dP_units = "inch"; at_units = "ft^2/ft^3"; Sc_units = "kg/s^2"; contaminants_table = 1; removal_requirements_table = 1; critical_contaminant_table = 1
+
+air_stripper(T = T, pTe = pTe, contam1 = contam1, Cai = Cai, Cae = Cae, contam2 = contam2, cas = cas, Ha = Ha, Q = Q, loading = loading, ns = ns, DL = DL, DG = DG, dP = dP, at = at, Sc = Sc, cf = cf, R = R,  T_units = "SI", dP_units = "inch", at_units = "ft^2/ft^3", Sc_units = "kg/s^2", contaminants_table = 1, removal_requirements_table = 1, critical_contaminant_table = 1)
+```
+
+\bigskip
+\bigskip
+
+# Example 2 (Spring 2011 Hazardous Waste Management Air Stripper Group Project)
+
+\bigskip
+\bigskip
+
+```{r, warning = FALSE, message = FALSE, tidy = TRUE}
+
+install.load::load_package("iemisc", "CHNOSZ")
+
+air_stripper(T = 20, pTe = 1, contam1 = "Ammonia", Cai = 333, Cae = 2.8, contam2 = "Ammonia", cas = "7664-41-7", Ha = 0.75, Q = 150, loading = 45, ns = 2, DL = 8.91 * 10 ^ -10, DG = 9.37 * 10 ^ -6, dP = 145, at = 65, Sc = 0.033, cf = 76 *6, R = 1.5,  T_units = "SI", dP_units = "mm", at_units = "m^2/m^3", Sc_units = "kg/s^2", contaminants_table = 1, removal_requirements_table = 1, critical_contaminant_table = 1)
+
+
+air_stripper(T = 25, pTe = 1, contam1 = "Ammonia", Cai = 700, Cae = 2.8, contam2 = "Ammonia", cas = "7664-41-7", Ha = 0.75, Q = 440, loading = 45, ns = 3, DL = 2.1E-09, DG = 9.8E-06, dP = 6.35, at = 940, Sc = 0.061, cf = 1600, R = 1.5,  T_units = "SI", dP_units = "mm", at_units = "m^2/m^3", Sc_units = "kg/s^2", contaminants_table = 1, removal_requirements_table = 1, critical_contaminant_table = 1)
+```
+
+\bigskip
+\bigskip
+
+## Works Cited
+
+Design Guide No. 1110-1-3: Air Stripping Engineering and Design Appendix D: Example Air Stripping By Packed Column, Department Of The Army U.S. Army Corps of Engineers, 31 October 2001, pages D-1 - D-18, http://www.publications.usace.army.mil/Portals/76/Publications/EngineerDesignGuides/DG_1110-1-3.pdf?ver=2013-08-16-101222-003.  
+
+\bigskip
+\bigskip
+
+# EcoC²S Links
+
+EcoC²S Home -- https://www.ecoccs.com/  
+About EcoC²S -- https://www.ecoccs.com/about_ecoc2s.html  
+Products -- https://www.questionuniverse.com/products.html  
+EcoC²S Media -- https://www.ecoccs.com/media.html  
+EcoC²S Resources -- https://www.ecoccs.com/resources.html  
+R Trainings and Resources provided by EcoC²S (Irucka Embry, E.I.T.) -- https://www.ecoccs.com/rtraining.html  
+
+\bigskip
+\bigskip
+
+# Copyright and License
+
+All R code written by Irucka Embry is distributed under the GPL-3 (or later) license, see the [GNU General Public License {GPL} page](https://www.gnu.org/licenses/gpl-3.0.html).  
+
+All written content originally created by Irucka Embry is copyrighted under the Creative Commons Attribution-ShareAlike 4.0 International License. All other written content retains the copyright of the original author(s).  
+
+
+```{r, echo = FALSE, out.width = '100%'}
+linguisticsdown::include_graphics2("https://i.creativecommons.org/l/by-sa/4.0/88x31.png")
+```
+
+This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).  

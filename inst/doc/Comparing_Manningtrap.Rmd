@@ -1,0 +1,136 @@
+---
+title: "iemisc: Comparing Other Hydraulic Software Output to iemisc's Manningtrap for Critical Conditions"
+author: "Irucka Embry, E.I.T. (EcoC²S)"
+date: "`r Sys.Date()`"
+lang: en-us
+urlcolor: blue
+output:
+  rmarkdown::pdf_document:
+    highlight: kate
+    toc: true
+    latex_engine: xelatex
+vignette: >
+  %\VignetteIndexEntry{iemisc Comparing Other Hydraulic Software Output to iemisc's Manningtrap for Critical Conditions}
+  %\VignetteEngine{knitr::rmarkdown}
+  \usepackage[utf8]{inputenc}
+---
+
+\bigskip
+
+# Replicate the R code without the images
+
+Note: If you wish to replicate the R code below, then you will need to copy and paste the following commands in R first (to make sure you have all the of the required packages):  
+
+```{r eval = FALSE, tidy = TRUE}
+install.packages("iemisc", "knitr")
+# install the package and its dependencies
+```
+
+\bigskip
+\bigskip
+
+```{r, warning = FALSE, message = FALSE, tidy = TRUE}
+# load the required package
+library("iemisc")
+```
+
+\bigskip
+\bigskip
+
+# FHWA Hydraulic Toolbox Example 1
+
+```{r, echo = FALSE, out.width = '100%'}
+linguisticsdown::include_graphics2("compare.png")
+```
+
+\bigskip
+\bigskip
+
+# Dr. Xing Fang's Open Channel Flow Calculator's Solution of Example 1
+
+```{r, echo = FALSE, out.width = '100%'}
+linguisticsdown::include_graphics2("trapezoid1.png")
+```
+
+\bigskip
+\bigskip
+
+# iemisc's Manningtrap Solution of Example 1
+
+```{r, warning = FALSE, message = FALSE, tidy = TRUE}
+
+uuc1 <- Manningtrap_critical(y = 1.454, b = 4, m = 3, Sf = 0.02, n = 0.0550, units = "Eng", type = "symmetrical", critical = "accurate", output = "data.table")
+
+knitr::kable(uuc1)
+```
+
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+# FHWA Hydraulic Toolbox Example 2
+
+```{r, echo = FALSE, out.width = '100%'}
+linguisticsdown::include_graphics2("2019-05-22_08_24_13-ChannelAnalysis.png")
+```
+
+\bigskip
+\bigskip
+
+# Dr. Xing Fang's Open Channel Flow Calculator's Solution of Example 1
+
+```{r, echo = FALSE, out.width = '100%'}
+linguisticsdown::include_graphics2("trapezoid2.png")
+```
+
+\bigskip
+\bigskip
+
+# iemisc's Manningtrap Solution of Example 2
+
+```{r, warning = FALSE, message = FALSE, tidy = TRUE}
+
+uuc2 <- Manningtrap_critical(Q = 745, b = 8, m1 = 2, m2 = 1.5, Sf = 0.01, n = 0.0150, units = "Eng", type = "non-symmetrical", critical = "accurate", output = "data.table")
+
+knitr::kable(uuc2)
+```
+
+\bigskip
+\bigskip
+\bigskip
+\bigskip
+
+# Works Cited
+
+FHWA Hydraulic Toolbox Version 4.4. https://www.fhwa.dot.gov/engineering/hydraulics/software/toolbox404.cfm  
+
+The open channel flow calculator. Dr. Xing Fang, Department of Civil Engineering, Lamar University, 2000. https://eng.auburn.edu/~xzf0001/Handbook/Channels.html  
+
+\bigskip
+\bigskip
+
+# EcoC²S Links
+
+EcoC²S Home -- https://www.ecoccs.com/  
+About EcoC²S -- https://www.ecoccs.com/about_ecoc2s.html  
+Products -- https://www.questionuniverse.com/products.html  
+EcoC²S Media -- https://www.ecoccs.com/media.html  
+EcoC²S Resources -- https://www.ecoccs.com/resources.html  
+R Trainings and Resources provided by EcoC²S (Irucka Embry, E.I.T.) -- https://www.ecoccs.com/rtraining.html  
+
+\bigskip
+\bigskip
+
+# Copyright and License
+
+All R code written by Irucka Embry is distributed under the GPL-3 (or later) license, see the [GNU General Public License {GPL} page](https://www.gnu.org/licenses/gpl-3.0.html).  
+
+All written content originally created by Irucka Embry is copyrighted under the Creative Commons Attribution-ShareAlike 4.0 International License. All other written content retains the copyright of the original author(s).  
+
+
+```{r, echo = FALSE, out.width = '100%'}
+linguisticsdown::include_graphics2("https://i.creativecommons.org/l/by-sa/4.0/88x31.png")
+```
+
+This work is licensed under a [Creative Commons Attribution-ShareAlike 4.0 International License](http://creativecommons.org/licenses/by-sa/4.0/).  
