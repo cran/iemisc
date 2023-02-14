@@ -1,3 +1,10 @@
+# iemisc 1.0.1 (13 February 2023)
+
+* Received an e-mail issue from Prof Brian Ripley on 13 February 2023 regarding the check results which need to be corrected
+* Re-added `ie2misc` to Suggests to fix the CRAN NOTE
+* Changed an instance of http to https in all of the vignettes
+
+
 # iemisc 1.0.0 (10 February 2023)
 
 * created the following new functions: "%//%", "%qsin%", CompIntCharg, Manningtrap_critical, Mod_octave, Re1, Re2, Re3, Re4, Rem, SimpIntCharg, air_stripper, colebrook, concr_mix_lightweight_strength, concr_mix_normal_strength, construction_decimal, construction_decimal_eng, construction_fraction, density_water, dyn_visc_water, engr_survey, engr_survey2, engr_survey3, engr_survey4, engr_survey_batch, engr_survey_reverse, f1, f2, f3, f4, f5, f6, f7, f8, frac_to_numeric, fractdiff, igivenICPn, iscolumn, isrow, kin_visc_water, lat_long2state, lat_long2utm, maxmre, mortality_rate, mortality_rate_pct, mre, ndims, polygon_area, project_midpoint, prop_mortality_ratio, prop_solver, reduce_single_digit, sat_vapor_pressure, sat_vapor_pressure_ice, sec, secprop, sp_gravity, sp_volume, splitcomma, splitremove, surf_tens_water, unit_wt, weighted_C, and  weighted_CN

@@ -1,6 +1,6 @@
 Package: iemisc
 Title: Irucka Embry's Miscellaneous Functions
-Version: 1.0.0
+Version: 1.0.1
 Authors@R: c(person("Irucka", "Embry", role = c("aut", "cre"), email = "iembry@ecoccs.com"),
     person("Felix", "Andrews", role = c("aut", "ctb"), comment = "zoo code"),
     person("Hans Werner", "Borchers", role = c("aut", "ctb"), comment = "pracma code"),
@@ -27,7 +27,8 @@ Imports: zoo, pracma, iemiscdata, gsubfn (>= 0.7), fpCompare, units (>=
         mgsub, geosphere, matlab2r, signal, utils, methods
 Suggests: install.load, knitr, import, fractional, fracture, MASS,
         rmarkdown, tinytest, maps, spelling, sampler, callr, rando,
-        geometry, linguisticsdown, flextable, aiRthermo, hydraulics
+        geometry, linguisticsdown, flextable, aiRthermo, hydraulics,
+        ie2misc
 Description: A collection of Irucka Embry's miscellaneous functions
     (Engineering Economics, Civil & Environmental/Water Resources Engineering,
     Construction Measurements, GNU Octave compatible functions, Python
@@ -41,7 +42,7 @@ Encoding: UTF-8
 VignetteBuilder: knitr
 RoxygenNote: 7.2.3
 NeedsCompilation: no
-Packaged: 2023-02-13 00:10:58 UTC; xbyri
+Packaged: 2023-02-13 18:49:46 UTC; xbyri
 Author: Irucka Embry [aut, cre],
   Felix Andrews [aut, ctb] (zoo code),
   Hans Werner Borchers [aut, ctb] (pracma code),
@@ -59,4 +60,4 @@ Author: Irucka Embry [aut, cre],
   Josh O'Brien [aut, ctb] (stackoverflow R code),
   R. van Twisk [aut, ctb] (LibreCAD code)
 Repository: CRAN
-Date/Publication: 2023-02-13 09:20:02 UTC
+Date/Publication: 2023-02-14 09:40:13 UTC
