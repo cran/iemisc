@@ -1,5 +1,5 @@
 ## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
-install.load::load_package("iemisc", "iemiscdata", "rivr")
+install.load::load_package("iemisc", "iemiscdata", "rivr", "pander")
 # load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
 
 
@@ -64,7 +64,7 @@ Sf
 critical_depth(6.25 * 8 * 14.9, 6.25, 9.80665 * (3937 / 1200), 8, 0)
 
 ## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
-install.load::load_package("iemisc", "iemiscdata", "rivr")
+install.load::load_package("iemisc", "iemiscdata", "rivr", "pander")
 # load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
 
 
@@ -102,7 +102,9 @@ y <- Manningtrap(Q = 15, b = 3, m = m, Sf = 0.1 / 100, n = n, units = "SI", type
 
 # Note: Flow depth (y), Flow area (A), Wetted Perimeters (P), Top Width (B), Bottom width (b), Hydraulic Radius (R), Hydraulic Depth (D), Flow Mean Velocity (V), Flow Discharge (Q), Manning's roughness coefficient (n), Slope (Sf), Temperature, Absolute Temperature, Saturated Liquid Density, Absolute or Dynamic Viscosity, Kinematic Viscosity, Froude number (Fr), Reynolds number (Re), symmetric side slope (m), non-symmetric side slope (m1), non-symmetric side slope (m2), Wetted Length (w), Wetted Length for a non-symmetric trapezoid (w1), Wetted Length for a non-symmetric trapezoid (w2), Section Factor (Z), conveyance (K), Specific Energy (E), Velocity Head (Vel_Head), Maximum Shear Stress (taud), Average Shear Stress (tau0) along with the associated units are returned in a data.table.
 
-y
+pander(y, missing = "")
+
+
 
 # list for y_list$y access
 y_list <- Manningtrap(Q = 15, b = 3, m = m, Sf = 0.1 / 100, n = n, units = "SI", type = "symmetrical", output = "list")
@@ -119,7 +121,7 @@ y_c <- Manningtrap_critical(Q = 15, b = 3, m = m, Sf = 0.1 / 100, n = n, units =
 
 # Note: Flow depth (y), Flow area (A), Wetted Perimeters (P), Top Width (B), Bottom width (b), Hydraulic Radius (R), Hydraulic Depth (D), Flow Mean Velocity (V), Flow Discharge (Q), Manning's roughness coefficient (n), Slope (Sf), Temperature, Absolute Temperature, Saturated Liquid Density, Absolute or Dynamic Viscosity, Kinematic Viscosity, Froude number (Fr), Reynolds number (Re), symmetric side slope (m), non-symmetric side slope (m1), non-symmetric side slope (m2), Wetted Length (w), Wetted Length for a non-symmetric trapezoid (w1), Wetted Length for a non-symmetric trapezoid (w2), Section Factor (Z), conveyance (K), Specific Energy (E), Velocity Head (Vel_Head), Maximum Shear Stress (taud), Average Shear Stress (tau0) along with the associated units are returned in a data.table.
 
-y_c
+pander(y_c, missing = "")
 
 
 # This can also be done with the critical_depth function from the rivr package (below)
@@ -140,7 +142,7 @@ y <- Manningtrap(Q = 150, b = 4, m = 2, Sf = 2 / 100, n = 0.030, units = "Eng", 
 
 # Note: Flow depth (y), Flow area (A), Wetted Perimeters (P), Top Width (B), Bottom width (b), Hydraulic Radius (R), Hydraulic Depth (D), Flow Mean Velocity (V), Flow Discharge (Q), Manning's roughness coefficient (n), Slope (Sf), Temperature, Absolute Temperature, Saturated Liquid Density, Absolute or Dynamic Viscosity, Kinematic Viscosity, Froude number (Fr), Reynolds number (Re), symmetric side slope (m), non-symmetric side slope (m1), non-symmetric side slope (m2), Wetted Length (w), Wetted Length for a non-symmetric trapezoid (w1), Wetted Length for a non-symmetric trapezoid (w2), Section Factor (Z), conveyance (K), Specific Energy (E), Velocity Head (Vel_Head), Maximum Shear Stress (taud), Average Shear Stress (tau0) along with the associated units are returned in a data.table.
 
-y
+pander(y, missing = "")
 
 
 # list for y_cc_list$y access
@@ -156,7 +158,7 @@ y_cc <- Manningtrap_critical(Q = 150, b = 4, m = 2, Sf = 2 / 100, n = 0.030, uni
 
 # Note: Flow depth (y), Flow area (A), Wetted Perimeters (P), Top Width (B), Bottom width (b), Hydraulic Radius (R), Hydraulic Depth (D), Flow Mean Velocity (V), Flow Discharge (Q), Manning's roughness coefficient (n), Slope (Sf), Temperature, Absolute Temperature, Saturated Liquid Density, Absolute or Dynamic Viscosity, Kinematic Viscosity, Froude number (Fr), Reynolds number (Re), symmetric side slope (m), non-symmetric side slope (m1), non-symmetric side slope (m2), Wetted Length (w), Wetted Length for a non-symmetric trapezoid (w1), Wetted Length for a non-symmetric trapezoid (w2), Section Factor (Z), conveyance (K), Specific Energy (E), Velocity Head (Vel_Head), Maximum Shear Stress (taud), Average Shear Stress (tau0) along with the associated units are returned in a data.table.
 
-y_cc
+pander(y_cc, missing = "")
 
 
 # This can also be done with the critical_depth function from the rivr package (below)
@@ -181,13 +183,13 @@ y_c45 <- Manningtrap_critical(Q = 9.2, b = 6, m = 1, Sf = 2 / 100, n = 0.030, un
 
 # Note: Flow depth (y), Flow area (A), Wetted Perimeters (P), Top Width (B), Bottom width (b), Hydraulic Radius (R), Hydraulic Depth (D), Flow Mean Velocity (V), Flow Discharge (Q), Manning's roughness coefficient (n), Slope (Sf), Temperature, Absolute Temperature, Saturated Liquid Density, Absolute or Dynamic Viscosity, Kinematic Viscosity, Froude number (Fr), Reynolds number (Re), symmetric side slope (m), non-symmetric side slope (m1), non-symmetric side slope (m2), Wetted Length (w), Wetted Length for a non-symmetric trapezoid (w1), Wetted Length for a non-symmetric trapezoid (w2), Section Factor (Z), conveyance (K), Specific Energy (E), Velocity Head (Vel_Head), Maximum Shear Stress (taud), Average Shear Stress (tau0) along with the associated units are returned in a data.table.
 
-y_c45
+pander(y_c45, missing = "")
 
 
 # Using a trial and error solution, the critical depth is 0.6 m with a critical velocity of 2.3 m/s.
 
 ## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
-install.load::load_package("iemisc", "rivr")
+install.load::load_package("iemisc", "rivr", "pander")
 # load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
 
 

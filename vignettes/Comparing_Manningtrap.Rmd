@@ -12,7 +12,7 @@ output:
 vignette: >
   %\VignetteIndexEntry{iemisc Comparing Other Hydraulic Software Output to iemisc's Manningtrap for Critical Conditions}
   %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
+  %\VignetteEncoding{UTF-8}
 ---
 
 \bigskip
@@ -22,8 +22,8 @@ vignette: >
 Note: If you wish to replicate the R code below, then you will need to copy and paste the following commands in R first (to make sure you have all the of the required packages):  
 
 ```{r eval = FALSE, tidy = TRUE}
-install.packages("iemisc", "knitr")
-# install the package and its dependencies
+install.packages(c("install.load", "iemisc", "pander"))
+# install the packages and their dependencies
 ```
 
 \bigskip
@@ -31,7 +31,7 @@ install.packages("iemisc", "knitr")
 
 ```{r, warning = FALSE, message = FALSE, tidy = TRUE}
 # load the required package
-library("iemisc")
+install.load::load_package("iemisc", "pander")
 ```
 
 \bigskip
@@ -61,7 +61,7 @@ linguisticsdown::include_graphics2("trapezoid1.png")
 
 uuc1 <- Manningtrap_critical(y = 1.454, b = 4, m = 3, Sf = 0.02, n = 0.0550, units = "Eng", type = "symmetrical", critical = "accurate", output = "data.table")
 
-knitr::kable(uuc1)
+pander(uuc1, missing = "")
 ```
 
 \bigskip
@@ -93,7 +93,7 @@ linguisticsdown::include_graphics2("trapezoid2.png")
 
 uuc2 <- Manningtrap_critical(Q = 745, b = 8, m1 = 2, m2 = 1.5, Sf = 0.01, n = 0.0150, units = "Eng", type = "non-symmetrical", critical = "accurate", output = "data.table")
 
-knitr::kable(uuc2)
+pander(uuc2, missing = "")
 ```
 
 \bigskip

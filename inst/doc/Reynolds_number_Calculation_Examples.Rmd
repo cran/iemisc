@@ -12,7 +12,7 @@ output:
 vignette: >
   %\VignetteIndexEntry{iemisc Calculating the Reynolds number Examples}
   %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
+  %\VignetteEncoding{UTF-8}
 ---
 
 \bigskip

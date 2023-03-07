@@ -45,6 +45,16 @@
 #'
 #'
 #'
+#'
+#'
+#'
+#' @encoding UTF-8
+#'
+#'
+#'
+#'
+#'
+#'
 #' @source
 #' \enumerate{
 #'    \item r - Converting latitude and longitude points to UTM - Stack Overflow answered and edited by Teodor Ciuraru on Feb 17 2018. See \url{https://stakoverflow.com/questions/18639967/converting-latitude-and-longitude-points-to-utm}.

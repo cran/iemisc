@@ -20,6 +20,7 @@ Bc
 Bengtson
 Beyler
 Biomolecular
+Biosystems
 Boca
 Borthwick
 Brkić
@@ -55,6 +56,7 @@ Dowle
 Drysdale
 Dyne
 EIT
+EPSC
 EPSG
 Easting
 Ec
@@ -165,6 +167,7 @@ Nikola
 Nonair
 Northing
 OCW
+ODOT
 OSMscale
 OctSymPy
 Olia
@@ -329,6 +332,7 @@ iscolumn
 isrow
 ith
 jangorecki
+kable
 kgs
 kgsweb
 kth
@@ -338,9 +342,7 @@ lbm
 librecad
 maxmre
 md
-medskip
 minimising
-mlegge
 mre
 myCarpentry
 na

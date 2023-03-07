@@ -126,6 +126,17 @@ f1
 #' 
 #' @seealso \code{\link{f1}} for the additional seealso, description, details, and references sections, \code{\link{f3}}, \code{\link{f4}}, \code{\link{f5}}, \code{\link{f6}}, \code{\link{f7}}, \code{\link{f8}}
 #'
+#'
+#'
+#' @author Irucka Embry
+#'
+#'
+#'
+#' @encoding UTF-8
+#'
+#'
+#'
+#'
 #' @importFrom assertthat assert_that
 #' @importFrom checkmate qtest
 #'
@@ -209,6 +220,17 @@ return(f2)
 #' for the examples
 #' 
 #' @seealso \code{\link{f1}} for the additional seealso, description, details, and references sections, \code{\link{f2}}, \code{\link{f4}}, \code{\link{f5}}, \code{\link{f6}}, \code{\link{f7}}, \code{\link{f8}} and \code{\link[pracma]{newtonRaphson}} for \code{x0}
+#'
+#'
+#'
+#' @author Irucka Embry
+#'
+#'
+#'
+#' @encoding UTF-8
+#'
+#'
+#'
 #'
 #' @importFrom assertthat assert_that
 #' @importFrom checkmate qtest
@@ -300,6 +322,17 @@ return(f3)
 #' 
 #' @seealso \code{\link{f1}} for the additional seealso, description, details, and references sections, \code{\link{f2}}, \code{\link{f3}}, \code{\link{f5}}, \code{\link{f6}}, \code{\link{f7}}, \code{\link{f8}} and \code{\link[pracma]{newtonRaphson}} for \code{x0}
 #'
+#'
+#'
+#' @author Irucka Embry
+#'
+#'
+#'
+#' @encoding UTF-8
+#'
+#'
+#'
+#'
 #' @importFrom assertthat assert_that
 #' @importFrom checkmate qtest
 #' @importFrom pracma newtonRaphson
@@ -365,6 +398,17 @@ return(f4)
 #' for the examples
 #' 
 #' @seealso \code{\link{f1}} for the additional seealso, description, details, and references sections, \code{\link{f2}}, \code{\link{f3}}, \code{\link{f4}}, \code{\link{f6}}, \code{\link{f7}}, \code{\link{f8}} and \code{\link[pracma]{newtonRaphson}} for \code{x0}
+#'
+#'
+#'
+#' @author Irucka Embry
+#'
+#'
+#'
+#' @encoding UTF-8
+#'
+#'
+#'
 #'
 #' @importFrom assertthat assert_that
 #' @importFrom checkmate qtest
@@ -458,6 +502,17 @@ return(f5)
 #' 
 #' @seealso \code{\link{f1}} for the additional seealso, description, details, and references sections, \code{\link{f2}}, \code{\link{f3}}, \code{\link{f4}}, \code{\link{f5}}, \code{\link{f7}}, \code{\link{f8}}
 #'
+#'
+#'
+#' @author Irucka Embry
+#'
+#'
+#'
+#' @encoding UTF-8
+#'
+#'
+#'
+#'
 #' @importFrom assertthat assert_that
 #' @importFrom checkmate qtest
 #'
@@ -544,6 +599,17 @@ f6
 #' for the examples
 #' 
 #' @seealso \code{\link{f1}} for the additional seealso, description, details, and references sections, \code{\link{f2}}, \code{\link{f3}}, \code{\link{f4}}, \code{\link{f5}}, \code{\link{f6}}, \code{\link{f8}} and \code{\link[pracma]{newtonRaphson}} for \code{x0}
+#'
+#'
+#'
+#'
+#' @author Irucka Embry
+#'
+#'
+#'
+#' @encoding UTF-8
+#'
+#'
 #'
 #'
 #' @importFrom assertthat assert_that
@@ -636,6 +702,17 @@ return(f7)
 #' for the examples
 #' 
 #' @seealso \code{\link{f1}} for the additional seealso, description, details, and references sections, \code{\link{f2}}, \code{\link{f3}}, \code{\link{f4}}, \code{\link{f5}}, \code{\link{f6}}, \code{\link{f7}}
+#'
+#'
+#'
+#'
+#' @author Irucka Embry
+#'
+#'
+#'
+#' @encoding UTF-8
+#'
+#'
 #'
 #'
 #' @importFrom assertthat assert_that

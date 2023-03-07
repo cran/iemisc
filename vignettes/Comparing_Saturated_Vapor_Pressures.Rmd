@@ -12,7 +12,7 @@ output:
 vignette: >
   %\VignetteIndexEntry{iemisc Comparing Saturated Vapor Pressure Formulas to the Reference}
   %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
+  %\VignetteEncoding{UTF-8}
 ---
 
 \bigskip
@@ -31,7 +31,7 @@ install.packages(c("install.load", "iemisc", "units"))
 
 ```{r, warning = FALSE, message = FALSE, tidy = TRUE}
 # load the required packages
-install.load::load_package("iemisc", "units")
+install.load::load_package("iemisc", "units", "pander")
 # load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
 
 import::from(fpCompare, "%==%")
@@ -44,7 +44,7 @@ import::from(fpCompare, "%==%")
 
 ```{r, warning = FALSE, message = FALSE, tidy = TRUE}
 
-install.load::load_package("iemisc", "data.table")
+install.load::load_package("iemisc", "data.table", "units", "pander")
 
 
 # reference vapor pressures
@@ -81,12 +81,6 @@ units(T_K) <- make_units(K)
 aiRthermo_saturation_pressure_H2O <- aiRthermo::saturation_pressure_H2O(drop_units(T_K))
 
 
-# Note: If you want to alter the display of the calculated values, you can
-# remove scientific notation using options(scipen = 999) & set the number of
-# decimal places with options(digits = 7). Refer to Source 1.
-
-options(scipen = 999)
-options(digits = 7)
 
 comparePress <- data.table(Reference_Pressure = reference, Hydraulics_Pressure = hydraulics_svp, Huang_Pressure = iemisc_sat_vapor_pressure_huang, Buck_Pressure = iemisc_sat_vapor_pressure_buck, IAPWS_Pressure = iemisc_sat_vapor_pressure_iapws, aiRthermo_Pressure = aiRthermo_saturation_pressure_H2O)
 
@@ -117,26 +111,15 @@ comparePress[, min_mre := c("mreBuck", rep("mreHydraulics / mreHuang", 4), "mreI
 
 setnames(comparePress, c("Reference Pressure (Pa)", "Hydraulics Package Pressure (Pa)", "Huang Pressure (Pa)", "Buck Pressure (Pa)", "IAPWS Pressure (Pa)", "aiRthermo Pressure (Pa)", "MRE % (Hydraulics Package vs. Reference)", "MRE % (Huang vs. Reference)", "MRE % (Buck vs. Reference)", "MRE % (IAPWS vs. Reference)", "MRE % (aiRthermo vs. Reference)", "Maximum MRE % Formula", "Minumum MRE % Formula"))
 
-comparePress
-
-# Return to your default settings using the following call in R:
-default_opts <- callr::r(function(){options()})
-options(default_opts)
-# Source 2
+pander(comparePress)
 ```
 
 \bigskip
 \bigskip
 
-## R Sources
+## R Source
 
-Source 1  
 r - How do I reset all options() arguments to their default values? - Stack Overflow answered by stevec on Jul 27 2020 and edited by stevec on Feb 27 2022. See https://stackoverflow.com/questions/36848785/how-do-i-reset-all-options-arguments-to-their-default-values  
-
-\medskip
-
-Source 2  
-R data.table apply function to rows using columns as arguments - Stack Overflow answered by mlegge on Apr 13 2017 and edited by mlegge Jul 4 2019. See https://stackoverflow.com/questions/25431307/r-data-table-apply-function-to-rows-using-columns-as-arguments  
 
 \bigskip
 \bigskip

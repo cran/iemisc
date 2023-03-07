@@ -12,7 +12,7 @@ output:
 vignette: >
   %\VignetteIndexEntry{iemisc Examples from GNU Octave Rem, Mod, and fractdiff Compatible Functions}
   %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
+  %\VignetteEncoding{UTF-8}
 ---
 
 \bigskip
@@ -62,7 +62,7 @@ Rem(c(9, 3, 2, 0), c(1, 0, 2, 2))
 
 # rem Examples (GNU Octave style)
 
-```{octave}
+```{octave eval = FALSE}
 
 % check against GNU Octave
 
@@ -100,6 +100,65 @@ rem(2 * pi, pi)
 rem([1, 3, 5, 2], 2)
 
 rem([9 3 2 0], [1 0 2 2])
+
+
+
+% results
+
+>> x = 23.4
+x =  23.400
+>>
+>> y = 20
+y =  20
+>>
+>> z = 0
+z = 0
+>>
+>> rem(x, y)
+ans =  3.4000
+>>
+>> rem(y, x)
+ans =  20
+>>
+>> rem(x, z)
+ans = NaN
+>>
+>> rem(y, z)
+ans = NaN
+>>
+>> rem(z, x)
+ans = 0
+>>
+>> rem(z, y)
+ans = 0
+>>
+>> rem(-1, 3)
+ans = -1
+>>
+>>
+>> % Examples from FreeMat
+>>
+>> rem(18, 12)
+ans =  6
+>>
+>> rem(6, 5)
+ans =  1
+>>
+>> rem(2 * pi, pi)
+ans = 0
+>>
+>> rem([1, 3, 5, 2], 2)
+ans =
+
+   1   1   1   0
+
+>>
+>> rem([9 3 2 0], [1 0 2 2])
+ans =
+
+     0   NaN     0     0
+
+>>
 ```
 
 \bigskip
@@ -129,7 +188,7 @@ Mod_octave(-1, 3)
 
 # mod Examples (GNU Octave style)
 
-```{octave}
+```{octave eval = FALSE}
 
 % check against GNU Octave
 
@@ -146,6 +205,35 @@ mod([1, 3, 5, 2], 2)
 mod([9 3 2 0], [1 0 2 2])
 
 mod(-1, 3)
+
+
+
+% results
+
+>> mod(18, 12)
+ans =  6
+>>
+>> mod(6, 5)
+ans =  1
+>>
+>> mod(2*pi, pi)
+ans = 0
+>>
+>> mod([1, 3, 5, 2], 2)
+ans =
+
+   1   1   1   0
+
+>>
+>> mod([9 3 2 0], [1 0 2 2])
+ans =
+
+   0   3   0   0
+
+>>
+>> mod(-1, 3)
+ans =  2
+>>
 ```
 
 \bigskip
@@ -170,13 +258,30 @@ fractdiff(x = a, d = 0.5)
 
 # fractdiff Example (GNU Octave style)
 
-```{octave}
+```{octave eval = FALSE}
 
 % check against GNU Octave
 
 a = [1, 2, 4, 7, 0]
 
 fractdiff(a, d = 0.5)
+
+
+
+% results
+
+>> a = [1, 2, 4, 7, 0]
+a =
+
+   1   2   4   7   0
+
+>>
+>> fractdiff(a, d = 0.5)
+ans =
+
+   1.0000   1.5000   2.8750   4.6875  -4.1641
+
+>>
 ```
 
 \bigskip

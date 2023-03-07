@@ -299,6 +299,15 @@ return(list(nu = nu, Re1 = Re1))
 #' @return the Reynolds number as a numeric \code{\link[base]{vector}} for Re2
 #'
 #'
+#'
+#' @author Irucka Embry
+#'
+#'
+#'
+#' @encoding UTF-8
+#'
+#'
+#'
 #' @examples
 #' 
 #' # from Lindeburg Reference page 17-8
@@ -375,7 +384,16 @@ return(Re2)
 #' @note
 #' Note: Please see the Calculating the Reynolds number Examples vignette for
 #' usage of Re3
-#' 
+#'
+#'
+#' @author Irucka Embry
+#'
+#'
+#'
+#' @encoding UTF-8
+#'
+#'
+#'
 #' @importFrom assertthat assert_that
 #' @importFrom checkmate qtest
 #'
@@ -441,6 +459,15 @@ return(Re3)
 #'   (m^3/s or ft^3/s)  {Reference: Lindeburg Manual}
 #'
 #' @return the Reynolds number as a numeric \code{\link[base]{vector}} for Re4
+#'
+#'
+#'
+#' @author Irucka Embry
+#'
+#'
+#'
+#' @encoding UTF-8
+#'
 #'
 #'
 #' @importFrom assertthat assert_that

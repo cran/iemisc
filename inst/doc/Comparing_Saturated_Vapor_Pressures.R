@@ -4,14 +4,14 @@
 
 ## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
 # load the required packages
-install.load::load_package("iemisc", "units")
+install.load::load_package("iemisc", "units", "pander")
 # load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
 
 import::from(fpCompare, "%==%")
 
 ## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
 
-install.load::load_package("iemisc", "data.table")
+install.load::load_package("iemisc", "data.table", "units", "pander")
 
 
 # reference vapor pressures
@@ -48,12 +48,6 @@ units(T_K) <- make_units(K)
 aiRthermo_saturation_pressure_H2O <- aiRthermo::saturation_pressure_H2O(drop_units(T_K))
 
 
-# Note: If you want to alter the display of the calculated values, you can
-# remove scientific notation using options(scipen = 999) & set the number of
-# decimal places with options(digits = 7). Refer to Source 1.
-
-options(scipen = 999)
-options(digits = 7)
 
 comparePress <- data.table(Reference_Pressure = reference, Hydraulics_Pressure = hydraulics_svp, Huang_Pressure = iemisc_sat_vapor_pressure_huang, Buck_Pressure = iemisc_sat_vapor_pressure_buck, IAPWS_Pressure = iemisc_sat_vapor_pressure_iapws, aiRthermo_Pressure = aiRthermo_saturation_pressure_H2O)
 
@@ -84,12 +78,7 @@ comparePress[, min_mre := c("mreBuck", rep("mreHydraulics / mreHuang", 4), "mreI
 
 setnames(comparePress, c("Reference Pressure (Pa)", "Hydraulics Package Pressure (Pa)", "Huang Pressure (Pa)", "Buck Pressure (Pa)", "IAPWS Pressure (Pa)", "aiRthermo Pressure (Pa)", "MRE % (Hydraulics Package vs. Reference)", "MRE % (Huang vs. Reference)", "MRE % (Buck vs. Reference)", "MRE % (IAPWS vs. Reference)", "MRE % (aiRthermo vs. Reference)", "Maximum MRE % Formula", "Minumum MRE % Formula"))
 
-comparePress
-
-# Return to your default settings using the following call in R:
-default_opts <- callr::r(function(){options()})
-options(default_opts)
-# Source 2
+pander(comparePress)
 
 ## ---- echo = FALSE, out.width = '100%'----------------------------------------
 linguisticsdown::include_graphics2("https://i.creativecommons.org/l/by-sa/4.0/88x31.png")

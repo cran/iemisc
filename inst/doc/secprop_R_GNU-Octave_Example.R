@@ -16,5 +16,8 @@ SP <- secprop(outer = vo, inner = vi, original_plot = 1, final_plot = 1)
 SP
 
 ## ---- echo = FALSE, out.width = '100%'----------------------------------------
+linguisticsdown::include_graphics2("secprop_gnu-octave_figure.png")
+
+## ---- echo = FALSE, out.width = '100%'----------------------------------------
 linguisticsdown::include_graphics2("https://i.creativecommons.org/l/by-sa/4.0/88x31.png")
 

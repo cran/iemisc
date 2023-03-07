@@ -12,7 +12,7 @@ output:
 vignette: >
   %\VignetteIndexEntry{iemisc Additional Examples from GNU Octave Compatible cosd Function}
   %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
+  %\VignetteEncoding{UTF-8}
 ---
 
 \bigskip
@@ -61,11 +61,22 @@ cos(pi/2)
 
 # cosd and cos Examples (GNU Octave style)
 
-```{octave}
+```{octave eval = FALSE}
 
 cosd(90)
 
 cos(pi/2)
+
+
+
+% results
+
+>> cosd(90)
+ans = 0
+>>
+>> cos(pi/2)
+ans =    6.1232e-17
+>>
 ```
 
 \bigskip

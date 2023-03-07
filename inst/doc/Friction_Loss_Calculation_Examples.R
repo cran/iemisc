@@ -1,20 +1,15 @@
 ## ----eval = FALSE, tidy = TRUE------------------------------------------------
-#  install.packages(c("install.load", "iemisc", "data.table", "units", "flextable", "pracma"))
+#  install.packages(c("install.load", "iemisc", "data.table", "units", "pander", "pracma"))
 #  # install the packages and their dependencies
 
 ## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
 # load the required packages
-install.load::load_package("iemisc", "data.table", "units", "flextable")
+install.load::load_package("iemisc", "data.table", "units", "pander")
 # load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
 
 
 import::from(pracma, newtonRaphson)
 # import newtonRaphson from the pracma package
-
-## ---- echo = FALSE, warning = FALSE, message = FALSE, tidy = TRUE-------------
-flextable::set_flextable_defaults(fonts_ignore = TRUE)
-
-knitr::opts_chunk$set(ft.tabcolsep = 0, ft.latex.float = "none")
 
 ## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
 
@@ -223,10 +218,8 @@ result_table_SI <- data.table(V1 = c("Moody equation", "Romeo, et. al. equation"
 setnames(result_table_SI, c("Darcy friction factor equation", "Darcy friction factor (f) for cast iron pipe", "Friction loss for cast iron pipe over total length"))
 
 
-prettySI <- flextable(result_table_SI)
-colkeys <- c("Darcy friction factor equation", "Darcy friction factor (f) for cast iron pipe", "Friction loss for cast iron pipe over total length")
-prettySI <- colformat_num(x = prettySI, col_keys = colkeys, big.mark=",", digits = 4, na_str = "N/A")
-print(prettySI, preview = "pdf", align = "center")
+
+pander(result_table_SI)
 
 ## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
 # Please note that the Re2, f2, f3, f4, f5, f6, f7, f8, and the colebrook functions are found within the iemisc R package created by Irucka Embry
@@ -353,12 +346,7 @@ result_table_Eng <- data.table(V1 = c("Moody equation", "Romeo, et. al. equation
 setnames(result_table_Eng, c("Darcy friction factor equation", "Darcy friction factor (f) for cast iron pipe", "Friction loss for cast iron pipe over total length"))
 
 
-prettyEng <- flextable(result_table_Eng)
-colkeys <- c("Darcy friction factor equation", "Darcy friction factor (f) for cast iron pipe", "Friction loss for cast iron pipe over total length")
-
-prettyEng <- colformat_num(x = prettyEng, col_keys = colkeys, big.mark = ",", digits = 4, na_str = "N/A")
-
-print(prettyEng, preview = "pdf", align = "center")
+pander(result_table_Eng)
 
 ## ---- echo = FALSE, out.width = '100%'----------------------------------------
 linguisticsdown::include_graphics2("https://i.creativecommons.org/l/by-sa/4.0/88x31.png")

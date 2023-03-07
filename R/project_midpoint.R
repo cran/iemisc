@@ -71,8 +71,8 @@
 #' please use the Kentucky Geological Survey, University of Kentucky - Kentucky
 #' Single Coordinate Conversion Tool
 #' (http://kgs.uky.edu/kgsweb/CoordConversionTool.asp) instead. That tool will
-#' give you the geographic coordinates too. This R function, engr_survey will
-#' only be valid for NAD83 / Kentucky Single Zone.
+#' give you the geographic coordinates too. This R function, \code{project_midpoint}
+#' will only be valid for NAD83 / Kentucky Single Zone.
 #'
 #' Useful Tennessee reference Web site
 #' Tennessee Department of Transportation Roadway Design Survey Standards

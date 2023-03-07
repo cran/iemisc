@@ -71,8 +71,8 @@ Please Note: If you have Kentucky North/South Zone survey measurements, then
 please use the Kentucky Geological Survey, University of Kentucky - Kentucky
 Single Coordinate Conversion Tool
 (http://kgs.uky.edu/kgsweb/CoordConversionTool.asp) instead. That tool will
-give you the geographic coordinates too. This R function, engr_survey_reverse will
-only be valid for NAD83 / Kentucky Single Zone.
+give you the geographic coordinates too. This R function, \code{engr_survey_reverse}
+will only be valid for NAD83 / Kentucky Single Zone.
 
 Useful Tennessee reference Web site
 Tennessee Department of Transportation Roadway Design Survey Standards

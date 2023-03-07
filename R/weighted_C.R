@@ -8,11 +8,13 @@
 #' @param area_pct numeric vector containing the surface land area, as a
 #'    percent (decimal or whole number)
 #' @param area_units character vector containing the units for area
-#' (default = "acres"). The units should be consistent and not mixed.
+#'    (default = "acres"). The other possible units are "square feet",
+#'    "square mile", "hectare", or "square kilometer". The units should
+#'    be consistent and not mixed.
 #' @param C_area_table data.frame/data.table/tibble, list, or matrix
-#' containing the C in column 1 and the area in column 2
+#'    containing the C in column 1 and the area in column 2
 #' @param C_area_pct_table data.frame/data.table/tibble, list, or matrix
-#' containing the C in column 1 and the area_pct in column 2
+#'    containing the C in column 1 and the area_pct in column 2
 #'
 #' @return Weighted C factor as a single numeric vector, in the range [0, 1]
 #'
@@ -165,7 +167,7 @@
 #' @importFrom round round_r3
 #'
 #' @export
-weighted_C <- function (C = NULL, area = NULL, area_pct = NULL, area_units = c("acre", "square feet", "square mile", "hectare", "square kilometers"), C_area_table = NULL, C_area_pct_table = NULL) {
+weighted_C <- function (C = NULL, area = NULL, area_pct = NULL, area_units = c("acre", "square feet", "square mile", "hectare", "square kilometer"), C_area_table = NULL, C_area_pct_table = NULL) {
 
 
 ft <- acre <- mi <- hectare <- km <- NULL
@@ -204,14 +206,37 @@ area_pct <- C_area_pct_table[, 2][[1]]
 }
 
 
-# Check
-assert_that(!any(qtest(C, "N>=2(0,)") == FALSE), msg = "C is 0, NA, NaN, Inf, -Inf, empty, or a string. Or, there are not at least 2 C factor values. Please try again.")
+checks <- c(C, area, area_pct)
+
+area_units <- area_units
+
+
+# Check for checks
+assert_that(!any(qtest(checks, "N+(0,)") == FALSE), msg = "Either C, area, or area_pct is 0, NA, NaN, Inf, -Inf, empty, or a string. Please try again.")
 # only process with finite values and provide an error message if the check fails
+
+# Check for C
+assert_that(!any(qtest(C, "N>=2(0,)") == FALSE), msg = "C is 0, NA, NaN, Inf, -Inf, empty, or a string. Or, there are not at least 2 C factor values. Please try again.")
+# only process enough known C factor values and provide a stop warning if not enough
 
 
 area <- as.numeric(stri_replace_all_fixed(area, ",", ""))
 
 ifelse(length(area_units) > 1, area_units <- "acre", area_units <- area_units)
+
+ifelse(missing(area_units), area_units <- "acre", area_units <- area_units)
+
+
+
+# check for area_units
+assert_that(qtest(area_units, "S==1"), msg = "area_units should only be a single character vector. Please specify either 'acre', 'square feet', 'square mile', 'hectare', or 'square kilometer'. Please try again.")
+# only process with a single string value and provide a stop warning if not
+
+assert_that(isTRUE(any(c("acre", "square feet", "square mile", "hectare", "square kilometer") %in% area_units)), msg = "Incorrect unit selection. The only possible area_units are 'acre', 'square feet', 'square mile', 'hectare', and 'square kilometer'. Please try again.")
+# only process with a specified unit and provide a stop warning if not
+# Source 1
+
+
 
 
 if (area_units == "acre") {
@@ -246,7 +271,7 @@ units(area) <- make_units(acre) # acres
 area <- drop_units(area)
 
 
-} else if (area_units == "square kilometers") {
+} else if (area_units == "square kilometer") {
 
 area <- set_units(area, km^2) # km^2
 

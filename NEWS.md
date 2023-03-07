@@ -1,3 +1,15 @@
+# iemisc 1.0.2 (4 March 2023)
+
+* CRAN update to move from archived back to active state
+* Added `formatR` to Suggests to fix the CRAN ERROR message on certain systems & added `pander` to Suggests to print better LaTeX tables for the vignettes. Some of the tables in the vignettes are created using kable from `knitr`.
+* Modified `octave` to `octave eval = FALSE` in vignettes where GNU Octave was called to avoid the CRAN ERROR message on certain systems where GNU Octave was not present
+* Added a check in the frac_to_numeric function to issue an error message when the length of n > 1 exists to correct the failed tests on some systems
+* Added both author and encoding fields to the various functions where those 2 items were missing [f2, f3, f4, f5, f6, f7, f8, kin_visc_water, lat_long2utm, Manningcircy, Manningtrap_critical, Re2, Re3, Re4]
+* Added more assert_that clauses to both the weighted_CN and weighted_C functions
+* Modified the vignette encoding for all of the vignettes
+* Added the rational_equation function which calculates the peak flow using the modified rational method equation
+
+
 # iemisc 1.0.1 (13 February 2023)
 
 * Received an e-mail issue from Prof Brian Ripley on 13 February 2023 regarding the check results which need to be corrected

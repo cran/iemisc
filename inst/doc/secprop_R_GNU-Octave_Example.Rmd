@@ -12,7 +12,7 @@ output:
 vignette: >
   %\VignetteIndexEntry{iemisc secprop Example (R and GNU Octave)}
   %\VignetteEngine{knitr::rmarkdown}
-  \usepackage[utf8]{inputenc}
+  %\VignetteEncoding{UTF-8}
 ---
 
 \bigskip
@@ -44,7 +44,7 @@ SP
 
 # secprop Example (GNU Octave style)
 
-```{octave}
+```{octave eval = FALSE}
 %
 %    Copyright (C) 2008  Colin Caprani - www.colincaprani.com
 %
@@ -121,6 +121,26 @@ end
 vo = [0, 0; 600, 0; 630, 580; 1200, 650; 1200, 920; 900, 920; 900, 845; 0, 845];
 vi = [0, 300; 300, 300; 300, 695; 0, 695];
 SP = secprop(vo, vi, 1)
+
+% Results
+warning: annotation: couldn't parse PROP/VAL pairs, skipp
+warning: called from
+    annotation at line 218 column 7
+    secprop at line 36 column 21
+
+SP =
+
+   1.1175e+06
+   8.6279e+10
+   4.1937e+02
+   5.0063e+02
+```
+
+\bigskip
+\bigskip
+
+```{r, echo = FALSE, out.width = '100%'}
+linguisticsdown::include_graphics2("secprop_gnu-octave_figure.png")
 ```
 
 \bigskip

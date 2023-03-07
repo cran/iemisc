@@ -736,6 +736,15 @@ return(list(Sf = Sf, V = V, A = A, P = P, R = R, Re = Re, Fr = Fr))
 #' @seealso \code{\link{Manningcirc}} for the examples section
 #'
 #'
+#'
+#' @author Irucka Embry
+#'
+#'
+#'
+#' @encoding UTF-8
+#'
+#'
+#'
 #' @importFrom data.table data.table setnames setattr
 #' @importFrom fpCompare %==%
 #' @importFrom assertthat assert_that

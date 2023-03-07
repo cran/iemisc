@@ -1,10 +1,10 @@
 ## ----eval = FALSE, tidy = TRUE------------------------------------------------
-#  install.packages("iemisc")
-#  # install the package and its dependencies
+#  install.packages("iemisc", "pander")
+#  # install the packages and their dependencies
 
 ## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
-# load the required package
-library("iemisc")
+# load the required packages
+install.load::load_package("iemisc", "pander")
 
 ## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
 
@@ -14,8 +14,8 @@ Easting_begin <- 1292428.3999
 Northing_end <- 303340.6977
 Easting_end <- 1295973.7743
 
-project_midpoint(Northing_begin, Easting_begin, Northing_end, Easting_end, units =
-"survey_ft", location = "TN", output = "advanced")
+pander(project_midpoint(Northing_begin, Easting_begin, Northing_end, Easting_end, units =
+"survey_ft", location = "TN", output = "advanced"))
 
 
 
@@ -28,7 +28,7 @@ Easting2 <- c(942754.124, 903795.239)
 
 dt4A <- project_midpoint(Northing2[1], Easting2[1], Northing2[2], Easting2[2],
 "meters", "TN", output = "advanced")
-dt4A
+pander(dt4A)
 
 ## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
 
@@ -39,22 +39,22 @@ Easting3 <- c("2559599.9201", "1433851.6509", "1,843,018.4099", "1,854,896.0041"
 
 dt3A <- engr_survey(Northing3[1], Easting3[1], "survey_ft", "TN", output =
 "basic", utm = 1)
-dt3A # first set of Northing, Easting points
+pander(dt3A) # first set of Northing, Easting points
 
 
 dt3B <- engr_survey(Northing3[2], Easting3[2], "survey_ft", "TN", output =
 "basic", utm = 0)
-dt3B # second set of Northing, Easting points
+pander(dt3B) # second set of Northing, Easting points
 
 
 dt3C <- engr_survey(Northing3[3], Easting3[3], "survey_ft", "TN", output =
 "basic", utm = 1)
-dt3C # third set of Northing, Easting points
+pander(dt3C) # third set of Northing, Easting points
 
 
 dt3D <- engr_survey(Northing3[4], Easting3[4], "survey_ft", "TN", output =
 "basic", utm = 0)
-dt3D # fourth set of Northing, Easting points
+pander(dt3D) # fourth set of Northing, Easting points
 
 ## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
 
@@ -65,11 +65,11 @@ Northing4 <- c(232489.480, 234732.431)
 Easting4 <- c(942754.124, 903795.239)
 
 dt4A <- engr_survey(Northing4[1], Easting4[1], "meters", "TN", output = "table", utm = 0)
-dt4A
+pander(dt4A)
 
 
 dt4B <- engr_survey(Northing4[2], Easting4[2], "meters", "TN", output = "table", utm = 0)
-dt4B
+pander(dt4B)
 
 ## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
 
@@ -80,7 +80,7 @@ Northing2 <- c(232489.480, 234732.431)
 Easting2 <- c(942754.124, 903795.239)
 
 dt4 <- engr_survey_batch(Northing2, Easting2, "meters", "TN", output = "table")
-dt4
+pander(dt4)
 
 ## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
 
@@ -119,7 +119,7 @@ long <- -088.9206794
 
 dt1A <- engr_survey_reverse(lat, long, units = "survey_ft", location = "TN", output =
 "table", utm = 0)
-dt1A
+pander(dt1A)
 
 
 
@@ -129,7 +129,7 @@ lats <- "37'50'21.5988''N"
 longs <- "84'16'12.0720'W"
 
 dt2B <- engr_survey_reverse(lats, longs, "foot", "KY", output = "table", utm = 0)
-dt2B
+pander(dt2B)
 
 ## ---- echo = FALSE, out.width = '100%'----------------------------------------
 linguisticsdown::include_graphics2("https://i.creativecommons.org/l/by-sa/4.0/88x31.png")

@@ -1,5 +1,5 @@
 ## ----eval = FALSE, tidy = TRUE------------------------------------------------
-#  install.packages(c("install.load", "iemisc", "units"))
+#  install.packages(c("install.load", "iemisc", "units", "knitr"))
 #  # install the packages and their dependencies
 
 ## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
@@ -289,33 +289,33 @@ librecad1 <- "1 2 7/16\""
 
 construction_decimal(librecad1, result = "traditional", output = "vector")
 
-construction_decimal(librecad1, result = "traditional", output = "table")
+knitr::kable(format(construction_decimal(librecad1, result = "traditional", output = "table"), digits = 6, nsmall = 0))
 
 construction_decimal(librecad1, result = "librecad", output = "vector")
 
-construction_decimal(librecad1, result = "librecad", output = "table")
+knitr::kable(format(construction_decimal(librecad1, result = "librecad", output = "table"), digits = 4, nsmall = 0))
 
 
 librecad2 <- "6' 8 3/4 in"
 
 construction_decimal(librecad2, result = "traditional", output = "vector")
 
-construction_decimal(librecad2, result = "traditional", output = "table")
+knitr::kable(format(construction_decimal(librecad2, result = "traditional", output = "table"), digits = 6, nsmall = 6))
 
 construction_decimal(librecad2, result = "librecad", output = "vector")
 
-construction_decimal(librecad2, result = "librecad", output = "table")
+knitr::kable(format(construction_decimal(librecad2, result = "librecad", output = "table"), digits = 2, nsmall = 2))
 
 
 librecad3 <- "6'-5 3/256\""
 
 construction_decimal(librecad3, result = "traditional", output = "vector")
 
-construction_decimal(librecad3, result = "traditional", output = "table")
+knitr::kable(format(construction_decimal(librecad3, result = "traditional", output = "table"), digits = 6, nsmall = 6))
 
 construction_decimal(librecad3, result = "librecad", output = "vector")
 
-construction_decimal(librecad3, result = "librecad", output = "table")
+knitr::kable(format(construction_decimal(librecad3, result = "librecad", output = "table"), digits = 5, nsmall = 5))
 
 ## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
 

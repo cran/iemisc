@@ -2,18 +2,18 @@
 
 R package that contains Irucka Embry's miscellaneous functions:
 
-* statistical analysis [RMS, coefficient of variation (CV), approximate and relative error, range, harmonic mean, geometric mean, maximum mean relative error (MAXRE), and mean relative error (MRE)],
-* engineering economics (benefit-cost, future value, present value, annual value, gradients, interest, periods, etc.),
-* geometry (polygon area, sphere volume, and right triangle validation),
-* civil & environmental/water resources engineering [Concrete Mix Design for Normal Strength & Structural Lightweight Concrete, Construction Measurements with and without Fractions, Engineering Surveying Calculations, Air Stripping, Saturated Vapor Pressure for Ice and Water, Density of Water, Dynamic and Kinematic Viscosity of Water, Specific Gravity and Volume, Unit Weight, Surface Tension of Water, Weighted C Factor, Weighted Curve Number, Darcy friction factor (f), the Reynolds number, Manning's n, Gauckler-Manning-Strickler equations for open channel flow],
-* quick search (%qsin%),
-* mortality rate calculations,
-* proportion solver,
-* sum of all digits in a vector to a single integer,
-* string manipulation (splitcomma and splitremove),
-* a version of linear interpolation for use with NAs,
-* Python compatible floor division function (%//%),
-* GNU Octave/MATLAB compatible trigonometric functions in degrees,
+* statistical analysis [RMS, coefficient of variation (CV), approximate and relative error, range, harmonic mean, geometric mean, maximum mean relative error (MAXRE), and mean relative error (MRE)];
+* engineering economics (benefit-cost, future value, present value, annual value, gradients, interest, periods, etc.);
+* geometry (polygon area, sphere volume, and right triangle validation);
+* civil & environmental/water resources engineering [Concrete Mix Design for Normal Strength & Structural Lightweight Concrete, Construction Measurements with and without Fractions, Engineering Surveying Calculations, Air Stripping, Saturated Vapor Pressure for Ice and Water, Density of Water, Dynamic and Kinematic Viscosity of Water, Specific Gravity and Volume, Unit Weight, Surface Tension of Water, Weighted C Factor, Weighted Curve Number, Darcy friction factor (f), the Reynolds number, Manning's n, Gauckler-Manning-Strickler equations for open channel flow, Modified Rational Method Equation];
+* quick search (%qsin%);
+* mortality rate calculations;
+* proportion solver;
+* sum of all digits in a vector to a single integer;
+* string manipulation (splitcomma and splitremove);
+* a version of linear interpolation for use with NAs;
+* Python compatible floor division function (%//%);
+* GNU Octave/MATLAB compatible trigonometric functions in degrees; and
 * GNU Octave/MATLAB compatible section properties (secprop), remainder (Rem), modulus (Mod_octave), number of dimensions (ndims), row vector (isrow) and column vector (iscolumn) tests, fractional differences (fractdiff), size, numel, and length functions.
 
 This package can be used in academia by students and faulty alike and/or in professional settings.

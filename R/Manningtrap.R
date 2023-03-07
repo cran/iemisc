@@ -1945,6 +1945,15 @@ result_table
 #'
 #'
 #'
+#' @author Irucka Embry
+#'
+#'
+#'
+#' @encoding UTF-8
+#'
+#'
+#'
+#'
 #' @examples
 #' 
 #' # Example 1

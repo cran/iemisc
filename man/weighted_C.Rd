@@ -9,7 +9,7 @@ weighted_C(
   C = NULL,
   area = NULL,
   area_pct = NULL,
-  area_units = c("acre", "square feet", "square mile", "hectare", "square kilometers"),
+  area_units = c("acre", "square feet", "square mile", "hectare", "square kilometer"),
   C_area_table = NULL,
   C_area_pct_table = NULL
 )
@@ -23,7 +23,9 @@ weighted_C(
 percent (decimal or whole number)}
 
 \item{area_units}{character vector containing the units for area
-(default = "acres"). The units should be consistent and not mixed.}
+(default = "acres"). The other possible units are "square feet",
+"square mile", "hectare", or "square kilometer". The units should
+be consistent and not mixed.}
 
 \item{C_area_table}{data.frame/data.table/tibble, list, or matrix
 containing the C in column 1 and the area in column 2}

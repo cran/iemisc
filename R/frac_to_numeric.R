@@ -165,6 +165,9 @@
 frac_to_numeric <- function(n) {
 
 # Check n
+assert_that(!any(length(n) > 1), msg = "The length of n is greater than 1. n should only be 1 numeric vector. Please try again.")
+# only process with string values with numbers and provide an error message if the check fails
+
 assert_that(!any(testCharacter(n, min.chars = 1, pattern = "[0-9]") == FALSE), msg = "n is a numeric vector or a character vector without any numeric values. n should be a character vector that contains numeric values only. Please try again.")
 # only process with string values with numbers and provide an error message if the check fails
 
