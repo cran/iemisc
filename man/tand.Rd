@@ -26,7 +26,7 @@ Note: If you have a radian (rad) angle value, use \code{\link[base]{tan}} instea
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 # Examples from GNU Octave tand
 tand(seq(10, 80, by = 10))

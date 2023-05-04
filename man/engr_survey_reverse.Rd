@@ -96,7 +96,7 @@ Kentucky Transportation Cabinet Survey Coordination
 # Northing is 97296.815 # provided in TGRN Manual
 # Easting is 244089.427 # provided in TGRN Manual
 
-library("iemisc")
+library(iemisc)
 
 latitude <- "35 8 46.44496"
 longitude <- "89 54 24.04763"
@@ -119,7 +119,7 @@ tgrn2B
 
 # Tennessee
 
-library("iemisc")
+library(iemisc)
 
 lat <- 35.8466965
 
@@ -136,7 +136,7 @@ dt1B
 
 # Kentucky
 
-library("iemisc")
+library(iemisc)
 
 lats <- "37'50'21.5988''N"
 longs <- "84'16'12.0720'W"

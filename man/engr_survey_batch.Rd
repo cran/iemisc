@@ -86,7 +86,7 @@ Kentucky Transportation Cabinet Survey Coordination
 
 # Tennessee (TN) Northing and Easting in US Survey foot
 
-library("iemisc")
+library(iemisc)
 
 Northing1 <- c("630817.6396", "502170.6065", "562,312.2349", "574,370.7178")
 
@@ -102,7 +102,7 @@ dt1 <- engr_survey_batch(Northing1, Easting1, "survey_ft", "TN", output = "basic
 
 # Please see the error messages
 
-library("iemisc")
+library(iemisc)
 
 Northing1 <- c("630817.6396", "502170.6065", "562,312.2349", "574,370.7178")
 

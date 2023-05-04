@@ -42,7 +42,7 @@
 #'
 #' # Example for equation 4-7 from the Reference text (page 142)
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' ngivenPFi(P = 500, F = 1000, i = 15)
 #'

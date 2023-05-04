@@ -94,7 +94,7 @@ zoo1
 
 # data frame time series example
 
-library("iemisc")
+library(iemisc)
 
 df1 <- structure(list(Time = structure(c(1395242100, 1395243000, 1395243900,
  1395244800, 1395245700, 1395256500, 1395257400, 1395258300, 1395259200,

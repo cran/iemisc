@@ -42,7 +42,7 @@
 #'
 #' @examples
 #'
-#' # Example
+#' # Example 1
 #' 
 #' install.load::load_package("iemisc", "data.table")
 #' 
@@ -54,28 +54,43 @@
 #' dtxx
 #' 
 #'
+#'
+#' # Example 2
+#' 
+#' xtrax <- "FALSER, BRATTIE & SIMX, AGONY"
+#' 
+#' splitcomma(xtrax)
 #' 
 #' 
 #' 
-#' @importFrom stringi stri_split_fixed
+#' @importFrom stringi stri_split_fixed stri_detect_fixed
 #' @importFrom assertthat assert_that
 #' @importFrom checkmate testCharacter
+#' @importFrom data.table %like%
 #'
 #' @export
 splitcomma <- function(string) {
 
 # Check string
 assert_that(!any(testCharacter(string, min.chars = 1) == FALSE), msg = "string is a numeric vector. string should be a character vector that contains at least 1 character. Please try again.")
-# only process with string values with numbers and provide an error message if the check fails
+# only process with string values and provide an error message if the check fails
 
 # Look for a comma in the name column and for those rows create a new column called names that splits the original name in 2 strings and reorder the strings staring with the 2nd string then the 1st string
+
+# If there is " & ", assume that it's more than 2 sets of names and split those character vectors first
+
+if (any(string %like% " & ")) {
+
+string <- unlist(stri_split_fixed(string, pattern = " & ", n = 2))
+
+ifelse (stri_detect_fixed(string, pattern = ", "), sapply(stri_split_fixed(string, pattern = ", ", n = 2), function(st) paste(st[2], st[1], collapse = " "), USE.NAMES = FALSE), string)
+
+} else {
 
 ifelse (stri_detect_fixed(string, pattern = ", "), sapply(stri_split_fixed(string, pattern = ", ", n = 2), function(st) paste(st[2], st[1], collapse = " "), USE.NAMES = FALSE), string)
 
 }
-
-
-
+}
 
 
 
@@ -170,7 +185,7 @@ remover <- paste(remove, collapse = "|")
 
 # Check string
 assert_that(!any(testCharacter(string, min.chars = 1) == FALSE), msg = "string is a numeric vector. string should be a character vector that contains at least 1 character. Please try again.")
-# only process with string values with numbers and provide an error message if the check fails
+# only process with string values and provide an error message if the check fails
 
 
 # Split by empty spaces, dots, commas and parenthesis and then remove the items from remove
@@ -234,30 +249,125 @@ return(stringersts)
 #'
 #' # Examples
 #'
-#' x <- c("apple","banana","cherry", NA)
+#' x <- c("apple", "banana", "cherry", NA)
 #'
 #' "apple" %qsin% x
 #'
-#' c("APPLE","BANANA", "coconut", NA) %qsin% x
+#' c("APPLE", "BANANA", "coconut", NA) %qsin% x
+#'
+#'
+#'
+#'
+#' @importFrom assertthat assert_that
+#' @importFrom checkmate testCharacter
+#' @importFrom data.table %chin%
+#' @importFrom stats na.omit
+#'
+#' @export
+`%qsin%` <- function(string, vector) {
+
+# The checks fail when qsin is contained within splitremove therefore the following are left commented out
+
+# Check string
+# assert_that(!any(testCharacter(string, min.chars = 1) == FALSE), msg = "string is a numeric vector. string should be a character vector that contains at least 1 character. Please try again.")
+# only process with string values and provide an error message if the check fails
+
+# Check vector
+# assert_that(!any(testCharacter(vector, min.chars = 1) == FALSE), msg = "string is a numeric vector. string should be a character vector that contains at least 1 character. Please try again.")
+# only process with string values and provide an error message if the check fails
+
+
+tolower(string) %chin% na.omit(tolower(vector))
+
+}
+
+
+
+
+
+
+#' Not CHIN or IN for Character and Numeric Vectors
+#'
+#' This function performs a quick, case sensitive search of character vectors
+#' that are not in a set of character vectors or a quick, search of numeric
+#' vectors that are not in a set of numeric vectors using \code{\link[base]{Negate}} chin
+#' for character vectors and \code{\link[base]{Negate}} \code{\link[base]{in}} for numeric vectors
+#'
+#'
+#' @param x character or numeric vector that contains the values to not be matched
+#' @param y character or numeric vector that has the values to be checked within
+#'
+#' @details 'Utilizes chin from data.table to quickly complete a case
+#'    insensitive search through a character vector to return a logical vector
+#'    of string detections. Will always return TRUE or FALSE for each position
+#'    of string regardless of NA missing values in either provided vector. NA
+#'    in string will never match an NA value in the vector.'
+#'
+#' @return logical vector the length of the original string (x). TRUE means that
+#'    x is not in y and FALSE means that x is in y
+#'
+#'
+#' @source
+#' The %notin% operator Posted on July 8, 2018 by kaijagahm in R bloggers. See \url{https://www.r-bloggers.com/2018/07/the-notin-operator/}.
+#'
+#'
+#'
+#'
+#'
+#'
+#' @author kaijagahm (R code), Irucka Embry
+#'
+#'
+#'
+#' @encoding UTF-8
+#'
+#'
+#'
+#' @examples
+#'
+#' # Examples
+#'
+#' x <- c("apple", "banana", "cherry", NA)
+#'
+#' "apple" %notchin% x
+#'
+#' c("apple", "BANANA", "coconut", NA) %notchin% x
+#'
+#' x
+#'
+#'
+#' "a" %notchin% letters[5:20]
+#' letters[5:20] %notchin% "a"
+#'
+#'
+#' "a" %notchin% LETTERS
+#' LETTERS %notchin% "a"
+#'
+#'
+#' 1 %notchin% -12:20
+#' -12:20 %notchin% 1
 #'
 #'
 #'
 #'
 #' @importFrom data.table %chin%
-#' @importFrom stats na.omit
-#' @importFrom mgsub mgsub
 #'
 #' @export
-`%qsin%` <- function(string, vector) {
+`%notchin%` <- function(x, y) {
 
-# Check string
-#assert_that(!any(testCharacter(string, min.chars = 1) == FALSE), msg = "string is a numeric vector. string should be a character vector that contains at least 1 character. Please try again.")
-# only process with string values with numbers and provide an error message if the check fails
+`%notchin%` <- Negate(`%chin%`)
 
-# Check vector
-#assert_that(!any(testCharacter(vector, min.chars = 1) == FALSE), msg = "string is a numeric vector. string should be a character vector that contains at least 1 character. Please try again.")
-# only process with string values with numbers and provide an error message if the check fails
+`%notin%` <- Negate(`%in%`)
 
-tolower(string) %chin% na.omit(tolower(vector))
 
+if (all(class(x) == "character" & class(y) == "character")) {
+
+x %notchin% y
+
+
+} else {
+
+x %notin% y
+
+}
 }

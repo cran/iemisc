@@ -24,7 +24,7 @@ Note: If you have a radian (rad) angle value, use \code{\link[base]{sin}} instea
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 # Examples from GNU Octave sind
 sind(seq(10, 90, by = 10))

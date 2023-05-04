@@ -44,7 +44,7 @@ CV is expressed as
 
 # Example 2.60 from Miller (page 38)
 
-library("iemisc")
+library(iemisc)
 
 x <- c(14, 12, 21, 28, 30, 63, 29, 63, 55, 19, 20)
 # suspended solids in parts per million (ppm)
@@ -89,7 +89,7 @@ cv(xx, na.rm = TRUE)
 
 # Please see the error messages
 
-library("iemisc")
+library(iemisc)
 
 try(cv(0))
 try(cv(1))

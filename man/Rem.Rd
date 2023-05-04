@@ -21,7 +21,7 @@ Octave/MATLAB.
 
 # Example from GNU Octave
 
-library("iemisc")
+library(iemisc)
 
 x <- 23.4
 y <- 20

@@ -28,7 +28,7 @@ the comma.
 }
 \examples{
 
-# Example
+# Example 1
 
 install.load::load_package("iemisc", "data.table")
 
@@ -40,6 +40,12 @@ dtxx[, Corrected_Names := splitcomma(dtxx$Names)]
 dtxx
 
 
+
+# Example 2
+
+xtrax <- "FALSER, BRATTIE & SIMX, AGONY"
+
+splitcomma(xtrax)
 
 
 

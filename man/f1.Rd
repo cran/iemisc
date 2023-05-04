@@ -36,7 +36,7 @@ f8 - Vatankhah equation (Reference: Zeghadnia)
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 # Examples
 

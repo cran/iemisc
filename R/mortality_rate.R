@@ -48,7 +48,7 @@
 #' 
 #' # Example from Reference 1
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' mortality_rate(369369, 331534662, 5)
 #'
@@ -130,7 +130,7 @@ return(mortality_rate)
 #' 
 #' # Example from Reference 1
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' mr_2020 <- mortality_rate(369369, 331534662, 5)
 #' 
@@ -222,7 +222,7 @@ return(mortality_rate_pct)
 #' 
 #' # Data from Reference 2 and Reference 3
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' prop_mortality_ratio(cause_deaths = 652486, total_deaths = 3458697)
 #' # annual heart disease deaths & total deaths in the US in 2021

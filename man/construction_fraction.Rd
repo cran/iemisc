@@ -46,7 +46,7 @@ its nearest equivalent as foot + inch with or without a fraction
 # Please refer to the iemisc: Construction Measurement Examples vignette for
 # additional examples
 
-library("iemisc")
+library(iemisc)
 
 # Example 1 from the Spike Reference
 
@@ -100,7 +100,7 @@ construction_fraction(check1, type = "traditional", result =
 
 # Example 2
 
-library("iemisc")
+library(iemisc)
 import::from(fpCompare, "\%==\%")
 
 
@@ -157,7 +157,7 @@ ex4 \%==\% ex5
 
 # Example 3 (from the Inch Calculator Reference)
 
-library("iemisc")
+library(iemisc)
 
 construction_fraction(2.695, type = "librecad", result = "traditional",
 fraction = 16)
@@ -170,7 +170,7 @@ fraction = 16)
 
 # Example 4
 
-library("iemisc")
+library(iemisc)
 
 construction_fraction(17.71354, type = "traditional", result = "traditional",
 fraction = 16)

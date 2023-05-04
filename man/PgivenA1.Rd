@@ -47,7 +47,7 @@ or
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 # Example 4-23 from the Reference text (page 158-159)
 PgivenA1(A1 = 1000, i = 25, f = 20, n = 4) # i is 25\\% and f is 20\\%

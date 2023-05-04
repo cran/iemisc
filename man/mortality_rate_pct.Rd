@@ -24,7 +24,7 @@ the crude death rate percent for a given population.
 
 # Example from Reference 1
 
-library("iemisc")
+library(iemisc)
 
 mr_2020 <- mortality_rate(369369, 331534662, 5)
 

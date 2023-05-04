@@ -101,7 +101,7 @@ lat_long2utm(lats, longs, units = "m", output = "table")
 # Example 2
 # Test against Grid [Reference: National Geospatial-Intelligence Agency Office of Geomatics]
 
-library("iemisc")
+library(iemisc)
 
 lat_long2utm("80", "-179", units = "m", output = "basic") # = 1X
 
@@ -144,7 +144,7 @@ wc_utm
 # Example 4
 # Test with 2 Web sites
 
-library("iemisc")
+library(iemisc)
 
 latlong1 <- lat_long2utm(6.32, 7.41, units = "m", output = "table")
 latlong1

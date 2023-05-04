@@ -29,7 +29,7 @@
 #' 
 #' # Example from GNU Octave
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #' 
 #' x <- 23.4
 #' y <- 20
@@ -107,7 +107,7 @@ assert_that(qtest(n, "N+[,]"), msg = "n is NA, NaN, empty, or a string. Please t
 #'
 #' # Example from FreeMat
 #'
-#' library("iemisc")
+#' library(iemisc)
 #' 
 #' Mod_octave(18, 12)
 #' 

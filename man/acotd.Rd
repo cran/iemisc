@@ -22,7 +22,7 @@ Note: If you have a radian (rad) angle value, use \code{\link[base]{atan}} inste
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 # Examples from GNU Octave acotd
 acotd (seq(10, 90, by = 10))

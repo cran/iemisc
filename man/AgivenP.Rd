@@ -56,7 +56,7 @@ A is expressed as
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 # Example for equation 4-14 from the Reference text (page 136)
 AgivenP(17000, 4, 1, "annual")

@@ -80,6 +80,3 @@ setnames(comparePress, c("Reference Pressure (Pa)", "Hydraulics Package Pressure
 
 pander(comparePress)
 
-## ---- echo = FALSE, out.width = '100%'----------------------------------------
-linguisticsdown::include_graphics2("https://i.creativecommons.org/l/by-sa/4.0/88x31.png")
-

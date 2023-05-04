@@ -45,7 +45,7 @@ Compound Interest Charged is expressed as
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 # Compound Interest example from SFPE Reference text
 # Modified example to provide the compounded interest amount paid only

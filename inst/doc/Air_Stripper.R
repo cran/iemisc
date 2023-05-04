@@ -77,6 +77,3 @@ pander(air4[[3]])
 ## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
 pander(air4[[4]])
 
-## ---- echo = FALSE, out.width = '100%'----------------------------------------
-linguisticsdown::include_graphics2("https://i.creativecommons.org/l/by-sa/4.0/88x31.png")
-

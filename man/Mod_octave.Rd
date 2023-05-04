@@ -20,7 +20,7 @@ Obtain the modulo of x and y in a manner compatible with GNU Octave/MATLAB.
 
 # Example from FreeMat
 
-library("iemisc")
+library(iemisc)
 
 Mod_octave(18, 12)
 

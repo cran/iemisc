@@ -49,7 +49,7 @@
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Example for equation 4-31 from the Reference text (page 162)
 #' PgivenFivary(Fn = 1000, ik = c(10, 12, 13, 10), k = 1)

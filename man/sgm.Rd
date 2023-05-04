@@ -40,7 +40,7 @@ Geometric mean is expressed as
 
 # Example 1.13 from Kottegoda (page 13)
 
-library("iemisc")
+library(iemisc)
 
 city_pop <- c(230000, 310000)
 sgm(city_pop)

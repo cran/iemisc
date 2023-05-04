@@ -43,7 +43,7 @@ or
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 # Example for equation 4-1 from the Sullivan Reference text (page 116)
 SimpIntPaid(1000, 3, 10) # the interest rate is 10\%

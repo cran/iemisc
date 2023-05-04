@@ -61,7 +61,7 @@
 #' 
 #' # Example 1
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # "What the others said is correct. 1 station is equal to 100 feet. So when
 #' # asked how many stations are in (3.2mi x 5280ft/mi = ) 16,896 feet, you are being
@@ -267,7 +267,7 @@ return(station_string)
 #' # Please refer to the iemisc: Engineering Survey Examples vignette for
 #' # additional examples
 #'  
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Example 1
 #'

@@ -28,7 +28,7 @@ death rate for a given population.
 
 # Example from Reference 1
 
-library("iemisc")
+library(iemisc)
 
 mortality_rate(369369, 331534662, 5)
 

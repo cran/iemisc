@@ -37,7 +37,7 @@ F is expressed as
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 # Example 4-33 from the Reference text (page 170)
 FgivenPcont(10000, 2, 5) # the interest rate is 5\%

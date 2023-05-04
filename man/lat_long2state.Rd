@@ -31,7 +31,7 @@ Islands
 
 # Example 1
 
-library("iemisc")
+library(iemisc)
 
 lat_long2state(latitude = c(36.3684553, 40), longitude = c(-82.1796880, -89))
 lat_long2state(latitude = "36.3684553", longitude = "-82.1796880")
@@ -42,7 +42,7 @@ lat_long2state(latitude = "36.3684553", longitude = "-82.1796880")
 
 # Test the function using points in Wisconsin and Oregon (From Source 1)
 
-library("iemisc")
+library(iemisc)
 
 x = c(-90, -120); y = c(44, 44)
 lat_long2state(latitude = y, longitude = x)

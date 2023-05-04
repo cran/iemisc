@@ -49,7 +49,7 @@ meters, or kilometers) and calculates the horizontal length in various units
 
 # Example 1
 
-library("iemisc")
+library(iemisc)
 
 # "What the others said is correct. 1 station is equal to 100 feet. So when
 # asked how many stations are in (3.2mi x 5280ft/mi = ) 16,896 feet, you are being

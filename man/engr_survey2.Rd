@@ -52,7 +52,7 @@ meters, or kilometers) and calculates the horizontal length in various units
 
 # Example 1
 
-library("iemisc")
+library(iemisc)
 
 engr_survey2("395+75", "397+13", station_distance = 100, units1 = "foot",
 units2 = "foot")
@@ -61,7 +61,7 @@ units2 = "foot")
 
 # Example 2
 
-library("iemisc")
+library(iemisc)
 
 station1 <- "333+03"
 station2 <- "332+94"
@@ -72,7 +72,7 @@ engr_survey2(station1, station2, units1 = "foot", units2 = "survey_mile")
 
 # Example 3 from Lewis Reference document page 25
 
-library("iemisc")
+library(iemisc)
 
 station3 <- "10+25.62"
 station4 <- "189+45.72"
@@ -83,7 +83,7 @@ engr_survey2(station3, station4, units1 = "foot", units2 = "mile")
 
 # Example 4 from Georgia reference page 27 (document page 43)
 
-library("iemisc")
+library(iemisc)
 
 engr_survey2("701+50.00", "409+69.00", station_distance = 100,
 units1 = "survey_ft", units2 = "foot")

@@ -32,7 +32,7 @@ instead.
  
 # Example 1 -- Reference 1
 
-library("iemisc")
+library(iemisc)
 
 xx <- as.character(fractional::fractional(1:9 / 12))
 
@@ -48,7 +48,7 @@ lapply(xx, frac_to_numeric)
 
 # Example 2
 
-library("iemisc")
+library(iemisc)
 
 xi <- fracture::fracture((50:65) / 12)
 
@@ -64,7 +64,7 @@ lapply(xi, frac_to_numeric)
 
 # Example 3
 
-library("iemisc")
+library(iemisc)
 
 xyy <- fracture::fracture((1:11) / 12)
 
@@ -80,7 +80,7 @@ lapply(xyy, frac_to_numeric)
  
 # Example 4
 
-library("iemisc")
+library(iemisc)
 
 xft <- as.character(MASS::fractions((1:70) / 12))
 
@@ -96,7 +96,7 @@ lapply(xft, frac_to_numeric)
  
 # Example 5
 
-library("iemisc")
+library(iemisc)
 
 pix <- "270/11"
 
@@ -119,7 +119,7 @@ frac_to_numeric(pi2)
 # such as 49 ft 7 5/8 in, don't use the frac_to_numeric function, instead
 # use the construction_fraction function.
 
-library("iemisc")
+library(iemisc)
 
 xxift <- "49 ft 7 5/8 in"
 

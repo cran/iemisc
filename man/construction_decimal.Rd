@@ -55,7 +55,7 @@ instead.
 
 # Example 1
 
-library("iemisc")
+library(iemisc)
 
 construction_decimal("2'-0\"", result = "traditional", output = "vector")
 
@@ -65,7 +65,7 @@ construction_decimal("1'-2 7/16\"", result = "librecad", output = "vector")
 
 # Example 2
 
-library("iemisc")
+library(iemisc)
 
 construction_decimal("0 6", result = "traditional", output = "vector")
 
@@ -75,7 +75,7 @@ construction_decimal("0 6", result = "librecad", output = "vector")
 
 # Example 3
 
-library("iemisc")
+library(iemisc)
 
 tss1 <- "48'-0 1/2\""
 tss2 <- "56-9 1/2\""
@@ -89,7 +89,7 @@ construction_decimal(tss2, result = "traditional", output = "vector"))
 
 # Example 4
 
-library("iemisc")
+library(iemisc)
 
 try(construction_decimal(5, result = "traditional", output =
 "vector")) # please see the error message
@@ -109,7 +109,7 @@ try(construction_decimal("feet", result = "traditional", output =
 
 # Example 5
 
-library("iemisc")
+library(iemisc)
 
 app1 <- "5' 2\""
 

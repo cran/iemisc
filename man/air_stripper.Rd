@@ -155,7 +155,7 @@ for additional examples
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 # 'Appendix D Example Air Stripping By Packed Column' from Design (page D-1 - D-18)
 
@@ -182,8 +182,8 @@ removal_requirements_table = 1, critical_contaminant_table = 1)
    \item Accu Dyne Test: Diversified Enterprises. Critical Surface Tension and Contact Angle with Water for Various Polymers, \url{https://www.accudynetest.com/polytable_03.html}.
    \item Design Guide No. 1110-1-3: Air Stripping Engineering and Design Appendix D: Example Air Stripping By Packed Column, Department Of The Army U.S. Army Corps of Engineers, 31 October 2001, pages D-1 - D-18, \url{https://www.publications.usace.army.mil/Portals/76/Publications/EngineerDesignGuides/DG_1110-1-3.pdf?ver=2013-08-16-101222-003}.
    \item Edgar L Andreas, Design Guide No. 1110-1-3: Handbook of Physical Constants and Functions for Use in Atmospheric Boundary Layer Studies, Department Of The Army U.S. Army Corps of Engineers, October 2005, pages D-1 - D-18, \url{https://apps.dtic.mil/sti/pdfs/ADA440352.pdf}.
-   \item EnggCyclopedia. Tutorial: air density calculation, 3 January 2022, \url{https://www.enggcyclopedia.com/2019/04/tutorial-air-density-calculation/}.
-   \item Harlan H. Bengtson, PhD, P.E. Continuing Education and Development, Inc., Calculation of Gas Density and Viscosity Course No: H02-008, \url{https://www.cedengineering.com/userfiles/Calculation\%20of\%20Gas\%20Density\%20and\%20Viscosity.pdf}.
+   \item EnggCyclopedia. Tutorial: air density calculation, 3 January 2022, \url{https://enggcyclopedia.com/2019/04/air-density-calculation/}.
+   \item Harlan H. Bengtson, PhD, P.E. Continuing Education and Development, Inc., Calculation of Gas Density and Viscosity Course No: H02-008, \url{https://www.scribd.com/document/452763833/Calculation-of-Gas-Density-and-Viscosity-pdf}.
    \item PCA Series Packed Column Air Strippers, H2K Technologies, Inc., 2011, page 2, \url{http://www.h2ktech.com/pdf_downloads/PCA_Packed_Column_Air_Strippers.pdf}.
    \item Peter J. Mohr, David B. Newell, and Barry N. Taylor. Continuing Education and Development, Inc., CODATA recommended values of the fundamental physical constants: 2014, \emph{Reviews Of Modern Physics}, Volume 88, July-September 2016, \url{https://physics.nist.gov/cuu/pdf/CODATA_JPCRD2016.pdf}.
    \item The NIST Reference on Constants, Units, and Uncertainty, Fundamental Constants Data Center of the NIST Physical Measurement Laboratory, "standard acceleration of gravity g_n", \url{https://physics.nist.gov/cgi-bin/cuu/Value?gn}.

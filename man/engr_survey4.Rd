@@ -42,7 +42,7 @@ meters, or kilometers) and determines the upstream station location.
 # Please refer to the iemisc: Engineering Survey Examples vignette for
 # additional examples
  
-library("iemisc")
+library(iemisc)
 
 # Example 1
 

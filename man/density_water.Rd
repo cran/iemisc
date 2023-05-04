@@ -68,7 +68,7 @@ Thus, lbm/ft^3 = lbf*s^2/ft/ft^3
 \examples{
 # Example 1 (Compare to reference standard in Reference paper)
 
-library("iemisc")
+library(iemisc)
 
 273.16 # K
 
@@ -93,7 +93,7 @@ round::round_r3(density_water(T, units = "Absolute"), d = 3)
 
 # Example 2 - Example from the hydraulics package
 
-library("iemisc")
+library(iemisc)
 
 rho <- hydraulics::dens(T = 25, units = "SI"); rho
 

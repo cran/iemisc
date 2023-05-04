@@ -38,7 +38,7 @@ A is expressed as
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 AgivenFcont(300, 2, 11) # 11\\% interest
 

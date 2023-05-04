@@ -21,7 +21,7 @@ Note: If you have a degree angle value, use \code{\link{secd}} instead.
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 # Examples
 

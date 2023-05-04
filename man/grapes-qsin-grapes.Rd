@@ -32,11 +32,11 @@ This function performs a quick, case insensitive search of strings
 
 # Examples
 
-x <- c("apple","banana","cherry", NA)
+x <- c("apple", "banana", "cherry", NA)
 
 "apple" \%qsin\% x
 
-c("APPLE","BANANA", "coconut", NA) \%qsin\% x
+c("APPLE", "BANANA", "coconut", NA) \%qsin\% x
 
 
 

@@ -34,6 +34,3 @@ cosd(90)
 
 cos(pi/2)
 
-## ---- echo = FALSE, out.width = '100%'----------------------------------------
-linguisticsdown::include_graphics2("https://i.creativecommons.org/l/by-sa/4.0/88x31.png")
-

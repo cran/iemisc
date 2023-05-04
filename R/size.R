@@ -139,7 +139,7 @@ size <- function (x, k) {
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' import::from(matlab, ones)
 #' 
@@ -222,7 +222,7 @@ else (is.matrix(x))
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' import::from(matlab, ones)
 #' 
@@ -306,7 +306,7 @@ return(lens)
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Examples from GNU Octave ndims
 #' 
@@ -369,7 +369,7 @@ return(n)
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Examples
 #' 
@@ -435,7 +435,7 @@ return(r)
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Examples
 #' 

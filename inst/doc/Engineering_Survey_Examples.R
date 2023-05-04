@@ -131,6 +131,3 @@ longs <- "84'16'12.0720'W"
 dt2B <- engr_survey_reverse(lats, longs, "foot", "KY", output = "table", utm = 0)
 pander(dt2B)
 
-## ---- echo = FALSE, out.width = '100%'----------------------------------------
-linguisticsdown::include_graphics2("https://i.creativecommons.org/l/by-sa/4.0/88x31.png")
-

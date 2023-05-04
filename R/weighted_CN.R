@@ -9,7 +9,7 @@
 #' @param area_pct numeric vector containing the surface land area, as a
 #'    percent (decimal or whole number)
 #' @param area_units character vector containing the units for area
-#'    (default = "acres"). The other possible units are "square feet",
+#'    (default = "acre"). The other possible units are "square feet",
 #'    "square mile", "hectare", or "square kilometer". The units should
 #'    be consistent and not mixed.
 #' @param CN_area_table data.frame/data.table/tibble, list, or matrix
@@ -52,7 +52,7 @@
 #'
 #' # Example 1
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' area1 <- c(220, 150, 30)
 #' CN1 <- c(75, 89, 80)
@@ -61,7 +61,7 @@
 #'
 #' # Example 2
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' area2 <- c(220, 150, 30)
 #' area_pct2 <- area2 / sum(area2)
@@ -80,7 +80,7 @@
 #'
 #' # Example 4
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' CN4 <- c(98, 100, 45)
 #' area_pct4 <- c(0.15, 0.23, 0.62)
@@ -89,7 +89,7 @@
 #'
 #' # Example 5
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' import::from(ramify, mat)
 #'
@@ -107,7 +107,7 @@
 #'
 #' # Example 6 - using area in square feet
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' data_list6 <- list(CN = c(77, 29, 68), Area = c(43560, 56893, 345329.32))
 #' weighted_CN(CN_area_table = data_list6, area_units = "square feet")
@@ -115,7 +115,7 @@
 #'
 #' # Example 7 - using area in whole percents
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' CN7 <- c(61, 74)
 #' area_pct7 <- c(30, 70)

@@ -275,6 +275,3 @@ B1 <- Manningpara(Q = 32.2, y = 8, y1 = 5.1, Sf = 0.0092, n = 0.025, units = "SI
 
 B1
 
-## ---- echo = FALSE, out.width = '100%'----------------------------------------
-linguisticsdown::include_graphics2("https://i.creativecommons.org/l/by-sa/4.0/88x31.png")
-

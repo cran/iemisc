@@ -73,7 +73,7 @@
 #'
 #' # Example 1 - Example from the hydraulics package
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' vps <- hydraulics::svp(T = 10, units = "SI"); vps
 #'
@@ -85,7 +85,7 @@
 #'
 #' # Example 2 - from the Reference
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' sat_vapor_pressure(T = c(0.01, seq(from = 20, to = 100, by = 20)), units = "SI", formula = "Huang")
 #'
@@ -138,10 +138,10 @@ formula <- formula
 
 
 # Check
-assert_that(qtest(units, "S==1"), msg = "There is not an unit type or more than 1 unit type. Please specify either 'SI', 'Eng', or 'Absolute'.")
+assert_that(qtest(units, "S==1"), msg = "There is not an units type or more than 1 units type. Please specify either 'SI', 'Eng', or 'Absolute'.")
 # only process with enough known variables and provide an error message if the check fails
 
-assert_that(isTRUE(any(c("SI", "Eng", "Absolute") %in% units)), msg = "The unit system has not been identified correctly as either 'SI', 'Eng', or 'Absolute'. Please try again.")
+assert_that(isTRUE(any(c("SI", "Eng", "Absolute") %in% units)), msg = "The units system has not been identified correctly as either 'SI', 'Eng', or 'Absolute'. Please try again.")
 # only process with a specified unit and provide a stop warning if not
 
 
@@ -552,7 +552,7 @@ return(drop_units(Ps)) # Pa
 #' @examples
 #' # Example from the Reference
 #'
-#' library("iemisc")
+#' library(iemisc)
 #' 
 #' sat_vapor_pressure_ice(T = seq(from = -100, to = 0, by = 20), units = "SI")
 #' 
@@ -575,10 +575,10 @@ units <- units
 
 
 # Check
-assert_that(qtest(units, "S==1"), msg = "There is not an unit type or more than 1 unit type. Please specify either 'SI', 'Eng', or 'Absolute'.")
+assert_that(qtest(units, "S==1"), msg = "There is not an units type or more than 1 units type. Please specify either 'SI', 'Eng', or 'Absolute'.")
 # only process with enough known variables and provide an error message if the check fails
 
-assert_that(isTRUE(any(c("SI", "Eng", "Absolute") %in% units)), msg = "The unit system has not been identified correctly as either 'SI', 'Eng', or 'Absolute'. Please try again.")
+assert_that(isTRUE(any(c("SI", "Eng", "Absolute") %in% units)), msg = "The units system has not been identified correctly as either 'SI', 'Eng', or 'Absolute'. Please try again.")
 # only process with a specified unit and provide a stop warning if not
 
 
@@ -760,7 +760,7 @@ return(Ps)
 #' @examples
 #' # Example 1 (Compare to reference standard in Reference paper)
 #'
-#' library("iemisc")
+#' library(iemisc)
 #' 
 #' 273.16 # K
 #' 
@@ -785,7 +785,7 @@ return(Ps)
 #'
 #' # Example 2 - Example from the hydraulics package
 #'
-#' library("iemisc")
+#' library(iemisc)
 #' 
 #' rho <- hydraulics::dens(T = 25, units = "SI"); rho
 #' 
@@ -845,10 +845,10 @@ ifelse(missing(Eng_units) & units == "SI" | units == "Absolute", Eng_units <- NA
 
 
 # Check
-assert_that(qtest(units, "S==1"), msg = "There is not an unit type or more than 1 unit type. Please specify either 'SI', 'Eng', or 'Absolute'.")
+assert_that(qtest(units, "S==1"), msg = "There is not an units type or more than 1 units type. Please specify either 'SI', 'Eng', or 'Absolute'.")
 # only process with enough known variables and provide an error message if the check fails
 
-assert_that(isTRUE(any(c("SI", "Eng", "Absolute") %in% units)), msg = "The unit system has not been identified correctly as either 'SI', 'Eng', or 'Absolute'. Please try again.")
+assert_that(isTRUE(any(c("SI", "Eng", "Absolute") %in% units)), msg = "The units system has not been identified correctly as either 'SI', 'Eng', or 'Absolute'. Please try again.")
 # only process with a specified unit and provide a stop warning if not
 
 assert_that(qtest(Eng_units, "s==1"), msg = "There is not an Eng_units type or more than 1 Eng_units type. Please specify either 'slug/ft^3' or 'lbm/ft^3'.")
@@ -1100,7 +1100,7 @@ return(rhoprime)
 #' @examples
 #' # Examples
 #'
-#' library("iemisc")
+#' library(iemisc)
 #' 
 #' rho1 <- density_water(T = 68, units = "Eng", Eng_units = "slug/ft^3")
 #' 
@@ -1137,10 +1137,10 @@ ifelse(missing(Eng_units) & units == "SI", Eng_units <- NA_character_, Eng_units
 
 
 # Check
-assert_that(qtest(units, "S==1"), msg = "There is not an unit type or more than 1 unit type. Please specify either 'SI' or 'Eng'.")
+assert_that(qtest(units, "S==1"), msg = "There is not an units type or more than 1 units type. Please specify either 'SI' or 'Eng'.")
 # only process with enough known variables and provide an error message if the check fails
 
-assert_that(isTRUE(any(c("SI", "Eng") %in% units)), msg = "The unit system has not been identified correctly as either 'SI' or 'Eng'. Please try again.")
+assert_that(isTRUE(any(c("SI", "Eng") %in% units)), msg = "The units system has not been identified correctly as either 'SI' or 'Eng'. Please try again.")
 # only process with a specified unit and provide a stop warning if not
 
 assert_that(qtest(Eng_units, "s==1"), msg = "There is not an Eng_units type or more than 1 Eng_units type. Please specify either 'slug/ft^3' or 'lbm/ft^3'.")
@@ -1328,10 +1328,10 @@ ifelse(missing(Eng_units) & units == "SI", Eng_units <- NA_character_, Eng_units
 
 
 # Check
-assert_that(qtest(units, "S==1"), msg = "There is not an unit type or more than 1 unit type. Please specify either 'SI' or 'Eng'.")
+assert_that(qtest(units, "S==1"), msg = "There is not an units type or more than 1 units type. Please specify either 'SI' or 'Eng'.")
 # only process with enough known variables and provide an error message if the check fails
 
-assert_that(isTRUE(any(c("SI", "Eng") %in% units)), msg = "The unit system has not been identified correctly as either 'SI' or 'Eng'. Please try again.")
+assert_that(isTRUE(any(c("SI", "Eng") %in% units)), msg = "The units system has not been identified correctly as either 'SI' or 'Eng'. Please try again.")
 # only process with a specified unit and provide a stop warning if not
 
 assert_that(qtest(Eng_units, "s==1"), msg = "There is not an Eng_units type or more than 1 Eng_units type. Please specify either 'slug/ft^3' or 'lbm/ft^3'.")
@@ -1437,7 +1437,7 @@ return(drop_units(sp_gravity)) # dimensionless
 #' @examples
 #' # Examples
 #'
-#' library("iemisc")
+#' library(iemisc)
 #' 
 #' rho1 <- density_water(T = 68, units = "Eng", Eng_units = "slug/ft^3")
 #' 
@@ -1565,7 +1565,7 @@ return(nu)
 #'
 #' # Example 2 - Example from the hydraulics package
 #'
-#' library("iemisc")
+#' library(iemisc)
 #' 
 #' mu <- hydraulics::dvisc(T = 55, units = "Eng"); mu
 #' 
@@ -1593,10 +1593,10 @@ ifelse(missing(Eng_units) & units == "SI" | units == "Absolute", Eng_units <- NA
 
 
 # Check
-assert_that(qtest(units, "S==1"), msg = "There is not an unit type or more than 1 unit type. Please specify either 'SI', 'Eng', or 'Absolute'.")
+assert_that(qtest(units, "S==1"), msg = "There is not an units type or more than 1 units type. Please specify either 'SI', 'Eng', or 'Absolute'.")
 # only process with enough known variables and provide an error message if the check fails
 
-assert_that(isTRUE(any(c("SI", "Eng", "Absolute") %in% units)), msg = "The unit system has not been identified correctly as either 'SI', 'Eng', or 'Absolute'. Please try again.")
+assert_that(isTRUE(any(c("SI", "Eng", "Absolute") %in% units)), msg = "The units system has not been identified correctly as either 'SI', 'Eng', or 'Absolute'. Please try again.")
 # only process with a specified unit and provide a stop warning if not
 
 
@@ -1834,7 +1834,7 @@ return(mus)
 #' \donttest{
 #' # See Source 1 and Source 2
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' try(kin_visc_water(mu = 34, rho = 0, rho_units = "kg/m^3", mu_units = "Pa*s or kg/m/s"))
 #' }
@@ -2123,10 +2123,10 @@ units <- units
 
 
 # Check
-assert_that(qtest(units, "S==1"), msg = "There is not an unit type or more than 1 unit type. Please specify either 'SI', 'Eng', or 'Absolute'.")
+assert_that(qtest(units, "S==1"), msg = "There is not an units type or more than 1 units type. Please specify either 'SI', 'Eng', or 'Absolute'.")
 # only process with enough known variables and provide an error message if the check fails
 
-assert_that(isTRUE(any(c("SI", "Eng", "Absolute") %in% units)), msg = "The unit system has not been identified correctly as either 'SI', 'Eng', or 'Absolute'. Please try again.")
+assert_that(isTRUE(any(c("SI", "Eng", "Absolute") %in% units)), msg = "The units system has not been identified correctly as either 'SI', 'Eng', or 'Absolute'. Please try again.")
 # only process with a specified unit and provide a stop warning if not
 
 

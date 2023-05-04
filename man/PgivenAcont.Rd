@@ -38,7 +38,7 @@ P is expressed as
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 PgivenAcont(2000, 3, 12) # the interest rate is 12\%
 

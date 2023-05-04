@@ -43,7 +43,7 @@
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Example 4-20 from the Reference text (pages 153-154)
 #' PgivenG(1000, 4, 15, "annual") # the interest rate is 15%
@@ -195,7 +195,7 @@ return(round_r3(PgivenG, d = 2))
 #'
 #' @examples
 ##' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Example 4-20 from the Reference text (pages 153-154)
 #'   AgivenG(1000, 4, 15, "annual") # the interest rate is 15\%

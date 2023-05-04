@@ -44,7 +44,7 @@ numerators or denominators
 
 # Example 1 from the Example # 1 from Reference 1
 
-library("iemisc")
+library(iemisc)
 
 # 5 / x = 10 / 16
 
@@ -55,7 +55,7 @@ prop_solver(n1 = 5, n2 = 10, d2 = 16, output = "single")
 
 # Example 2
 
-library("iemisc")
+library(iemisc)
 
 t1 <- "34 3 1/2"
 t2 <- 5
@@ -70,7 +70,7 @@ prop_solver(n1 = t11, n2 = 5, d1 = 5 / 2, output = "all")
 
 # Example 3
 
-library("iemisc")
+library(iemisc)
 
 # Refer to Reference 2 and Reference 3
 

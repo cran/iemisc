@@ -46,7 +46,7 @@
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' AgivenFcont(300, 2, 11) # 11\% interest
 #'
@@ -129,7 +129,7 @@ return(round_r3(AgivenFcont, d = 2))
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' PgivenFcont(1000, 9, 7) # the interest rate is 7%
 #'
@@ -209,7 +209,7 @@ return(round_r3(PgivenFcont, d = 2))
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' PgivenAcont(2000, 3, 12) # the interest rate is 12%
 #'
@@ -288,7 +288,7 @@ return(round_r3(PgivenAcont, d = 2))
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Example 4-33 from the Reference text (page 170)
 #' FgivenPcont(10000, 2, 5) # the interest rate is 5%
@@ -369,7 +369,7 @@ return(round_r3(FgivenPcont, d = 2))
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' FgivenAcont(2100, 13, 7) # the interest rate is 7%
 #'
@@ -449,7 +449,7 @@ return(round_r3(FgivenAcont, d = 2))
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Example for equation 4-34 from the Reference text (page 170)
 #' AgivenPcont(1000, 10, 20) # 20\% interest

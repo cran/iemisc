@@ -50,7 +50,7 @@ This function makes the following calculations:
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 righttri(a = 3, b = 4, c = 5)
 
@@ -60,7 +60,7 @@ righttri(a = 3, b = 4, c = 5)
 \donttest{
 # See Source 4 and Source 5
 
-library("iemisc")
+library(iemisc)
 
 try(righttri(0, 2)) # a = 0, b = 2
 

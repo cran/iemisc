@@ -67,7 +67,7 @@
 #' 
 #' # Example 1
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #' 
 #' obs <- 1:10 # observed
 #' pre <- 2:11 # predicted

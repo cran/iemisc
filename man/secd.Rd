@@ -22,7 +22,7 @@ Note: If you have a radian (rad) angle value, use \code{\link{sec}} instead.
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 # Examples from GNU Octave secd
 secd (seq(0, 80, by = 10))

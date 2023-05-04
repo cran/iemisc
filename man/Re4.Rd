@@ -32,7 +32,7 @@ Calculating the Reynolds Number 4
 # nu = 2.40 * 10 ^ -5 ft^2/s
 # D = 9.03 * 10 ^ -2 ft
 
-library("iemisc")
+library(iemisc)
 
 Re4(Q = 2.23 * 10 ^ -2, nu = 2.40 * 10 ^ -5, D = 9.03 * 10 ^ -2)
 

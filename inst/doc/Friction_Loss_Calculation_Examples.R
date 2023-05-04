@@ -348,6 +348,3 @@ setnames(result_table_Eng, c("Darcy friction factor equation", "Darcy friction f
 
 pander(result_table_Eng)
 
-## ---- echo = FALSE, out.width = '100%'----------------------------------------
-linguisticsdown::include_graphics2("https://i.creativecommons.org/l/by-sa/4.0/88x31.png")
-

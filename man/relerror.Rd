@@ -31,7 +31,7 @@ Relative error is expressed as
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 # Example 4.1 from the Reference text (page 83)
 

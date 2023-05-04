@@ -105,7 +105,7 @@
 #' 
 #' # Tennessee (TN) Northing and Easting in US Survey foot
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' Northing1 <- c("630817.6396", "502170.6065", "562,312.2349", "574,370.7178")
 #'
@@ -121,7 +121,7 @@
 #' 
 #' # Please see the error messages
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' Northing1 <- c("630817.6396", "502170.6065", "562,312.2349", "574,370.7178")
 #'
@@ -168,7 +168,6 @@
 #' @importFrom units set_units make_units
 #' @importFrom checkmate qtest
 #' @importFrom assertthat assert_that
-#' @importFrom qdapTools lookup
 #' @importFrom measurements conv_unit
 #'
 #' @export
@@ -371,7 +370,7 @@ assert_that(all(lat_long2state(data_check[, Y], data_check[, X]) == "Tennessee")
 # populate the table fields
 look_fips <- data.table(location = c("KY", "TN"), zone = c("Kentucky (Single Zone) 1600", "Tennessee 4100"))
 
-z <- lookup(location, setDF(look_fips))
+z <- lookupQT(location, setDF(look_fips))
 # Source 4
 
 dn <- data_check$Y

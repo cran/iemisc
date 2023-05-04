@@ -21,7 +21,7 @@ in a manner compatible with GNU Octave/MATLAB.
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 # Examples from GNU Octave ndims
 

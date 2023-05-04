@@ -386,7 +386,7 @@
 #' 
 #' # Example 1
 #'
-#' library("iemisc")
+#' library(iemisc)
 #' # Exercise 4.1 from Sturm (page 153)
 #'
 #' uu <- Manningtrap(Q = 3000, b = 40, m = 3, Sf = 0.002, n = 0.025,
@@ -1958,7 +1958,7 @@ result_table
 #' 
 #' # Example 1
 #'
-#' library("iemisc")
+#' library(iemisc)
 #' # Exercise 4.1 from Sturm (page 153)
 #'
 #' uuc <- Manningtrap_critical(Q = 3000, b = 40, m = 3, Sf = 0.002, n = 0.025,

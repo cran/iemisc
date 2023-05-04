@@ -55,7 +55,7 @@ P is expressed as
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 # Example 4-4 from the Reference text (page 128)
 PgivenF(10000, 6, 8, "annual") # the interest rate is 8\%

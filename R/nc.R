@@ -74,7 +74,7 @@
 #'
 #'
 #' @examples
-#' library("iemisc")
+#' library(iemisc)
 #' 
 #' # Example from Table 4. from the USGS Reference text page 35
 #' n(nb = 0.025, n4 = 0.005, m = 1.00)
@@ -176,7 +176,7 @@ sum(c(nb, n1, n2, n3, n4), na.rm = TRUE) * m
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Example from the Moore Reference text
 #' nc1(n = c(0.05, 0.035, 0.05, 0.04), P = c(22.22, 34.78, 2.00, 6.08))
@@ -273,7 +273,7 @@ assert_that(!any(qtest(Ptotal, "N+(0,)") == FALSE), msg = "Either Ptotal is 0, N
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Example from the Moore Reference text
 #' nc2(n = c(0.05, 0.035, 0.05, 0.04), P = c(22.22, 34.78, 2.00, 6.08))
@@ -372,7 +372,7 @@ sqrt(sum(P * n ^ 2) / Ptotal)
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' nc3(n = c(0.0024, 0.035), P = c(23.65, 36.08), R = c(2.02, 6.23))
 #'
@@ -465,7 +465,7 @@ Rtotal <- sum(R)
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' nc4(n = c(0.0024, 0.035), P = c(23.65, 36.08), y = c(10.23, 7.38))
 #'

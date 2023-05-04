@@ -40,7 +40,7 @@
 #' 
 #' # Example 1 -- From the Python reference
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #' 
 #' 5.0 / 2
 #' # 2.5

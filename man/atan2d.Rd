@@ -28,7 +28,7 @@ Note: If you have a radian (rad) angle value, use \code{\link[base]{atan2}} inst
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 # Examples from GNU Octave atan2d
 atan2d (a <- seq(-1, 1, by = 0.1), b <- seq(1, -1, by = -0.1))

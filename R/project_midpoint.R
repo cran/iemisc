@@ -104,7 +104,7 @@
 #'
 #' # Example 1
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #' 
 #' Northing_begin <- 283715.8495
 #' Easting_begin <- 1292428.3999
@@ -125,7 +125,7 @@
 #' 
 #' # Please see the error messages
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #' 
 #' # Tennessee (TN) Northing and Easting in meters
 #' 
@@ -148,7 +148,6 @@
 #' @importFrom checkmate qtest
 #' @importFrom assertthat assert_that
 #' @importFrom geosphere midPoint
-#' @importFrom qdapTools lookup
 #'
 #' @export
 project_midpoint <- function (Northing_begin, Easting_begin, Northing_end, Easting_end, units = c("survey_ft", "foot", "meters"), location = c("KY", "TN"), output = c("simple", "advanced")) {
@@ -416,7 +415,7 @@ assert_that(isTRUE(lat_long2state(data_check_end[, Y], data_check_end[, X]) == "
 # populate the table fields
 look_fips <- data.table(location = c("KY", "TN"), zone = c("Kentucky (Single Zone) 1600", "Tennessee 4100"))
 
-z <- lookup(location, setDF(look_fips))
+z <- lookupQT(location, setDF(look_fips))
 # Source 4
 
 

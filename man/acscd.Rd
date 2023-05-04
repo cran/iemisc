@@ -22,7 +22,7 @@ Note: If you have a radian (rad) angle value, use \code{\link[pracma]{acsc}} ins
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 # Examples from GNU Octave acscd
 acscd (seq(0, 90, by = 10))

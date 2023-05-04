@@ -38,7 +38,7 @@ A is expressed as
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 # Example for equation 4-34 from the Reference text (page 170)
 AgivenPcont(1000, 10, 20) # 20\\% interest

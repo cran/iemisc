@@ -55,7 +55,7 @@ F is expressed as
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 # Example 4-3 from the Reference text (page 124)
 FgivenP(8000, 4, 10, frequency = "annual") # the interest rate is 10\\%

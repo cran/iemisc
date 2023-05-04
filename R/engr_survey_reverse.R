@@ -111,7 +111,7 @@
 #' # Northing is 97296.815 # provided in TGRN Manual
 #' # Easting is 244089.427 # provided in TGRN Manual
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' latitude <- "35 8 46.44496"
 #' longitude <- "89 54 24.04763"
@@ -134,7 +134,7 @@
 #'
 #' # Tennessee
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' lat <- 35.8466965
 #'
@@ -151,7 +151,7 @@
 #' 
 #' # Kentucky
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' lats <- "37'50'21.5988''N"
 #' longs <- "84'16'12.0720'W"
@@ -169,7 +169,6 @@
 #' @importFrom units set_units make_units drop_units
 #' @importFrom checkmate qtest
 #' @importFrom assertthat assert_that
-#' @importFrom qdapTools lookup
 #' @importFrom round round_r3
 #' @importFrom berryFunctions l2df traceCall getColumn
 #' @importFrom measurements conv_unit
@@ -406,7 +405,7 @@ data_out <- data.table(X = distance_survey[, Easting], Y = distance_survey[, Nor
 # populate the table fields
 look_fips <- data.table(location = c("KY", "TN"), zone = c("Kentucky (Single Zone) 1600", "Tennessee 4100"))
 
-z <- lookup(location, setDF(look_fips))
+z <- lookupQT(location, setDF(look_fips))
 # Source 4
 
 dn <- data_pre$lat

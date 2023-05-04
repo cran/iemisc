@@ -1,3 +1,16 @@
+# iemisc 1.0.3 (3 May 2023)
+
+* Modified the Help section and the package introduction on the README
+* Revised the non-standard evaluation of library calls to standard evaulation calls in the README and in all functions
+* Revised some grammatical issues in various functions
+* Revised the splitcomma function to allow for a set of names in a single character vector to be separated by " & "
+* Revised the reduce_single_digit function to allow for date times and vectors with decimals
+* Revised all of the vignettes -- removed the PNG image for the Creative Commons license due to it failing consistently on certain OSes. Also added the EcoC²S services link to all of the vignettes as well.
+* Added the notchin function (Negate chin from `data.table` and Negate in from `base` R) to determine which character or numeric vectors are not in a set of character or numeric vectors
+* Added the surface_area (for calculating the linear surface area) & rain_garden_driveway (for sizing a rain garden based on driveway surface areas) functions
+* Removed `qdapTools` from Imports as Prof Brian Ripley sent an e-mail that `qdapTools` is scheduled for archival on 6 May 2023 due to failing the CRAN checks. The lookupQT (lookup in `qdapTools`) and lookup_helperQT (lookup_helper in `qdapTools`) functions have been added to the package to avoid `iemisc` from being archived on that date too. The existing functions have been modified to use lookupQT instead of lookup.
+
+
 # iemisc 1.0.2 (4 March 2023)
 
 * CRAN update to move from archived back to active state

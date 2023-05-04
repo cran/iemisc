@@ -89,7 +89,7 @@ Kentucky Transportation Cabinet Survey Coordination
 
 # Example 1
 
-library("iemisc")
+library(iemisc)
 
 Northing_begin <- 283715.8495
 Easting_begin <- 1292428.3999
@@ -110,7 +110,7 @@ units = "survey_ft", location = "TN", output = "simple")
 
 # Please see the error messages
 
-library("iemisc")
+library(iemisc)
 
 # Tennessee (TN) Northing and Easting in meters
 

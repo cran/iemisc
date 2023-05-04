@@ -28,7 +28,7 @@ hour (in/hr)"}
 area_units values.}
 
 \item{area_units}{character vector containing the units for area
-(default = "acres"). The other possible units are "square feet",
+(default = "acre"). The other possible units are "square feet",
 "square mile", "hectare", or "square kilometer".}
 }
 \value{
@@ -98,7 +98,7 @@ The value of 1.008 is used for the unit conversion factor for English units.
 # area.
 
 
-library("iemisc")
+library(iemisc)
 
 area1 <- c(6, 3, 3)
 C1 <- c(mean(c(0.30, 0.50)), 0.15, 0.90)
@@ -130,7 +130,7 @@ rational_formula(C_F = 25, C = C1_w, i = i1, A = sum(area1), area_units = "acre"
 # North Carolina.
 
 
-library("iemisc")
+library(iemisc)
 
 area2 <- c(1, 10, 2, 5)
 C2 <- c(0.35, 0.50, 0.90, 0.60)

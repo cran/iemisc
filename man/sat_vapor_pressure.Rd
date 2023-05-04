@@ -57,7 +57,7 @@ saturated vapor pressure
 
 # Example 1 - Example from the hydraulics package
 
-library("iemisc")
+library(iemisc)
 
 vps <- hydraulics::svp(T = 10, units = "SI"); vps
 
@@ -69,7 +69,7 @@ vps2 <- sat_vapor_pressure(T = 10, units = "SI", formula = "Huang"); vps2
 
 # Example 2 - from the Reference
 
-library("iemisc")
+library(iemisc)
 
 sat_vapor_pressure(T = c(0.01, seq(from = 20, to = 100, by = 20)), units = "SI", formula = "Huang")
 

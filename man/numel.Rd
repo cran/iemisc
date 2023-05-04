@@ -30,7 +30,7 @@ documentation from \code{\link[base]{length}}.
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 import::from(matlab, ones)
 

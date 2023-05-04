@@ -68,7 +68,7 @@ set_n(100) # makes the example reproducible
 
 # Example 2 (from the base range function)
 
-library("iemisc")
+library(iemisc)
 
 xi <- c(NA, 1:3, -1:1/0); xi
 

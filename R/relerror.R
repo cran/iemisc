@@ -51,7 +51,7 @@
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Example 4.1 from the Reference text (page 83)
 #' 
@@ -139,7 +139,7 @@ abs(((xt - xa) / xt)) * 100
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Example 4.1 from the Reference text (page 84)
 #' 

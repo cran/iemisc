@@ -214,7 +214,7 @@
 #' 
 #' # from the Chow reference, water at 68 F (20 C) has the following properties
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # mu (dynamic viscosity) = 2.09 * 10 ^ -5 slug/ft-sec
 #' # rho (density) = 1.937 slug/ft^3
@@ -318,7 +318,7 @@ return(list(nu = nu, Re1 = Re1))
 #' # and
 #' # Re = 1.8 * 10 ^ 5
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' Re2(D = 0.3355, V = 7.56, nu = 1.41 * 10 ^ -5)
 #'
@@ -483,7 +483,7 @@ return(Re3)
 #' # nu = 2.40 * 10 ^ -5 ft^2/s
 #' # D = 9.03 * 10 ^ -2 ft
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' Re4(Q = 2.23 * 10 ^ -2, nu = 2.40 * 10 ^ -5, D = 9.03 * 10 ^ -2)
 #'

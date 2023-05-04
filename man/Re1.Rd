@@ -185,7 +185,7 @@ Note: Units must be consistent
 
 # from the Chow reference, water at 68 F (20 C) has the following properties
 
-library("iemisc")
+library(iemisc)
 
 # mu (dynamic viscosity) = 2.09 * 10 ^ -5 slug/ft-sec
 # rho (density) = 1.937 slug/ft^3

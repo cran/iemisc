@@ -38,7 +38,7 @@ F is expressed as
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 FgivenAcont(2100, 13, 7) # the interest rate is 7\%
 

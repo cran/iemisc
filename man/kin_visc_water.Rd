@@ -60,7 +60,7 @@ Thus, lbm/ft^3 = lbf*s^2/ft/ft^3
 \donttest{
 # See Source 1 and Source 2
 
-library("iemisc")
+library(iemisc)
 
 try(kin_visc_water(mu = 34, rho = 0, rho_units = "kg/m^3", mu_units = "Pa*s or kg/m/s"))
 }

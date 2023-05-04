@@ -66,7 +66,7 @@
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # 'Example 3.1 Mixture Design of Normal-weight Concrete' from Nawy
 #' # (page 23-28)

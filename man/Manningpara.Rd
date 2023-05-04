@@ -219,7 +219,7 @@ Note: Units must be consistent
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 # Exercise 4.3 from Sturm (page 153)
 y <- Manningpara(Q = 12.0, B1 = 10, y1 = 2.0, Sf = 0.005, n = 0.05, units = "SI")

@@ -27,7 +27,7 @@
 #'
 #'
 #' @references
-#' John D Page, From Math Open Reference: Algorithm to find the area of a polygon. See \url{https://www.mathopenref.com/coordpolygonarea2.html}.
+#' John D Page, From Math Open Reference: Algorithm to find the area of a polygon. See \url{https://web.archive.org/web/20221006001150/https://www.mathopenref.com/coordpolygonarea2.html}. Provided by Internet Archive: Wayback Machine to avoid the connection timeout.
 #'
 #'
 #'
@@ -48,7 +48,7 @@
 #'
 #' # Example 1 from Source 2
 #'
-#' library("iemisc")
+#' library(iemisc)
 #' 
 #' x <- c(4,  4,  8,  8, -4, -4)
 #' y <- c(6, -4, -4, -8, -8, 6)
@@ -67,7 +67,7 @@
 #' 
 #' # Example 2
 #'
-#' library("iemisc")
+#' library(iemisc)
 #' 
 #' type38 <- construction_decimal("46'-10 1/2\"", result = "traditional", output = "vector")
 #'
@@ -114,7 +114,7 @@
 #' 
 #' # Example 4 from pracma
 #'
-#' library("iemisc")
+#' library(iemisc)
 #' 
 #' Xx <- c(0, 4, 4, 0)
 #'
@@ -134,7 +134,7 @@
 #' 
 #' # Example 5 from pracma
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' Xx1 <- c(0, 4, 2)
 #'

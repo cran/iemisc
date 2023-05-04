@@ -37,7 +37,6 @@
 #' @importFrom fpCompare %==%
 #' @importFrom rivr critical_depth
 #' @importFrom measurements conv_unit
-#' @importFrom qdapTools lookup
 #' @importFrom roperators %+%
 #' @importFrom berryFunctions l2df traceCall getColumn
 #' @importFrom gsubfn list

@@ -62,7 +62,7 @@
 #'
 #' @examples
 #'
-#' library("iemisc")
+#' library(iemisc)
 #' 
 #' # Examples
 #' 

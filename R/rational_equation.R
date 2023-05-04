@@ -15,7 +15,7 @@
 #' @param A numeric vector that contains the drainage area in one of the
 #'    area_units values.
 #' @param area_units character vector containing the units for area
-#'    (default = "acres"). The other possible units are "square feet",
+#'    (default = "acre"). The other possible units are "square feet",
 #'    "square mile", "hectare", or "square kilometer".
 #'
 #'
@@ -115,7 +115,7 @@
 #' # area.
 #'
 #'
-#' library("iemisc")
+#' library(iemisc)
 #' 
 #' area1 <- c(6, 3, 3)
 #' C1 <- c(mean(c(0.30, 0.50)), 0.15, 0.90)
@@ -147,7 +147,7 @@
 #' # North Carolina.
 #'
 #'
-#' library("iemisc")
+#' library(iemisc)
 #' 
 #' area2 <- c(1, 10, 2, 5)
 #' C2 <- c(0.35, 0.50, 0.90, 0.60)
@@ -168,7 +168,6 @@
 #' @importFrom units set_units make_units drop_units
 #' @importFrom checkmate qtest
 #' @importFrom assertthat assert_that
-#' @importFrom qdapTools lookup
 #' @importFrom stringi stri_replace_all_fixed
 #'
 #' @export
@@ -267,7 +266,7 @@ assert_that(!any(qtest(area, "N==1[0.00000000000000000000000000000001,640)") == 
 
 C_F_table <- data.table(Storm = c(2, 5, 10, 25, 50, 100), CF = c(rep(1.0, 3), 1.1, 1.2, 1.25))
 
-C_F_use <- lookup(C_F, setDF(C_F_table))
+C_F_use <- lookupQT(C_F, setDF(C_F_table))
 
 Q <- F * C_F_use * C * i * area
 

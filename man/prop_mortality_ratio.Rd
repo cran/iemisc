@@ -24,7 +24,7 @@ This function calculates the proportional mortality ratio for a given population
 
 # Data from Reference 2 and Reference 3
 
-library("iemisc")
+library(iemisc)
 
 prop_mortality_ratio(cause_deaths = 652486, total_deaths = 3458697)
 # annual heart disease deaths & total deaths in the US in 2021

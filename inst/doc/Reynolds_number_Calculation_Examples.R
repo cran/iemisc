@@ -176,6 +176,3 @@ G
 
 Re3(D = drop_units(Di), G = drop_units(G), mu = drop_units(mu_SI), units = "SI")
 
-## ---- echo = FALSE, out.width = '100%'----------------------------------------
-linguisticsdown::include_graphics2("https://i.creativecommons.org/l/by-sa/4.0/88x31.png")
-

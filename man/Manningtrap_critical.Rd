@@ -101,7 +101,7 @@ This function provides both normal and critical parameters values.
 
 # Example 1
 
-library("iemisc")
+library(iemisc)
 # Exercise 4.1 from Sturm (page 153)
 
 uuc <- Manningtrap_critical(Q = 3000, b = 40, m = 3, Sf = 0.002, n = 0.025,

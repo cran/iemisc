@@ -29,7 +29,7 @@ The equation is expressed as
 \examples{
 # Examples
 
-library("iemisc")
+library(iemisc)
 
 rho1 <- density_water(T = 68, units = "Eng", Eng_units = "slug/ft^3")
 

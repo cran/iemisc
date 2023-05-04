@@ -69,7 +69,7 @@
 #' 
 #' # Example 1
 #'
-#' library("iemisc")
+#' library(iemisc)
 #' 
 #' construction_decimal("2'-0\"", result = "traditional", output = "vector")
 #'
@@ -79,7 +79,7 @@
 #'
 #' # Example 2
 #'
-#' library("iemisc")
+#' library(iemisc)
 #' 
 #' construction_decimal("0 6", result = "traditional", output = "vector")
 #' 
@@ -89,7 +89,7 @@
 #'
 #' # Example 3
 #'
-#' library("iemisc")
+#' library(iemisc)
 #' 
 #' tss1 <- "48'-0 1/2\""
 #' tss2 <- "56-9 1/2\""
@@ -103,7 +103,7 @@
 #'
 #' # Example 4
 #'
-#' library("iemisc")
+#' library(iemisc)
 #' 
 #' try(construction_decimal(5, result = "traditional", output =
 #' "vector")) # please see the error message
@@ -123,7 +123,7 @@
 #'
 #' # Example 5
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' app1 <- "5' 2\""
 #'
@@ -427,7 +427,7 @@ result_table
 #' # Please refer to the iemisc: Construction Measurement Examples vignette for
 #' # additional examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Example 1 from the Spike Reference
 #'
@@ -481,7 +481,7 @@ result_table
 #'
 #' # Example 2
 #'
-#' library("iemisc")
+#' library(iemisc)
 #' import::from(fpCompare, "%==%")
 #' 
 #'
@@ -538,7 +538,7 @@ result_table
 #'
 #' # Example 3 (from the Inch Calculator Reference)
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' construction_fraction(2.695, type = "librecad", result = "traditional",
 #' fraction = 16)
@@ -551,7 +551,7 @@ result_table
 #'
 #' # Example 4
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' construction_fraction(17.71354, type = "traditional", result = "traditional",
 #' fraction = 16)
@@ -952,7 +952,7 @@ return(fraction_result)
 #' # Please refer to the iemisc: Construction Measurement Examples vignette for
 #' # additional examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' librecad1a <- "1 ft 2 7/16\""
 #' 

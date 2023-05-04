@@ -3,31 +3,44 @@
 \encoding{UTF-8}
 \name{reduce_single_digit}
 \alias{reduce_single_digit}
-\title{Reduce an Integer Or a Date to a Single Integer}
+\title{Reduce an Integer, a Date (Time), or a Number (with or without Decimals) to a Single Integer}
 \usage{
 reduce_single_digit(string)
 }
 \arguments{
-\item{string}{character vector coercible to a date using \code{\link[anytime]{anydate}},
-a numeric vector, an integer vector}
+\item{string}{character vector coercible to a date using \code{\link[anytime]{anytime}}
+or a date time using \code{\link[anytime]{anytime}}; a numeric vector; or an
+integer vector}
 }
 \value{
 a numeric vector with a single digit (integer from 0 - 9)
 }
 \description{
-Takes a character vector coercible to a date using \code{\link[anytime]{anydate}},
-a numeric vector, or an integer vector & computes the sum to a single digit.
-The vectors may include dashes, parentheses, and/or spaces. See the examples.
+Takes a character vector coercible to a date using \code{\link[anytime]{anydate}} or a date time
+using \code{\link[anytime]{anytime}}; a numeric vector; or an integer vector & computes
+the sum to a single digit using \code{\link{Mod_octave}}
+}
+\details{
+The vectors may include periods, dashes, parentheses, colons, and/or spaces.
+See the examples.
 }
 \examples{
 
 # Examples
 
-library("iemisc")
+library(iemisc)
 
 reduce_single_digit(37)
 
+reduce_single_digit(5094322.439344993211394)
+
+reduce_single_digit(-438443.349435493)
+
+reduce_single_digit("-48373744582.47362287482374")
+
 reduce_single_digit("11-09-2022")
+
+reduce_single_digit("24 December 1983 04:37:58.55543333")
 
 reduce_single_digit("4 July 1776")
 

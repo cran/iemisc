@@ -78,7 +78,7 @@
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Example A from Section 3.2.3 using the 'Weight method (specific gravity
 #' # pycnometers)' from ACI Committee 211

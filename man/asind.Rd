@@ -22,7 +22,7 @@ Note: If you have a radian (rad) angle value, use \code{\link[base]{asin}} inste
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 # Examples from GNU Octave asind
 asind(seq(0, 1, by = 0.1))

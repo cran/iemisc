@@ -53,7 +53,7 @@
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Example for equation 4-1 from the Sullivan Reference text (page 116)
 #' SimpIntPaid(1000, 3, 10) # the interest rate is 10%
@@ -145,7 +145,7 @@ return(round_r3(P * (1 + n * i), d = 2)) # total amount paid
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Compound Interest example from SFPE Reference text
 #' CompIntPaid(100, 5, 10, frequency = "annual") # the interest rate is 10%
@@ -308,7 +308,7 @@ return(round_r3(CompIntPaid, d = 2))
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Example for equation 4-1 from the Sullivan Reference text (page 116)
 #' # Modified example to provide the simple interest amount paid only
@@ -402,7 +402,7 @@ return(round_r3(I, d = 2)) # total interest paid (accumulated)
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Compound Interest example from SFPE Reference text
 #' # Modified example to provide the compounded interest amount paid only

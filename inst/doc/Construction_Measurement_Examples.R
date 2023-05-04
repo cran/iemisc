@@ -380,6 +380,3 @@ librecad2a <- "6'-5 3/256\""
 
 construction_decimal_eng(librecad2a)
 
-## ---- echo = FALSE, out.width = '100%'----------------------------------------
-linguisticsdown::include_graphics2("https://i.creativecommons.org/l/by-sa/4.0/88x31.png")
-

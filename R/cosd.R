@@ -24,7 +24,7 @@
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Examples
 #' 
@@ -101,7 +101,7 @@ assert_that(!any(qtest(x, "N+(,)") == FALSE), msg = "x is NA, NaN, Inf, -Inf, em
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Example from GNU Octave cosd
 #'
@@ -111,7 +111,7 @@ assert_that(!any(qtest(x, "N+(,)") == FALSE), msg = "x is NA, NaN, Inf, -Inf, em
 #' \donttest{
 #' # See Source 1 and Source 2
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' try(cosd("90"))
 #' }
@@ -179,7 +179,7 @@ assert_that(!any(qtest(x, "N+(,)") == FALSE), msg = "x is NA, NaN, Inf, -Inf, em
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Examples from GNU Octave acosd
 #' acosd (seq(0, 1, by = 0.1))
@@ -237,7 +237,7 @@ assert_that(!any(qtest(x, "N+(,)") == FALSE), msg = "x is NA, NaN, Inf, -Inf, em
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Examples from GNU Octave sind
 #' sind(seq(10, 90, by = 10))
@@ -305,7 +305,7 @@ return(y)
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Examples from GNU Octave asind
 #' asind(seq(0, 1, by = 0.1))
@@ -366,7 +366,7 @@ assert_that(!any(qtest(x, "N+(,)") == FALSE), msg = "x is NA, NaN, Inf, -Inf, em
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Examples from GNU Octave tand
 #' tand(seq(10, 80, by = 10))
@@ -434,7 +434,7 @@ y <- ifelse(I90 == fix(I90) & is.finite(I90), Inf, y)
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Examples from GNU Octave atand
 #' atand (seq(0, 90, by = 10))
@@ -490,7 +490,7 @@ assert_that(!any(qtest(x, "N+(,)") == FALSE), msg = "x is NA, NaN, Inf, -Inf, em
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Examples from GNU Octave secd
 #' secd (seq(0, 80, by = 10))
@@ -551,7 +551,7 @@ assert_that(!any(qtest(x, "N+(,)") == FALSE), msg = "x is NA, NaN, Inf, -Inf, em
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Examples from GNU Octave asecd
 #' asecd (seq(0, 90, by = 10))
@@ -609,7 +609,7 @@ assert_that(!any(qtest(x, "N+(,)") == FALSE), msg = "x is NA, NaN, Inf, -Inf, em
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Examples from GNU Octave cscd
 #' cscd (seq(0, 90, by = 10))
@@ -670,7 +670,7 @@ assert_that(!any(qtest(x, "N+(,)") == FALSE), msg = "x is NA, NaN, Inf, -Inf, em
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Examples from GNU Octave acscd
 #' acscd (seq(0, 90, by = 10))
@@ -728,7 +728,7 @@ assert_that(!any(qtest(x, "N+(,)") == FALSE), msg = "x is NA, NaN, Inf, -Inf, em
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Examples from GNU Octave cotd
 #' cotd (seq(0, 80, by = 10))
@@ -790,7 +790,7 @@ assert_that(!any(qtest(x, "N+(,)") == FALSE), msg = "x is NA, NaN, Inf, -Inf, em
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Examples from GNU Octave acotd
 #' acotd (seq(10, 90, by = 10))
@@ -853,7 +853,7 @@ assert_that(!any(qtest(x, "N+(,)") == FALSE), msg = "x is NA, NaN, Inf, -Inf, em
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Examples from GNU Octave atan2d
 #' atan2d (a <- seq(-1, 1, by = 0.1), b <- seq(1, -1, by = -0.1))

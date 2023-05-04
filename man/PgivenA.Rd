@@ -62,7 +62,7 @@ P is expressed as
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 # Example 1 -- Example 4-9 from the Sullivan Reference text (page 133-134)
 PgivenA(A = 20000, n = 5, i = 15, frequency = "annual") # the interest rate is 15\%

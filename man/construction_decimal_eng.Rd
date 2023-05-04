@@ -29,7 +29,7 @@ style)
 # Please refer to the iemisc: Construction Measurement Examples vignette for
 # additional examples
 
-library("iemisc")
+library(iemisc)
 
 librecad1a <- "1 ft 2 7/16\""
 

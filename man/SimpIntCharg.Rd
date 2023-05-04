@@ -37,7 +37,7 @@ Simple Interest Charged is expressed as
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 # Example for equation 4-1 from the Sullivan Reference text (page 116)
 # Modified example to provide the simple interest amount paid only

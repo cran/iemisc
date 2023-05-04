@@ -41,7 +41,7 @@ for (t <= 0 C)
 \examples{
 # Example from the Reference
 
-library("iemisc")
+library(iemisc)
 
 sat_vapor_pressure_ice(T = seq(from = -100, to = 0, by = 20), units = "SI")
 

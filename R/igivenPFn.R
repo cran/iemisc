@@ -45,7 +45,7 @@
 #' 
 #' # Example for equation 4-6 from the Reference text (page 128)
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #' 
 #' igivenPFn(P = 500, F = 1000, n = 10)
 #'
@@ -137,7 +137,7 @@ return(round_r3(igivenPFn, d = 2))
 #' 
 #' # Example 1
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #' 
 #' igivenICPn(P = 500, IC = 1000, n = 10)
 #'
@@ -146,7 +146,7 @@ return(round_r3(igivenPFn, d = 2))
 #'
 #' # Example 2
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #' 
 #' igivenICPn(P = 500, IC = 1000, begin_event = "1 January 2020", end_event = "1 January 2030")
 #'

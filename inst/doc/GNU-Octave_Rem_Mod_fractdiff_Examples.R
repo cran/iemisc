@@ -62,6 +62,3 @@ a <- mat("1, 2, 4, 7, 0")
 
 fractdiff(x = a, d = 0.5)
 
-## ---- echo = FALSE, out.width = '100%'----------------------------------------
-linguisticsdown::include_graphics2("https://i.creativecommons.org/l/by-sa/4.0/88x31.png")
-

@@ -50,7 +50,7 @@
 #'
 #' @examples
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Example 4-28 from Sullivan Reference text (page 165)
 #' EffInt(1.375, frequency = "month")

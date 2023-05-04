@@ -19,7 +19,7 @@ Test for row vector that is compatible with GNU Octave/MATLAB.
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 # Examples
 

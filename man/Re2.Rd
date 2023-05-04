@@ -34,7 +34,7 @@ Calculating the Reynolds Number 2
 # and
 # Re = 1.8 * 10 ^ 5
 
-library("iemisc")
+library(iemisc)
 
 Re2(D = 0.3355, V = 7.56, nu = 1.41 * 10 ^ -5)
 

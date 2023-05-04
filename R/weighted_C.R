@@ -8,7 +8,7 @@
 #' @param area_pct numeric vector containing the surface land area, as a
 #'    percent (decimal or whole number)
 #' @param area_units character vector containing the units for area
-#'    (default = "acres"). The other possible units are "square feet",
+#'    (default = "acre"). The other possible units are "square feet",
 #'    "square mile", "hectare", or "square kilometer". The units should
 #'    be consistent and not mixed.
 #' @param C_area_table data.frame/data.table/tibble, list, or matrix
@@ -46,7 +46,7 @@
 #'
 #' # Example 1
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' area1 <- c(220, 150, 30)
 #' C1 <- c(75, 89, 80)
@@ -55,7 +55,7 @@
 #'
 #' # Example 2
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' area2 <- c(220, 150, 30)
 #' area_pct2 <- area2 / sum(area2)
@@ -74,7 +74,7 @@
 #'
 #' # Example 4
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' C4 <- c(98, 100, 45)
 #' area_pct4 <- c(0.15, 0.23, 0.62)
@@ -83,7 +83,7 @@
 #'
 #' # Example 5
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' data_matrix5a <- matrix(c(98, 30, 40, 43, 57, 3.24, 1, 30, 50, 123), nrow = 5,
 #' ncol = 2, dimnames = list(rep("", 5), c("C", "Area")))
@@ -101,7 +101,7 @@
 #'
 #' # Example 6 - using area in square feet
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' data_list6 <- list(C = c(77, 29, 68), Area = c(43560, 56893, 345329.32))
 #' weighted_C(C_area_table = data_list6, area_units = "square feet")
@@ -140,7 +140,7 @@
 #'
 #' # Example 9
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Medium density residential area - 30 hectares (75.0% of total area),
 #' # 0.31 - 0.40 C factor

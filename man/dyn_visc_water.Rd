@@ -68,7 +68,7 @@ dynamic_viscosity
 
 # Example 2 - Example from the hydraulics package
 
-library("iemisc")
+library(iemisc)
 
 mu <- hydraulics::dvisc(T = 55, units = "Eng"); mu
 

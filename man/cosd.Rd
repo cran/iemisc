@@ -30,7 +30,7 @@ Note: If you have a radian (rad) angle value, use \code{\link[base]{cos}} instea
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 # Example from GNU Octave cosd
 
@@ -40,7 +40,7 @@ cosd(seq(0, 80, by = 10))
 \donttest{
 # See Source 1 and Source 2
 
-library("iemisc")
+library(iemisc)
 
 try(cosd("90"))
 }

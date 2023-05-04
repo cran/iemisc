@@ -114,7 +114,7 @@ Benefit-Cost ratio is expressed as
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 # Example from Lindeburg Reference text (page 14-4)
 benefitcost(ic1 = 300000, n1 = 10, ac1 = 45000, ab1 = 150000, i1 = 10,

@@ -41,7 +41,7 @@ i is expressed as
 
 # Example 1
 
-library("iemisc")
+library(iemisc)
 
 igivenICPn(P = 500, IC = 1000, n = 10)
 
@@ -50,7 +50,7 @@ igivenICPn(P = 500, IC = 1000, n = 10)
 
 # Example 2
 
-library("iemisc")
+library(iemisc)
 
 igivenICPn(P = 500, IC = 1000, begin_event = "1 January 2020", end_event = "1 January 2030")
 

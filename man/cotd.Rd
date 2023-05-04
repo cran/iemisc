@@ -19,7 +19,7 @@ degrees in a manner compatible with GNU Octave/MATLAB.
 }
 \examples{
 
-library("iemisc")
+library(iemisc)
 
 # Examples from GNU Octave cotd
 cotd (seq(0, 80, by = 10))

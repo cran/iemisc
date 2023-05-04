@@ -106,7 +106,7 @@
 #' # latitude (North) = 36 22 6.43923
 #' # longitude (West) = 82 10 46.87679
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' Northing_test1 <- 232489.480 # provided in TGRN Manual
 #' Easting_test1 <- 942754.124 # provided in TGRN Manual
@@ -123,7 +123,7 @@
 #' # latitude (North) = 35 8 46.44496
 #' # longitude (West) = 89 54 24.04763
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' Northing_test2 <- 97296.815 # provided in TGRN Manual
 #' Easting_test2 <- 244089.427 # provided in TGRN Manual
@@ -140,7 +140,7 @@
 #' # latitude (North) = 37 24 17.73330
 #' # longitude (West) = 086 14 14.18027
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # The following coordinates were computed from the latitude / longitude
 #' # using NAD 83(1993)
@@ -159,7 +159,7 @@
 #' # latitude (North) = 38 04 23.86331
 #' # longitude (West) = 084 32 04.55607
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # The following coordinates were computed from the latitude / longitude
 #' # using NAD 83(2011)
@@ -176,7 +176,7 @@
 #' # Example 1
 #' # Kentucky (KY) Northing and Easting in US Survey foot
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' Northing1 <- 3807594.80077
 #'
@@ -191,7 +191,7 @@
 #' # Example 2
 #' # Kentucky (KY) Northing and Easting in meters
 #' 
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' Northing2 <- 1170338.983
 #'
@@ -208,7 +208,7 @@
 #'
 #' # Please see the error messages
 #'
-#' library("iemisc")
+#' library(iemisc)
 #' 
 #' # Tennessee (TN) Northing and Easting in US Survey foot
 #' Northing3 <- c("630817.6396", "502170.6065", "562,312.2349", "574,370.7178")
@@ -237,7 +237,6 @@
 #' @importFrom units set_units make_units
 #' @importFrom checkmate qtest
 #' @importFrom assertthat assert_that
-#' @importFrom qdapTools lookup
 #' @importFrom round round_r3
 #' @importFrom measurements conv_unit
 #'
@@ -446,7 +445,7 @@ assert_that(all(lat_long2state(data_check[, Y], data_check[, X]) == "Tennessee")
 # populate the table fields
 look_fips <- data.table(location = c("KY", "TN"), zone = c("Kentucky (Single Zone) 1600", "Tennessee 4100"))
 
-z <- lookup(location, setDF(look_fips))
+z <- lookupQT(location, setDF(look_fips))
 # Source 4
 
 dn <- data_check$Y

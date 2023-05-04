@@ -40,7 +40,7 @@
 #'
 #' # Example 1 from the Example # 1 from Reference 1
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # 5 / x = 10 / 16
 #'
@@ -51,7 +51,7 @@
 #'
 #' # Example 2
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' t1 <- "34 3 1/2"
 #' t2 <- 5
@@ -66,7 +66,7 @@
 #'
 #' # Example 3
 #'
-#' library("iemisc")
+#' library(iemisc)
 #'
 #' # Refer to Reference 2 and Reference 3
 #'
