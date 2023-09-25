@@ -289,9 +289,9 @@ ans =
 \bigskip
 \bigskip
 
-## Works Cited
+# Works Cited
 
-John W. Eaton, David Bateman, Søren Hauberg, and Rik Wehbring (October 2021). *GNU Octave: A high-level interactive language for numerical computations: Edition 6 for Octave version 6.4.0*. https://www.gnu.org/software/octave/octave.pdf. Page 547.
+John W. Eaton, David Bateman, Søren Hauberg, and Rik Wehbring (November 2022). *GNU Octave: A high-level interactive language for numerical computations*: Edition 7 for Octave version 7.3.0. https://docs.octave.org/octave.pdf. Pages 564, 853.  
 
 \bigskip
 \bigskip
@@ -301,9 +301,10 @@ John W. Eaton, David Bateman, Søren Hauberg, and Rik Wehbring (October 2021). *
 EcoC²S Home -- https://www.ecoccs.com/  
 About EcoC²S -- https://www.ecoccs.com/about_ecoc2s.html  
 Services -- https://www.ecoccs.com/services.html  
+1 Stop Shop -- https://www.ecoccs.com/other_biz.html  
 Products -- https://www.questionuniverse.com/products.html  
-EcoC²S Media -- https://www.ecoccs.com/media.html  
-EcoC²S Resources -- https://www.ecoccs.com/resources.html  
+Media -- https://www.ecoccs.com/media.html  
+Resources -- https://www.ecoccs.com/resources.html  
 R Trainings and Resources provided by EcoC²S (Irucka Embry, E.I.T.) -- https://www.ecoccs.com/rtraining.html  
 
 \bigskip

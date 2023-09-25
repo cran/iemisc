@@ -13,10 +13,6 @@ import::from(pracma, newtonRaphson)
 
 ## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
 
-# Please note that the f2, f3, f4, f5, f6, f7, f8, and the relerror functions are found within the iemisc R package created by Irucka Embry
-
-# Example 1 -- Example 17.2 (Lindeburg Manual Reference)
-
 Re <- 400000
 
 eps <- 0.004
@@ -24,12 +20,6 @@ eps <- 0.004
 D <- 1
 
 eps / D
-
-# Answers from the Lindeburg Manual Reference text:
-# 0.028 - Moody diagram
-# 0.0287 - Appendix 17.B "Darcy Friction Factors (turbulent flow)"
-# 0.0288 - Swamee-Jain approximation
-# 0.0287 - Colebrook equation
 
 f2 <- f2(eps = eps, D = D, Re = Re); f2
 
@@ -64,10 +54,6 @@ relerror(acc, f7)
 relerror(acc, f8)
 
 ## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
-
-# Please note that the f2, f3, f4, f5, f6, f7, and the f8 functions are found within the iemisc R package created by Irucka Embry
-
-# Example 2 (EngineerExcel Reference)
 
 eps <- 0.00005
 

@@ -8,6 +8,7 @@ install.load::load_package("iemisc",  "units", "round")
 # load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
 
 ## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+
 # 60 degrees Fahrenheit water
 # new 6 in schedule-40 steel pipe
 # determine the Reynolds number
@@ -55,7 +56,7 @@ rho_Eng
 
 
 # kinematic viscosity at 60 degrees Fahrenheit and density of rho (SI units)
-nu_SI <- kin_visc_water(mu = dyn_visc_water(T = drop_units(T_K), units = "Absolute"), rho = density_water(T = drop_units(T_K), units = "Absolute"), rho_units = "kg/m^3", mu_units = "Pa*s or kg/m/s")
+nu_SI <- kin_visc_water(mu = dyn_visc_water(Temp = drop_units(T_K), units = "Absolute"), rho = density_water(Temp = drop_units(T_K), units = "Absolute"), rho_units = "kg/m^3", mu_units = "Pa*s or kg/m/s")
 
 nu_SI <- set_units(nu_SI, m^2/s)
 nu_SI
@@ -63,21 +64,21 @@ nu_SI
 
 
 # kinematic viscosity at 60 degrees Fahrenheit and density of rho (US Customary units)
-nu_Eng <- kin_visc_water(mu = dyn_visc_water(T = drop_units(T_F), units = "Eng", Eng_units = "lbf*s/ft^2"), rho = density_water(T = drop_units(T_F), units = "Eng", Eng_units = "lbm/ft^3"), rho_units = "lbm/ft^3", mu_units = "lbf*s/ft^2")
+nu_Eng <- kin_visc_water(mu = dyn_visc_water(Temp = drop_units(T_F), units = "Eng", Eng_units = "lbf*s/ft^2"), rho = density_water(Temp = drop_units(T_F), units = "Eng", Eng_units = "lbm/ft^3"), rho_units = "lbm/ft^3", mu_units = "lbf*s/ft^2")
 
 nu_Eng <- set_units(nu_Eng, ft^2/s)
 nu_Eng
 
 
 # absolute or dynamic viscosity at 60 degrees Fahrenheit and density of rho (SI units)
-mu_SI <- dyn_visc_water(T = drop_units(T_K), units = "Absolute")
+mu_SI <- dyn_visc_water(Temp = drop_units(T_K), units = "Absolute")
 
 mu_SI <- set_units(mu_SI, Pa*s)
 mu_SI
 
 
 # absolute or dynamic viscosity at 60 degrees Fahrenheit and density of rho (US Customary units)
-mu_Eng <- dyn_visc_water(T = drop_units(T_F), units = "Eng", Eng_units = "lbf*s/ft^2")
+mu_Eng <- dyn_visc_water(Temp = drop_units(T_F), units = "Eng", Eng_units = "lbf*s/ft^2")
 
 mu_Eng <- set_units(mu_Eng, lbf*s/ft^2)
 mu_Eng
@@ -118,6 +119,13 @@ Re_nu
 Re_mu <- Re1(D = drop_units(Di), V = drop_units(V), rho = drop_units(rho_Eng), mu = drop_units(mu_Eng), units = "Eng")
 Re_mu
 
+
+# display Re_nu with scientific notation
+format(Re_nu, scientific = TRUE)
+
+# display Re_mu with scientific notation
+format(Re_mu, scientific = TRUE)
+
 ## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
 # given temperature of 22 degrees Celsius
 # create a numeric vector with the units of degrees Celsius
@@ -142,14 +150,14 @@ rho_SI
 
 
 # kinematic viscosity at 60 degrees Fahrenheit and density of rho (SI units)
-nu_SI <- kin_visc_water(mu = dyn_visc_water(T = drop_units(T_K), units = "Absolute"), rho = density_water(T = drop_units(T_K), units = "Absolute"), rho_units = "kg/m^3", mu_units = "Pa*s or kg/m/s")
+nu_SI <- kin_visc_water(mu = dyn_visc_water(Temp = drop_units(T_K), units = "Absolute"), rho = density_water(Temp = drop_units(T_K), units = "Absolute"), rho_units = "kg/m^3", mu_units = "Pa*s or kg/m/s")
 
 nu_SI <- set_units(nu_SI, m^2/s)
 nu_SI
 
 
 # absolute or dynamic viscosity at 60 degrees Fahrenheit and density of rho (SI units)
-mu_SI <- dyn_visc_water(T = drop_units(T_K), units = "Absolute")
+mu_SI <- dyn_visc_water(Temp = drop_units(T_K), units = "Absolute")
 
 mu_SI <- set_units(mu_SI, Pa*s)
 mu_SI
@@ -174,5 +182,10 @@ G <- set_units(0.76486004, kg/s)
 G
 
 
-Re3(D = drop_units(Di), G = drop_units(G), mu = drop_units(mu_SI), units = "SI")
+# display the Reynolds number
+re3 <- Re3(D = drop_units(Di), G = drop_units(G), mu = drop_units(mu_SI), units = "SI")
+re3
+
+# display the Reynolds number from Re3 with scientific notation
+format(re3, scientific = TRUE)
 

@@ -31,17 +31,17 @@ The equation is expressed as
 
 library(iemisc)
 
-rho1 <- density_water(T = 68, units = "Eng", Eng_units = "slug/ft^3")
+rho1 <- density_water(Temp = 68, units = "Eng", Eng_units = "slug/ft^3")
 
 sp_volume(rho = rho1) # slug/ft^3
 
 
-rho2 <- density_water(T = 68, units = "Eng", Eng_units = "lbm/ft^3")
+rho2 <- density_water(Temp = 68, units = "Eng", Eng_units = "lbm/ft^3")
 
 sp_volume(rho = rho2) # lbm/ft^3
 
 
-rho3 <- density_water(T = 20, units = "SI")
+rho3 <- density_water(Temp = 20, units = "SI")
 
 sp_volume(rho = rho3) # kg / m^3
 

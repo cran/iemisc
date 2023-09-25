@@ -6,13 +6,13 @@
 \title{Saturation Vapor Pressure for Water}
 \usage{
 sat_vapor_pressure(
-  T,
+  Temp,
   units = c("SI", "Eng", "Absolute"),
   formula = c("Huang", "Buck", "IAPWS")
 )
 }
 \arguments{
-\item{T}{numeric vector that contains the temperature (degrees Celsius,
+\item{Temp}{numeric vector that contains the temperature (degrees Celsius,
 degrees Fahrenheit, or Kelvin)}
 
 \item{units}{character vector that contains the system of units (options are
@@ -61,17 +61,18 @@ library(iemisc)
 
 vps <- hydraulics::svp(T = 10, units = "SI"); vps
 
-vps2 <- sat_vapor_pressure(T = 10, units = "SI", formula = "Huang"); vps2
+vps2 <- sat_vapor_pressure(Temp = 10, units = "SI", formula = "Huang"); vps2
 
 
 
 
 
-# Example 2 - from the Reference
+# Example 2 - from the Huang Reference
 
 library(iemisc)
 
-sat_vapor_pressure(T = c(0.01, seq(from = 20, to = 100, by = 20)), units = "SI", formula = "Huang")
+sat_vapor_pressure(Temp = c(0.01, seq(from = 20, to = 100, by = 20)), units
+= "SI", formula = "Huang")
 
 
 
@@ -81,10 +82,10 @@ sat_vapor_pressure(T = c(0.01, seq(from = 20, to = 100, by = 20)), units = "SI",
 
 install.load::load_package("iemisc", "units")
 
-T <- 40
+Temp <- 40
 
 # create a numeric vector with the units of degrees Celsius
-T_C <- set_units(T, "degree_C")
+T_C <- set_units(Temp, "degree_C")
 T_C
 
 # create a numeric vector to convert from degrees Celsius to Kelvin
@@ -97,7 +98,7 @@ units(T_K) <- make_units(K)
 pre <- aiRthermo::saturation_pressure_H2O(drop_units(T_K))
 pre
 
-sat_vapor_pressure(T = drop_units(T_K), units = "Absolute", formula = "Huang")
+sat_vapor_pressure(Temp = drop_units(T_K), units = "Absolute", formula = "Huang")
 
 
 

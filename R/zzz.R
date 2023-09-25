@@ -5,7 +5,7 @@ if(getRversion() >= "2.15.1") {
 utils::globalVariables(
 
 # air_stripper
-c("Removal", "Influent", "Effluent", "Diff", "..dcol",
+c("Removal", "Influent", "Effluent", "Diff", "..dcol", "Average Mass", "Molecular Formula", "Substance Name",
 
 # concr_mix_lightweight_strength and concr_mix_normal_strength
 "..water_nonair_column", "..water_air_column", "..water_avg_air_column", "..exp_search", "V1",

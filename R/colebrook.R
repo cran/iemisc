@@ -38,7 +38,7 @@
 #' @references
 #' \enumerate{
 #'    \item Steven C. Chapra, \emph{Applied Numerical Methods with MATLAB for Engineers and Scientists}, Second Edition, Boston, Massachusetts: McGraw-Hill, 2008, pages 157-161.
-#'    \item Didier Clamond, "Efficient resolution of the Colebrook equation", \emph{Ind. Eng. Chem. Res.}, 2009, 48 (7), pages 3665-3671 \url{https://arxiv.org/abs/0810.5564} and \url{https://pubs.acs.org/doi/pdf/10.1021/ie801626g}
+#'    \item Didier Clamond, "Efficient resolution of the Colebrook equation", \emph{Ind. Eng. Chem. Res.}, 2009, 48 (7), pages 3665-3671 \url{https://arxiv.org/abs/0810.5564} and \url{https://math.univ-cotedazur.fr/~didierc/DidPublis/ICR_2009.pdf}
 #' }
 #'
 #'

@@ -1,8 +1,10 @@
 #' Reduce an Integer, a Date (Time), or a Number (with or without Decimals) to a Single Integer
 #'
+#' @description
 #' Takes a character vector coercible to a date using \code{\link[anytime]{anydate}} or a date time
-#' using \code{\link[anytime]{anytime}}; a numeric vector; or an integer vector & computes
-#' the sum to a single digit using \code{\link{Mod_octave}}
+#' using \code{\link[anytime]{anytime}}; a character vector with numbers; a
+#' numeric vector; or an integer vector & computes the sum to a single digit using
+#' \code{\link{Mod_octave}}
 #' 
 #' The vectors may include periods, dashes, parentheses, colons, and/or spaces.
 #' See the examples.
@@ -19,6 +21,7 @@
 #' @references
 #' \enumerate{
 #'    \item Numerology.com, "Number 9 Meaning", \url{https://www.numerology.com/articles/about-numerology/single-digit-number-9-meaning/}.
+#'    \item Numerology.com, "Numerology Numbers 1-9: Exploring the single digit numbers in Numerology", \url{https://www.numerology.com/articles/about-numerology/single-digit-numbers-in-numerology/}.
 #'    \item GeeksforGeeks, Last updated on 13 Jun, 2022, "Finding sum of digits of a number until sum becomes single digit", \url{https://www.geeksforgeeks.org/finding-sum-of-digits-of-a-number-until-sum-becomes-single-digit/}.
 #'    \item Wikimedia Foundation, Inc. Wikipedia, 18 November 2022, "Digital root", \url{https://en.wikipedia.org/wiki/Digital_root}.
 #' }
@@ -47,6 +50,12 @@
 #'
 #' @examples
 #'
+#' # Please refer to the iemisc: Sound Frequencies & Nikola Tesla's 3-6-9 Theory
+#' # vignette
+#' # https://www.ecoccs.com/R_Examples/SoundFrequencies-and-3-6-9.pdf for
+#' # additional examples
+#' 
+#' 
 #' # Examples
 #'
 #' library(iemisc)
@@ -118,9 +127,13 @@ string1 <- anytime(strings)
 
 } else if (is.na(anytime(strings))) {
 
-string1 <- mgsub(strings, pattern = c(" ", "-"), replacement = c("", ""), fixed = TRUE)
+string1m <- mgsub(strings, pattern = c(" ", "-"), replacement = c("", ""), fixed = TRUE)
 
-string1 <- as.numeric(string1)
+string1n <- mgsub(string1m, pattern = "[A-Za-z]", replacement = "")
+
+string1o <- mgsub(string1n, pattern = " ", replacement = "", fixed = TRUE)
+
+string1 <- as.numeric(string1o)
 
 
 if (stri_detect_fixed(string1, ".")) {

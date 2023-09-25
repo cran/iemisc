@@ -1,6 +1,6 @@
 # iemisc
 
-R package that contains Irucka Embry's miscellaneous functions:  
+R package that contains Irucka Embry&#8217;s miscellaneous functions:  
 
 * statistical analysis
     + RMS,
@@ -44,8 +44,10 @@ R package that contains Irucka Embry's miscellaneous functions:
     + Modified Rational Method Equation,
     + Linear Surface Area calculation,
     + Rain Garden sizing based on driveways;
+* convert a fraction (or mixed number) to a decimal (numeric vector);
 * negation of chin from data.table and negation of in from base R (%notchin%);
 * quick search (%qsin%);
+* return character vectors in order (%inorder%);
 * mortality rate calculations;
 * proportion solver;
 * sum of all digits in a vector to a single integer;
@@ -78,13 +80,21 @@ install.packages("iemisc")
 
 # Help
 
-With credit due to the `matlab` package, for a complete list of functions and the package DESCRIPTION file, use `R library(help = "iemisc")`  
+With credit due to the `matlab` package, for a complete list of functions and the package DESCRIPTION file, use:  
+
+```R
+library(help = "iemisc")
+```
+
 
 With credit due to [Getting Help with R](https://www.r-project.org/help.html) for the following 2 methods of help:  
 
-`R help(shm, package = "iemisc") # sample harmonic mean function help`
 
-`R help(package = "iemisc") # help for the iemisc package`
+```R
+help(shm, package = "iemisc") # sample harmonic mean function help
+
+help(package = "iemisc") # help for the iemisc package
+```
 
 
 # Vignette Viewing
@@ -163,7 +173,8 @@ FgivenP(2390.90, 13, 0.25, frequency = "annual") # the interest rate is 0.25%
 
 # Disclaimer
 
-This software is provided "AS IS." See the GPL License for more information.  
+This software is provided &ldquo;AS IS&rdquo;. See the GPL License for more information.  
+
 
 
 # License
@@ -171,6 +182,16 @@ This software is provided "AS IS." See the GPL License for more information.
 `iemisc` is distributed under the GPL-3 (or later) license, as stated in the DESCRIPTION file. For more info, see the [GNU General Public License (GPL) page](https://www.gnu.org/licenses/gpl-3.0.html).  
 
 
+
 # Citation
 
-Please refer to the CITATION for the correct way to cite `iemisc`.  
+Please refer to the CITATION file for the correct way to cite `iemisc`.  
+
+
+
+# Donations Accepted
+
+If you want to support the continued development of this and my other R packages, feel free to:  
+
+<p><script src="https://liberapay.com/iaembry/widgets/button.js"></script>
+<noscript><a href="https://liberapay.com/iaembry/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a></noscript></p>

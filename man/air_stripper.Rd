@@ -6,13 +6,13 @@
 \title{Design of Packed Column Air Strippers}
 \usage{
 air_stripper(
-  T,
+  Temp,
   pTe,
   contam1,
   Cai,
   Cae,
   contam2,
-  cas,
+  cas = NULL,
   Ha,
   Q,
   loading,
@@ -25,17 +25,17 @@ air_stripper(
   at = NULL,
   Sc = NULL,
   cf = NULL,
-  T_units = c("SI", "Eng", "Absolute"),
-  dP_units = c("inch", "mm"),
-  at_units = c("ft^2/ft^3", "m^2/m^3"),
-  Sc_units = c("kg/s^2", "slug/s^2"),
+  Temp_unit = c("SI", "Eng", "Absolute"),
+  dP_unit = c("inch", "mm"),
+  at_unit = c("ft^2/ft^3", "m^2/m^3"),
+  Sc_unit = c("kg/s^2", "slug/s^2"),
   contaminants_table = c(0, 1),
   removal_requirements_table = c(0, 1),
   critical_contaminant_table = c(0, 1)
 )
 }
 \arguments{
-\item{T}{numeric vector that contains the minimum Temperature (degrees
+\item{Temp}{numeric vector that contains the minimum Temperature (degrees
 Celsius, degrees Fahrenheit, or Kelvin)}
 
 \item{pTe}{numeric vector that contains the total pressure of gas (air)
@@ -53,7 +53,8 @@ contaminant in liquid (water) effluent (ug/L)}
 \item{contam2}{character vector that contains the name of each contaminant
 (will not include "Total VOCs"). See the example.}
 
-\item{cas}{character vector that contains the CAS Number of each contaminant}
+\item{cas}{character vector that contains the CAS Number of each contaminant,
+if known, otherwise it can be accessed internally}
 
 \item{Ha}{numeric vector that contains the Ha (Henry's Law coefficient) at
 the minimum Temperature \emph{T} for each contaminant (atm/mole/mole)}
@@ -94,19 +95,19 @@ packing material (the default value is 0.033 kg/s^2)}
 \item{cf}{numeric vector that contains the packing factor for the packing
 material (the default value is 15/ft)}
 
-\item{T_units}{character vector that contains the possible units for the
+\item{Temp_unit}{character vector that contains the possible units for the
 water temperature {options are \code{SI} for International System of Units,
 \code{Eng} for English units (United States Customary System in the United
 States and Imperial Units in the United Kingdom), or \code{Absolute} for
 Absolute Units}}
 
-\item{dP_units}{character vector that contains the possible units for the
+\item{dP_unit}{character vector that contains the possible units for the
 nominal diameters for the packing material (inch or mm)}
 
-\item{at_units}{character vector that contains the possible units for the
+\item{at_unit}{character vector that contains the possible units for the
 total surface area for the packing material (ft^2/ft^3 or m^2/m^3)}
 
-\item{Sc_units}{character vector that contains the possible units for the
+\item{Sc_unit}{character vector that contains the possible units for the
 critical surface tension for the packing material (kg/s^2 or slug/s^2)}
 
 \item{contaminants_table}{integer vector that contains 0, 1 only. 0 represents
@@ -151,31 +152,7 @@ Please Note: This is not meant for any actual designs.
 Please Note: The calculations assume dry air rather than humid air.
 
 Please refer to the iemisc: Air Stripping By Packed Column Examples vignette
-for additional examples
-}
-\examples{
-
-library(iemisc)
-
-# 'Appendix D Example Air Stripping By Packed Column' from Design (page D-1 - D-18)
-
-contam1 <- c("Benzene", "Toluene", "Trichloroethylene")
-Cai <- c(750, 1000, 750)
-Cae <- c(10, 100, 100)
-contam2 <- c("Benzene", "Toluene", "Trichloroethylene")
-cas <- c("71-43-2", "108-88-3", "79-01-6")
-Ha <- c(309.2, 353.1, 506.1)
-DL <- c(8.91 * 10 ^ -10, NA_real_, NA_real_)
-DG <- c(9.37 * 10 ^ -6, NA_real_, NA_real_)
-
-air_stripper(T = 20, pTe = 1, contam1 = contam1, Cai = Cai, Cae = Cae,
-contam2 = contam2, cas = cas, Ha = Ha, Q = 440, loading = 45, ns = 2,
-DL = DL, DG = DG, dP = 2, at = 48, Sc = 0.033, cf = 15, R = 3.5,
-T_units = "SI", dP_units = "inch", at_units = "ft^2/ft^3",
-Sc_units = "kg/s^2", contaminants_table = 1,
-removal_requirements_table = 1, critical_contaminant_table = 1)
-
-
+for examples
 }
 \references{
 \enumerate{

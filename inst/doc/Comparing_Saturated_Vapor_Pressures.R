@@ -14,28 +14,28 @@ import::from(fpCompare, "%==%")
 install.load::load_package("iemisc", "data.table", "units", "pander")
 
 
-# reference vapor pressures
+# reference vapor pressures from the Huang reference
 reference <- sort(c(611.655, 2339.32, 7384.94, 19946.4, 47414.5, 101418))
 
-T <- sort(c(0.01, seq(from = 20, to = 100, by = 20)))
+Temp <- sort(c(0.01, seq(from = 20, to = 100, by = 20)))
 
 # hydraulics
-hydraulics_svp <- hydraulics::svp(T = T, units = "SI")
+hydraulics_svp <- hydraulics::svp(T = Temp, units = "SI")
 
 
 # iemisc
-iemisc_sat_vapor_pressure_huang <- sat_vapor_pressure(T = T, units = "SI", formula = "Huang")
+iemisc_sat_vapor_pressure_huang <- sat_vapor_pressure(Temp = Temp, units = "SI", formula = "Huang")
 
-iemisc_sat_vapor_pressure_buck <- sat_vapor_pressure(T = T, units = "SI", formula = "Buck")
+iemisc_sat_vapor_pressure_buck <- sat_vapor_pressure(Temp = Temp, units = "SI", formula = "Buck")
 
-iemisc_sat_vapor_pressure_iapws <- sat_vapor_pressure(T = T, units = "SI", formula = "IAPWS")
+iemisc_sat_vapor_pressure_iapws <- sat_vapor_pressure(Temp = Temp, units = "SI", formula = "IAPWS")
 
 
 
 # aiRthermo
 
 # create a numeric vector with the units of degrees Celsius
-T_C <- set_units(T, "degree_C")
+T_C <- set_units(Temp, "degree_C")
 T_C
 
 # create a numeric vector to convert from degrees Celsius to Kelvin

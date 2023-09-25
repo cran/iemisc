@@ -11,7 +11,7 @@ Manningrect(
   b = NULL,
   Sf = NULL,
   y = NULL,
-  T = NULL,
+  Temp = NULL,
   units = c("SI", "Eng")
 )
 }
@@ -29,7 +29,7 @@ if known.}
 
 \item{y}{numeric vector that contains the flow depth (m or ft), if known.}
 
-\item{T}{numeric vector that contains the temperature (degrees C or degrees
+\item{Temp}{numeric vector that contains the temperature (degrees C or degrees
 Fahrenheit), if known.}
 
 \item{units}{character vector that contains the system of units {options are
@@ -199,53 +199,13 @@ Assumptions: uniform flow, prismatic channel, and surface water temperature
 of 20 degrees Celsius (68 degrees Fahrenheit) at atmospheric pressure
 
 Note: Units must be consistent
-}
-\examples{
 
-install.load::load_package("iemisc", "iemiscdata")
-
-
-# Example Problem 14.4 from Mott (page 379)
-# See nchannel in iemiscdata for the Manning's n table that the following
-# example uses
-# Use the normal Manning's n value for 1) Natural streams - minor streams
-# (top width at floodstage < 100 ft), 2) Lined or Constructed Channels,
-# 3) Concrete, and 4) unfinished.
-
-data(nchannel)
-
-nlocation <- grep("unfinished", nchannel$"Type of Channel and Description")
-
-n <- nchannel[nlocation, 3] # 3 for column 3 - Normal n
-
-Manningrect(Q = 5.75, b = (4.50) ^ (3 / 8), Sf = 1.2/100, n = n, units =
-"SI")
-# Q = 5.75 m^3/s, b = (4.50) ^ (3 / 8) m, Sf = 1.2 percent m/m, n = 0.017,
-# units = SI units
-# This will solve for y since it is missing and y will be in m
-
-
-
-# Example Problem 14.5 from Mott (page 379-380)
-# See nchannel in iemiscdata for the Manning's n table that the following
-# example uses
-# Use the normal Manning's n value for 1) Natural streams - minor streams
-# (top width at floodstage < 100 ft), 2) Lined or Constructed Channels,
-# 3) Concrete, and 4) unfinished.
-
-data(nchannel)
-
-nlocation <- grep("unfinished", nchannel$"Type of Channel and Description")
-
-n <- nchannel[nlocation, 3] # 3 for column 3 - Normal n
-
-Manningrect(Q = 12, b = 2, Sf = 1.2/100, n = n, units = "SI")
-# Q = 12 m^3/s, b = 2 m, Sf = 1.2 percent m/m, n = 0.017, units = SI
-# units
-# This will solve for y since it is missing and y will be in m
-
-
-
+Please refer to the iemisc: Manning... Examples using iemiscdata
+[https://www.ecoccs.com/R_Examples/Manning_iemiscdata_Examples.pdf] and iemisc:
+Open Channel Flow Examples involving Geometric Shapes with the
+Gauckler-Manning-Strickler Equation
+[https://www.ecoccs.com/R_Examples/Open-Channel-Flow_Examples_Geometric_Shapes.pdf]
+for the cross-section examples using iemiscdata
 }
 \references{
 \enumerate{

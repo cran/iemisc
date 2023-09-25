@@ -371,3 +371,83 @@ x %notin% y
 
 }
 }
+
+
+
+
+
+
+
+
+#' IN ORDER for Character and Numeric Vectors
+#'
+#' This function preserves the original order (sequence) of character vectors.
+#'
+#'
+#' @param y numeric vector that contains the sequence to return
+#' @param table character vector, data.table, and/or tibble that has the
+#'     character values to be checked within
+#'
+#'
+#' @return character vector with the characters in the original sequence
+#'
+#' @source
+#' R - preserve order when using matching operators (%in%) - Stack Overflow answered by John Wallace on Nov 3, 2017. See \url{https://stackoverflow.com/questions/10586652/r-preserve-order-when-using-matching-operators-in}.
+#'
+#'
+#'
+#'
+#'
+#'
+#' @author John Wallace (Stack Overflow R code), Irucka Embry
+#'
+#'
+#'
+#' @encoding UTF-8
+#'
+#'
+#'
+#' @examples
+#'
+#' # Examples (from the Source)
+#' 
+#' LETTERS[1:26 %in% 4:1]
+#' 
+#' LETTERS[1:26 %inorder% 4:1]
+#' 
+#' 
+#' 
+#' LETTERS[1:26 %in% 3:-5]
+#' 
+#' LETTERS[1:26 %inorder% 3:-5]
+#' 
+#' 
+#' data.frame(letters, LETTERS)[1:5 %in% 3:-5, ] 
+#' 
+#' data.frame(letters, LETTERS)[1:5 %inorder% 3:-5, ]
+#' 
+#' 
+#' library(data.table)
+#'
+#' data.table(letters, LETTERS)[1:5 %inorder% 3:-5, ] 
+#'
+#'
+#' library(tibble)
+#' 
+#' tibble(letters, LETTERS)[1:5 %inorder% 3:-5, ]
+#' 
+#'
+#'
+#'
+#'
+#' @export
+`%inorder%` <- function(y, table) {
+
+    ySeq <- seq(along = y)
+    
+    names(ySeq) <- y
+    
+    Result <- ySeq[as.character(table)]
+    
+    Result[!is.na(Result)]
+}

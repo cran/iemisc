@@ -14,7 +14,7 @@ Manningtrap_critical(
   Sf = NULL,
   y = NULL,
   b = NULL,
-  T = NULL,
+  Temp = NULL,
   units = c("SI", "Eng"),
   type = c("symmetrical", "non-symmetrical"),
   critical = c("approximate", "accurate"),
@@ -44,7 +44,7 @@ if known.}
 
 \item{b}{numeric vector that contains the bottom width, if known.}
 
-\item{T}{numeric vector that contains the temperature (degrees C or degrees
+\item{Temp}{numeric vector that contains the temperature (degrees C or degrees
 Fahrenheit), if known.}
 
 \item{units}{character vector that contains the system of units {options are
@@ -67,6 +67,7 @@ the easiest to obtain a singular value.}
 }
 \value{
 the missing parameters (Q, n, b, m, m1, m2, Sf, or y) & V (velocity),
+  Flow depth (y), Bottom width (b), symmetric side slope (m), Slope (Sf),
   A (area), P (wetted perimeters), R (hydraulic radius), B (top width), D
   (hydraulic depth), w (Wetted Length), w1 (Wetted Length for a
   non-symmetric trapezoid), w2 (Wetted Length for a non-symmetric trapezoid),
@@ -97,6 +98,27 @@ Strickler equation for a trapezoidal cross-section and uniform flow. The
 \code{\link[stats]{uniroot}} function is used to obtain the missing parameters.
 This function provides both normal and critical parameters values.
 }
+\details{
+Critical State Discussion from Chow pages 13, 63
+"When F (Froude number) is equal to unity, ... the flow is said to be in a 
+\emph{critical} state. If F is less than unity, ... the flow is \emph{subcritical}. If
+F is greater than unity, ... the flow is \emph{supercritical}."
+
+"... the critical state of flow through a channel section is characterized
+by several important conditions. Recapitulating, they are (1) the specific
+energy is a minimum for a given discharge; (2) the discharge is a maximum
+for a given specific energy; (3) the specific force is a minimum for a given
+discharge; (4) the velocity head is equal to half the hydraulic depth in a
+channel of small slope; (5) the Froude number is equal to unity; and (6) the
+velocity of flow in a channel of small slope with uniform velocity
+distribution is equal to the celerity of small gravity waves in shallow
+water caused by local disturbances."
+
+"Discussions on critical state of flow have referred mainly to a particular
+section of a channel, known as the \emph{critical section}. If the critical state
+of exists throughout the entire length of the channel or over a reach of the
+channel, the flow in the channel is a \emph{critical flow}."
+}
 \examples{
 
 # Example 1
@@ -118,37 +140,22 @@ uuc # returns all results
 
 # Example 2
 
-install.load::load_package("iemisc", "iemiscdata")
-
-# Practice Problem 14.19 from Mott (page 392)
-# See nchannel in iemiscdata for the Manning's n table that the following
-# example uses
-# Use the minimum Manning's n value for 1) Natural streams - minor streams
-# (top width at floodstage < 100 ft) Lined or Constructed Channels,
-# 3) Concrete and 4) float finish.
-
-data(nchannel)
-
-nlocationc <- grep("float finish",
-nchannel$"Type of Channel and Description")
-
-nc <- nchannel[nlocationc, 3][1] # 3 for column 3 - Normal n
-
-ttc <- Manningtrap_critical(y = 1.5, b = 3, m = 3/2, Sf = 0.1/100, n = nc,
-units = "SI", type = "symmetrical", critical = "accurate", output = "list")
-# y = 1.5 m, b = 3 m, m = 3/2, Sf = 0.1/100 m/m, n = 0.023, units = SI
-# units
-# This will solve for Q since it is missing and Q will be in m^3/s
-
-ttc$Q # only returns Q
-
-ttc # returns all results
+# Please refer to the iemisc: Manning... Examples using iemiscdata
+# [https://www.ecoccs.com/R_Examples/Manning_iemiscdata_Examples.pdf] and iemisc:
+# Open Channel Flow Examples involving Geometric Shapes with the
+# Gauckler-Manning-Strickler Equation
+# [https://www.ecoccs.com/R_Examples/Open-Channel-Flow_Examples_Geometric_Shapes.pdf]
+# for the cross-section examples using iemiscdata
 
 
 
 
 
 
+
+}
+\references{
+Ven Te Chow, Ph.D., \emph{Open-Channel Hydraulics}, McGraw-Hill Classic Textbook Reissue, New York City, New York: McGraw-Hill Book Company, 1988, pages 13, 63.
 }
 \author{
 Irucka Embry

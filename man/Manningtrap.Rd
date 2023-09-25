@@ -14,7 +14,7 @@ Manningtrap(
   Sf = NULL,
   y = NULL,
   b = NULL,
-  T = NULL,
+  Temp = NULL,
   units = c("SI", "Eng"),
   type = c("symmetrical", "non-symmetrical"),
   output = c("list", "data.table")
@@ -43,7 +43,7 @@ if known.}
 
 \item{b}{numeric vector that contains the bottom width, if known.}
 
-\item{T}{numeric vector that contains the temperature (degrees C or degrees
+\item{Temp}{numeric vector that contains the temperature (degrees C or degrees
 Fahrenheit), if known. Otherwise, the default value is 20 degrees Celsius
 (68 degrees Fahrenheit).}
 
@@ -63,6 +63,7 @@ vignettes.}
 }
 \value{
 the missing parameters (Q, n, b, m, m1, m2, Sf, or y) & V (velocity),
+    Flow depth (y), Bottom width (b), symmetric side slope (m), Slope (Sf),
     A (area), P (wetted perimeters), R (hydraulic radius), B (top width), D
     (hydraulic depth), w (Wetted Length), w1 (Wetted Length for a
     non-symmetric trapezoid), w2 (Wetted Length for a non-symmetric trapezoid),
@@ -91,7 +92,7 @@ Parameters Definitions from Chow pages 7, 13, 20, 22-23
 "The depth of flow y is the vertical distance of the lowest point of a
 channel section from the free surface."
 
-"The top width T is the width of channel section at the free surface."
+"The top width Temp is the width of channel section at the free surface."
 
 "The water area A is water area of the flow normal to the direction of flow."
 
@@ -379,31 +380,13 @@ uu # returns all results
 
 # Example 2
 
-install.load::load_package("iemisc", "iemiscdata")
+# Please refer to the iemisc: Manning... Examples using iemiscdata
+# [https://www.ecoccs.com/R_Examples/Manning_iemiscdata_Examples.pdf] and iemisc:
+# Open Channel Flow Examples involving Geometric Shapes with the
+# Gauckler-Manning-Strickler Equation
+# [https://www.ecoccs.com/R_Examples/Open-Channel-Flow_Examples_Geometric_Shapes.pdf]
+# for the cross-section examples using iemiscdata
 
-# Practice Problem 14.19 from Mott (page 392)
-# See nchannel in iemiscdata for the Manning's n table that the following
-# example uses
-# Use the minimum Manning's n value for 1) Natural streams - minor streams
-# (top width at floodstage < 100 ft) Lined or Constructed Channels,
-# 3) Concrete and 4) float finish.
-
-data(nchannel)
-
-nlocation <- grep("float finish",
-nchannel$"Type of Channel and Description")
-
-n <- nchannel[nlocation, 3][1] # 3 for column 3 - Normal n
-
-tt <- Manningtrap(y = 1.5, b = 3, m = 3/2, Sf = 0.1/100, n = n,
-units = "SI", type = "symmetrical", output = "list")
-# y = 1.5 m, b = 3 m, m = 3/2, Sf = 0.1/100 m/m, n = 0.023, units = SI
-# units
-# This will solve for Q since it is missing and Q will be in m^3/s
-
-tt$Q # only returns Q
-
-tt # returns all results
 
 
 
@@ -419,13 +402,13 @@ tt # returns all results
    \item R.J. Charbeneau, "Topic 8: Open Channel Flow", CE 365K Hydraulic Engineering Design, The University of Texas at Austin Cockrell School of Engineering Department of Civil, Architectural and Environmental Engineering, \url{https://www.caee.utexas.edu/prof/maidment/CE365KSpr14/Visual/OpenChannels.pdf}.
    \item Ven Te Chow, Ph.D., \emph{Open-Channel Hydraulics}, McGraw-Hill Classic Textbook Reissue, New York City, New York: McGraw-Hill Book Company, 1988, pages 7-8, 13, 20-23, 28, 39-43.
    \item John C. Crittenden, R. Rhodes Trussell, David W. Hand, Kerry J. Howe, George Tchobanoglous, \emph{MWH's Water Treatment: Principles and Design}, Third Edition, Hoboken, New Jersey: John Wiley & Sons, Inc., 2012, pages 1861-1862.
-   \item Prof. Dr. Aminuddin Ab Ghani, "Specific Energy & Hydraulic Jump", Universiti Sains Malaysia (USM) Engineering Campus River Engineering and Urban Drainage Research Centre (REDACE), \url{https://redac.eng.usm.my/EAH/Handouts/Specific\%20Energy\%202011.pdf}.
+   \item Prof. Dr. Aminuddin Ab Ghani, "Specific Energy & Hydraulic Jump", Universiti Sains Malaysia (USM) Engineering Campus River Engineering and Urban Drainage Research Centre (REDACE), \url{https://web.archive.org/web/20200110165556/https://redac.eng.usm.my/EAH/Handouts/Specific\%20Energy\%202011.pdf}. Retrieved thanks to the Internet Archive: Wayback Machine
    \item Tyler G. Hicks, P.E., \emph{Civil Engineering Formulas: Pocket Guide}, 2nd Edition, New York City, New York: The McGraw-Hill Companies, Inc., 2002, pages 423, 425.
    \item Gary P. Merkley, "BIE6300 - Irrigation & Conveyance Control Systems, Spring 2004", 2004, Biological and Irrigation Engineering - OCW. Course 2, \url{https://digitalcommons.usu.edu/ocw_bie/2/}.
    \item Dan Moore, P.E., NRCS Water Quality and Quantity Technology Development Team, Portland Oregon, "Using Mannings Equation with Natural Streams", August 2011, \url{https://web.archive.org/web/20210416091858/https://www.wcc.nrcs.usda.gov/ftpref/wntsc/H&H/xsec/manningsNaturally.pdf}. Retrieved thanks to the Internet Archive: Wayback Machine
    \item Robert L. Mott and Joseph A. Untener, \emph{Applied Fluid Mechanics}, Seventh Edition, New York City, New York: Pearson, 2015, pages 376, 392.
    \item The NIST Reference on Constants, Units, and Uncertainty, Fundamental Constants Data Center of the NIST Physical Measurement Laboratory, "standard acceleration of gravity g_n", \url{https://physics.nist.gov/cgi-bin/cuu/Value?gn}.
-   \item James D. Schall, Everett V. Richardson, and Johnny L. Morris, U.S. Department of Transportation Federal Highway Administration & National Highway Institute (NHI) and Office of Bridge Technology (HIBT), \emph{Introduction to Highway Hydraulics: Hydraulic Design Series Number 4}, Fourth Edition, June 2008, pages 4-5, 4-16 - 4-17 and 5-5, \url{https://www.fhwa.dot.gov/engineering/hydraulics/pubs/08090/HDS4_608.pdf}.
+   \item James D. Schall, Everett V. Richardson, and Johnny L. Morris, U.S. Department of Transportation Federal Highway Administration & National Highway Institute (NHI) and Office of Bridge Technology (HIBTemp), \emph{Introduction to Highway Hydraulics: Hydraulic Design Series Number 4}, Fourth Edition, June 2008, pages 4-5, 4-16 - 4-17 and 5-5, \url{https://www.fhwa.dot.gov/engineering/hydraulics/pubs/08090/HDS4_608.pdf}.
    \item Terry W. Sturm, \emph{Open Channel Hydraulics}, 2nd Edition, New York City, New York: The McGraw-Hill Companies, Inc., 2010, pages 2, 8, 36, 102, 120, 153.
    \item US Department of Transportation Federal Highway Administration (FHWA), "Urban Drainage Design Manual", Hydraulic Engineering Circular No. 22, Third Edition, Publication No. FHWA-NHI-10-009 September 2009 (Revised August 2013), pages 5-7 - 5-8, \url{https://www.fhwa.dot.gov/engineering/hydraulics/library_arc.cfm?pub_number=22&id=140}.
    \item Ali R.Vatankhah, "Explicit solutions for critical and normal depths in trapezoidal and parabolic open channels", \emph{Ain Shams Engineering Journal}, Volume 4, Issue 1, March 2013, Pages 17-23, \url{https://www.sciencedirect.com/science/article/pii/S2090447912000329}.

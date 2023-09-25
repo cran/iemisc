@@ -1,7 +1,5 @@
 ## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
 
-# Example 1 (Caprani Reference)
-
 library("iemisc")
 import::from(ramify, mat)
 

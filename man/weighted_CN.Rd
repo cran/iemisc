@@ -126,7 +126,7 @@ weighted_CN(CN = CN7, area_pct = area_pct7)
 \enumerate{
    \item United States Department of Agriculture Soil Conservation Service National Employee Development Staff, "Engineering Hydrology Training Series Module 104 - Runoff Curve Number Computations Study Guide", September 1989, page 21, \url{https://web.archive.org/web/20210414043852/https://www.wcc.nrcs.usda.gov/ftpref/wntsc/H&H/training/runoff-curve-numbers1.pdf}. Retrieved thanks to the Internet Archive: Wayback Machine
    \item Dr. Clyde Munster, P.E., Texas A&M University Department of Biological and Agricultural Engineering, "Rational Method: Calculating Peak Flow Rates", \url{https://web.archive.org/web/20180218221234/http://munster.tamu.edu/Study_Abroad/BAEN460_AGSM335/PowerPoint/RationalMethod_5.pdf}. Retrieved thanks to the Internet Archive: Wayback Machine
-   \item United States Department of Agriculture Natural Resources Conservation Service Conservation Engineering Division, "Urban Hydrology for Small Watersheds Technical Release 55 (TR-55)", June 1986, \url{https://web.archive.org/web/20220114201558/https://www.nrcs.usda.gov/Internet/FSE_DOCUMENTS/stelprdb1044171.pdf}. Retrieved thanks to the Internet Archive: Wayback Machine
+   \item United States Department of Agriculture Natural Resources Conservation Service Conservation Engineering Division, "Urban Hydrology for Small Watersheds Technical Release 55 (TR-55)", June 1986, \url{https://directives.sc.egov.usda.gov/OpenNonWebContent.aspx?content=22162.wba}
 }
 }
 \author{

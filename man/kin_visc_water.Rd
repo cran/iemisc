@@ -129,11 +129,11 @@ hydraulics::dens(T = 55, units = "Eng", ret_units = TRUE); nus
 drop_units(nu) \%==\% drop_units(nus)
 
 
-nu2 <- dyn_visc_water(T = 55, units = "Eng", Eng_units = "lbf*s/ft^2") /
-density_water(T = 55, units = "Eng", Eng_units = "slug/ft^3"); nu2
+nu2 <- dyn_visc_water(Temp = 55, units = "Eng", Eng_units = "lbf*s/ft^2") /
+density_water(Temp = 55, units = "Eng", Eng_units = "slug/ft^3"); nu2
 
-nus2 <- kin_visc_water(mu = dyn_visc_water(T = 55, units = "Eng", Eng_units =
-"lbf*s/ft^2"), rho = density_water(T = 55, units = "Eng", Eng_units = "slug/ft^3"),
+nus2 <- kin_visc_water(mu = dyn_visc_water(Temp = 55, units = "Eng", Eng_units =
+"lbf*s/ft^2"), rho = density_water(Temp = 55, units = "Eng", Eng_units = "slug/ft^3"),
 rho_units = "lbm/ft^3", mu_units = "lbf*s/ft^2"); nus2
 
 # compare the results of nu2 and nus2 (they should be equivalent)

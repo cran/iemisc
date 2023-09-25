@@ -6,13 +6,13 @@
 \title{Density of Saturated Liquid Water}
 \usage{
 density_water(
-  T,
+  Temp,
   units = c("SI", "Eng", "Absolute"),
   Eng_units = c("slug/ft^3", "lbm/ft^3")
 )
 }
 \arguments{
-\item{T}{numeric vector that contains the temperature (degrees Celsius,
+\item{Temp}{numeric vector that contains the temperature (degrees Celsius,
 degrees Fahrenheit, or Kelvin)}
 
 \item{units}{character vector that contains the system of units {options are
@@ -76,9 +76,9 @@ library(iemisc)
 
 647.096 # K
 
-T <- c(273.16, 373.1243, 647.096)
+Temp <- c(273.16, 373.1243, 647.096)
 
-round::round_r3(density_water(T, units = "Absolute"), d = 3)
+round::round_r3(density_water(Temp, units = "Absolute"), d = 3)
 
 
 # Reference standard
@@ -97,7 +97,7 @@ library(iemisc)
 
 rho <- hydraulics::dens(T = 25, units = "SI"); rho
 
-rho2 <- density_water(T = 25, units = "SI"); rho2
+rho2 <- density_water(Temp = 25, units = "SI"); rho2
 
 
 
@@ -107,10 +107,10 @@ rho2 <- density_water(T = 25, units = "SI"); rho2
 
 install.load::load_package("iemisc", "units")
 
-T <- 180
+Temp <- 180
 
 # create a numeric vector with the units of degrees Celsius
-T_C <- set_units(T, "degree_C")
+T_C <- set_units(Temp, "degree_C")
 T_C
 
 # create a numeric vector to convert from degrees Celsius to Kelvin
@@ -129,7 +129,7 @@ aiRthermo::export_constants()); rho_h2o
 # Should not be the same as aiRthermo deals with water vapor rather than
 # saturated liquid water
 
-density_water(T = drop_units(T_K), units = "Absolute")
+density_water(Temp = drop_units(T_K), units = "Absolute")
 
 
 

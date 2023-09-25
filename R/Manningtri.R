@@ -182,7 +182,7 @@
 #' @param Sf numeric vector that contains the bed slope (m/m or ft/ft),
 #'   if known.
 #' @param y numeric vector that contains the flow depth (m or ft), if known.
-#' @param T numeric vector that contains the temperature (degrees C or degrees
+#' @param Temp numeric vector that contains the temperature (degrees C or degrees
 #'   Fahrenheit), if known.
 #' @param units character vector that contains the system of units {options are
 #'   \code{SI} for International System of Units or \code{Eng} for English units
@@ -237,27 +237,16 @@
 #'
 #' @examples
 #'
-#' install.load::load_package("iemisc", "iemiscdata")
-#'
-#' # Practice Problem 14.41 from Mott (page 393)
-#' # See nchannel in iemiscdata for the Manning's n table that the
-#' # following example uses
-#' # Use the normal Manning's n value for 1) Natural streams - minor streams
-#' # (top width at floodstage < 100 ft), 2) Excavated or Dredged Channels, 3)
-#' # Earth, straight, and uniform, 4) clean, recently completed.
-#'
-#' data(nchannel)
-#'
-#' nlocation <- grep("clean, recently completed",
-#' nchannel$"Type of Channel and Description")
-#'
-#' n <- nchannel[nlocation, 3] # 3 for column 3 - Normal n
-#'
-#' Manningtri(Q = 0.68, m = 1.5, Sf = 0.0023, n = n, units = "Eng")
-#' # Q = 0.68 cfs, m = 1.5, Sf = 0.002 ft/ft, n = 0.05, units = English units
-#' # This will solve for y since it is missing and y will be in ft
+#' # Please refer to the iemisc: Manning... Examples using iemiscdata
+#' # [https://www.ecoccs.com/R_Examples/Manning_iemiscdata_Examples.pdf] and iemisc:
+#' # Open Channel Flow Examples involving Geometric Shapes with the
+#' # Gauckler-Manning-Strickler Equation
+#' # [https://www.ecoccs.com/R_Examples/Open-Channel-Flow_Examples_Geometric_Shapes.pdf]
+#' # for the cross-section examples using iemiscdata
 #'
 #'
+#'
+#' library(iemisc)
 #'
 #' # Modified Exercise 4.1 from Sturm (page 153)
 #' Manningtri(Q = 3000, m = 3, Sf = 0.002, n = 0.025, units = "Eng")
@@ -279,7 +268,7 @@
 #' @importFrom stats uniroot
 #'
 #' @export
-Manningtri <- function (Q = NULL, n = NULL, m = NULL, Sf = NULL, y = NULL, T = NULL, units = c("SI", "Eng")) {
+Manningtri <- function (Q = NULL, n = NULL, m = NULL, Sf = NULL, y = NULL, Temp = NULL, units = c("SI", "Eng")) {
 
 
 K <- NULL
@@ -311,13 +300,13 @@ assert_that(isTRUE(any(c("SI", "Eng") %in% units)), msg = "The unit system has n
 if (units == "SI") {
 
 # use the temperature to determine the density & absolute and kinematic viscosities
-T <- ifelse(is.null(T), 20, T) # degrees C
+Temp <- ifelse(is.null(Temp), 20, Temp) # degrees C
 
-assert_that(qtest(T, "N+(0,)"), msg = "Either T is equal to or less than 0 C, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 0 C / 32 F. Please try again.")
+assert_that(qtest(Temp, "N+(0,)"), msg = "Either Temp is equal to or less than 0 C, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 0 C / 32 F. Please try again.")
 # only process with specified, finite values and provide an error message if the check fails
 
 # create a numeric vector with the units of degrees Celsius
-T_C <- set_units(T, "degree_C")
+T_C <- set_units(Temp, "degree_C")
 
 
 # create a numeric vector to convert from degrees Celsius to Kelvin
@@ -330,10 +319,10 @@ units(T_K) <- make_units(K)
 
 # create viscosities based on temperatures
 # saturated liquid density at given temperature in degrees Celsius (SI units)
-rho_SI <- density_water(T, "SI")
+rho_SI <- density_water(Temp, "SI")
 
 # absolute or dynamic viscosity at given temperature in degrees Celsius and density of rho (SI units)
-mu_SI <- dyn_visc_water(T, "SI")
+mu_SI <- dyn_visc_water(Temp, "SI")
 
 # kinematic viscosity at given temperature in degrees Celsius and density of rho (SI units)
 nu_SI <- kin_visc_water(rho_SI, mu_SI, rho_units = "kg/m^3", mu_units = "Pa*s or kg/m/s")
@@ -366,12 +355,12 @@ result_units <- c("m", "m^2", "m", "m", "m", "m", "m", "m/s", "m^3/s", "dimensio
 } else if (units == "Eng") {
 
 # use the temperature to determine the density & absolute and kinematic viscosities
-T <- ifelse(is.null(T), 68, T) # degrees F
+Temp <- ifelse(is.null(Temp), 68, Temp) # degrees F
 
-assert_that(qtest(T, "N+(32,)"), msg = "Either T is equal to or less than 32 F, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 32 F / 0 C. Please try again.")
+assert_that(qtest(Temp, "N+(32,)"), msg = "Either Temp is equal to or less than 32 F, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 32 F / 0 C. Please try again.")
 # only process with specified, finite values and provide an error message if the check fails
 
-T_F <- T
+T_F <- Temp
 
 # create a numeric vector with the units of degrees Fahrenheit
 T_F <- set_units(T_F, "degree_F")
@@ -387,11 +376,11 @@ units(T_K) <- make_units(K)
 
 # create viscosities based on temperatures
 # saturated liquid density at given temperature in degrees Fahrenheit (US Customary units)
-rho_Eng <- density_water(T, "Eng", Eng_units = "slug/ft^3")
+rho_Eng <- density_water(Temp, "Eng", Eng_units = "slug/ft^3")
 
 
 # absolute or dynamic viscosity at given temperature in degrees Fahrenheit and density of rho (US Customary units)
-mu_Eng <- dyn_visc_water(T, "Eng", Eng_units = "slug/ft/s")
+mu_Eng <- dyn_visc_water(Temp, "Eng", Eng_units = "slug/ft/s")
 
 
 # kinematic viscosity at given temperature in degrees Fahrenheit and density of rho (US Customary units)

@@ -61,7 +61,10 @@
 #' @export
 lat_long2state <- function (latitude, longitude) {
 
-USA.state.boundaries::state_boundaries_wgs84
+
+# copy the dataset as states
+states <- USA.state.boundaries::state_boundaries_wgs84
+
 
 # convert latitude from character to numeric, if needed
 if (is.character(latitude)) {
@@ -98,8 +101,7 @@ pointsDT <- data.table(x = longitude, y = latitude)
 # Convert pointsDT to a sf points object
 pointsSP <- st_as_sf(pointsDT, coords = 1:2, crs = "+proj=longlat +datum=WGS84")
 
-# copy the dataset as states
-states <- USA.state.boundaries::state_boundaries_wgs84
+
 
 
 # transform both pointsSP and states to a planar coordinate system (e.g. Web Mercator) as required for geometric operations

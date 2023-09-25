@@ -21,6 +21,8 @@ vignette: >
 
 Note: If you wish to replicate the R code below, then you will need to copy and paste the following commands in R first (to make sure you have all the packages and their dependencies):  
 
+\medskip
+
 ```{r eval = FALSE, tidy = TRUE}
 install.packages(c("install.load", "iemisc", "data.table", "units", "pander", "pracma"))
 # install the packages and their dependencies
@@ -42,13 +44,19 @@ import::from(pracma, newtonRaphson)
 \bigskip
 \bigskip
 
-# Example 1 Set
+# Example 1 Set -- Example 17.2 (Lindeburg Manual Reference)
+
+Please note that the f2, f3, f4, f5, f6, f7, f8, and the relerror functions are found within the iemisc R package created by Irucka Embry  
+
+Answers from the Lindeburg Manual Reference text:  
+0.028 - Moody diagram  
+0.0287 - Appendix 17.B "Darcy Friction Factors (turbulent flow)"  
+0.0288 - Swamee-Jain approximation  
+0.0287 - Colebrook equation  
+
+\medskip
 
 ```{r, warning = FALSE, message = FALSE, tidy = TRUE}
-
-# Please note that the f2, f3, f4, f5, f6, f7, f8, and the relerror functions are found within the iemisc R package created by Irucka Embry
-
-# Example 1 -- Example 17.2 (Lindeburg Manual Reference)
 
 Re <- 400000
 
@@ -57,12 +65,6 @@ eps <- 0.004
 D <- 1
 
 eps / D
-
-# Answers from the Lindeburg Manual Reference text:
-# 0.028 - Moody diagram
-# 0.0287 - Appendix 17.B "Darcy Friction Factors (turbulent flow)"
-# 0.0288 - Swamee-Jain approximation
-# 0.0287 - Colebrook equation
 
 f2 <- f2(eps = eps, D = D, Re = Re); f2
 
@@ -102,13 +104,13 @@ relerror(acc, f8)
 \bigskip
 \bigskip
 
-# Example 2 Set
+# Example 2 Set -- Example 2 (EngineerExcel Reference)
+
+Please note that the f2, f3, f4, f5, f6, f7, and the f8 functions are found within the iemisc R package created by Irucka Embry  
+
+\medskip
 
 ```{r, warning = FALSE, message = FALSE, tidy = TRUE}
-
-# Please note that the f2, f3, f4, f5, f6, f7, and the f8 functions are found within the iemisc R package created by Irucka Embry
-
-# Example 2 (EngineerExcel Reference)
 
 eps <- 0.00005
 
@@ -149,7 +151,7 @@ Example 1 [Kudela]
 \bigskip
 \bigskip
 
-# Solution 1
+# Solution 1 for the Problem 1 Statement
 
 ```{r, warning = FALSE, message = FALSE, tidy = TRUE}
 # Please note that the Re2, f2, f3, f4, f5, f6, f7, f8, and the colebrook functions are found within the iemisc R package created by Irucka Embry
@@ -302,7 +304,7 @@ Find the head loss due to the flow of 1,500 gpm of oil ($\nu = 1.15 \times 10^{-
 \bigskip
 \bigskip
 
-# Solution 2
+# Solution 2 for the Problem 2 Statement
 
 ```{r, warning = FALSE, message = FALSE, tidy = TRUE}
 # Please note that the Re2, f2, f3, f4, f5, f6, f7, f8, and the colebrook functions are found within the iemisc R package created by Irucka Embry
@@ -443,11 +445,11 @@ R. Shankar Subramanian calculated 83.7 feet for the head loss.
 
 # Works Cited
 
-Charlie Young, P.E., EngineerExcel, "Colebrook Equation Solver in Excel", https://www.engineerexcel.com/colebrook-equation-solver-in-excel/
+Charlie Young, P.E., EngineerExcel, "Colebrook Equation Solver in Excel", https://www.engineerexcel.com/colebrook-equation-solver-in-excel/  
 
 Henryk Kudela, "Hydraulic losses in pipes", page 5, Wrocław University of Science and Technology Department of Mechanical and Power Engineering, http://fluid.itcmp.pwr.wroc.pl/~znmp/dydaktyka/fundam_FM/Lecture11_12.pdf  
 
-Michael R. Lindeburg, PE, *Civil Engineering Reference Manual for the PE Exam*, Twelfth Edition, Belmont, California: Professional Publications, Inc., 2011, pages 17-5 - 17-7.
+Michael R. Lindeburg, PE, *Civil Engineering Reference Manual for the PE Exam*, Twelfth Edition, Belmont, California: Professional Publications, Inc., 2011, pages 17-5 - 17-7.  
 
 R. Shankar Subramanian, "Pipe Flow Calculations", pages 6-7, Clarkson University Department of Chemical and Biomolecular Engineering, https://web2.clarkson.edu/projects/subramanian/ch330/notes/Pipe%20Flow%20Calculations.pdf  
 
@@ -463,9 +465,10 @@ Wikimedia Foundation, Inc. Wikipedia, 15 May 2019, "Conversion of units", https:
 EcoC²S Home -- https://www.ecoccs.com/  
 About EcoC²S -- https://www.ecoccs.com/about_ecoc2s.html  
 Services -- https://www.ecoccs.com/services.html  
+1 Stop Shop -- https://www.ecoccs.com/other_biz.html  
 Products -- https://www.questionuniverse.com/products.html  
-EcoC²S Media -- https://www.ecoccs.com/media.html  
-EcoC²S Resources -- https://www.ecoccs.com/resources.html  
+Media -- https://www.ecoccs.com/media.html  
+Resources -- https://www.ecoccs.com/resources.html  
 R Trainings and Resources provided by EcoC²S (Irucka Embry, E.I.T.) -- https://www.ecoccs.com/rtraining.html  
 
 \bigskip

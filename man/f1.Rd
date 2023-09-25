@@ -51,7 +51,7 @@ f1(1999)
 \references{
 \enumerate{
    \item Steven C. Chapra, \emph{Applied Numerical Methods with MATLAB for Engineers and Scientists}, Second Edition, Boston, Massachusetts: McGraw-Hill, 2008, pages 157-161.
-   \item Didier Clamond, "Efficient resolution of the Colebrook equation", \emph{Ind. Eng. Chem. Res.}, 2009, 48 (7), pages 3665-3671, \url{https://arxiv.org/abs/0810.5564} and \url{https://pubs.acs.org/doi/pdf/10.1021/ie801626g}
+   \item Didier Clamond, "Efficient resolution of the Colebrook equation", \emph{Ind. Eng. Chem. Res.}, 2009, 48 (7), pages 3665-3671, \url{https://arxiv.org/abs/0810.5564} and \url{https://math.univ-cotedazur.fr/~didierc/DidPublis/ICR_2009.pdf}
    \item Srbislav Genić, Ivan Arandjelović, Petar Kolendić, Marko Jarić, Nikola Budimir, and Vojislav Genić, "A Review of Explicit Approximations of Colebrook's Equation", \emph{FME (Faculty of Mechanical Engineering, Belgrade) Transactions}, 2011, 39, pages 67-71, \url{https://www.mas.bg.ac.rs/_media/istrazivanje/fme/vol39/2/04_mjaric.pdf}
    \item Michael R. Lindeburg, PE, \emph{Civil Engineering Reference Manual for the PE Exam}, Twelfth Edition, Belmont, California: Professional Publications, Inc., 2011, pages 17-5 - 17-7.
    \item Michael R. Lindeburg, PE, \emph{Practice Problems for the Civil Engineering PE Exam: A Companion to the "Civil Engineering Reference Manual"}, Twelfth Edition, Belmont, California: Professional Publications, Inc., 2011, pages 17-1 and 17-8 - 17-9.

@@ -98,7 +98,7 @@ units1 = "survey_ft", units2 = "foot")
 \enumerate{
    \item udunits.dat, v 1.18 2006/09/20 18:59:18 steve Exp, \url{https://web.archive.org/web/20230202155021/https://www.unidata.ucar.edu/software/udunits/udunits-1/udunits.txt}. Retrieved thanks to the Internet Archive: Wayback Machine
    \item Ben W. Lewis, PE, July 12, 2016, "Construction Plan Reading Basics & Applications Part III Typical Calculations / Quantity Take-off's: Calculate Project Length", \url{http://www.richlandonline.com/Portals/0/Departments/Procurement/SLBE/Plan\%20Reading\%20PowerPoint\%20Presentation.pdf}.
-   \item Georgia Department of Transportation Skills Development Series, Revised May 1, 2008, "Basic Highway Plan Reading", \url{https://www.dot.ga.gov/PartnerSmart/Training/Documents/ESD/BasicHiwyPlanReading.pdf}.
+   \item Georgia Department of Transportation Skills Development Series, Revised May 1, 2008, "Basic Highway Plan Reading", \url{https://web.archive.org/web/20220401015405/http://www.dot.ga.gov/PartnerSmart/Training/Documents/ESD/BasicHiwyPlanReading.pdf}. Retrieved thanks to the Internet Archive: Wayback Machine
 }
 }
 \author{

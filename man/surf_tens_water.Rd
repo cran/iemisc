@@ -5,10 +5,10 @@
 \alias{surf_tens_water}
 \title{Water Surface Tension for Liquid Water}
 \usage{
-surf_tens_water(T, units = c("SI", "Eng", "Absolute"))
+surf_tens_water(Temp, units = c("SI", "Eng", "Absolute"))
 }
 \arguments{
-\item{T}{numeric vector that contains the temperature (degrees Celsius,
+\item{Temp}{numeric vector that contains the temperature (degrees Celsius,
 degrees Fahrenheit, or Kelvin)}
 
 \item{units}{character vector that contains the system of units (options are
@@ -46,10 +46,10 @@ with
 
 install.load::load_package("iemisc", "data.table", "round")
 
-T <- c(0, 0.01, 3.86, seq(5, 95, by = 5), 99.974, seq(100, 150, by = 5))
+Temp <- c(0, 0.01, 3.86, seq(5, 95, by = 5), 99.974, seq(100, 150, by = 5))
 
-surface_tension <- data.table("Temperature (degrees C)" = T, "omega (N / m)"
-= round_r3(surf_tens_water(T, units = "SI"), d = 5)); surface_tension
+surface_tension <- data.table("Temperature (degrees C)" = Temp, "omega (N / m)"
+= round_r3(surf_tens_water(Temp, units = "SI"), d = 5)); surface_tension
 
 
 
@@ -57,7 +57,7 @@ surface_tension <- data.table("Temperature (degrees C)" = T, "omega (N / m)"
 
 }
 \references{
-C. O. Popiel & J. Wojtkowiak (1998). "Simple Formulas for Thermophysical Properties of Liquid Water for Heat Transfer Calculations (from 0C to 150C)". \emph{Heat Transfer Engineering}, 19:3, 87-101, \url{https://www.tandfonline.com/doi/abs/10.1080/01457639808939929}.
+C. O. Popiel & J. Wojtkowiak (1998). "Simple Formulas for Thermophysical Properties of Liquid Water for Heat Transfer Calculations (from 0C to 150C)". \emph{Heat Transfer Engineering}, 19:3, 87-101, article from ResearchGate: \url{https://www.researchgate.net/publication/239243539_Simple_Formulas_for_Thermophysical_Properties_of_Liquid_Water_for_Heat_Transfer_Calculations_from_0C_to_150C}.
 }
 \author{
 Irucka Embry

@@ -5,10 +5,10 @@
 \alias{sat_vapor_pressure_ice}
 \title{Saturation Vapor Pressure for Ice}
 \usage{
-sat_vapor_pressure_ice(T, units = c("SI", "Eng", "Absolute"))
+sat_vapor_pressure_ice(Temp, units = c("SI", "Eng", "Absolute"))
 }
 \arguments{
-\item{T}{numeric vector that contains the temperature (degrees Celsius,
+\item{Temp}{numeric vector that contains the temperature (degrees Celsius,
 degrees Fahrenheit, or Kelvin)}
 
 \item{units}{character vector that contains the system of units {options are
@@ -43,7 +43,7 @@ for (t <= 0 C)
 
 library(iemisc)
 
-sat_vapor_pressure_ice(T = seq(from = -100, to = 0, by = 20), units = "SI")
+sat_vapor_pressure_ice(Temp = seq(from = -100, to = 0, by = 20), units = "SI")
 
 
 

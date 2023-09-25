@@ -69,17 +69,17 @@ units(rho_sand_lbm) <- make_units(lb/ft^3)
 
 
 
-rho1 <- density_water(T = 68, units = "Eng", Eng_units = "slug/ft^3")
+rho1 <- density_water(Temp = 68, units = "Eng", Eng_units = "slug/ft^3")
 
 sp_gravity(rho_w = rho1, rho_s = rho_sand_slug, units = "Eng", Eng_units = "slug/ft^3")
 
 
-rho2 <- density_water(T = 68, units = "Eng", Eng_units = "lbm/ft^3")
+rho2 <- density_water(Temp = 68, units = "Eng", Eng_units = "lbm/ft^3")
 
 sp_gravity(rho_w = rho2, rho_s = rho_sand_lbm, units = "Eng", Eng_units = "lbm/ft^3")
 
 
-rho3 <- density_water(T = 20, units = "SI")
+rho3 <- density_water(Temp = 20, units = "SI")
 
 sp_gravity(rho_w = rho3, rho_s = rho_sand, units = "SI")
 

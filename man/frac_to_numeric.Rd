@@ -141,7 +141,7 @@ frac_to_numeric(truss_marks)
 \references{
 \enumerate{
    \item Bill Venables, 2016-02-10, "Vulgar Fractions in R", fractional vignette, \url{https://CRAN.R-project.org/package=fractional/vignettes/Vulgar_Fractions_in_R.html}.
-   \item The Home Depot, 9 December 2022, "How to Read a Tape Measure", \url{https://www.homedepot.com/c/ab/how-to-read-a-tape-measure/9ba683603be9fa5395fab90e6f14546}.
+   \item The Home Depot, 9 December 2022, "How to Read a Tape Measure", \url{https://archive.vn/fhBmg}. Provided the archive.today webpage capture for The Home Depot URL for acceptance into CRAN. 
    \item Wikimedia Foundation, Inc. Wikipedia, 29 December 2021, "Pi", \url{https://en.wikipedia.org/wiki/Pi}.
 }
 }

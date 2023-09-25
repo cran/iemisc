@@ -14,19 +14,17 @@
 #' Surface Tension of Water, Weighted C Factor, Weighted Curve Number, Darcy
 #' friction factor (f), the Reynolds number, Manning's n,
 #' Gauckler-Manning-Strickler equations for open channel flow], quick search,
-#' mortality rate calculations, proportion solver, sum of all digits in a
-#' vector to a single integer, string manipulation, a version of linear
-#' interpolation for use with NAs, Python compatible floor division function,
-#' GNU Octave/MATLAB compatible trigonometric functions in degrees, GNU
-#' Octave/MATLAB compatible section properties, remainder, modulus, number of
-#' dimensions, row vector and column vector tests, fractional differences,
-#' size, numel, and length functions.
+#' return character vectors in order, mortality rate calculations, proportion
+#' solver, sum of all digits in a vector to a single integer, string
+#' manipulation, a version of linear interpolation for use with NAs, Python
+#' compatible floor division function, GNU Octave/MATLAB compatible
+#' trigonometric functions in degrees, GNU Octave/MATLAB compatible section
+#' properties, remainder, modulus, number of dimensions, row vector and column
+#' vector tests, fractional differences, size, numel, and length functions.
 #'
-#' @docType package
-#' @name iemisc
 #' @import iemiscdata
 #' @import USA.state.boundaries
-#' @import CHNOSZ
+#' @import chem.databases
 #' @importFrom foreach foreach %do%
 #' @importFrom sf st_as_sf st_transform st_coordinates
 #' @importFrom ggplot2 ggplot aes geom_polygon
@@ -58,4 +56,10 @@
 #' @importFrom methods is
 #' @importFrom signal fftfilt
 #' @importFrom matlab2r nargin
+
+#' @docType package
+#' @name iemisc
+#' @keywords internal 
+"_PACKAGE"
+
 NULL

@@ -13,7 +13,7 @@ Manningpara(
   y = NULL,
   B1 = NULL,
   y1 = NULL,
-  T = NULL,
+  Temp = NULL,
   units = c("SI", "Eng")
 )
 }
@@ -36,7 +36,7 @@ if known.}
 
 \item{y1}{numeric vector that contains the "bank-full depth", if known.}
 
-\item{T}{numeric vector that contains the temperature (degrees C or degrees
+\item{Temp}{numeric vector that contains the temperature (degrees C or degrees
 Fahrenheit), if known.}
 
 \item{units}{character vector that contains the system of units {options are

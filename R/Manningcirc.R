@@ -196,7 +196,13 @@
 #' of 20 degrees Celsius (68 degrees Fahrenheit) at atmospheric pressure
 #'
 #' Note: Units must be consistent
-#'
+#' 
+#' Please refer to the iemisc: Manning... Examples using iemiscdata
+#' [https://www.ecoccs.com/R_Examples/Manning_iemiscdata_Examples.pdf] and iemisc:
+#' Open Channel Flow Examples involving Geometric Shapes with the
+#' Gauckler-Manning-Strickler Equation
+#' [https://www.ecoccs.com/R_Examples/Open-Channel-Flow_Examples_Geometric_Shapes.pdf]
+#' for the cross-section examples using iemiscdata
 #'
 #'
 #'
@@ -209,7 +215,7 @@
 #' @param Sf numeric vector that contains the bed slope (m/m or ft/ft),
 #'   if known.
 #' @param y numeric vector that contains the flow depth (m or ft), if known.
-#' @param T numeric vector that contains the temperature (degrees C or degrees
+#' @param Temp numeric vector that contains the temperature (degrees C or degrees
 #'   Fahrenheit), if known.
 #' @param units character vector that contains the system of units {options are
 #'   \code{SI} for International System of Units or \code{Eng} for English units
@@ -262,127 +268,8 @@
 #'
 #'
 #'
-#' @examples
-#' 
-#' # Practice Problem 14.12 from Mott (page 392)
-#'
-#' install.load::load_package("iemisc", "iemiscdata")
-#'
-#' y <- Manningcircy(y_d = 0.5, d = 6, units = "Eng")
-#'
-#' # See npartfull in iemiscdata for the Manning's n table that the
-#' # following example uses
-#' # Use the normal Manning's n value for 1) Corrugated Metal, 2) Stormdrain.
-#'
-#' data(npartfull)
-#'
-#' # We are using the culvert as a stormdrain in this problem
-#' nlocation <- grep("Stormdrain",
-#' npartfull$"Type of Conduit and Description")
-#'
-#' n <- npartfull[nlocation, 3] # 3 for column 3 - Normal n
-#'
-#' Manningcirc(d = 6, Sf = 1 / 500, n = n, y = y$y, units = "Eng")
-#' # d = 6 ft, Sf = 1 / 500 ft/ft, n = 0.024, y = 3 ft, units = "Eng"
-#' # This will solve for Q since it is missing and Q will be in ft^3/s
-#'
-#'
-#'
-#' # Example Problem 14.2 from Mott (page 377-378)
-#'
-#' install.load::load_package("iemisc", "iemiscdata")
-#'
-#' y <- Manningcircy(y_d = 0.5, d = 200/1000, units = "SI")
-#'
-#' # See npartfull in iemiscdata for the Manning's n table that the
-#' # following example uses
-#' # Use the normal Manning's n value for 1) Clay, 2) Common drainage tile.
-#'
-#' data(npartfull)
-#'
-#' nlocation <- grep("Common drainage tile",
-#' npartfull$"Type of Conduit and Description")
-#'
-#' n <- npartfull[nlocation, 3] # 3 for column 3 - Normal n
-#'
-#' Manningcirc(Sf = 1/1000, n = n, y = y$y, d = 200/1000, units = "SI")
-#' # Sf = 1/1000 m/m, n = 0.013, y = 0.1 m, d = 200/1000 m, units = SI units
-#' # This will solve for Q since it is missing and Q will be in m^3/s
-#'
-#'
-#'
-#' # Example 4.1 from Sturm (page 124-125)
-#'
-#' install.load::load_package("iemisc", "iemiscdata")
-#'
-#' Manningcircy(y_d = 0.8, d = 2, units = "Eng")
-#'
-#' y <- Manningcircy(y_d = 0.8, d = 2, units = "Eng")
-#' # defines all list values within the object named y
-#'
-#' y$y # gives the value of y
-#'
-#'
-#'
-#' # Modified Exercise 4.1 from Sturm (page 153)
-#'
-#' install.load::load_package("iemisc", "iemiscdata")
-#'
-#' # Note: The Q in Exercise 4.1 is actually found using the Chezy equation,
-#' # this is a modification of that problem
-#' # See nchannel in iemiscdata for the Manning's n table that the
-#' # following example uses
-#' # Use the normal Manning's n value for 1) Natural streams - minor streams
-#' # (top width at floodstage < 100 ft), 2) Mountain streams, no vegetation
-#' # in channel, banks usually steep, trees and brush along banks submerged at
-#' # high stages and 3) bottom: gravels, cobbles, and few boulders.
-#'
-#' data(nchannel)
-#'
-#' nlocation <- grep("bottom: gravels, cobbles, and few boulders",
-#' nchannel$"Type of Channel and Description")
-#'
-#' n <- nchannel[nlocation, 3] # 3 for column 3 - Normal n
-#'
-#' Manningcirc(Sf = 0.002, n = n, y = y$y, d = 2, units = "Eng")
-#' # Sf = 0.002 ft/ft, n = 0.04, y = 1.6 ft, d = 2 ft, units = English units
-#' # This will solve for Q since it is missing and Q will be in ft^3/s
-#'
-#'
-#'
-#' # Modified Exercise 4.5 from Sturm (page 154)
-#'
-#' install.load::load_package("iemisc", "units")
-#'
-#'
-#' # create a numeric vector with the units of feet
-#' yeng <- set_units(y$y, ft)
 #' 
 #' 
-#' # create a numeric vector to convert from feet to meters
-#' ysi <- yeng
-#' 
-#' 
-#' # create a numeric vector with the units of meters
-#' units(ysi) <- make_units(m)
-#' 
-#' 
-#' # create a numeric vector with the units of feet
-#' deng <- set_units(2, ft)
-#' 
-#' 
-#' # create a numeric vector to convert from feet to meters
-#' dsi <- deng
-#' 
-#' 
-#' # create a numeric vector with the units of meters
-#' units(dsi) <- make_units(m)
-#'
-#' Manningcirc(Sf = 0.022, n = 0.023, y = drop_units(ysi), d = drop_units(dsi), units = "SI")
-#' # Sf = 0.022 m/m, n = 0.023, y = 0.48768 m, d = 0.6096 m, units = SI units
-#' # This will solve for Q since it is missing and Q will be in m^3/s
-#'
-#'
 #'
 
 
@@ -402,7 +289,7 @@
 #' @importFrom round round_r3
 #' @importFrom stats uniroot
 #' @export
-Manningcirc <- function (Q = NULL, n = NULL, Sf = NULL, y = NULL, d = NULL, T = NULL, units = c("SI", "Eng")) {
+Manningcirc <- function (Q = NULL, n = NULL, Sf = NULL, y = NULL, d = NULL, Temp = NULL, units = c("SI", "Eng")) {
 
 K <- NULL
 # due to NSE notes in R CMD check
@@ -428,13 +315,13 @@ assert_that(isTRUE(any(c("SI", "Eng") %in% units)), msg = "The unit system has n
 if (units == "SI") {
 
 # use the temperature to determine the density & absolute and kinematic viscosities
-T <- ifelse(is.null(T), 20, T) # degrees C
+Temp <- ifelse(is.null(Temp), 20, Temp) # degrees C
 
-assert_that(qtest(T, "N+(0,)"), msg = "Either T is equal to or less than 0 C, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 0 C / 32 F. Please try again.")
+assert_that(qtest(Temp, "N+(0,)"), msg = "Either Temp is equal to or less than 0 C, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 0 C / 32 F. Please try again.")
 # only process with specified, finite values and provide an error message if the check fails
 
 # create a numeric vector with the units of degrees Celsius
-T_C <- set_units(T, "degree_C")
+T_C <- set_units(Temp, "degree_C")
 
 
 # create a numeric vector to convert from degrees Celsius to Kelvin
@@ -447,10 +334,10 @@ units(T_K) <- make_units(K)
 
 # create viscosities based on temperatures
 # saturated liquid density at given temperature in degrees Celsius (SI units)
-rho_SI <- density_water(T, "SI")
+rho_SI <- density_water(Temp, "SI")
 
 # absolute or dynamic viscosity at given temperature in degrees Celsius and density of rho (SI units)
-mu_SI <- dyn_visc_water(T, "SI")
+mu_SI <- dyn_visc_water(Temp, "SI")
 
 # kinematic viscosity at given temperature in degrees Celsius and density of rho (SI units)
 nu_SI <- kin_visc_water(rho_SI, mu_SI, rho_units = "kg/m^3", mu_units = "Pa*s or kg/m/s")
@@ -483,12 +370,12 @@ result_units <- c("m", "m^2", "m", "m", "m", "m", "m", "m/s", "m^3/s", "dimensio
 } else if (units == "Eng") {
 
 # use the temperature to determine the density & absolute and kinematic viscosities
-T <- ifelse(is.null(T), 68, T) # degrees F
+Temp <- ifelse(is.null(Temp), 68, Temp) # degrees F
 
-assert_that(qtest(T, "N+(32,)"), msg = "Either T is equal to or less than 32 F, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 32 F / 0 C. Please try again.")
+assert_that(qtest(Temp, "N+(32,)"), msg = "Either Temp is equal to or less than 32 F, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 32 F / 0 C. Please try again.")
 # only process with specified, finite values and provide an error message if the check fails
 
-T_F <- T
+T_F <- Temp
 
 # create a numeric vector with the units of degrees Fahrenheit
 T_F <- set_units(T_F, "degree_F")
@@ -504,11 +391,11 @@ units(T_K) <- make_units(K)
 
 # create viscosities based on temperatures
 # saturated liquid density at given temperature in degrees Fahrenheit (US Customary units)
-rho_Eng <- density_water(T, "Eng", Eng_units = "slug/ft^3")
+rho_Eng <- density_water(Temp, "Eng", Eng_units = "slug/ft^3")
 
 
 # absolute or dynamic viscosity at given temperature in degrees Fahrenheit and density of rho (US Customary units)
-mu_Eng <- dyn_visc_water(T, "Eng", Eng_units = "slug/ft/s")
+mu_Eng <- dyn_visc_water(Temp, "Eng", Eng_units = "slug/ft/s")
 
 
 # kinematic viscosity at given temperature in degrees Fahrenheit and density of rho (US Customary units)

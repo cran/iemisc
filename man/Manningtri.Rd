@@ -11,7 +11,7 @@ Manningtri(
   m = NULL,
   Sf = NULL,
   y = NULL,
-  T = NULL,
+  Temp = NULL,
   units = c("SI", "Eng")
 )
 }
@@ -30,7 +30,7 @@ if known.}
 
 \item{y}{numeric vector that contains the flow depth (m or ft), if known.}
 
-\item{T}{numeric vector that contains the temperature (degrees C or degrees
+\item{Temp}{numeric vector that contains the temperature (degrees C or degrees
 Fahrenheit), if known.}
 
 \item{units}{character vector that contains the system of units {options are
@@ -215,27 +215,16 @@ Note: Units must be consistent
 }
 \examples{
 
-install.load::load_package("iemisc", "iemiscdata")
-
-# Practice Problem 14.41 from Mott (page 393)
-# See nchannel in iemiscdata for the Manning's n table that the
-# following example uses
-# Use the normal Manning's n value for 1) Natural streams - minor streams
-# (top width at floodstage < 100 ft), 2) Excavated or Dredged Channels, 3)
-# Earth, straight, and uniform, 4) clean, recently completed.
-
-data(nchannel)
-
-nlocation <- grep("clean, recently completed",
-nchannel$"Type of Channel and Description")
-
-n <- nchannel[nlocation, 3] # 3 for column 3 - Normal n
-
-Manningtri(Q = 0.68, m = 1.5, Sf = 0.0023, n = n, units = "Eng")
-# Q = 0.68 cfs, m = 1.5, Sf = 0.002 ft/ft, n = 0.05, units = English units
-# This will solve for y since it is missing and y will be in ft
+# Please refer to the iemisc: Manning... Examples using iemiscdata
+# [https://www.ecoccs.com/R_Examples/Manning_iemiscdata_Examples.pdf] and iemisc:
+# Open Channel Flow Examples involving Geometric Shapes with the
+# Gauckler-Manning-Strickler Equation
+# [https://www.ecoccs.com/R_Examples/Open-Channel-Flow_Examples_Geometric_Shapes.pdf]
+# for the cross-section examples using iemiscdata
 
 
+
+library(iemisc)
 
 # Modified Exercise 4.1 from Sturm (page 153)
 Manningtri(Q = 3000, m = 3, Sf = 0.002, n = 0.025, units = "Eng")

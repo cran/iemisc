@@ -1,6 +1,6 @@
 Package: iemisc
 Title: Irucka Embry's Miscellaneous Functions
-Version: 1.0.3
+Version: 1.0.4
 Authors@R: c(person("Irucka", "Embry", role = c("aut", "cre"), email = "iembry@ecoccs.com"),
     person("Felix", "Andrews", role = c("aut", "ctb"), comment = "zoo code"),
     person("Hans Werner", "Borchers", role = c("aut", "ctb"), comment = "pracma code"),
@@ -13,6 +13,8 @@ Authors@R: c(person("Irucka", "Embry", role = c("aut", "cre"), email = "iembry@e
     person("Colin", "Caprani", role = c("aut", "ctb"), comment = "secprop MATLAB function"),
     person("Teodor", "Ciuraru", role = c("aut", "ctb"), comment = "stackoverflow R code"),
     person("Dylan", "Russell", role = c("aut", "ctb"), comment = "stackoverflow R code"),
+    person("John", "Wallace", role = c("aut", "ctb"), comment = "stackoverflow R code"),
+    person("kaijagahm", role = c("aut", "ctb"), comment = "R bloggers R code"),
     person("Colin B.", "Macdonald", role = c("aut", "ctb"), comment = "OctSymPy code"),
     person("John D", "Page", role = c("aut", "ctb"), comment = "JavaScript code"), 
     person("Josh", "O'Brien", role = c("aut", "ctb"), comment = "stackoverflow R code"),
@@ -20,16 +22,16 @@ Authors@R: c(person("Irucka", "Embry", role = c("aut", "cre"), email = "iembry@e
 Maintainer: Irucka Embry <iembry@ecoccs.com>
 Depends: R (>= 3.3.0)
 Imports: zoo, pracma, iemiscdata, gsubfn (>= 0.7), fpCompare, units (>=
-        0.7-0), CHNOSZ (>= 1.3.3), stringi, assertthat, rivr (>=
-        1.2-2), checkmate, ramify, foreach, stats, data.table (>=
+        0.7-0), stringi, assertthat, rivr (>= 1.2-2), checkmate,
+        chem.databases, methods, ramify, foreach, stats, data.table (>=
         1.10.2), measurements, roperators, berryFunctions, round,
         USA.state.boundaries (>= 1.0.1), sf, ggplot2, ggpubr, matlab,
         sjmisc, lubridate, anytime, qdapRegex, mgsub, geosphere,
-        matlab2r, signal, utils, methods
+        matlab2r, signal, utils
 Suggests: install.load, knitr, import, fractional, fracture, MASS,
         rmarkdown, tinytest, maps, spelling, sampler, callr, rando,
         geometry, linguisticsdown, aiRthermo, hydraulics, ie2misc,
-        formatR, pander
+        formatR, pander, printr, tibble, lintr
 Description: A collection of Irucka Embry's miscellaneous functions
     (Engineering Economics, Civil & Environmental/Water Resources Engineering,
     Construction Measurements, GNU Octave compatible functions, Python
@@ -43,7 +45,7 @@ Encoding: UTF-8
 VignetteBuilder: knitr
 RoxygenNote: 7.2.3
 NeedsCompilation: no
-Packaged: 2023-05-03 02:33:21 UTC; xbyri
+Packaged: 2023-09-25 00:27:37 UTC; xbyri
 Author: Irucka Embry [aut, cre],
   Felix Andrews [aut, ctb] (zoo code),
   Hans Werner Borchers [aut, ctb] (pracma code),
@@ -58,9 +60,11 @@ Author: Irucka Embry [aut, cre],
   Colin Caprani [aut, ctb] (secprop MATLAB function),
   Teodor Ciuraru [aut, ctb] (stackoverflow R code),
   Dylan Russell [aut, ctb] (stackoverflow R code),
+  John Wallace [aut, ctb] (stackoverflow R code),
+  kaijagahm [aut, ctb] (R bloggers R code),
   Colin B. Macdonald [aut, ctb] (OctSymPy code),
   John D Page [aut, ctb] (JavaScript code),
   Josh O'Brien [aut, ctb] (stackoverflow R code),
   R. van Twisk [aut, ctb] (LibreCAD code)
 Repository: CRAN
-Date/Publication: 2023-05-04 08:30:02 UTC
+Date/Publication: 2023-09-25 10:20:02 UTC

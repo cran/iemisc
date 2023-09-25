@@ -1,7 +1,23 @@
+# iemisc 1.0.4 (23 September 2023)
+
+* Received an e-mail issue from Kurt Hornik on 19 August 2023 regarding the use of "@docType package" which is no longer valid. Replaced the iemisc.R file with iemisc-package.R to reflect the requested change.
+* Added the `chem.databases` package to Imports to replace `CHNOSZ` which has been removed from Imports
+* Added `printr` to Suggests to allow the printing of help functions in the vignettes & added `tibble` and `lintr` to Suggests
+* Modified the Help section on the README again & Added the additional available function to the README
+* Revised the URL for Urban Hydrology for Small Watersheds Technical Release 55 (TR-55) in the weighted_CN function Reference
+* Revised the air_stripper function to search for the CAS Number in the atsdr_tsca_ld50_a data set of the `chem.databases` package. Also revised the package to obtain the molecular formulas and average mass from the chem_wiki data set of the `chem.databases` package
+* Added the "%inorder%" function to return character vectors in a given sequence
+* Added the c_composite_CN function for connected impervious areas
+* Added the uc_composite_CN function for unconnected impervious areas
+* Replaced the T for temperature variable with Temp for temperature in all functions after doing a `lintr` check on the package to attempt to locate an error causing the references not to be valid in the Manningtrap function
+* Added an additional contributor for the "%inorder%" function
+* Created the Sound Frequencies & Nikola Tesla&#8217;s 3-6-9 Theory vignette and modified all other vignettes. The most significant revisions were made in the Comparing Other Hydraulic Software Output to iemisc&#8217;s Manningtrap for Critical Conditions & Construction Measurement Examples vignettes
+
+
 # iemisc 1.0.3 (3 May 2023)
 
 * Modified the Help section and the package introduction on the README
-* Revised the non-standard evaluation of library calls to standard evaulation calls in the README and in all functions
+* Revised the non-standard evaluation of library calls to standard evaluation calls in the README and in all functions
 * Revised some grammatical issues in various functions
 * Revised the splitcomma function to allow for a set of names in a single character vector to be separated by " & "
 * Revised the reduce_single_digit function to allow for date times and vectors with decimals

@@ -15,7 +15,7 @@
 #'
 #'
 #' 
-#' @param T numeric vector that contains the minimum Temperature (degrees
+#' @param Temp numeric vector that contains the minimum Temperature (degrees
 #'   Celsius, degrees Fahrenheit, or Kelvin)
 #' @param pTe numeric vector that contains the total pressure of gas (air)
 #'   effluent (atm)
@@ -29,7 +29,8 @@
 #'   contaminant in liquid (water) effluent (ug/L)
 #' @param contam2 character vector that contains the name of each contaminant
 #'   (will not include "Total VOCs"). See the example.
-#' @param cas character vector that contains the CAS Number of each contaminant
+#' @param cas character vector that contains the CAS Number of each contaminant,
+#'   if known, otherwise it can be accessed internally
 #' @param Ha numeric vector that contains the Ha (Henry's Law coefficient) at
 #'   the minimum Temperature \emph{T} for each contaminant (atm/mole/mole)
 #' @param Q numeric vector that contains the sustained pumping rate (gallons
@@ -55,16 +56,16 @@
 #'   packing material (the default value is 0.033 kg/s^2)
 #' @param cf numeric vector that contains the packing factor for the packing
 #'   material (the default value is 15/ft)
-#' @param T_units character vector that contains the possible units for the
+#' @param Temp_unit character vector that contains the possible units for the
 #'   water temperature {options are \code{SI} for International System of Units,
 #'   \code{Eng} for English units (United States Customary System in the United
 #'   States and Imperial Units in the United Kingdom), or \code{Absolute} for
 #'   Absolute Units}
-#' @param dP_units character vector that contains the possible units for the
+#' @param dP_unit character vector that contains the possible units for the
 #'   nominal diameters for the packing material (inch or mm)
-#' @param at_units character vector that contains the possible units for the
+#' @param at_unit character vector that contains the possible units for the
 #'   total surface area for the packing material (ft^2/ft^3 or m^2/m^3)
-#' @param Sc_units character vector that contains the possible units for the
+#' @param Sc_unit character vector that contains the possible units for the
 #'   critical surface tension for the packing material (kg/s^2 or slug/s^2)
 #' @param contaminants_table integer vector that contains 0, 1 only. 0 represents
 #'   do not print the Contaminants Table and 1 is for printing the Contaminants
@@ -97,7 +98,7 @@
 #' Please Note: The calculations assume dry air rather than humid air.
 #' 
 #' Please refer to the iemisc: Air Stripping By Packed Column Examples vignette
-#' for additional examples
+#' for examples
 #'
 #'
 #'
@@ -129,27 +130,6 @@
 #'
 #'
 #'
-#' @examples
-#' 
-#' library(iemisc)
-#'
-#' # 'Appendix D Example Air Stripping By Packed Column' from Design (page D-1 - D-18)
-#'
-#' contam1 <- c("Benzene", "Toluene", "Trichloroethylene")
-#' Cai <- c(750, 1000, 750)
-#' Cae <- c(10, 100, 100)
-#' contam2 <- c("Benzene", "Toluene", "Trichloroethylene")
-#' cas <- c("71-43-2", "108-88-3", "79-01-6")
-#' Ha <- c(309.2, 353.1, 506.1)
-#' DL <- c(8.91 * 10 ^ -10, NA_real_, NA_real_)
-#' DG <- c(9.37 * 10 ^ -6, NA_real_, NA_real_)
-#' 
-#' air_stripper(T = 20, pTe = 1, contam1 = contam1, Cai = Cai, Cae = Cae,
-#' contam2 = contam2, cas = cas, Ha = Ha, Q = 440, loading = 45, ns = 2,
-#' DL = DL, DG = DG, dP = 2, at = 48, Sc = 0.033, cf = 15, R = 3.5,
-#' T_units = "SI", dP_units = "inch", at_units = "ft^2/ft^3",
-#' Sc_units = "kg/s^2", contaminants_table = 1,
-#' removal_requirements_table = 1, critical_contaminant_table = 1)
 #'
 #'
 #' @importFrom data.table data.table setnames setattr setkey .I .EACHI :=
@@ -157,13 +137,22 @@
 #' @importFrom assertthat assert_that
 #' @importFrom checkmate qtest
 #' @importFrom round round_r3
-#' @import CHNOSZ
+#' @import chem.databases
 #'
 #' @export
-air_stripper <- function (T, pTe, contam1, Cai, Cae, contam2, cas, Ha, Q, loading, ns, DL, DG, R, P_atm = NULL, dP = NULL, at = NULL, Sc = NULL, cf = NULL, T_units = c("SI", "Eng", "Absolute"), dP_units = c("inch", "mm"), at_units = c("ft^2/ft^3", "m^2/m^3"), Sc_units = c("kg/s^2", "slug/s^2"), contaminants_table = c(0, 1), removal_requirements_table = c(0, 1), critical_contaminant_table = c(0, 1)) {
+air_stripper <- function (Temp, pTe, contam1, Cai, Cae, contam2, cas = NULL, Ha, Q, loading, ns, DL, DG, R, P_atm = NULL, dP = NULL, at = NULL, Sc = NULL, cf = NULL, Temp_unit = c("SI", "Eng", "Absolute"), dP_unit = c("inch", "mm"), at_unit = c("ft^2/ft^3", "m^2/m^3"), Sc_unit = c("kg/s^2", "slug/s^2"), contaminants_table = c(0, 1), removal_requirements_table = c(0, 1), critical_contaminant_table = c(0, 1)) {
 
 degree_C <- J <- value <- K <- ft <- m <- kg <- s <- NULL
 # due to NSE notes in R CMD check
+
+
+# copy the dataset as atsdrtscald50
+atsdrtscald50 <- chem.databases::atsdr_tsca_ld50_a
+
+# copy the dataset as chemwiki
+chemwiki <- chem.databases::chem_wiki
+
+
 
 ifelse(missing(P_atm), P_atm <- 1, P_atm <- P_atm)
 
@@ -181,15 +170,16 @@ ifelse(missing(removal_requirements_table), removal_requirements_table <- 0, rem
 
 ifelse(missing(critical_contaminant_table), critical_contaminant_table <- 0, critical_contaminant_table <- critical_contaminant_table)
 
+ifelse(missing(cas), cas <- atsdrtscald50[as.numeric(atsdrtscald50$"Registry Name" %inorder% contam1), "CAS"][[1]], cas <- cas)
 
 
-check_numbers <- c(T, pTe, Cai, Cae, Ha, Q, loading, ns, DL, DG, R, dP, at, Sc, cf)
+check_numbers <- c(Temp, pTe, Cai, Cae, Ha, Q, loading, ns, DL, DG, R, dP, at, Sc, cf)
 
 check_strings <- c(contam1, contam2, cas)
 
 
 # check on check_numbers
-assert_that(!any(qtest(check_numbers, "n+[0,)") == FALSE), msg = "T, pTe, Cai, Cae, Ha, Q, loading, ns, DL, DG, R, dP, at, Sc, and/or cf Inf, -Inf, empty, or a character string. Please try again.")
+assert_that(!any(qtest(check_numbers, "n+[0,)") == FALSE), msg = "Temp, pTe, Cai, Cae, Ha, Q, loading, ns, DL, DG, R, dP, at, Sc, and/or cf Inf, -Inf, empty, or a character string. Please try again.")
 # only process with numeric values and provide an error message if the check fails
 
 # check on check_strings
@@ -197,40 +187,40 @@ assert_that(!any(qtest(check_strings, "S+") == FALSE), msg = "contam1, contam2, 
 # only process with character string values and provide an error message if the check fails
 
 
-# the minimum Temperature T is in degrees Celsius
-T_units <- T_units
+# the minimum Temperature Temp is in degrees Celsius
+Temp_unit <- Temp_unit
 
 
-# Check T_units
-assert_that(qtest(T_units, "S==1"), msg = "There is not a T_units type or more than 1 T_units type. Please specify either 'SI', 'Eng', or 'Absolute'.")
+# Check Temp_unit
+assert_that(qtest(Temp_unit, "S==1"), msg = "There is not a Temp_unit type or more than 1 Temp_unit type. Please specify either 'SI', 'Eng', or 'Absolute'.")
 # only process with enough known variables and provide an error message if the check fails
 
-assert_that(isTRUE(any(c("SI", "Eng", "Absolute") %in% T_units)), msg = "The T_units system has not been identified correctly as either 'SI', 'Eng', or 'Absolute'. Please try again.")
-# only process with a specified T_units and provide a stop warning if not
+assert_that(isTRUE(any(c("SI", "Eng", "Absolute") %in% Temp_unit)), msg = "The Temp_unit system has not been identified correctly as either 'SI', 'Eng', or 'Absolute'. Please try again.")
+# only process with a specified Temp_unit and provide a stop warning if not
 
 
-# Check dP_units
-assert_that(qtest(dP_units, "S==1"), msg = "There is not a dP_units type or more than 1 dP_units type. Please specify either 'inch' or 'mm'.")
+# Check dP_unit
+assert_that(qtest(dP_unit, "S==1"), msg = "There is not a dP_unit type or more than 1 dP_unit type. Please specify either 'inch' or 'mm'.")
 # only process with enough known variables and provide an error message if the check fails
 
-assert_that(isTRUE(any(c("inch", "mm") %in% dP_units)), msg = "The dP_units system has not been identified correctly as either 'inch' or 'mm'. Please try again.")
-# only process with a specified dP_units and provide a stop warning if not
+assert_that(isTRUE(any(c("inch", "mm") %in% dP_unit)), msg = "The dP_unit system has not been identified correctly as either 'inch' or 'mm'. Please try again.")
+# only process with a specified dP_unit and provide a stop warning if not
 
 
-# Check at_units
-assert_that(qtest(at_units, "S==1"), msg = "There is not a at_units type or more than 1 at_units type. Please specify either 'ft^2/ft^3' or 'm^2/m^3'.")
+# Check at_unit
+assert_that(qtest(at_unit, "S==1"), msg = "There is not a at_unit type or more than 1 at_unit type. Please specify either 'ft^2/ft^3' or 'm^2/m^3'.")
 # only process with enough known variables and provide an error message if the check fails
 
-assert_that(isTRUE(any(c("ft^2/ft^3", "m^2/m^3") %in% at_units)), msg = "The at_units system has not been identified correctly as either 'ft^2/ft^3' or 'm^2/m^3'. Please try again.")
-# only process with a specified at_units and provide a stop warning if not
+assert_that(isTRUE(any(c("ft^2/ft^3", "m^2/m^3") %in% at_unit)), msg = "The at_unit system has not been identified correctly as either 'ft^2/ft^3' or 'm^2/m^3'. Please try again.")
+# only process with a specified at_unit and provide a stop warning if not
 
 
-# Check Sc_units
-assert_that(qtest(Sc_units, "S==1"), msg = "There is not a Sc_units type or more than 1 Sc_units type. Please specify either 'kg/s^2' or 'slug/s^2'.")
+# Check Sc_unit
+assert_that(qtest(Sc_unit, "S==1"), msg = "There is not a Sc_unit type or more than 1 Sc_unit type. Please specify either 'kg/s^2' or 'slug/s^2'.")
 # only process with enough known variables and provide an error message if the check fails
 
-assert_that(isTRUE(any(c("kg/s^2", "slug/s^2") %in% Sc_units)), msg = "The Sc_units system has not been identified correctly as either 'kg/s^2' or 'slug/s^2'. Please try again.")
-# only process with a specified Sc_units and provide a stop warning if not
+assert_that(isTRUE(any(c("kg/s^2", "slug/s^2") %in% Sc_unit)), msg = "The Sc_unit system has not been identified correctly as either 'kg/s^2' or 'slug/s^2'. Please try again.")
+# only process with a specified Sc_unit and provide a stop warning if not
 
 
 # check on the tables
@@ -261,13 +251,13 @@ assert_that(qtest(critical_contaminant_table, "N==1[0,1]"), msg = "critical_cont
 # standard acceleration of gravity (g) 9.80665 m / s^2
 
 # Mohr reference
-# Molar volume of ideal gas Ru * T / rho
-# T = 273.15 K, rho = 100 kPa, Loschmidt constant NA / Vm
+# Molar volume of ideal gas Ru * Temp / rho
+# Temp = 273.15 K, rho = 100 kPa, Loschmidt constant NA / Vm
 # 22.710947 x 10 ^ -3 m3 mol-1
 
 # Mohr reference
-# Molar volume of ideal gas Ru * T / rho
-# T = 273.15 K, rho = 101.325 kPa, Loschmidt constant NA / Vm
+# Molar volume of ideal gas Ru * Temp / rho
+# Temp = 273.15 K, rho = 101.325 kPa, Loschmidt constant NA / Vm
 # 22.413962 x 10 ^ -3 m3 mol-1
 
 # Mohr reference
@@ -288,42 +278,41 @@ assert_that(qtest(critical_contaminant_table, "N==1[0,1]"), msg = "critical_cont
 gc <- 9.80665 # m / s^2 (NIST reference)
 
 
-# make the contaminant 2 vector lowercase to match the database
-contam_lower <- tolower(contam2)
-
-
-# from accucor R package
-# Required to ensure the "thermo" object is created and defaults are used
-suppressMessages(CHNOSZ::reset())
-
-
 # obtain the chemical formulas for the contaminant 2 vector
-formula <- info(contam_lower)
+formula <- chemwiki[chemwiki$CAS %inorder% cas, "Molecular Formula"]
 
-formula <- info(formula)$formula
+# return formula as a vector
+formula <- formula[, `Molecular Formula`]
 
 
 # get the molecular mass for each of the contaminants and water
-gmw <- mass(formula)
+gmw <- chemwiki[chemwiki$CAS %inorder% cas, "Average Mass"]
+
+# return gmw as a vector
+gmw <- gmw[, `Average Mass`]
 
 
 # get the mass of water
-H2O <- mass("H2O")
+H2O <- chemwiki[`Substance Name` == "Water", "Average Mass"]
+
+# return H2O as a vectors
+H2O <- H2O[, `Average Mass`]
+
 
 
 # the universal gas constant
 Ru <- 0.08205746 # m^3 atm / kg mole K (DG reference) / atm*m^3*kg^-1*mol^-1*K^-1 # units only for Ru
 
-Ru_use <- 8.314 # J/K·mol [Used for calculating the density of water]
+Ru_use <- 8.314 # J/K·mol s[Used for calculating the density of water]
 
 
 
 
-# T_units
-if (T_units == "SI") {
+# Temp_unit
+if (Temp_unit == "SI") {
 
 # create a numeric vector with the units of degrees Celsius
-T_C <- set_units(T, "degree_C")
+T_C <- set_units(Temp, "degree_C")
 
 # create a numeric vector to convert from degrees Celsius to Kelvin
 T_K <- T_C
@@ -337,9 +326,9 @@ T_Knum <- drop_units(T_K)
 T_Cnum <- drop_units(T_C)
 
 
-} else if (T_units == "Eng") {
+} else if (Temp_unit == "Eng") {
 
-T_F <- T
+T_F <- Temp
 
 # create a numeric vector with the units of degrees Fahrenheit
 T_F <- set_units(T_F, "degree_F")
@@ -361,9 +350,9 @@ T_Knum <- drop_units(T_K)
 T_Cnum <- drop_units(T_C)
 
 
-} else if (T_units == "Absolute") {
+} else if (Temp_unit == "Absolute") {
 
-T_K <- T
+T_K <- Temp
 
 # create a numeric vector with the units of Kelvin
 units(T_K) <- make_units(K)
@@ -383,19 +372,19 @@ T_Cnum <- drop_units(T_C)
 
 
 # Water
-# liquid density of Water at the minimum Temperature T (kg/m^3)
+# liquid density of Water at the minimum Temperature Temp (kg/m^3)
 rhoL <- density_water(T_Knum, units = "Absolute")
 
 
-# liquid viscosity of Water at the minimum Temperature T (kg/m s)
+# liquid viscosity of Water at the minimum Temperature Temp (kg/m s)
 muL <- dyn_visc_water(T_Knum, units = "Absolute")
 
 
-# liquid surface tension of Water at the minimum Temperature T (kg/s^2)
+# liquid surface tension of Water at the minimum Temperature Temp (kg/s^2)
 S <- surf_tens_water(T_Knum, units = "Absolute")
 
 
-# molar density of Water at the minimum Temperature T (kg mole/m^3)
+# molar density of Water at the minimum Temperature Temp (kg mole/m^3)
 C0 <- rhoL / H2O
 
 
@@ -438,7 +427,7 @@ air_crit_T <- -140.5 # C
 air_crit_P <- 37.25 # atm
 
 # ideal gas law equation is only valid where the assertions above are valid (critical temperature and pressure)
-# gas (air) density at the minimum Temperature T and pTe (kg/m^3)
+# gas (air) density at the minimum Temperature Temp and pTe (kg/m^3)
 
 if (air_crit_T < T_Cnum & air_crit_P > P_atm) {
 
@@ -507,7 +496,7 @@ j <- 1:4
 delta_nurhor <- sum(B * rhor ^ j)
 
 
-# gas (air) viscosity at the minimum Temperature T and pTe (kg/m s)
+# gas (air) viscosity at the minimum Temperature Temp and pTe (kg/m s)
 muG <- H * (nuTr + delta_nurhor) # air viscosity with units of kg/m*s
 
 # old formulation (# Andreas reference)
@@ -760,8 +749,8 @@ L <- round_r3(rhoL * VL_SI, d = 2) # kg / m^2 * s
 
 # set units for packing materials
 
-# dP_units
-if (dP_units == "inch") {
+# dP_unit
+if (dP_unit == "inch") {
 
 # create a numeric vector with the units of inch
 dP <- set_units(dP, "inch")
@@ -777,7 +766,7 @@ units(dP) <- make_units(m)
 dP <- drop_units(dP)
 
 
-} else if (dP_units == "mm") {
+} else if (dP_unit == "mm") {
 
 # create a numeric vector with the units of mm
 dP <- set_units(dP, "mm")
@@ -797,8 +786,8 @@ dP <- drop_units(dP)
 
 
 
-# at_units
-if (at_units == "ft^2/ft^3") {
+# at_unit
+if (at_unit == "ft^2/ft^3") {
 
 # create a numeric vector with the units of ft^2/ft^3
 at <- set_units(at, "ft^2/ft^3")
@@ -814,7 +803,7 @@ units(at) <- make_units(m^2/m^3)
 at <- drop_units(at)
 
 
-} else if (at_units == "m^2/m^3") {
+} else if (at_unit == "m^2/m^3") {
 
 # copy the numeric vector at as it's already in the correct units
 at <- at
@@ -823,8 +812,8 @@ at <- at
 
 
 
-# Sc_units
-if (Sc_units == "slug/s^2") {
+# Sc_unit
+if (Sc_unit == "slug/s^2") {
 
 # create a numeric vector with the units of slug/s^2
 Sc <- set_units(Sc, "slug/s^2")
@@ -840,7 +829,7 @@ units(Sc) <- make_units(kg/s^2)
 Sc <- drop_units(Sc)
 
 
-} else if (at_units == "kg/s^2") {
+} else if (at_unit == "kg/s^2") {
 
 # copy the numeric vector Sc as it's already in the correct units
 Sc <- Sc

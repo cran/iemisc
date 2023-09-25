@@ -45,17 +45,17 @@ The equation is expressed as
 
 library(iemisc)
 
-rho1 <- density_water(T = 68, units = "Eng", Eng_units = "slug/ft^3")
+rho1 <- density_water(Temp = 68, units = "Eng", Eng_units = "slug/ft^3")
 
 unit_wt(rho = rho1, units = "Eng", Eng_units = "slug/ft^3")
 
 
-rho2 <- density_water(T = 68, units = "Eng", Eng_units = "lbm/ft^3")
+rho2 <- density_water(Temp = 68, units = "Eng", Eng_units = "lbm/ft^3")
 
 unit_wt(rho = rho2, units = "Eng", Eng_units = "lbm/ft^3")
 
 
-rho3 <- density_water(T = 20, units = "SI")
+rho3 <- density_water(Temp = 20, units = "SI")
 
 unit_wt(rho = rho3, units = "SI")
 

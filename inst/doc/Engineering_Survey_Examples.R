@@ -17,10 +17,7 @@ Easting_end <- 1295973.7743
 pander(project_midpoint(Northing_begin, Easting_begin, Northing_end, Easting_end, units =
 "survey_ft", location = "TN", output = "advanced"))
 
-
-
-
-# Tennessee (TN) Northing and Easting in meters
+## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
 
 Northing2 <- c(232489.480, 234732.431)
 
@@ -32,7 +29,6 @@ pander(dt4A)
 
 ## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
 
-# Tennessee (TN) Northing and Easting in US Survey foot
 Northing3 <- c("630817.6396", "502170.6065", "562,312.2349", "574,370.7178")
 
 Easting3 <- c("2559599.9201", "1433851.6509", "1,843,018.4099", "1,854,896.0041")
@@ -58,8 +54,6 @@ pander(dt3D) # fourth set of Northing, Easting points
 
 ## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
 
-# Tennessee (TN) Northing and Easting in meters
-
 Northing4 <- c(232489.480, 234732.431)
 
 Easting4 <- c(942754.124, 903795.239)
@@ -72,8 +66,6 @@ dt4B <- engr_survey(Northing4[2], Easting4[2], "meters", "TN", output = "table",
 pander(dt4B)
 
 ## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
-
-# Tennessee (TN) Northing and Easting in meters
 
 Northing2 <- c(232489.480, 234732.431)
 
@@ -111,7 +103,6 @@ engr_survey3(23, station_distance = 100, units = "survey_mile", output = "numeri
 engr_survey4(1394.32, "45+43.12", units = "kilometers")
 
 ## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
-# Tennessee
 
 lat <- 35.8466965
 
@@ -121,9 +112,7 @@ dt1A <- engr_survey_reverse(lat, long, units = "survey_ft", location = "TN", out
 "table", utm = 0)
 pander(dt1A)
 
-
-
-# Kentucky
+## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
 
 lats <- "37'50'21.5988''N"
 longs <- "84'16'12.0720'W"

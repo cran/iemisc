@@ -69,7 +69,7 @@ n(nb = 0.025, n4 = 0.005, m = 1.00)
 \enumerate{
    \item Terry W. Sturm, \emph{Open Channel Hydraulics}, 2nd Edition, New York City, New York: The McGraw-Hill Companies, Inc., 2010, page 114.
    \item Guide for Selecting Manning's Roughness Coefficients for Natural Channels and Flood Plains, United States Geological Survey Water-supply Paper 2339 Metric Version
-   \item George J. Arcement, Jr., and Verne R. Schneider, United States Geological Survey Water-Supply Paper 2339, "Guide for Selecting Manning's Roughness Coefficients for Natural Channels and Flood Plains", 1989, \url{http://pubs.usgs.gov/wsp/2339/report.pdf}.
+   \item George J. Arcement, Jr., and Verne R. Schneider, United States Geological Survey Water-Supply Paper 2339, "Guide for Selecting Manning's Roughness Coefficients for Natural Channels and Flood Plains", 1989, \url{https://pubs.usgs.gov/wsp/2339/report.pdf}.
 }
 }
 \seealso{

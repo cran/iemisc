@@ -29,7 +29,7 @@
 #' 
 #' 
 #'
-#' @param T numeric vector that contains the temperature (degrees Celsius,
+#' @param Temp numeric vector that contains the temperature (degrees Celsius,
 #'   degrees Fahrenheit, or Kelvin)
 #' @param units character vector that contains the system of units (options are
 #'   \code{SI} for International System of Units, \code{Eng} for English units
@@ -77,17 +77,18 @@
 #'
 #' vps <- hydraulics::svp(T = 10, units = "SI"); vps
 #'
-#' vps2 <- sat_vapor_pressure(T = 10, units = "SI", formula = "Huang"); vps2
+#' vps2 <- sat_vapor_pressure(Temp = 10, units = "SI", formula = "Huang"); vps2
 #'
 #'
 #'
 #'
 #'
-#' # Example 2 - from the Reference
+#' # Example 2 - from the Huang Reference
 #'
 #' library(iemisc)
 #'
-#' sat_vapor_pressure(T = c(0.01, seq(from = 20, to = 100, by = 20)), units = "SI", formula = "Huang")
+#' sat_vapor_pressure(Temp = c(0.01, seq(from = 20, to = 100, by = 20)), units
+#' = "SI", formula = "Huang")
 #'
 #'
 #'
@@ -97,10 +98,10 @@
 #'
 #' install.load::load_package("iemisc", "units")
 #'
-#' T <- 40
+#' Temp <- 40
 #'
 #' # create a numeric vector with the units of degrees Celsius
-#' T_C <- set_units(T, "degree_C")
+#' T_C <- set_units(Temp, "degree_C")
 #' T_C
 #'
 #' # create a numeric vector to convert from degrees Celsius to Kelvin
@@ -113,7 +114,7 @@
 #' pre <- aiRthermo::saturation_pressure_H2O(drop_units(T_K))
 #' pre
 #'
-#' sat_vapor_pressure(T = drop_units(T_K), units = "Absolute", formula = "Huang")
+#' sat_vapor_pressure(Temp = drop_units(T_K), units = "Absolute", formula = "Huang")
 #'
 #'
 #'
@@ -125,7 +126,7 @@
 #' @importFrom checkmate qtest
 #'
 #' @export
-sat_vapor_pressure <- function (T, units = c("SI", "Eng", "Absolute"), formula = c("Huang", "Buck", "IAPWS")) {
+sat_vapor_pressure <- function (Temp, units = c("SI", "Eng", "Absolute"), formula = c("Huang", "Buck", "IAPWS")) {
 
 
 psi <- K <- degree_C <- Pa <- NULL
@@ -152,7 +153,7 @@ if (units == "SI") {
 
 if (formula == "Huang") {
 
-assert_that(qtest(T, "N+(0,)"), msg = "Either T is less than 273.15 K / 32 F / 0 C, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 273.15 K / 32 F / 0 C. Please try again.")
+assert_that(qtest(Temp, "N+(0,)"), msg = "Either Temp is less than 273.15 K / 32 F / 0 C, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 273.15 K / 32 F / 0 C. Please try again.")
 # only process with specified, finite values and provide an error message if the check fails
 
 # Saturation Vapor Pressure for water
@@ -164,11 +165,11 @@ return(Ps)
 
 } else if (formula == "Buck") {
 
-assert_that(qtest(T, "N+(0,)"), msg = "Either T is less than 273.15 K / 32 F / 0 C, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 273.15 K / 32 F / 0 C. Please try again.")
+assert_that(qtest(Temp, "N+(0,)"), msg = "Either Temp is less than 273.15 K / 32 F / 0 C, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 273.15 K / 32 F / 0 C. Please try again.")
 # only process with specified, finite values and provide an error message if the check fails
 
 # Saturation Vapor Pressure for water
-Ps <- 6.1121 * exp((18.678 - T / 234.5) * T / (257.14 + T))
+Ps <- 6.1121 * exp((18.678 - Temp / 234.5) * Temp / (257.14 + Temp))
 
 # create a numeric vector with the units of hPa
 Ps <- set_units(Ps, "hPa")
@@ -185,10 +186,10 @@ return(drop_units(Ps)) # Pa
 
 } else if (formula == "IAPWS") {
 
-assert_that(qtest(T, "N+[0.01,373.946]"), msg = "Either T is less than 273.16 K / 0.01 C / 32.018 F, greater than 647.096 K / 373.946 C / 705.1028 F, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures equal to or greater than 273.16 K / 0.01 C / 32.018 F & less than or equal to 647.096 K / 373.946 C / 705.1028 F. Please try again.")
+assert_that(qtest(Temp, "N+[0.01,373.946]"), msg = "Either Temp is less than 273.16 K / 0.01 C / 32.018 F, greater than 647.096 K / 373.946 C / 705.1028 F, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures equal to or greater than 273.16 K / 0.01 C / 32.018 F & less than or equal to 647.096 K / 373.946 C / 705.1028 F. Please try again.")
 # only process with specified, finite values and provide an error message if the check fails
 
-T_C <- T
+T_C <- Temp
 
 # create a numeric vector with the units of degrees Fahrenheit
 T_C <- set_units(T_C, "degree_C")
@@ -246,10 +247,10 @@ return(drop_units(Ps)) # Pa
 
 if (formula == "Huang") {
 
-assert_that(qtest(T, "N+(32,)"), msg = "Either T is less than 273.15 K / 32 F / 0 C, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 273.15 K / 32 F / 0 C. Please try again.")
+assert_that(qtest(Temp, "N+(32,)"), msg = "Either Temp is less than 273.15 K / 32 F / 0 C, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 273.15 K / 32 F / 0 C. Please try again.")
 # only process with specified, finite values and provide an error message if the check fails
 
-T_F <- T
+T_F <- Temp
 
 # create a numeric vector with the units of degrees Fahrenheit
 T_F <- set_units(T_F, "degree_F")
@@ -280,11 +281,11 @@ return(drop_units(Ps)) # psi
 
 } else if (formula == "Buck") {
 
-assert_that(qtest(T, "N+(32,)"), msg = "Either T is less than 273.15 K / 32 F / 0 C, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 273.15 K / 32 F / 0 C. Please try again.")
+assert_that(qtest(Temp, "N+(32,)"), msg = "Either Temp is less than 273.15 K / 32 F / 0 C, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 273.15 K / 32 F / 0 C. Please try again.")
 # only process with specified, finite values and provide an error message if the check fails
 
 
-T_F <- T
+T_F <- Temp
 
 # create a numeric vector with the units of degrees Fahrenheit
 T_F <- set_units(T_F, "degree_F")
@@ -312,11 +313,11 @@ return(drop_units(Ps)) # Pa
 
 } else if (formula == "IAPWS") {
 
-assert_that(qtest(T, "N+[32.018,705.1028]"), msg = "Either T is less than 273.16 K / 0.01 C / 32.018 F, greater than 647.096 K / 373.946 C / 705.1028 F, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures equal to or greater than 273.16 K / 0.01 C / 32.018 F & less than or equal to 647.096 K / 373.946 C / 705.1028 F. Please try again.")
+assert_that(qtest(Temp, "N+[32.018,705.1028]"), msg = "Either Temp is less than 273.16 K / 0.01 C / 32.018 F, greater than 647.096 K / 373.946 C / 705.1028 F, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures equal to or greater than 273.16 K / 0.01 C / 32.018 F & less than or equal to 647.096 K / 373.946 C / 705.1028 F. Please try again.")
 # only process with specified, finite values and provide an error message if the check fails
 
 
-T_F <- T
+T_F <- Temp
 
 # create a numeric vector with the units of degrees Fahrenheit
 T_F <- set_units(T_F, "degree_F")
@@ -375,10 +376,10 @@ return(drop_units(Ps)) # Pa
 
 if (formula == "Huang") {
 
-assert_that(qtest(T, "N+(273.15,)"), msg = "Either T is less than 273.15 K / 32 F / 0 C, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 273.15 K / 32 F / 0 C. Please try again.")
+assert_that(qtest(Temp, "N+(273.15,)"), msg = "Either Temp is less than 273.15 K / 32 F / 0 C, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 273.15 K / 32 F / 0 C. Please try again.")
 # only process with specified, finite values and provide an error message if the check fails
 
-T_K <- T
+T_K <- Temp
 
 # create a numeric vector with the units of Kelvin
 units(T_K) <- make_units(K)
@@ -399,11 +400,11 @@ return(Ps)
 
 } else if (formula == "Buck") {
 
-assert_that(qtest(T, "N+(273.15,)"), msg = "Either T is less than 273.15 K / 32 F / 0 C, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 273.15 K / 32 F / 0 C. Please try again.")
+assert_that(qtest(Temp, "N+(273.15,)"), msg = "Either Temp is less than 273.15 K / 32 F / 0 C, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 273.15 K / 32 F / 0 C. Please try again.")
 # only process with specified, finite values and provide an error message if the check fails
 
 
-T_K <- T
+T_K <- Temp
 
 # create a numeric vector with the units of Kelvin
 units(T_K) <- make_units(K)
@@ -434,7 +435,7 @@ return(drop_units(Ps)) # Pa
 
 } else if (formula == "IAPWS") {
 
-assert_that(qtest(T, "N+[273.16,647.096]"), msg = "Either T is less than 273.16 K / 0.01 C / 32.018 F, greater than 647.096 K / 373.946 C / 705.1028 F, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures equal to or greater than 273.16 K / 0.01 C / 32.018 F & less than or equal to 647.096 K / 373.946 C / 705.1028 F. Please try again.")
+assert_that(qtest(Temp, "N+[273.16,647.096]"), msg = "Either Temp is less than 273.16 K / 0.01 C / 32.018 F, greater than 647.096 K / 373.946 C / 705.1028 F, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures equal to or greater than 273.16 K / 0.01 C / 32.018 F & less than or equal to 647.096 K / 373.946 C / 705.1028 F. Please try again.")
 # only process with specified, finite values and provide an error message if the check fails
 
 
@@ -513,7 +514,7 @@ return(drop_units(Ps)) # Pa
 #'
 #'
 #'
-#' @param T numeric vector that contains the temperature (degrees Celsius,
+#' @param Temp numeric vector that contains the temperature (degrees Celsius,
 #'   degrees Fahrenheit, or Kelvin)
 #' @param units character vector that contains the system of units {options are
 #'   \code{SI} for International System of Units, \code{Eng} for English units
@@ -554,7 +555,7 @@ return(drop_units(Ps)) # Pa
 #'
 #' library(iemisc)
 #' 
-#' sat_vapor_pressure_ice(T = seq(from = -100, to = 0, by = 20), units = "SI")
+#' sat_vapor_pressure_ice(Temp = seq(from = -100, to = 0, by = 20), units = "SI")
 #' 
 #' 
 #'
@@ -564,7 +565,7 @@ return(drop_units(Ps)) # Pa
 #' @importFrom checkmate qtest
 #'
 #' @export
-sat_vapor_pressure_ice <- function (T, units = c("SI", "Eng", "Absolute")) {
+sat_vapor_pressure_ice <- function (Temp, units = c("SI", "Eng", "Absolute")) {
 
 
 psi <- K <- degree_C <- NULL
@@ -587,7 +588,7 @@ if (units == "SI") {
 
 # use the temperature to determine the Saturation Vapor Pressure for water
 
-assert_that(qtest(T, "N+(,0]"), msg = "Either T is greater than 0 C, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 0 C / 32 F. Please try again.")
+assert_that(qtest(Temp, "N+(,0]"), msg = "Either Temp is greater than 0 C, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 0 C / 32 F. Please try again.")
 # only process with specified, finite values and provide an error message if the check fails
 
 # Saturation Vapor Pressure for water
@@ -600,10 +601,10 @@ return(Ps)
 
 # use the temperature to determine the Saturation Vapor Pressure for water
 
-assert_that(qtest(T, "N+(,32]"), msg = "Either T is greater than 32 F, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 32 F / 0 C. Please try again.")
+assert_that(qtest(Temp, "N+(,32]"), msg = "Either Temp is greater than 32 F, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 32 F / 0 C. Please try again.")
 # only process with specified, finite values and provide an error message if the check fails
 
-T_F <- T
+T_F <- Temp
 
 # create a numeric vector with the units of degrees Fahrenheit
 T_F <- set_units(T_F, "degree_F")
@@ -635,10 +636,10 @@ return(drop_units(Ps)) # psi
 
 # use the temperature to determine the Saturation Vapor Pressure for water
 
-assert_that(qtest(T, "N+(,273.15]"), msg = "Either T is greater than 273.15 K, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 273.15 K / 32 F / 0 C. Please try again.")
+assert_that(qtest(Temp, "N+(,273.15]"), msg = "Either Temp is greater than 273.15 K, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures greater than 273.15 K / 32 F / 0 C. Please try again.")
 # only process with specified, finite values and provide an error message if the check fails
 
-T_K <- T
+T_K <- Temp
 
 # create a numeric vector with the units of Kelvin
 units(T_K) <- make_units(K)
@@ -713,7 +714,7 @@ return(Ps)
 #'
 #'
 #'
-#' @param T numeric vector that contains the temperature (degrees Celsius,
+#' @param Temp numeric vector that contains the temperature (degrees Celsius,
 #'   degrees Fahrenheit, or Kelvin)
 #' @param units character vector that contains the system of units {options are
 #'   \code{SI} for International System of Units, \code{Eng} for English units
@@ -768,9 +769,9 @@ return(Ps)
 #' 
 #' 647.096 # K
 #' 
-#' T <- c(273.16, 373.1243, 647.096)
+#' Temp <- c(273.16, 373.1243, 647.096)
 #' 
-#' round::round_r3(density_water(T, units = "Absolute"), d = 3)
+#' round::round_r3(density_water(Temp, units = "Absolute"), d = 3)
 #' 
 #' 
 #' # Reference standard
@@ -789,7 +790,7 @@ return(Ps)
 #' 
 #' rho <- hydraulics::dens(T = 25, units = "SI"); rho
 #' 
-#' rho2 <- density_water(T = 25, units = "SI"); rho2
+#' rho2 <- density_water(Temp = 25, units = "SI"); rho2
 #' 
 #' 
 #'
@@ -799,10 +800,10 @@ return(Ps)
 #' 
 #' install.load::load_package("iemisc", "units")
 #' 
-#' T <- 180
+#' Temp <- 180
 #' 
 #' # create a numeric vector with the units of degrees Celsius
-#' T_C <- set_units(T, "degree_C")
+#' T_C <- set_units(Temp, "degree_C")
 #' T_C
 #' 
 #' # create a numeric vector to convert from degrees Celsius to Kelvin
@@ -821,7 +822,7 @@ return(Ps)
 #' # Should not be the same as aiRthermo deals with water vapor rather than
 #' # saturated liquid water
 #' 
-#' density_water(T = drop_units(T_K), units = "Absolute")
+#' density_water(Temp = drop_units(T_K), units = "Absolute")
 #' 
 #' 
 #'
@@ -832,7 +833,7 @@ return(Ps)
 #' @importFrom checkmate qtest
 #'
 #' @export
-density_water <- function (T, units = c("SI", "Eng", "Absolute"), Eng_units = c("slug/ft^3", "lbm/ft^3")) {
+density_water <- function (Temp, units = c("SI", "Eng", "Absolute"), Eng_units = c("slug/ft^3", "lbm/ft^3")) {
 
 
 K <- slug <- ft <- lb <- NULL
@@ -864,7 +865,7 @@ if (units == "SI") {
 # use the temperature to determine the saturated liquid density for water
 
 # create a numeric vector with the units of degrees Celsius
-T_C <- set_units(T, "degree_C")
+T_C <- set_units(Temp, "degree_C")
 
 
 # create a numeric vector to convert from degrees Celsius to Kelvin
@@ -875,7 +876,7 @@ T_K <- T_C
 units(T_K) <- make_units(K)
 
 
-assert_that(qtest(drop_units(T_K), "N+(273.155,647.096]"), msg = "Either T is less than 273.16 K / 0.01 C or greater than 647.096 K / 373.946 C, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures in the range of 273.16 K <= T <= 647.096 K. Please try again.")
+assert_that(qtest(drop_units(T_K), "N+(273.155,647.096]"), msg = "Either Temp is less than 273.16 K / 0.01 C or greater than 647.096 K / 373.946 C, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures in the range of 273.16 K <= Temp <= 647.096 K. Please try again.")
 # only process with specified, finite values and provide an error message if the check fails
 
 #  the critical density of water
@@ -910,7 +911,7 @@ return(rhoprime) # kg / m^3
 
 # use the temperature to determine the saturated liquid density for water
 
-T_F <- T
+T_F <- Temp
 
 # create a numeric vector with the units of degrees Fahrenheit
 T_F <- set_units(T_F, "degree_F")
@@ -923,7 +924,7 @@ T_K <- T_F
 # create a numeric vector with the units of Kelvin
 units(T_K) <- make_units(K)
 
-assert_that(qtest(drop_units(T_K), "N+(273.155,647.096]"), msg = "Either T is less than 273.16 K / 32.018 F or greater than 647.096 K / 705.1028 F, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures in the range of 273.16 K <= T <= 647.096 K. Please try again.")
+assert_that(qtest(drop_units(T_K), "N+(273.155,647.096]"), msg = "Either Temp is less than 273.16 K / 32.018 F or greater than 647.096 K / 705.1028 F, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures in the range of 273.16 K <= Temp <= 647.096 K. Please try again.")
 # only process with specified, finite values and provide an error message if the check fails
 
 
@@ -985,9 +986,9 @@ return(drop_units(rhoprime_lbm)) # lbm/ft^3
 
 # use the temperature to determine the saturated liquid density for water
 
-T_K <- T
+T_K <- Temp
 
-assert_that(qtest(T_K, "N+(273.155,647.096]"), msg = "Either T is less than 273.16 K / 32.018 F or greater than 647.096 K / 705.1028 F, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures in the range of 273.16 K <= T <= 647.096 K. Please try again.")
+assert_that(qtest(T_K, "N+(273.155,647.096]"), msg = "Either Temp is less than 273.16 K / 32.018 F or greater than 647.096 K / 705.1028 F, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures in the range of 273.16 K <= Temp <= 647.096 K. Please try again.")
 # only process with specified, finite values and provide an error message if the check fails
 
 
@@ -1102,17 +1103,17 @@ return(rhoprime)
 #'
 #' library(iemisc)
 #' 
-#' rho1 <- density_water(T = 68, units = "Eng", Eng_units = "slug/ft^3")
+#' rho1 <- density_water(Temp = 68, units = "Eng", Eng_units = "slug/ft^3")
 #' 
 #' unit_wt(rho = rho1, units = "Eng", Eng_units = "slug/ft^3")
 #' 
 #' 
-#' rho2 <- density_water(T = 68, units = "Eng", Eng_units = "lbm/ft^3")
+#' rho2 <- density_water(Temp = 68, units = "Eng", Eng_units = "lbm/ft^3")
 #' 
 #' unit_wt(rho = rho2, units = "Eng", Eng_units = "lbm/ft^3")
 #' 
 #' 
-#' rho3 <- density_water(T = 20, units = "SI")
+#' rho3 <- density_water(Temp = 20, units = "SI")
 #' 
 #' unit_wt(rho = rho3, units = "SI")
 #' 
@@ -1249,7 +1250,6 @@ return(drop_units(gamma)) # lbf/ft^3
 #' \enumerate{
 #'    \item Material Properties, 27 March 2022, "Sand – Density – Heat Capacity – Thermal Conductivity", \url{https://material-properties.org/sand-density-heat-capacity-thermal-conductivity/}
 #'    \item WikiEngineer, 27 March 2022, "Water Properties & Definitions", \url{https://web.archive.org/web/20210412034245/http://www.wikiengineer.com/Water-Resources/PropertiesAndDefinitions}. Retrieved thanks to the Internet Archive: Wayback Machine
-
 #' }
 #'
 #'
@@ -1298,17 +1298,17 @@ return(drop_units(gamma)) # lbf/ft^3
 #' 
 #' 
 #' 
-#' rho1 <- density_water(T = 68, units = "Eng", Eng_units = "slug/ft^3")
+#' rho1 <- density_water(Temp = 68, units = "Eng", Eng_units = "slug/ft^3")
 #' 
 #' sp_gravity(rho_w = rho1, rho_s = rho_sand_slug, units = "Eng", Eng_units = "slug/ft^3")
 #' 
 #' 
-#' rho2 <- density_water(T = 68, units = "Eng", Eng_units = "lbm/ft^3")
+#' rho2 <- density_water(Temp = 68, units = "Eng", Eng_units = "lbm/ft^3")
 #' 
 #' sp_gravity(rho_w = rho2, rho_s = rho_sand_lbm, units = "Eng", Eng_units = "lbm/ft^3")
 #' 
 #' 
-#' rho3 <- density_water(T = 20, units = "SI")
+#' rho3 <- density_water(Temp = 20, units = "SI")
 #' 
 #' sp_gravity(rho_w = rho3, rho_s = rho_sand, units = "SI")
 #' 
@@ -1439,17 +1439,17 @@ return(drop_units(sp_gravity)) # dimensionless
 #'
 #' library(iemisc)
 #' 
-#' rho1 <- density_water(T = 68, units = "Eng", Eng_units = "slug/ft^3")
+#' rho1 <- density_water(Temp = 68, units = "Eng", Eng_units = "slug/ft^3")
 #' 
 #' sp_volume(rho = rho1) # slug/ft^3
 #' 
 #' 
-#' rho2 <- density_water(T = 68, units = "Eng", Eng_units = "lbm/ft^3")
+#' rho2 <- density_water(Temp = 68, units = "Eng", Eng_units = "lbm/ft^3")
 #' 
 #' sp_volume(rho = rho2) # lbm/ft^3
 #' 
 #' 
-#' rho3 <- density_water(T = 20, units = "SI")
+#' rho3 <- density_water(Temp = 20, units = "SI")
 #' 
 #' sp_volume(rho = rho3) # kg / m^3
 #' 
@@ -1507,7 +1507,7 @@ return(nu)
 #'
 #'
 #'
-#' @param T numeric vector that contains the temperature (degrees Celsius,
+#' @param Temp numeric vector that contains the temperature (degrees Celsius,
 #'   degrees Fahrenheit, or Kelvin)
 #' @param units character vector that contains the system of units {options are
 #'   \code{SI} for International System of Units, \code{Eng} for English units
@@ -1524,7 +1524,7 @@ return(nu)
 #'
 #'
 #' @references
-#' C. O. Popiel & J. Wojtkowiak (1998). "Simple Formulas for Thermophysical Properties of Liquid Water for Heat Transfer Calculations (from 0C to 150C)". \emph{Heat Transfer Engineering}, 19:3, 87-101, \url{https://www.tandfonline.com/doi/abs/10.1080/01457639808939929}.
+#' C. O. Popiel & J. Wojtkowiak (1998). "Simple Formulas for Thermophysical Properties of Liquid Water for Heat Transfer Calculations (from 0C to 150C)". \emph{Heat Transfer Engineering}, 19:3, 87-101, article from ResearchGate: \url{https://www.researchgate.net/publication/239243539_Simple_Formulas_for_Thermophysical_Properties_of_Liquid_Water_for_Heat_Transfer_Calculations_from_0C_to_150C}.
 #'
 #'
 #'
@@ -1552,10 +1552,10 @@ return(nu)
 #'
 #' install.load::load_package("iemisc", "data.table", "round")
 #' 
-#' T <- c(0, 0.01, 3.86, seq(5, 95, by = 5), 99.974, seq(100, 150, by = 5))
+#' Temp <- c(0, 0.01, 3.86, seq(5, 95, by = 5), 99.974, seq(100, 150, by = 5))
 #' 
-#' dynamic_viscosity <- data.table("Temperature (degrees C)" = T,
-#' "mu (* 10 ^ 6, kg / m*s)" = round_r3(dyn_visc_water(T, units = "SI")
+#' dynamic_viscosity <- data.table("Temperature (degrees C)" = Temp,
+#' "mu (* 10 ^ 6, kg / m*s)" = round_r3(dyn_visc_water(Temp, units = "SI")
 #' * 10^6, d = 1))
 #' dynamic_viscosity
 #' 
@@ -1569,7 +1569,7 @@ return(nu)
 #' 
 #' mu <- hydraulics::dvisc(T = 55, units = "Eng"); mu
 #' 
-#' mu2 <- dyn_visc_water(T = 55, units = "Eng", Eng_units = "lbf*s/ft^2"); mu2
+#' mu2 <- dyn_visc_water(Temp = 55, units = "Eng", Eng_units = "lbf*s/ft^2"); mu2
 #' 
 #' 
 #' 
@@ -1580,7 +1580,7 @@ return(nu)
 #' @importFrom checkmate qtest
 #'
 #' @export
-dyn_visc_water <- function (T, units = c("SI", "Eng", "Absolute"), Eng_units = c("slug/ft/s", "lbf*s/ft^2")) {
+dyn_visc_water <- function (Temp, units = c("SI", "Eng", "Absolute"), Eng_units = c("slug/ft/s", "lbf*s/ft^2")) {
 
 
 K <- N <- s <- m <- slug <- ft <- lbf <- degree_C <- NULL
@@ -1611,7 +1611,7 @@ assert_that(isTRUE(any(c("slug/ft/s", "lbf*s/ft^2", NA_character_) %in% Eng_unit
 if (units == "SI") {
 
 # create a numeric vector with the units of degrees Celsius
-T_C <- set_units(T, "degree_C")
+T_C <- set_units(Temp, "degree_C")
 
 
 # create a numeric vector to convert from degrees Celsius to Kelvin
@@ -1622,7 +1622,7 @@ T_K <- T_C
 units(T_K) <- make_units(K)
 
 
-assert_that(qtest(drop_units(T_K), "N+[273.15,423.15]"), msg = "Either T is less than 273.15 K / 0 C or greater than 423.15 K / 150 C, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures in the range of 273.15 K <= T <= 423.15 K. Please try again.")
+assert_that(qtest(drop_units(T_K), "N+[273.15,423.15]"), msg = "Either Temp is less than 273.15 K / 0 C or greater than 423.15 K / 150 C, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures in the range of 273.15 K <= Temp <= 423.15 K. Please try again.")
 # only process with specified, finite values and provide an error message if the check fails
 
 
@@ -1638,7 +1638,7 @@ d <- -3.1160832 * 10 ^ -4
 # absolute or dynamic viscosity for water
 # calculated using the temperature in degrees C
 
-mus <- 1 / (a + b * T + c * T ^ 2 + d * T ^ 3)
+mus <- 1 / (a + b * Temp + c * Temp ^ 2 + d * Temp ^ 3)
 
 return(mus)
 
@@ -1646,7 +1646,7 @@ return(mus)
 } else if (units == "Eng") {
 
 
-T_F <- T
+T_F <- Temp
 
 # create a numeric vector with the units of degrees Fahrenheit
 T_F <- set_units(T_F, "degree_F")
@@ -1666,9 +1666,9 @@ units(T_K) <- make_units(K)
 # create a numeric vector with the units of degrees Celsius
 units(T_C) <- make_units(degree_C)
 
-T <- drop_units(T_C)
+Temp <- drop_units(T_C)
 
-assert_that(qtest(drop_units(T_K), "N+[273.15,423.15]"), msg = "Either T is less than 273.15 K / 32 F or greater than 423.15 K / 302 F, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures in the range of 273.15 K <= T <= 423.15 K. Please try again.")
+assert_that(qtest(drop_units(T_K), "N+[273.15,423.15]"), msg = "Either Temp is less than 273.15 K / 32 F or greater than 423.15 K / 302 F, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures in the range of 273.15 K <= Temp <= 423.15 K. Please try again.")
 # only process with specified, finite values and provide an error message if the check fails
 
 a <- 557.82468
@@ -1683,7 +1683,7 @@ d <- -3.1160832 * 10 ^ -4
 # absolute or dynamic viscosity for water
 # calculated using the temperature in degrees C
 
-mus <- 1 / (a + b * T + c * T ^ 2 + d * T ^ 3)
+mus <- 1 / (a + b * Temp + c * Temp ^ 2 + d * Temp ^ 3)
 
 # create a numeric vector with the units of kg/m*s
 mus <- set_units(mus, N*s/m^2) # N*s/m^2 or kg/m/s
@@ -1715,12 +1715,12 @@ return(drop_units(mus_lbf)) # lbf*s/ft^2
 
 } else if (units == "Absolute") {
 
-T_K <- T
+T_K <- Temp
 
 # create a numeric vector with the units of Kelvin
 units(T_K) <- make_units(K)
 
-assert_that(qtest(drop_units(T_K), "N+[273.15,423.15]"), msg = "Either T is less than 273.15 K or greater than 423.15 K, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures in the range of 273.15 K <= T <= 423.15 K. Please try again.")
+assert_that(qtest(drop_units(T_K), "N+[273.15,423.15]"), msg = "Either Temp is less than 273.15 K or greater than 423.15 K, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures in the range of 273.15 K <= Temp <= 423.15 K. Please try again.")
 # only process with specified, finite values and provide an error message if the check fails
 
 # create a numeric vector to convert from degrees Fahrenheit to degrees Celsius
@@ -1730,7 +1730,7 @@ T_C <- T_K
 # create a numeric vector with the units of degrees Celsius
 units(T_C) <- make_units(degree_C)
 
-T <- drop_units(T_C)
+Temp <- drop_units(T_C)
 
 a <- 557.82468
 
@@ -1744,7 +1744,7 @@ d <- -3.1160832 * 10 ^ -4
 # absolute or dynamic viscosity for water
 # calculated using the temperature in degrees C
 
-mus <- 1 / (a + b * T + c * T ^ 2 + d * T ^ 3)
+mus <- 1 / (a + b * Temp + c * Temp ^ 2 + d * Temp ^ 3)
 
 return(mus)
 
@@ -1903,11 +1903,11 @@ return(mus)
 #' drop_units(nu) %==% drop_units(nus)
 #' 
 #' 
-#' nu2 <- dyn_visc_water(T = 55, units = "Eng", Eng_units = "lbf*s/ft^2") /
-#' density_water(T = 55, units = "Eng", Eng_units = "slug/ft^3"); nu2
+#' nu2 <- dyn_visc_water(Temp = 55, units = "Eng", Eng_units = "lbf*s/ft^2") /
+#' density_water(Temp = 55, units = "Eng", Eng_units = "slug/ft^3"); nu2
 #'
-#' nus2 <- kin_visc_water(mu = dyn_visc_water(T = 55, units = "Eng", Eng_units =
-#' "lbf*s/ft^2"), rho = density_water(T = 55, units = "Eng", Eng_units = "slug/ft^3"),
+#' nus2 <- kin_visc_water(mu = dyn_visc_water(Temp = 55, units = "Eng", Eng_units =
+#' "lbf*s/ft^2"), rho = density_water(Temp = 55, units = "Eng", Eng_units = "slug/ft^3"),
 #' rho_units = "lbm/ft^3", mu_units = "lbf*s/ft^2"); nus2
 #' 
 #' # compare the results of nu2 and nus2 (they should be equivalent)
@@ -2060,7 +2060,7 @@ return(drop_units(nu))
 #'
 #'
 #'
-#' @param T numeric vector that contains the temperature (degrees Celsius,
+#' @param Temp numeric vector that contains the temperature (degrees Celsius,
 #'   degrees Fahrenheit, or Kelvin)
 #' @param units character vector that contains the system of units (options are
 #'   \code{SI} for International System of Units, \code{Eng} for English units
@@ -2074,7 +2074,7 @@ return(drop_units(nu))
 #'
 #'
 #' @references
-#' C. O. Popiel & J. Wojtkowiak (1998). "Simple Formulas for Thermophysical Properties of Liquid Water for Heat Transfer Calculations (from 0C to 150C)". \emph{Heat Transfer Engineering}, 19:3, 87-101, \url{https://www.tandfonline.com/doi/abs/10.1080/01457639808939929}.
+#' C. O. Popiel & J. Wojtkowiak (1998). "Simple Formulas for Thermophysical Properties of Liquid Water for Heat Transfer Calculations (from 0C to 150C)". \emph{Heat Transfer Engineering}, 19:3, 87-101, article from ResearchGate: \url{https://www.researchgate.net/publication/239243539_Simple_Formulas_for_Thermophysical_Properties_of_Liquid_Water_for_Heat_Transfer_Calculations_from_0C_to_150C}.
 #'
 #'
 #'
@@ -2098,10 +2098,10 @@ return(drop_units(nu))
 #'
 #' install.load::load_package("iemisc", "data.table", "round")
 #' 
-#' T <- c(0, 0.01, 3.86, seq(5, 95, by = 5), 99.974, seq(100, 150, by = 5))
+#' Temp <- c(0, 0.01, 3.86, seq(5, 95, by = 5), 99.974, seq(100, 150, by = 5))
 #' 
-#' surface_tension <- data.table("Temperature (degrees C)" = T, "omega (N / m)"
-#' = round_r3(surf_tens_water(T, units = "SI"), d = 5)); surface_tension
+#' surface_tension <- data.table("Temperature (degrees C)" = Temp, "omega (N / m)"
+#' = round_r3(surf_tens_water(Temp, units = "SI"), d = 5)); surface_tension
 #' 
 #'
 #'
@@ -2112,7 +2112,7 @@ return(drop_units(nu))
 #' @importFrom checkmate qtest
 #'
 #' @export
-surf_tens_water <- function (T, units = c("SI", "Eng", "Absolute")) {
+surf_tens_water <- function (Temp, units = c("SI", "Eng", "Absolute")) {
 
 
 K <- N <- m <- lbf <- ft <- degree_C <- NULL
@@ -2134,7 +2134,7 @@ assert_that(isTRUE(any(c("SI", "Eng", "Absolute") %in% units)), msg = "The units
 if (units == "SI") {
 
 # create a numeric vector with the units of degrees Celsius
-T_C <- set_units(T, "degree_C")
+T_C <- set_units(Temp, "degree_C")
 
 
 # create a numeric vector to convert from degrees Celsius to Kelvin
@@ -2145,7 +2145,7 @@ T_K <- T_C
 units(T_K) <- make_units(K)
 
 
-assert_that(qtest(drop_units(T_K), "N+[273.15,423.15]"), msg = "Either T is less than 273.15 K / 0 C or greater than 423.15 K / 150 C, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures in the range of 273.15 K <= T <= 423.15 K. Please try again.")
+assert_that(qtest(drop_units(T_K), "N+[273.15,423.15]"), msg = "Either Temp is less than 273.15 K / 0 C or greater than 423.15 K / 150 C, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures in the range of 273.15 K <= Temp <= 423.15 K. Please try again.")
 # only process with specified, finite values and provide an error message if the check fails
 
 
@@ -2161,7 +2161,7 @@ d <- 2.7588435 * 10 ^ -10
 # surface tension for water
 # calculated using the temperature in degrees C
 
-sigmas <- a + b * T + c * T ^ 2 + d * T ^ 3
+sigmas <- a + b * Temp + c * Temp ^ 2 + d * Temp ^ 3
 
 return(sigmas)
 
@@ -2169,7 +2169,7 @@ return(sigmas)
 } else if (units == "Eng") {
 
 
-T_F <- T
+T_F <- Temp
 
 # create a numeric vector with the units of degrees Fahrenheit
 T_F <- set_units(T_F, "degree_F")
@@ -2189,9 +2189,9 @@ units(T_K) <- make_units(K)
 # create a numeric vector with the units of degrees Celsius
 units(T_C) <- make_units(degree_C)
 
-T <- drop_units(T_C)
+Temp <- drop_units(T_C)
 
-assert_that(qtest(drop_units(T_K), "N+[273.15,423.15]"), msg = "Either T is less than 273.15 K / 32 F or greater than 423.15 K / 302 F, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures in the range of 273.15 K <= T <= 423.15 K. Please try again.")
+assert_that(qtest(drop_units(T_K), "N+[273.15,423.15]"), msg = "Either Temp is less than 273.15 K / 32 F or greater than 423.15 K / 302 F, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures in the range of 273.15 K <= Temp <= 423.15 K. Please try again.")
 # only process with specified, finite values and provide an error message if the check fails
 
 a <- 0.075652711
@@ -2206,7 +2206,7 @@ d <- 2.7588435 * 10 ^ -10
 # surface tension for water
 # calculated using the temperature in degrees C
 
-sigmas <- a + b * T + c * T ^ 2 + d * T ^ 3
+sigmas <- a + b * Temp + c * Temp ^ 2 + d * Temp ^ 3
 
 # create a numeric vector with the units of N/m
 sigmas <- set_units(sigmas, N/m) # N*s/m^2
@@ -2222,12 +2222,12 @@ return(drop_units(sigmas)) # lbf/ft
 
 } else if (units == "Absolute") {
 
-T_K <- T
+T_K <- Temp
 
 # create a numeric vector with the units of Kelvin
 units(T_K) <- make_units(K)
 
-assert_that(qtest(drop_units(T_K), "N+[273.15,423.15]"), msg = "Either T is less than 273.15 K or greater than 423.15 K, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures in the range of 273.15 K <= T <= 423.15 K. Please try again.")
+assert_that(qtest(drop_units(T_K), "N+[273.15,423.15]"), msg = "Either Temp is less than 273.15 K or greater than 423.15 K, NA, NaN, Inf, -Inf, empty, or a string. The equation is valid only for temperatures in the range of 273.15 K <= Temp <= 423.15 K. Please try again.")
 # only process with specified, finite values and provide an error message if the check fails
 
 # create a numeric vector to convert from degrees Fahrenheit to degrees Celsius
@@ -2236,7 +2236,7 @@ T_C <- T_K
 # create a numeric vector with the units of degrees Celsius
 units(T_C) <- make_units(degree_C)
 
-T <- drop_units(T_C)
+Temp <- drop_units(T_C)
 
 a <- 0.075652711
 
@@ -2250,7 +2250,7 @@ d <- 2.7588435 * 10 ^ -10
 # surface tension for water
 # calculated using the temperature in degrees C
 
-sigmas <- a + b * T + c * T ^ 2 + d * T ^ 3
+sigmas <- a + b * Temp + c * Temp ^ 2 + d * Temp ^ 3
 
 return(sigmas)
 

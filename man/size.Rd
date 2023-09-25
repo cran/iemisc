@@ -37,7 +37,7 @@ size(matlab::ones(4, 1, 2, 1))
 
 }
 \references{
-John W. Eaton, David Bateman, Søren Hauberg, and Rik Wehbring (November 2022). \emph{GNU Octave: A high-level interactive language for numerical computations: Edition 7 for Octave version 7.3.0}. \url{https://docs.octave.org/octave.pdf}. Page 47-48.
+John W. Eaton, David Bateman, Søren Hauberg, and Rik Wehbring (November 2022). \emph{GNU Octave: A high-level interactive language for numerical computations: Edition 7 for Octave version 7.3.0}. \url{https://docs.octave.org/octave.pdf}. Pages 47-48.
 }
 \seealso{
 \code{\link[base]{dim}}, \code{\link[pracma]{size}}
