@@ -28,8 +28,8 @@
 #' @param longitude numeric vector (or character vector with numbers only) that
 #'    contains the longitude as a decimal degree
 #' @param units character vector that contains the system of units (options are
-#'   \code{survey_ft} (United States Customary System) {US survey foot},
-#'   \code{foot}, or \code{meters} (International System of Units) {meters}
+#'   \code{survey_ft} (United States Customary System) [US survey foot],
+#'   \code{foot}, or \code{meters} (International System of Units) [meters])
 #' @param output character vector that contains basic for the default result
 #'     using a \code{\link[base]{list}} or table for the result as a \code{\link[data.table]{data.table}}
 #'

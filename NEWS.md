@@ -1,10 +1,17 @@
-# iemisc 1.0.4 (23 September 2023)
+# iemisc 1.0.5 (5 June 2024)
+
+* Re-submitted the package due to the removal & readmittal of the `iemiscdata` package.
+* Replaced as.numeric with drop_units in the engr_survey function. Made other revisions in the engr_survey & engr_survey_reverse functions.
+* Revised the reduce_single_digit function to allow for dates with /s
+
+
+# iemisc 1.0.4 (25 September 2023)
 
 * Received an e-mail issue from Kurt Hornik on 19 August 2023 regarding the use of "@docType package" which is no longer valid. Replaced the iemisc.R file with iemisc-package.R to reflect the requested change.
 * Added the `chem.databases` package to Imports to replace `CHNOSZ` which has been removed from Imports
 * Added `printr` to Suggests to allow the printing of help functions in the vignettes & added `tibble` and `lintr` to Suggests
 * Modified the Help section on the README again & Added the additional available function to the README
-* Revised the URL for Urban Hydrology for Small Watersheds Technical Release 55 (TR-55) in the weighted_CN function Reference
+* Revised the URL for Urban Hydrology for Small Watersheds Technical Release 55 (TR-55) in the weighted_CN function Reference. Revised various other URLs to get `iemisc` accepted into CRAN. Used the ResearchGate version of certain articles or the Internet Archive: Wayback Machine archive for other URLs that had issues.
 * Revised the air_stripper function to search for the CAS Number in the atsdr_tsca_ld50_a data set of the `chem.databases` package. Also revised the package to obtain the molecular formulas and average mass from the chem_wiki data set of the `chem.databases` package
 * Added the "%inorder%" function to return character vectors in a given sequence
 * Added the c_composite_CN function for connected impervious areas

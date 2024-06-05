@@ -10,13 +10,13 @@ unit_wt(rho, units = c("SI", "Eng"), Eng_units = c("slug/ft^3", "lbm/ft^3"))
 \arguments{
 \item{rho}{numeric vector that contains the density}
 
-\item{units}{character vector that contains the system of units {options are
+\item{units}{character vector that contains the system of units [options are
 \code{SI} for International System of Units or \code{Eng} for English units
 (United States Customary System in the United States and Imperial Units in
-the United Kingdom)}}
+the United Kingdom)]}
 
 \item{Eng_units}{character vector that contains the density English units
-{options are \code{lbm/ft^3} or \code{slug/ft^3}}}
+[options are \code{lbm/ft^3} or \code{slug/ft^3}]}
 }
 \value{
 the unit weight or specific weight as a numeric vector. The units are

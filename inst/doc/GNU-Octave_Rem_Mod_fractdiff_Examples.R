@@ -1,4 +1,4 @@
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 library("iemisc")
 
@@ -35,7 +35,7 @@ Rem(c(1, 3, 5, 2), 2)
 
 Rem(c(9, 3, 2, 0), c(1, 0, 2, 2))
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 library("iemisc")
 
@@ -51,7 +51,7 @@ Mod_octave(c(9, 3, 2, 0), c(1, 0, 2, 2))
 
 Mod_octave(-1, 3)
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 library("iemisc")
 import::from(ramify, mat)

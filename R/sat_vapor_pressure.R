@@ -46,7 +46,7 @@
 #'
 #' @references
 #' \enumerate{
-#'    \item Huang, J. (2018). "A Simple Accurate Formula for Calculating Saturation Vapor Pressure of Water and Ice", \emph{Journal of Applied Meteorology and Climatology}, 57(6), 1265-1272. Retrieved Nov 4, 2021, \url{https://journals.ametsoc.org/view/journals/apme/57/6/jamc-d-17-0334.1.xml}
+#'    \item Huang, J. (2018). "A Simple Accurate Formula for Calculating Saturation Vapor Pressure of Water and Ice", \emph{Journal of Applied Meteorology and Climatology}, 57(6), 1265-1272. Retrieved Nov 4, 2021, \url{https://web.archive.org/web/20221024040058/https://journals.ametsoc.org/view/journals/apme/57/6/jamc-d-17-0334.1.xml}. Used the Internet Archive: Wayback Machine archived version for acceptance into CRAN. Used the Internet Archive: Wayback Machine archived version for acceptance into CRAN.
 #'    \item The International Association for the Properties of Water and Steam. IAPWS SR1-86(1992). "Revised Supplementary Release on Saturation Properties of Ordinary Water Substance", September 1992, \url{http://www.iapws.org/relguide/Supp-sat.pdf}
 #'    \item Holger Vömel, National Center for Atmospheric Research Earth Observing Laboratory, "Saturation vapor pressure formulations", \url{https://web.archive.org/web/20170623040102/http://cires1.colorado.edu/~voemel/vp.html}. Retrieved thanks to the Internet Archive: Wayback Machine
 #' }
@@ -516,10 +516,10 @@ return(drop_units(Ps)) # Pa
 #'
 #' @param Temp numeric vector that contains the temperature (degrees Celsius,
 #'   degrees Fahrenheit, or Kelvin)
-#' @param units character vector that contains the system of units {options are
+#' @param units character vector that contains the system of units [options are
 #'   \code{SI} for International System of Units, \code{Eng} for English units
 #'   (United States Customary System in the United States and Imperial Units in
-#'   the United Kingdom), or \code{Absolute} for Absolute Units}
+#'   the United Kingdom), or \code{Absolute} for Absolute Units]
 #'
 #'
 #' @return the saturation vapor pressure for ice as a numeric vector. The unit
@@ -529,7 +529,7 @@ return(drop_units(Ps)) # Pa
 #'
 #'
 #' @references
-#' Huang, J. (2018). "A Simple Accurate Formula for Calculating Saturation Vapor Pressure of Water and Ice", \emph{Journal of Applied Meteorology and Climatology}, 57(6), 1265-1272. Retrieved Nov 4, 2021, \url{https://journals.ametsoc.org/view/journals/apme/57/6/jamc-d-17-0334.1.xml}
+#' Huang, J. (2018). "A Simple Accurate Formula for Calculating Saturation Vapor Pressure of Water and Ice", \emph{Journal of Applied Meteorology and Climatology}, 57(6), 1265-1272. Retrieved Nov 4, 2021, \url{https://web.archive.org/web/20221024040058/https://journals.ametsoc.org/view/journals/apme/57/6/jamc-d-17-0334.1.xml}. Used the Internet Archive: Wayback Machine archived version for acceptance into CRAN. Used the Internet Archive: Wayback Machine archived version for acceptance into CRAN.
 #'
 #'
 #'
@@ -716,12 +716,12 @@ return(Ps)
 #'
 #' @param Temp numeric vector that contains the temperature (degrees Celsius,
 #'   degrees Fahrenheit, or Kelvin)
-#' @param units character vector that contains the system of units {options are
+#' @param units character vector that contains the system of units [options are
 #'   \code{SI} for International System of Units, \code{Eng} for English units
 #'   (United States Customary System in the United States and Imperial Units in
-#'   the United Kingdom), or \code{Absolute} for Absolute Units}
+#'   the United Kingdom), or \code{Absolute} for Absolute Units]
 #' @param Eng_units character vector that contains the unit for the density of
-#'   water {options are slug/ft^3 or lbm/ft^3}
+#'   water [options are slug/ft^3 or lbm/ft^3]
 #'
 #'
 #' @return the density as a numeric vector. The units are not returned.
@@ -1056,12 +1056,12 @@ return(rhoprime)
 #'
 #'
 #' @param rho numeric vector that contains the density
-#' @param units character vector that contains the system of units {options are
+#' @param units character vector that contains the system of units [options are
 #'   \code{SI} for International System of Units or \code{Eng} for English units
 #'   (United States Customary System in the United States and Imperial Units in
-#'   the United Kingdom)}
+#'   the United Kingdom)]
 #' @param Eng_units character vector that contains the density English units
-#'   {options are \code{lbm/ft^3} or \code{slug/ft^3}}
+#'   [options are \code{lbm/ft^3} or \code{slug/ft^3}]
 #'
 #'
 #' @return the unit weight or specific weight as a numeric vector. The units are
@@ -1234,12 +1234,12 @@ return(drop_units(gamma)) # lbf/ft^3
 #'
 #' @param rho_w numeric vector that contains the density of water
 #' @param rho_s numeric vector that contains the density of the substance
-#' @param units character vector that contains the system of units {options are
+#' @param units character vector that contains the system of units [options are
 #'   \code{SI} for International System of Units or \code{Eng} for English units
 #'   (United States Customary System in the United States and Imperial Units in
-#'   the United Kingdom)}
+#'   the United Kingdom)]
 #' @param Eng_units character vector that contains the unit for the density of
-#'   water {options are slug/ft^3 or lbm/ft^3}
+#'   water [options are slug/ft^3 or lbm/ft^3]
 #'
 #'
 #' @return the specific volume as a numeric vector
@@ -1509,13 +1509,13 @@ return(nu)
 #'
 #' @param Temp numeric vector that contains the temperature (degrees Celsius,
 #'   degrees Fahrenheit, or Kelvin)
-#' @param units character vector that contains the system of units {options are
+#' @param units character vector that contains the system of units [options are
 #'   \code{SI} for International System of Units, \code{Eng} for English units
 #'   (United States Customary System in the United States and Imperial Units in
-#'   the United Kingdom), or \code{Absolute} for Absolute Units}
+#'   the United Kingdom), or \code{Absolute} for Absolute Units]
 #' @param Eng_units character vector that contains the unit for the dynamic
-#'   viscosity of water in the English system {options are slug/ft/s or
-#'   lbf*s/ft^2}
+#'   viscosity of water in the English system [options are slug/ft/s or
+#'   lbf*s/ft^2]
 #'
 #'
 #' @return the absolute or dynamic viscosity as a numeric vector. The units are
@@ -1787,9 +1787,9 @@ return(mus)
 #' @param rho numeric vector that contains the water density
 #' @param mu numeric vector that contains the water dynamic viscosity
 #' @param rho_units character vector that contains the unit for the density of
-#'   water {options are kg/m^3, lbm/ft^3, or slug/ft^3}
+#'   water [options are kg/m^3, lbm/ft^3, or slug/ft^3]
 #' @param mu_units character vector that contains the unit for the dynamic
-#'   viscosity of water {options are Pa*s or kg/m/s, lbf*s/ft^2, or slug/ft/s}
+#'   viscosity of water [options are Pa*s or kg/m/s, lbf*s/ft^2, or slug/ft/s]
 #'
 #'
 #' @return the kinematic viscosity as a numeric vector. The units are not

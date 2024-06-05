@@ -16,8 +16,8 @@ construction_fraction(
 \item{measurement}{numeric vector that contains the construction
 measurement as a decimal}
 
-\item{type}{character vector that contains the decimal type {options are
-traditional (ex. 1.203125 = 1'-2 7/16\"} where the whole number is the
+\item{type}{character vector that contains the decimal type [options are
+traditional (ex. 1.203125 = 1'-2 7/16\"] where the whole number is the
 value in ft and the decimal is the value in inches & librecad
 (ex. 14.4375 = 1'-2 7/16\"), whereby LibreCAD defines its decimal unit as
 "integer part separated from the fractional part of a number by a

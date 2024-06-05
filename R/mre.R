@@ -32,7 +32,7 @@
 #'
 #'
 #' @references
-#' Huang, J. (2018). "A Simple Accurate Formula for Calculating Saturation Vapor Pressure of Water and Ice", \emph{Journal of Applied Meteorology and Climatology}, 57(6), 1265-1272. Retrieved Nov 4, 2021, \url{https://journals.ametsoc.org/view/journals/apme/57/6/jamc-d-17-0334.1.xml}
+#' Huang, J. (2018). "A Simple Accurate Formula for Calculating Saturation Vapor Pressure of Water and Ice", \emph{Journal of Applied Meteorology and Climatology}, 57(6), 1265-1272. Retrieved Nov 4, 2021, \url{https://web.archive.org/web/20221024040058/https://journals.ametsoc.org/view/journals/apme/57/6/jamc-d-17-0334.1.xml}. Used the Internet Archive: Wayback Machine archived version for acceptance into CRAN. Used the Internet Archive: Wayback Machine archived version for acceptance into CRAN.
 #'
 #'
 #'

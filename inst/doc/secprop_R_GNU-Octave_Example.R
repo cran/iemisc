@@ -1,4 +1,4 @@
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 library("iemisc")
 import::from(ramify, mat)
@@ -13,6 +13,6 @@ vi
 SP <- secprop(outer = vo, inner = vi, original_plot = 1, final_plot = 1)
 SP
 
-## ---- echo = FALSE, out.width = '100%'----------------------------------------
+## ----echo = FALSE, out.width = '100%'-----------------------------------------
 linguisticsdown::include_graphics2("secprop_gnu-octave_figure.png")
 

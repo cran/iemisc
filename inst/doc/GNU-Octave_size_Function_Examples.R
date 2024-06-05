@@ -1,4 +1,4 @@
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 library("iemisc")
 
@@ -62,7 +62,7 @@ ss <- "object"
 
 size(ss)
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 library("iemisc")
 
@@ -94,7 +94,7 @@ object6 <- list(letters, b <- 2)
 
 length_octave(object6)
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 library("iemisc")
 
@@ -130,7 +130,7 @@ g <- c(2, 4)
 
 numel(f, g)
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 library("iemisc")
 
@@ -141,7 +141,7 @@ b <- matlab::ones(c(4, 1, 2, 1))
 ndims(b)
 
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 library("iemisc")
 
@@ -156,7 +156,7 @@ xy <- ramify::mat("1, 2; 3, 4"); xy
 
 isrow(xy)
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 library("iemisc")
 

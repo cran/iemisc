@@ -16,7 +16,7 @@ Manningcirc(
 )
 }
 \arguments{
-\item{Q}{numeric vector that contains the discharge value {m^3/s or ft^3/s},
+\item{Q}{numeric vector that contains the discharge value (m^3/s or ft^3/s),
 if known.}
 
 \item{n}{numeric vector that contains the Manning's roughness coefficient n,
@@ -33,10 +33,10 @@ if known.}
 \item{Temp}{numeric vector that contains the temperature (degrees C or degrees
 Fahrenheit), if known.}
 
-\item{units}{character vector that contains the system of units {options are
+\item{units}{character vector that contains the system of units [options are
 \code{SI} for International System of Units or \code{Eng} for English units
 (United States Customary System in the United States and Imperial Units in
-the United Kingdom)}}
+the United Kingdom)]}
 }
 \value{
 the missing parameters (Q, n, or Sf) & theta, area (A), wetted
@@ -79,7 +79,7 @@ This equation is also expressed as
 \deqn{Q = \frac{K_n}{n}\frac{A^\frac{5}{3}}{P^\frac{2}{3}}\sqrt{S}}
 
 \describe{
-  \item{\emph{Q}}{the discharge {m^3/s or ft^3/s (cfs)} is VA}
+  \item{\emph{Q}}{the discharge [m^3/s or ft^3/s (cfs)] is VA}
   \item{\emph{n}}{Manning's roughness coefficient (dimensionless)}
   \item{\emph{P}}{the wetted perimeters of the channel (m or ft)}
   \item{\emph{A}}{the cross-sectional area (m^2 or ft^2)}
@@ -128,7 +128,7 @@ Other important equations regarding the circular cross-section follow:
 
 \describe{
   \item{\emph{d}}{the initial diameters of the cross-section [m or ft]}
-  \item{\emph{Q}}{the discharge {m^3/s or ft^3/s (cfs)} is VA}
+  \item{\emph{Q}}{the discharge [m^3/s or ft^3/s (cfs)] is VA}
   \item{\emph{n}}{Manning's roughness coefficient (dimensionless)}
   \item{\emph{S}}{the slope of the channel bed (m/m or ft/ft)}
   \item{\emph{K_n}}{the conversion constant -- 1.0 for SI and
@@ -186,7 +186,7 @@ Note: This will only provide the initial conduit diameters, check the design
 
 \describe{
   \item{\emph{E}}{the Specific Energy (m or ft)}
-  \item{\emph{Q}}{the discharge {m^3/s or ft^3/s (cfs)} is VA}
+  \item{\emph{Q}}{the discharge [m^3/s or ft^3/s (cfs)] is VA}
   \item{\emph{g}}{gravitational acceleration (m/s^2 or ft/sec^2)}
   \item{\emph{A}}{the cross-sectional area (m^2 or ft^2)}
   \item{\emph{y}}{the flow depth (normal depth in this function) [m or ft]}

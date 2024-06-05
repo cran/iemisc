@@ -46,6 +46,8 @@ reduce_single_digit("-48373744582.47362287482374")
 
 reduce_single_digit("11-09-2022")
 
+reduce_single_digit("2001/01/31")
+
 reduce_single_digit("24 December 1983 04:37:58.55543333")
 
 reduce_single_digit("4 July 1776")
@@ -62,6 +64,12 @@ reduce_single_digit("011-894-908-0945")
 
 reduce_single_digit("908-0945")
 
+
+datess <- seq(as.Date("2001/07/17"), as.Date("2001/08/03"), by = "day")
+datess
+xt <- sapply(datess, reduce_single_digit)
+xt
+datess[which(xt == 3 | xt == 6 | xt == 9)]
 
 
 

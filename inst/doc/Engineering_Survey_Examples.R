@@ -2,11 +2,11 @@
 #  install.packages("iemisc", "pander")
 #  # install the packages and their dependencies
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 # load the required packages
 install.load::load_package("iemisc", "pander")
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 Northing_begin <- 283715.8495
 Easting_begin <- 1292428.3999
@@ -17,7 +17,7 @@ Easting_end <- 1295973.7743
 pander(project_midpoint(Northing_begin, Easting_begin, Northing_end, Easting_end, units =
 "survey_ft", location = "TN", output = "advanced"))
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 Northing2 <- c(232489.480, 234732.431)
 
@@ -27,7 +27,7 @@ dt4A <- project_midpoint(Northing2[1], Easting2[1], Northing2[2], Easting2[2],
 "meters", "TN", output = "advanced")
 pander(dt4A)
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 Northing3 <- c("630817.6396", "502170.6065", "562,312.2349", "574,370.7178")
 
@@ -52,7 +52,7 @@ dt3D <- engr_survey(Northing3[4], Easting3[4], "survey_ft", "TN", output =
 "basic", utm = 0)
 pander(dt3D) # fourth set of Northing, Easting points
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 Northing4 <- c(232489.480, 234732.431)
 
@@ -65,7 +65,7 @@ pander(dt4A)
 dt4B <- engr_survey(Northing4[2], Easting4[2], "meters", "TN", output = "table", utm = 0)
 pander(dt4B)
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 Northing2 <- c(232489.480, 234732.431)
 
@@ -74,7 +74,7 @@ Easting2 <- c(942754.124, 903795.239)
 dt4 <- engr_survey_batch(Northing2, Easting2, "meters", "TN", output = "table")
 pander(dt4)
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 station5 <- "516+64.10"
 station6 <- "511+29.10"
@@ -94,15 +94,15 @@ station10 <- "52+00.00"
 
 engr_survey2(station9, station10, units1 = "foot", units2 = "mile")
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 engr_survey3(23, station_distance = 100, units = "survey_mile", output = "numeric")
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 engr_survey4(1394.32, "45+43.12", units = "kilometers")
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 lat <- 35.8466965
 
@@ -112,7 +112,7 @@ dt1A <- engr_survey_reverse(lat, long, units = "survey_ft", location = "TN", out
 "table", utm = 0)
 pander(dt1A)
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 lats <- "37'50'21.5988''N"
 longs <- "84'16'12.0720'W"

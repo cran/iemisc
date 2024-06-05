@@ -10,13 +10,13 @@ Re2(D, V, nu)
 \arguments{
 \item{D}{numeric vector that contains the hydraulic diameters "(four times
 the area in flow divided by the wetted surface) is a characteristic
-length" (m or ft)  {Reference: Lindeburg Manual}}
+length" (m or ft)  [Reference: Lindeburg Manual]}
 
 \item{V}{numeric vector that contains the average fluid velocity (m/s or
-ft/s)  {Reference: Lindeburg Manual}}
+ft/s)  [Reference: Lindeburg Manual]}
 
 \item{nu}{numeric vector that contains the kinematic viscosity of the fluid
-(m^2/s or lbf-sec/ft^2)  {Reference: Lindeburg Manual}}
+(m^2/s or lbf-sec/ft^2)  [Reference: Lindeburg Manual]}
 }
 \value{
 the Reynolds number as a numeric \code{\link[base]{vector}} for Re2

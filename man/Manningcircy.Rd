@@ -29,13 +29,13 @@ known.}
 \item{Sf}{numeric vector that contains the bed slope (m/m or ft/ft),
 if known.}
 
-\item{Q}{numeric vector that contains the discharge value {m^3/s or ft^3/s},
+\item{Q}{numeric vector that contains the discharge value (m^3/s or ft^3/s),
 if known.}
 
-\item{units}{character vector that contains the system of units {options are
+\item{units}{character vector that contains the system of units [options are
 \code{SI} for International System of Units or \code{Eng} for English units
 (United States Customary System in the United States and Imperial Units in
-the United Kingdom)}}
+the United Kingdom)]}
 }
 \value{
 the missing parameters (d or y) & theta, area (A), wetted

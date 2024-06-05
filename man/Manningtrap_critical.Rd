@@ -22,7 +22,7 @@ Manningtrap_critical(
 )
 }
 \arguments{
-\item{Q}{numeric vector that contains the discharge value {m^3/s or ft^3/s},
+\item{Q}{numeric vector that contains the discharge value (m^3/s or ft^3/s),
 if known.}
 
 \item{n}{numeric vector that contains the Manning's roughness coefficient n,
@@ -47,10 +47,10 @@ if known.}
 \item{Temp}{numeric vector that contains the temperature (degrees C or degrees
 Fahrenheit), if known.}
 
-\item{units}{character vector that contains the system of units {options are
+\item{units}{character vector that contains the system of units [options are
 \code{SI} for International System of Units or \code{Eng} for English units
 (United States Customary System in the United States and Imperial Units in
-the United Kingdom)}}
+the United Kingdom)]}
 
 \item{type}{character vector that contains the type of trapezoid (symmetrical
 or non-symmetrical). The symmetrical trapezoid uses \code{m} while the non-

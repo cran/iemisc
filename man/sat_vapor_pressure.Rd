@@ -108,7 +108,7 @@ sat_vapor_pressure(Temp = drop_units(T_K), units = "Absolute", formula = "Huang"
 }
 \references{
 \enumerate{
-   \item Huang, J. (2018). "A Simple Accurate Formula for Calculating Saturation Vapor Pressure of Water and Ice", \emph{Journal of Applied Meteorology and Climatology}, 57(6), 1265-1272. Retrieved Nov 4, 2021, \url{https://journals.ametsoc.org/view/journals/apme/57/6/jamc-d-17-0334.1.xml}
+   \item Huang, J. (2018). "A Simple Accurate Formula for Calculating Saturation Vapor Pressure of Water and Ice", \emph{Journal of Applied Meteorology and Climatology}, 57(6), 1265-1272. Retrieved Nov 4, 2021, \url{https://web.archive.org/web/20221024040058/https://journals.ametsoc.org/view/journals/apme/57/6/jamc-d-17-0334.1.xml}. Used the Internet Archive: Wayback Machine archived version for acceptance into CRAN. Used the Internet Archive: Wayback Machine archived version for acceptance into CRAN.
    \item The International Association for the Properties of Water and Steam. IAPWS SR1-86(1992). "Revised Supplementary Release on Saturation Properties of Ordinary Water Substance", September 1992, \url{http://www.iapws.org/relguide/Supp-sat.pdf}
    \item Holger Vömel, National Center for Atmospheric Research Earth Observing Laboratory, "Saturation vapor pressure formulations", \url{https://web.archive.org/web/20170623040102/http://cires1.colorado.edu/~voemel/vp.html}. Retrieved thanks to the Internet Archive: Wayback Machine
 }

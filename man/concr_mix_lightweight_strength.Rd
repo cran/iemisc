@@ -46,7 +46,7 @@ concr_mix_lightweight_strength(
 of the coarse aggregate (dimensionless)}
 
 \item{dry_rod_wt_aggr}{numeric vector that contains the dry rodded weight of
-aggregate {"oven-dry loose weight of coarse aggregate"} (lb/ft^3)}
+aggregate ["oven-dry loose weight of coarse aggregate"] (lb/ft^3)}
 
 \item{absorp_coarse}{numeric vector that contains the absorption of the
 coarse aggregate (whole number percent)}
@@ -68,8 +68,8 @@ consolidation other than vibration"}
 Moderate, or Extreme) for use with Air entrained concrete mixes}
 
 \item{structure_type}{character vector that contains the severe exposure
-value {"Thin sections (railings, curbs, sills, ledges, ornamental work) and
-sections with less than 1 in. cover over steel" or "All other structures"}
+value ["Thin sections (railings, curbs, sills, ledges, ornamental work) and
+sections with less than 1 in. cover over steel" or "All other structures"]
 for use with Air entrained concrete mixes with severe exposure}
 
 \item{severe_exposure}{character vector that contains the severe exposure

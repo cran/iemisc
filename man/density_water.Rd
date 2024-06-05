@@ -15,13 +15,13 @@ density_water(
 \item{Temp}{numeric vector that contains the temperature (degrees Celsius,
 degrees Fahrenheit, or Kelvin)}
 
-\item{units}{character vector that contains the system of units {options are
+\item{units}{character vector that contains the system of units [options are
 \code{SI} for International System of Units, \code{Eng} for English units
 (United States Customary System in the United States and Imperial Units in
-the United Kingdom), or \code{Absolute} for Absolute Units}}
+the United Kingdom), or \code{Absolute} for Absolute Units]}
 
 \item{Eng_units}{character vector that contains the unit for the density of
-water {options are slug/ft^3 or lbm/ft^3}}
+water [options are slug/ft^3 or lbm/ft^3]}
 }
 \value{
 the density as a numeric vector. The units are not returned.

@@ -28,7 +28,7 @@ between any 2 points along the survey, the default is 100 feet}
 \code{station_distance} (options are \code{foot}, \code{survey_ft}
 (United States Customary System) [US survey foot], \code{meters} for
 International System of Units meters, or \code{kilometers} for International System
-of Units kilometers}
+of Units kilometers)}
 }
 \value{
 the final engineering survey position (ex. Sta. 5+55)

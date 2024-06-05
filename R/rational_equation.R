@@ -72,7 +72,7 @@
 #' \enumerate{
 #'    \item Design Principles for Erosion Prevention & Sediment Control for Construction Sites Level II EPSC Workshop, Fall 2017. Sponsored by The University of Tennessee Biosystems Engineering & Environmental Sciences Tennessee Water Resources Research Center, Tennessee Department of Environment and Conservation Division of Water Resources, and Tennessee Department of Transportation.
 #'    \item Oklahoma Department of Transportation (ODOT) Roadway Drainage Manual Chapter 7 Hydrology, November 2014, page 7.6-1, \url{https://oklahoma.gov/content/dam/ok/en/odot/documents/chapter-7-hydrology.pdf}.
-#'    \item Oregon Department of Transportation (ODOT) Geo-Environmental, ODOT Hydraulics Manual Appendix F – Rational Method, April 2014, page 7-F-1, \url{https://www.oregon.gov/ODOT/GeoEnvironmental/Docs_Hydraulics_Manual/Hydraulics-07-F.pdf}.
+#'    \item Oregon Department of Transportation (ODOT) Geo-Environmental, ODOT Hydraulics Manual Appendix F – Rational Method, April 2014, page 7-F-1, \url{https://web.archive.org/web/20221202194502/https://www.oregon.gov/odot/GeoEnvironmental/Docs_Hydraulics_Manual/Hydraulics-07-F.pdf}. Retrieved thanks to the Internet Archive: Wayback Machine
 #'    \item U.S. Department of Agriculture (USDA) Natural Resources Conservation Service (NRCS), Hydrology Training Series Module 206 D - Peak Discharge (Other Methods) Study Guide, page 18 (of the PDF document) and page 26 - 27 (of the PDF document), \url{https://web.archive.org/web/20211018222532/https://www.nrcs.usda.gov/Internet/FSE_DOCUMENTS/stelprdb1083019.pdf}. Retrieved thanks to the Internet Archive: Wayback Machine
 #' }
 #'

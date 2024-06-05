@@ -72,7 +72,7 @@
 #' \deqn{Q = \frac{K_n}{n}\frac{A^\frac{5}{3}}{P^\frac{2}{3}}S^\frac{1}{2}}
 #'
 #' \describe{
-#'   \item{\emph{Q}}{the discharge {m^3/s or ft^3/s (cfs)} is VA}
+#'   \item{\emph{Q}}{the discharge [m^3/s or ft^3/s (cfs)] is VA}
 #'   \item{\emph{n}}{Manning's roughness coefficient (dimensionless)}
 #'   \item{\emph{P}}{the wetted perimeters of the channel (m or ft)}
 #'   \item{\emph{A}}{water area (m^2 or ft^2)}
@@ -156,7 +156,7 @@
 #'
 #' \describe{
 #'   \item{\emph{E}}{the Specific Energy (m or ft)}
-#'   \item{\emph{Q}}{the discharge {m^3/s or ft^3/s (cfs)} is VA}
+#'   \item{\emph{Q}}{the discharge [m^3/s or ft^3/s (cfs)] is VA}
 #'   \item{\emph{g}}{gravitational acceleration (m/s^2 or ft/sec^2)}
 #'   \item{\emph{A}}{water area (m^2 or ft^2)}
 #'   \item{\emph{y}}{the flow depth (normal depth in this function) [m or ft]}
@@ -285,7 +285,7 @@
 #' 
 #'
 #'
-#' @param Q numeric vector that contains the discharge value {m^3/s or ft^3/s},
+#' @param Q numeric vector that contains the discharge value (m^3/s or ft^3/s),
 #'     if known.
 #' @param n numeric vector that contains the Manning's roughness coefficient n,
 #'     if known.
@@ -302,10 +302,10 @@
 #' @param Temp numeric vector that contains the temperature (degrees C or degrees
 #'     Fahrenheit), if known. Otherwise, the default value is 20 degrees Celsius
 #'     (68 degrees Fahrenheit).
-#' @param units character vector that contains the system of units {options are
+#' @param units character vector that contains the system of units [options are
 #'     \code{SI} for International System of Units or \code{Eng} for English units
 #'     (United States Customary System in the United States and Imperial Units in
-#'     the United Kingdom)}
+#'     the United Kingdom)]
 #' @param type character vector that contains the type of trapezoid (symmetrical
 #'     or non-symmetrical). The symmetrical trapezoid uses \code{m} while the non-
 #'     symmetrical trapezoid uses \code{m1} and \code{m2}.
@@ -1892,7 +1892,7 @@ result_table
 #'
 #' 
 #'
-#' @param Q numeric vector that contains the discharge value {m^3/s or ft^3/s},
+#' @param Q numeric vector that contains the discharge value (m^3/s or ft^3/s),
 #'   if known.
 #' @param n numeric vector that contains the Manning's roughness coefficient n,
 #'   if known.
@@ -1908,10 +1908,10 @@ result_table
 #' @param y numeric vector that contains the flow depth (m or ft), if known.
 #' @param Temp numeric vector that contains the temperature (degrees C or degrees
 #'   Fahrenheit), if known.
-#' @param units character vector that contains the system of units {options are
+#' @param units character vector that contains the system of units [options are
 #'   \code{SI} for International System of Units or \code{Eng} for English units
 #'   (United States Customary System in the United States and Imperial Units in
-#'   the United Kingdom)}
+#'   the United Kingdom)]
 #' @param type character vector that contains the type of trapezoid (symmetrical
 #'   or non-symmetrical). The symmetrical trapezoid uses \code{m} while the non-
 #'   symmetrical trapezoid uses \code{m1} and \code{m2}.

@@ -2,12 +2,12 @@
 #  install.packages(c("install.load", "iemisc", "units", "round"))
 #  # install the packages and their dependencies
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 # load the required packages
 install.load::load_package("iemisc",  "units", "round")
 # load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 # 60 degrees Fahrenheit water
 # new 6 in schedule-40 steel pipe
@@ -126,7 +126,7 @@ format(Re_nu, scientific = TRUE)
 # display Re_mu with scientific notation
 format(Re_mu, scientific = TRUE)
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 # given temperature of 22 degrees Celsius
 # create a numeric vector with the units of degrees Celsius
 T_C <- set_units(22, degree_C)

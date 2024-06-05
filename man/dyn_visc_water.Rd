@@ -15,14 +15,14 @@ dyn_visc_water(
 \item{Temp}{numeric vector that contains the temperature (degrees Celsius,
 degrees Fahrenheit, or Kelvin)}
 
-\item{units}{character vector that contains the system of units {options are
+\item{units}{character vector that contains the system of units [options are
 \code{SI} for International System of Units, \code{Eng} for English units
 (United States Customary System in the United States and Imperial Units in
-the United Kingdom), or \code{Absolute} for Absolute Units}}
+the United Kingdom), or \code{Absolute} for Absolute Units]}
 
 \item{Eng_units}{character vector that contains the unit for the dynamic
-viscosity of water in the English system {options are slug/ft/s or
-lbf*s/ft^2}}
+viscosity of water in the English system [options are slug/ft/s or
+lbf*s/ft^2]}
 }
 \value{
 the absolute or dynamic viscosity as a numeric vector. The units are

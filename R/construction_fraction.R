@@ -6,17 +6,17 @@
 #'
 #' @param measurement character vector that contains the construction
 #'     measurement (foot + inch)
-#' @param result character vector that contains the decimal type {options are
-#'     traditional (ex. 1.203125 = 1'-2 7/16\"} where the whole number is the
+#' @param result character vector that contains the decimal type [options are
+#'     traditional (ex. 1.203125 = 1'-2 7/16\"] where the whole number is the
 #'     value in ft and the decimal is the value in inches & librecad
 #'     (ex. 14.43112 = 1'-2 7/16\"), whereby LibreCAD defines its decimal unit as
 #'     "integer part separated from the fractional part of a number by a
 #'     decimal". Thus, both the whole number and the decimal is the value in
 #'     inches.
 #' @param output character vector that contains the type of output. The
-#'     options are vector (just the single value as a decimal) and table {the
+#'     options are vector (just the single value as a decimal) and table [the
 #'     decimal value in inch (in), feet (ft), yard (yd), millimeters (mm),
-#'     centimeters (cm), and meters (m)}.
+#'     centimeters (cm), and meters (m)].
 #'
 #'
 #'
@@ -82,9 +82,10 @@
 #' library(iemisc)
 #' 
 #' construction_decimal("0 6", result = "traditional", output = "vector")
+#' # read as 0 feet 6 inches
 #' 
 #' construction_decimal("0 6", result = "librecad", output = "vector")
-#'
+#' # read as 0 feet 6 inches
 #'
 #'
 #' # Example 3
@@ -373,8 +374,8 @@ result_table
 #'
 #' @param measurement numeric vector that contains the construction
 #'     measurement as a decimal
-#' @param type character vector that contains the decimal type {options are
-#'   traditional (ex. 1.203125 = 1'-2 7/16\"} where the whole number is the
+#' @param type character vector that contains the decimal type [options are
+#'   traditional (ex. 1.203125 = 1'-2 7/16\"] where the whole number is the
 #'   value in ft and the decimal is the value in inches & librecad
 #'   (ex. 14.4375 = 1'-2 7/16\"), whereby LibreCAD defines its decimal unit as
 #'   "integer part separated from the fractional part of a number by a

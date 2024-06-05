@@ -2,7 +2,7 @@
 #  install.packages(c("install.load", "iemisc", "data.table", "units", "pander", "pracma"))
 #  # install the packages and their dependencies
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 # load the required packages
 install.load::load_package("iemisc", "data.table", "units", "pander")
 # load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
@@ -11,7 +11,7 @@ install.load::load_package("iemisc", "data.table", "units", "pander")
 import::from(pracma, newtonRaphson)
 # import newtonRaphson from the pracma package
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 Re <- 400000
 
@@ -53,7 +53,7 @@ relerror(acc, f7)
 
 relerror(acc, f8)
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 eps <- 0.00005
 
@@ -77,7 +77,7 @@ f7(eps = eps, D = D, Re = Re)
 
 f8(eps = eps, D = D, Re = Re)
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 # Please note that the Re2, f2, f3, f4, f5, f6, f7, f8, and the colebrook functions are found within the iemisc R package created by Irucka Embry
 
 
@@ -207,7 +207,7 @@ setnames(result_table_SI, c("Darcy friction factor equation", "Darcy friction fa
 
 pander(result_table_SI)
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 # Please note that the Re2, f2, f3, f4, f5, f6, f7, f8, and the colebrook functions are found within the iemisc R package created by Irucka Embry
 
 

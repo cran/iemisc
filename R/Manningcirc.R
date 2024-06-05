@@ -36,7 +36,7 @@
 #' \deqn{Q = \frac{K_n}{n}\frac{A^\frac{5}{3}}{P^\frac{2}{3}}\sqrt{S}}
 #'
 #' \describe{
-#'   \item{\emph{Q}}{the discharge {m^3/s or ft^3/s (cfs)} is VA}
+#'   \item{\emph{Q}}{the discharge [m^3/s or ft^3/s (cfs)] is VA}
 #'   \item{\emph{n}}{Manning's roughness coefficient (dimensionless)}
 #'   \item{\emph{P}}{the wetted perimeters of the channel (m or ft)}
 #'   \item{\emph{A}}{the cross-sectional area (m^2 or ft^2)}
@@ -85,7 +85,7 @@
 #' 
 #' \describe{
 #'   \item{\emph{d}}{the initial diameters of the cross-section [m or ft]}
-#'   \item{\emph{Q}}{the discharge {m^3/s or ft^3/s (cfs)} is VA}
+#'   \item{\emph{Q}}{the discharge [m^3/s or ft^3/s (cfs)] is VA}
 #'   \item{\emph{n}}{Manning's roughness coefficient (dimensionless)}
 #'   \item{\emph{S}}{the slope of the channel bed (m/m or ft/ft)}
 #'   \item{\emph{K_n}}{the conversion constant -- 1.0 for SI and
@@ -143,7 +143,7 @@
 #'
 #' \describe{
 #'   \item{\emph{E}}{the Specific Energy (m or ft)}
-#'   \item{\emph{Q}}{the discharge {m^3/s or ft^3/s (cfs)} is VA}
+#'   \item{\emph{Q}}{the discharge [m^3/s or ft^3/s (cfs)] is VA}
 #'   \item{\emph{g}}{gravitational acceleration (m/s^2 or ft/sec^2)}
 #'   \item{\emph{A}}{the cross-sectional area (m^2 or ft^2)}
 #'   \item{\emph{y}}{the flow depth (normal depth in this function) [m or ft]}
@@ -206,7 +206,7 @@
 #'
 #'
 #'
-#' @param Q numeric vector that contains the discharge value {m^3/s or ft^3/s},
+#' @param Q numeric vector that contains the discharge value (m^3/s or ft^3/s),
 #'   if known.
 #' @param n numeric vector that contains the Manning's roughness coefficient n,
 #'   if known.
@@ -217,10 +217,10 @@
 #' @param y numeric vector that contains the flow depth (m or ft), if known.
 #' @param Temp numeric vector that contains the temperature (degrees C or degrees
 #'   Fahrenheit), if known.
-#' @param units character vector that contains the system of units {options are
+#' @param units character vector that contains the system of units [options are
 #'   \code{SI} for International System of Units or \code{Eng} for English units
 #'   (United States Customary System in the United States and Imperial Units in
-#'   the United Kingdom)}
+#'   the United Kingdom)]
 #'
 #' @return the missing parameters (Q, n, or Sf) & theta, area (A), wetted
 #'   perimeters (P), velocity (V), top width (B), hydraulic depth (D), hydraulic radius (R), E (Specific Energy), Vel_Head (Velocity Head), Z (Section Factor), Reynolds number (Re), and Froude number (Fr) as a \code{\link[base]{list}}. for the
@@ -600,7 +600,7 @@ return(list(Sf = Sf, V = V, A = A, P = P, R = R, Re = Re, Fr = Fr))
 #' Manning equation for a circular cross-section and uniform flow. The possible
 #' inputs are y, d, y_d (ratio of y/d), and theta.
 #'
-#' @param Q numeric vector that contains the discharge value {m^3/s or ft^3/s},
+#' @param Q numeric vector that contains the discharge value (m^3/s or ft^3/s),
 #'   if known.
 #' @param d numeric vector that contains the diameters value (m or ft),
 #'   if known.
@@ -610,10 +610,10 @@ return(list(Sf = Sf, V = V, A = A, P = P, R = R, Re = Re, Fr = Fr))
 #' @param y_d numeric vector that contains the filling ration (y/d), if known.
 #' @param theta numeric vector that contains the angle theta (radians), if
 #'        known.
-#' @param units character vector that contains the system of units {options are
+#' @param units character vector that contains the system of units [options are
 #'   \code{SI} for International System of Units or \code{Eng} for English units
 #'   (United States Customary System in the United States and Imperial Units in
-#'   the United Kingdom)}
+#'   the United Kingdom)]
 #'
 #'
 #'

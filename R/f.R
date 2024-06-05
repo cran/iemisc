@@ -4,7 +4,7 @@
 #' The Darcy friction factor (f) is used in the "Darcy equation (also known as
 #' the Weisbach equation or Darcy-Weisbach equation)" to determine the
 #' "frictional energy loss for fluids" experiencing either laminar or turbulent
-#' flow (which is based on the Reynolds number). {Reference: Lindeburg Manual}
+#' flow (which is based on the Reynolds number). [Reference: Lindeburg Manual]
 #'
 #' @details
 #' Please consult the references for the equations:

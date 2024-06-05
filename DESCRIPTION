@@ -1,6 +1,6 @@
 Package: iemisc
 Title: Irucka Embry's Miscellaneous Functions
-Version: 1.0.4
+Version: 1.0.5
 Authors@R: c(person("Irucka", "Embry", role = c("aut", "cre"), email = "iembry@ecoccs.com"),
     person("Felix", "Andrews", role = c("aut", "ctb"), comment = "zoo code"),
     person("Hans Werner", "Borchers", role = c("aut", "ctb"), comment = "pracma code"),
@@ -26,12 +26,12 @@ Imports: zoo, pracma, iemiscdata, gsubfn (>= 0.7), fpCompare, units (>=
         chem.databases, methods, ramify, foreach, stats, data.table (>=
         1.10.2), measurements, roperators, berryFunctions, round,
         USA.state.boundaries (>= 1.0.1), sf, ggplot2, ggpubr, matlab,
-        sjmisc, lubridate, anytime, qdapRegex, mgsub, geosphere,
-        matlab2r, signal, utils
+        sjmisc, lubridate, anytime, mgsub, geosphere, matlab2r, signal,
+        utils, qdapRegex
 Suggests: install.load, knitr, import, fractional, fracture, MASS,
         rmarkdown, tinytest, maps, spelling, sampler, callr, rando,
         geometry, linguisticsdown, aiRthermo, hydraulics, ie2misc,
-        formatR, pander, printr, tibble, lintr
+        formatR, pander, printr, tibble, lintr, opencpu
 Description: A collection of Irucka Embry's miscellaneous functions
     (Engineering Economics, Civil & Environmental/Water Resources Engineering,
     Construction Measurements, GNU Octave compatible functions, Python
@@ -43,9 +43,9 @@ License: GPL (>= 3) | file LICENSE
 Language: en-US
 Encoding: UTF-8
 VignetteBuilder: knitr
-RoxygenNote: 7.2.3
+RoxygenNote: 7.3.1
 NeedsCompilation: no
-Packaged: 2023-09-25 00:27:37 UTC; xbyri
+Packaged: 2024-06-05 17:19:37 UTC; xbyri
 Author: Irucka Embry [aut, cre],
   Felix Andrews [aut, ctb] (zoo code),
   Hans Werner Borchers [aut, ctb] (pracma code),
@@ -67,4 +67,4 @@ Author: Irucka Embry [aut, cre],
   Josh O'Brien [aut, ctb] (stackoverflow R code),
   R. van Twisk [aut, ctb] (LibreCAD code)
 Repository: CRAN
-Date/Publication: 2023-09-25 10:20:02 UTC
+Date/Publication: 2024-06-05 21:40:18 UTC

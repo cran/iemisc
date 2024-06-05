@@ -172,7 +172,6 @@ ifelse (stri_detect_fixed(string, pattern = ", "), sapply(stri_split_fixed(strin
 #' @importFrom stringi stri_detect_regex stri_split_regex
 #' @importFrom assertthat assert_that
 #' @importFrom checkmate testCharacter
-#' @importFrom qdapRegex rm_white
 #' @importFrom mgsub mgsub
 #'
 #' @export

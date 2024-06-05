@@ -4,7 +4,7 @@
 #' measurements [based in the State Plane Coordinate System (SPCS)] in meters,
 #' international foot, or US survey foot and converts those values into
 #' geodetic coordinates of the World Geodetic System (WGS) (19)84 (EPSG:4326).
-#' [MapTiler Reference] Each latitude {Y} and longitude {X} point is verified to be
+#' [MapTiler Reference] Each latitude [Y] and longitude [X] point is verified to be
 #' located within Kentucky or Tennessee. This is the batch version of engr_survey
 #' as it processes multiple pairs of Northing and Easting points at a time.
 #'
@@ -21,9 +21,9 @@
 #' @param units character vector that contains the system of units (options are
 #'     \code{survey_ft} (United States Customary System) [US survey foot],
 #'     \code{foot}, or \code{meters} (International System of Units) [meters]
-#'     {only 1 set of units at a time}
+#'     [only 1 set of units at a time])
 #' @param location character vector that contains the location name ('KY' for
-#'     Kentucky or 'TN' for Tennessee) {only 1 location at a time}
+#'     Kentucky or 'TN' for Tennessee) [only 1 location at a time]
 #' @param output character vector that contains basic for the default result
 #'     using a simple \code{\link[data.table]{data.table}} or table for the result as a
 #'     complex \code{\link[data.table]{data.table}} [using rbindlist therefore resulting in only
@@ -31,7 +31,7 @@
 #'
 #'
 #'
-#' @return the projected associated latitude {Y} and longitude {X} coordinates
+#' @return the projected associated latitude [Y] and longitude [X] coordinates
 #'   in Decimal Degrees using the \code{\link{sf}} system
 #'
 #'

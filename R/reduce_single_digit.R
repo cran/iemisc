@@ -70,6 +70,8 @@
 #' 
 #' reduce_single_digit("11-09-2022")
 #' 
+#' reduce_single_digit("2001/01/31")
+#' 
 #' reduce_single_digit("24 December 1983 04:37:58.55543333")
 #' 
 #' reduce_single_digit("4 July 1776")
@@ -87,13 +89,20 @@
 #' reduce_single_digit("908-0945")
 #' 
 #'
+#' datess <- seq(as.Date("2001/07/17"), as.Date("2001/08/03"), by = "day")
+#' datess
+#' xt <- sapply(datess, reduce_single_digit)
+#' xt
+#' datess[which(xt == 3 | xt == 6 | xt == 9)]
 #'
 #'
 #'
 #'
 #'
-#' @importFrom stringi stri_replace_all_regex stri_count_fixed stri_split_fixed
+#'
+#' @importFrom stringi stri_replace_all_regex stri_split_fixed
 #' @importFrom anytime anytime anydate
+#' @importFrom checkmate testDate
 #' @importFrom methods is
 #' @importFrom mgsub mgsub
 #'
@@ -104,65 +113,36 @@ reduce_single_digit <- function (string) {
 if (is(string, "numeric")) {
 
 # to make any negative number positive
-string1 <- abs(string)
+string1a <- abs(string)
+
+
+} else if (testDate(string)) {
+
+string1 <- anydate(string)
+
+string1a <- mgsub(as.character(string1), "-", "")
+
+
+} else if (checkerTime(string)) {
+
+string1 <- anytime(string)
+
+string1aa <- stri_replace_all_regex(string1, "A-Z", "", case_insensitive = TRUE)
+
+string1a <- mgsub(string1aa, pattern = c("-", ":", " ", "."), replacement = c("", "", "", ""), fixed = TRUE)
 
 
 } else if (is(string, "character")) {
 
 strings <- mgsub(string, pattern = c("-", "/", "(", ")"), replacement = c("", "", "", ""), fixed = TRUE)
 
-
-if (!is.na(anydate(strings))) {
-
-if (stri_count_fixed(strings, " ") == 2) {
-
-string1 <- anydate(strings)
-
-
-} else if (stri_count_fixed(strings, " ") == 3) {
-
-string1 <- anytime(strings)
-
-}
-
-} else if (is.na(anytime(strings))) {
-
 string1m <- mgsub(strings, pattern = c(" ", "-"), replacement = c("", ""), fixed = TRUE)
 
 string1n <- mgsub(string1m, pattern = "[A-Za-z]", replacement = "")
 
-string1o <- mgsub(string1n, pattern = " ", replacement = "", fixed = TRUE)
+string1 <- mgsub(string1n, pattern = " ", replacement = "", fixed = TRUE)
 
-string1 <- as.numeric(string1o)
-
-
-if (stri_detect_fixed(string1, ".")) {
-
-string1 <- unlist(stri_split_fixed(string1, pattern = ".", n = 2))
-
-string1 <- as.numeric(paste0(string1, collapse = ""))
-
-}
-}
-}
-
-
-
-if(is(string1, "Date")) {
-
-string1a <- mgsub(as.character(string1), "-", "")
-
-
-} else if (is(string1, "POSIXct")) {
-
-string1a <- stri_replace_all_regex(string1, "A-Z", "", case_insensitive = TRUE)
-
-string1a <- mgsub(string1a, pattern = c("-", ":", " "), replacement = c("", "", ""), fixed = TRUE)
-
-
-} else if (is(string1, "numeric")) {
-
-string1a <- string1
+string1a <- as.numeric(string1)
 
 }
 
@@ -214,4 +194,16 @@ stringer <- Mod_octave(stringer, 9)
 return(stringer)
 
 }
+}
+
+
+
+
+# modified from assertTime of anytime
+checkerTime <- function(x) {
+
+y <- anytime(x)
+
+isTRUE(!any(is.na(y)))
+
 }

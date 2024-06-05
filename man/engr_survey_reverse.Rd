@@ -24,16 +24,16 @@ engr_survey_reverse(
 )
 }
 \arguments{
-\item{latitude}{numeric vector {or character vector with spaces, degree
-symbol, single quotation mark, and/or escaped quotation mark (\")} that
+\item{latitude}{numeric vector [or character vector with spaces, degree
+symbol, single quotation mark, and/or escaped quotation mark (\")] that
 contains the latitude coordinate point. The following possibilities are
 valid: -25.02, "25\\U00B056'50.2068\"N"; "15\\U00B056'58.7068"; "37'1'54.3'N";
 "35 8 46.44496",  "35'8'46.44496". If the North designation is not
 provided, then it will be added. The latitude/longitude coordinate pair
 has to be either a numeric or character vector (no mixing).}
 
-\item{longitude}{numeric vector {or character vector with spaces, degree
-symbol, single quotation mark, and/or escaped quotation mark (\")} that
+\item{longitude}{numeric vector [or character vector with spaces, degree
+symbol, single quotation mark, and/or escaped quotation mark (\")] that
 contains the latitude coordinate point. The following possibilities are
 valid: 09.83, "25\\U00B056'50.2068\"W"; "15\\U00B056'58.7068"; "37'1'54.3'E";
 "35 8 46.44496",  "35'8'46.44496". If the West designation is not
@@ -42,7 +42,7 @@ has to be either a numeric or character vector (no mixing).}
 
 \item{units}{character vector that contains the system of units (options are
 \code{survey_ft} (United States Customary System) [US survey foot],
-\code{foot}, or \code{meters} (International System of Units) [meters]}
+\code{foot}, or \code{meters} (International System of Units) [meters])}
 
 \item{location}{character vector that contains the location name ('KY' for
 Kentucky or 'TN' for Tennessee)}
@@ -63,7 +63,7 @@ Takes geodetic coordinates of the World Geodetic System (WGS) (19)84
 (EPSG:4326) [MapTiler Reference] and converts those values into Kentucky or
 Tennessee-based Northing and Easting engineering survey measurements
 [based in the State Plane Coordinate System (SPCS)] in meters, international
-foot, or US survey foot. Each latitude {Y} and longitude {X} point is
+foot, or US survey foot. Each latitude [Y] and longitude [X] point is
 verified to be located within Kentucky or Tennessee.
 }
 \note{

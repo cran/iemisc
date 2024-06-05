@@ -9,14 +9,14 @@ Re4(Q, nu, D)
 }
 \arguments{
 \item{Q}{numeric vector that contains the discharge value of the fluid
-(m^3/s or ft^3/s)  {Reference: Lindeburg Manual}}
+(m^3/s or ft^3/s)  [Reference: Lindeburg Manual]}
 
 \item{nu}{numeric vector that contains the kinematic viscosity of the fluid
-(m^2/s or lbf-sec/ft^2)  {Reference: Lindeburg Manual}}
+(m^2/s or lbf-sec/ft^2)  [Reference: Lindeburg Manual]}
 
 \item{D}{numeric vector that contains the hydraulic diameters "(four times
 the area in flow divided by the wetted surface) is a characteristic
-length" (m or ft)  {Reference: Lindeburg Manual}}
+length" (m or ft)  [Reference: Lindeburg Manual]}
 }
 \value{
 the Reynolds number as a numeric \code{\link[base]{vector}} for Re4

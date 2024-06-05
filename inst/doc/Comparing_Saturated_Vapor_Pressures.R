@@ -2,14 +2,14 @@
 #  install.packages(c("install.load", "iemisc", "units"))
 #  # install the packages and their dependencies
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 # load the required packages
 install.load::load_package("iemisc", "units", "pander")
 # load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
 
 import::from(fpCompare, "%==%")
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 install.load::load_package("iemisc", "data.table", "units", "pander")
 

@@ -24,10 +24,10 @@ kin_visc_water(
 \item{mu}{numeric vector that contains the water dynamic viscosity}
 
 \item{rho_units}{character vector that contains the unit for the density of
-water {options are kg/m^3, lbm/ft^3, or slug/ft^3}}
+water [options are kg/m^3, lbm/ft^3, or slug/ft^3]}
 
 \item{mu_units}{character vector that contains the unit for the dynamic
-viscosity of water {options are Pa*s or kg/m/s, lbf*s/ft^2, or slug/ft/s}}
+viscosity of water [options are Pa*s or kg/m/s, lbf*s/ft^2, or slug/ft/s]}
 }
 \value{
 the kinematic viscosity as a numeric vector. The units are not

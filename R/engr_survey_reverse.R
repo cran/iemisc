@@ -4,19 +4,19 @@
 #' (EPSG:4326) [MapTiler Reference] and converts those values into Kentucky or
 #' Tennessee-based Northing and Easting engineering survey measurements
 #' [based in the State Plane Coordinate System (SPCS)] in meters, international
-#' foot, or US survey foot. Each latitude {Y} and longitude {X} point is
+#' foot, or US survey foot. Each latitude [Y] and longitude [X] point is
 #' verified to be located within Kentucky or Tennessee.
 #'
 #'
-#' @param latitude numeric vector {or character vector with spaces, degree
-#'    symbol, single quotation mark, and/or escaped quotation mark (\")} that
+#' @param latitude numeric vector [or character vector with spaces, degree
+#'    symbol, single quotation mark, and/or escaped quotation mark (\")] that
 #'    contains the latitude coordinate point. The following possibilities are
 #'    valid: -25.02, "25\\U00B056'50.2068\"N"; "15\\U00B056'58.7068"; "37'1'54.3'N";
 #'    "35 8 46.44496",  "35'8'46.44496". If the North designation is not
 #'    provided, then it will be added. The latitude/longitude coordinate pair
 #'    has to be either a numeric or character vector (no mixing).
-#' @param longitude numeric vector {or character vector with spaces, degree
-#'    symbol, single quotation mark, and/or escaped quotation mark (\")} that
+#' @param longitude numeric vector [or character vector with spaces, degree
+#'    symbol, single quotation mark, and/or escaped quotation mark (\")] that
 #'    contains the latitude coordinate point. The following possibilities are
 #'    valid: 09.83, "25\\U00B056'50.2068\"W"; "15\\U00B056'58.7068"; "37'1'54.3'E";
 #'    "35 8 46.44496",  "35'8'46.44496". If the West designation is not
@@ -24,7 +24,7 @@
 #'    has to be either a numeric or character vector (no mixing).
 #' @param units character vector that contains the system of units (options are
 #'     \code{survey_ft} (United States Customary System) [US survey foot],
-#'     \code{foot}, or \code{meters} (International System of Units) [meters]
+#'     \code{foot}, or \code{meters} (International System of Units) [meters])
 #' @param location character vector that contains the location name ('KY' for
 #'     Kentucky or 'TN' for Tennessee)
 #' @param output character vector that contains basic for the default result
@@ -165,7 +165,7 @@
 #'
 #' @importFrom data.table setnames setattr copy setDF setDT as.data.table
 #' @importFrom stringi stri_replace_all_fixed stri_detect_fixed stri_extract_first_regex
-#' @importFrom sf st_as_sf st_transform st_coordinates
+#' @importFrom sf st_as_sf st_transform st_coordinates st_crs
 #' @importFrom units set_units make_units drop_units
 #' @importFrom checkmate qtest
 #' @importFrom assertthat assert_that
@@ -552,7 +552,7 @@ return(list(data_projected = data_projected, utm = utm))
 
 # table inspired by Earth Point Reference
 # table with UTM information
-DT_out <- data.table(names = c("Degrees (Latitude, Longitude)", "Degrees Minutes (Latitude, Longitude)", "Degrees Minutes Seconds (Latitude, Longitude)", "State Plane (X = East, Y = North) [meters]", "State Plane (X = East, Y = North) [US survey foot]", "State Plane (X = East, Y = North) [international foot]", "UTM Zone", "UTM (X = East, Y = North) [meters]", "UTM (X = East, Y = North) [centimeters]", "UTM (X = East, Y = North) [US survey foot]", "UTM (X = East, Y = North) [international foot]", "Hemisphere"), numbers = c(paste0(dn1, ", ", dw1), paste0(dmn1, ", ", dmw1), paste0(dmsn1, ", ", dmsw1), paste0(z, " ", em,", ", nm), paste0(z, " ", eu,", ", nu), paste0(z, " ", ei,", ", ni), zone, paste0(utm_x, " ", utm_y), paste0(utm_x_cm, " ", utm_y_cm), paste0(utm_x_US, " ", utm_y_US), paste0(utm_x_ft, " ", utm_y_ft), utm[[5]]))
+DT_out <- data.table(names = c("Degrees (Latitude, Longitude)", "Degrees Minutes (Latitude, Longitude)", "Degrees Minutes Seconds (Latitude, Longitude)", "State Plane (X = East, Y = North) [meters]", "State Plane (X = East, Y = North) [US survey foot]", "State Plane (X = East, Y = North) [international foot]", "UTM Zone", "UTM (X = East, Y = North) [meters]", "UTM (X = East, Y = North) [centimeters]", "UTM (X = East, Y = North) [US survey foot]", "UTM (X = East, Y = North) [international foot]", "Hemisphere", "Projected CRS + Defined Units"), numbers = c(paste0(dn1, ", ", dw1), paste0(dmn1, ", ", dmw1), paste0(dmsn1, ", ", dmsw1), paste0(z, " ", em,", ", nm), paste0(z, " ", eu,", ", nu), paste0(z, " ", ei,", ", ni), zone, paste0(utm_x, " ", utm_y), paste0(utm_x_cm, " ", utm_y_cm), paste0(utm_x_US, " ", utm_y_US), paste0(utm_x_ft, " ", utm_y_ft), utm[[5]], st_crs(data_projected)$input))
 
 setnames(DT_out, c("Parameters", "Value"))
 
@@ -577,7 +577,7 @@ return(data_projected)
 
 # table inspired by Earth Point Reference
 # without the UTM information
-DT_out <- data.table(names = c("Degrees (Latitude, Longitude)", "Degrees Minutes (Latitude, Longitude)", "Degrees Minutes Seconds (Latitude, Longitude)", "State Plane (X = East, Y = North) [meters]", "State Plane (X = East, Y = North) [US survey foot]", "State Plane (X = East, Y = North) [international foot]"), numbers = c(paste0(dn1, ", ", dw1), paste0(dmn1, ", ", dmw1), paste0(dmsn1, ", ", dmsw1), paste0(z, " ", em,", ", nm), paste0(z, " ", eu,", ", nu), paste0(z, " ", ei,", ", ni)))
+DT_out <- data.table(names = c("Degrees (Latitude, Longitude)", "Degrees Minutes (Latitude, Longitude)", "Degrees Minutes Seconds (Latitude, Longitude)", "State Plane (X = East, Y = North) [meters]", "State Plane (X = East, Y = North) [US survey foot]", "State Plane (X = East, Y = North) [international foot]", "Projected CRS + Defined Units"), numbers = c(paste0(dn1, ", ", dw1), paste0(dmn1, ", ", dmw1), paste0(dmsn1, ", ", dmsw1), paste0(z, " ", em,", ", nm), paste0(z, " ", eu,", ", nu), paste0(z, " ", ei,", ", ni), st_crs(data_projected)$input))
 
 setnames(DT_out, c("Parameters", "Value"))
 

@@ -17,13 +17,13 @@ sp_gravity(
 
 \item{rho_s}{numeric vector that contains the density of the substance}
 
-\item{units}{character vector that contains the system of units {options are
+\item{units}{character vector that contains the system of units [options are
 \code{SI} for International System of Units or \code{Eng} for English units
 (United States Customary System in the United States and Imperial Units in
-the United Kingdom)}}
+the United Kingdom)]}
 
 \item{Eng_units}{character vector that contains the unit for the density of
-water {options are slug/ft^3 or lbm/ft^3}}
+water [options are slug/ft^3 or lbm/ft^3]}
 }
 \value{
 the specific volume as a numeric vector

@@ -2,7 +2,7 @@
 #  install.packages(c("install.load", "iemisc", "pander"))
 #  # install the packages and their dependencies
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 install.load::load_package("iemisc", "pander")
 
 panderOptions("table.continues", "")
@@ -32,43 +32,43 @@ Temp = 20; pTe = 1; contam1 = c("Benzene", "Toluene", "Trichloroethylene"); Cai 
 
 air2 <- air_stripper(Temp = Temp, pTe = pTe, contam1 = contam1, Cai = Cai, Cae = Cae, contam2 = contam2, Ha = Ha, Q = Q, loading = loading, ns = ns, DL = DL, DG = DG, dP = dP, at = at, Sc = Sc, cf = cf, R = R,  Temp_unit = "SI", dP_unit = "inch", at_unit = "ft^2/ft^3", Sc_unit = "kg/s^2", contaminants_table = 1, removal_requirements_table = 1, critical_contaminant_table = 1)
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 pander(air1[[1]], missing = "")
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 pander(air1[[2]], missing = "")
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 pander(air1[[3]], missing = "")
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 pander(air1[[4]])
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 pander(air1aaa[[1]], missing = "")
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 pander(air1aaa[[2]], missing = "")
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 pander(air1aaa[[3]], missing = "")
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 pander(air1aaa[[4]])
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 pander(air2[[1]], missing = "")
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 pander(air2[[2]], missing = "")
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 pander(air2[[3]], missing = "")
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 pander(air2[[4]])
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 install.load::load_package("iemisc")
 
@@ -77,27 +77,27 @@ air3 <- air_stripper(Temp = 20, pTe = 1, contam1 = "Ammonia", Cai = 333, Cae = 2
 
 air4 <- air_stripper(Temp = 25, pTe = 1, contam1 = "Ammonia", Cai = 700, Cae = 2.8, contam2 = "Ammonia", Ha = 0.75, Q = 440, loading = 45, ns = 3, DL = 2.1E-09, DG = 9.8E-06, dP = 6.35, at = 940, Sc = 0.061, cf = 1600, R = 1.5,  Temp_unit = "SI", dP_unit = "mm", at_unit = "m^2/m^3", Sc_unit = "kg/s^2", contaminants_table = 1, removal_requirements_table = 1, critical_contaminant_table = 1)
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 pander(air3[[1]])
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 pander(air3[[2]], missing = "")
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 pander(air3[[3]])
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 pander(air3[[4]])
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 pander(air4[[1]])
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 pander(air4[[2]], missing = "")
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 pander(air4[[3]])
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 pander(air4[[4]])
 

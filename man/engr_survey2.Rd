@@ -27,14 +27,14 @@ between any 2 points along the survey, the default is 100 feet}
 \code{station_distance} (options are \code{foot}, \code{survey_ft}
 (United States Customary System) [US survey foot], \code{meters} for
 International System of Units meters, or \code{kilometers} for International System
-of Units kilometers}
+of Units kilometers)}
 
 \item{units2}{character vector that contains the system of units for the
 horizontal length (options are \code{foot}, \code{survey_ft}
 (United States Customary System) [US survey foot], \code{survey_mile}
 (United States Customary System) [US survey mile], \code{mile},
 \code{meters} for International System of Units meters, or \code{kilometers} for
-International System of Units kilometers}
+International System of Units kilometers)}
 }
 \value{
 the calculated horizontal distance in the chosen unit as a numeric
@@ -97,7 +97,7 @@ units1 = "survey_ft", units2 = "foot")
 \references{
 \enumerate{
    \item udunits.dat, v 1.18 2006/09/20 18:59:18 steve Exp, \url{https://web.archive.org/web/20230202155021/https://www.unidata.ucar.edu/software/udunits/udunits-1/udunits.txt}. Retrieved thanks to the Internet Archive: Wayback Machine
-   \item Ben W. Lewis, PE, July 12, 2016, "Construction Plan Reading Basics & Applications Part III Typical Calculations / Quantity Take-off's: Calculate Project Length", \url{http://www.richlandonline.com/Portals/0/Departments/Procurement/SLBE/Plan\%20Reading\%20PowerPoint\%20Presentation.pdf}.
+   \item Ben W. Lewis, PE, July 12, 2016, "Construction Plan Reading Basics & Applications Part III Typical Calculations / Quantity Take-off's: Calculate Project Length", \url{https://web.archive.org/web/20171008121149/http://www.richlandonline.com/Portals/0/Departments/Procurement/SLBE/Plan\%20Reading\%20PowerPoint\%20Presentation.pdf}. Used the Internet Archive: Wayback Machine archived version for acceptance into CRAN.
    \item Georgia Department of Transportation Skills Development Series, Revised May 1, 2008, "Basic Highway Plan Reading", \url{https://web.archive.org/web/20220401015405/http://www.dot.ga.gov/PartnerSmart/Training/Documents/ESD/BasicHiwyPlanReading.pdf}. Retrieved thanks to the Internet Archive: Wayback Machine
 }
 }

@@ -2,14 +2,14 @@
 #  install.packages(c("install.load", "iemisc", "units", "knitr"))
 #  # install the packages and their dependencies
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 # load the required packages
 install.load::load_package("iemisc", "units")
 # load needed packages using the load_package function from the install.load package (it is assumed that you have already installed these packages)
 
 import::from(fpCompare, "%==%")
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 trxt <- "1 1/3"
 
@@ -30,7 +30,7 @@ hjtevo <- "28/3 inches"
 
 frac_to_numeric(hjtevo)
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 t1 <- "34'-3 1/2\""
 t2 <- "34-3 1/2\""
 t3 <- "34' 3 1/2\""
@@ -48,20 +48,20 @@ t14 <- "34 feet 3 1/2 inch"
 t15 <- "34 feet 3 1/2 in"
 t16 <- "34 FEEt 3 1/2 IN"
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 (construction_decimal(t1, result = "traditional", output = "vector")
 * construction_decimal(t2, result = "traditional", output = "vector")
 * 4) / 43560
 # acres
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 (construction_decimal(t1, result = "traditional", output = "vector")
 ^ 2 * 4) / 43560
 # acres
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 t1_ft2 <- set_units((construction_decimal(t1, result = "traditional",
 output = "vector") * construction_decimal(t2, result = "traditional",
@@ -80,7 +80,7 @@ t1_acress <- t1_ft2s
 units(t1_acress) <- make_units(acre)
 t1_acress
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 sum(construction_decimal(t1, result = "traditional", output = "vector"),
 construction_decimal(t2, result = "traditional", output = "vector"),
@@ -88,7 +88,7 @@ construction_decimal(t3, result = "traditional", output = "vector"),
 construction_decimal(t4, result = "traditional", output = "vector"),
 construction_decimal(t5, result = "traditional", output = "vector"))
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 construction_decimal(t1, result = "traditional", output = "vector")
 
@@ -122,7 +122,7 @@ construction_decimal(t15, result = "traditional", output = "vector")
 
 construction_decimal(t16, result = "traditional", output = "vector")
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 construction_decimal(t1, result = "librecad", output = "vector")
 
@@ -156,7 +156,7 @@ construction_decimal(t15, result = "librecad", output = "vector")
 
 construction_decimal(t16, result = "librecad", output = "vector")
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 m1 <- "33'-3 1/2\""
 m2 <- "32'-1"
@@ -183,11 +183,11 @@ construction_fraction(msum, type = "traditional", result = "traditional", fracti
 construction_decimal("194'-11", result = "traditional", output =
 "vector") %==% msum
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 sum(construction_decimal("0 3", result = "traditional", output = "vector"), construction_decimal("0 8", result = "traditional", output = "vector"), construction_decimal("0 6", result = "traditional", output = "vector")) * sum(construction_decimal("0 2 5/8", result = "traditional", output = "vector"), 3 * construction_decimal("2 6 3/4", result = "traditional", output = "vector"), construction_decimal("0 2 5/8", result = "traditional", output = "vector"))
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 bank <- set_units(construction_decimal("72 3 1/3", result =
 "traditional", output = "vector"), US_survey_foot)
@@ -273,7 +273,7 @@ fill_yd3 <- vol_bank_OHWM
 
 fill_yd3
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 psst <- "7' 4 5/16\""
 
@@ -291,7 +291,7 @@ construction_decimal(wall1, result = "traditional", output = "vector")
 
 construction_decimal(wall2, result = "traditional", output = "vector")
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 pssts1 <- "3 3/8\""
 
@@ -310,7 +310,7 @@ frac_to_numeric(pssts1) %==% construction_decimal(pssts, result = "librecad", ou
 
 frac_to_numeric(pssts1b) %==% construction_decimal(pssts, result = "librecad", output = "vector")
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 librecad1 <- "1 2 7/16\""
 
@@ -344,7 +344,7 @@ construction_decimal(librecad3, result = "librecad", output = "vector")
 
 knitr::kable(format(construction_decimal(librecad3, result = "librecad", output = "table"), digits = 5, nsmall = 5))
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 checker <- "6'-5 3/256 in"
 
@@ -372,7 +372,7 @@ construction_fraction(checkers, type = "traditional", result = "traditional", fr
 
 construction_fraction(checkers, type = "traditional", result = "traditional", fraction = 256)
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 checkin <- 77.6875
 
@@ -396,7 +396,7 @@ construction_fraction(checkin, type = "librecad", result = "traditional", fracti
 
 construction_fraction(checkin, type = "librecad", result = "traditional", fraction = 256)
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 length1 <- "5 feet 1 3/4 inches"
 length2 <- "21 feet 7 3/8"
@@ -418,7 +418,7 @@ construction_fraction(length_product_ft, type = "traditional", result = "traditi
 
 construction_fraction((construction_decimal(length1, result = "traditional", output = "vector") * construction_decimal(length2, result = "traditional", output = "vector")), type = "traditional", result = "traditional", fraction = 8)
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 length1 <- "5 feet 1 3/4 inches"
 length2 <- "21 feet 7 3/8"
@@ -435,7 +435,7 @@ construction_fraction(length_quotient, type = "traditional", result = "tradition
 
 construction_fraction((construction_decimal(length1, result = "traditional", output = "vector") / construction_decimal(length2, result = "traditional", output = "vector")), type = "traditional", result = "traditional", fraction = 8)
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 length_sum <- sum(construction_decimal(length1, result = "traditional", output = "vector"), construction_decimal(length2, result = "traditional", output = "vector"))
 
@@ -445,7 +445,7 @@ construction_fraction(length_sum, type = "traditional", result = "traditional", 
 
 construction_fraction(sum(construction_decimal(length1, result = "traditional", output = "vector"), construction_decimal(length2, result = "traditional", output = "vector")), type = "traditional", result = "traditional", fraction = 8)
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 length_difference1 <- construction_decimal(length1, result = "traditional", output = "vector") - construction_decimal(length2, result = "traditional", output = "vector")
 
@@ -455,7 +455,7 @@ construction_fraction(length_difference1, type = "traditional", result = "tradit
 
 construction_fraction((construction_decimal(length1, result = "traditional", output = "vector") - construction_decimal(length2, result = "traditional", output = "vector")), type = "traditional", result = "traditional", fraction = 8)
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 length_difference2 <- construction_decimal(length2, result = "traditional", output = "vector") - construction_decimal(length1, result = "traditional", output = "vector")
 
@@ -465,7 +465,7 @@ construction_fraction(length_difference2, type = "traditional", result = "tradit
 
 construction_fraction((construction_decimal(length2, result = "traditional", output = "vector") - construction_decimal(length1, result = "traditional", output = "vector")), type = "traditional", result = "traditional", fraction = 8)
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 panel <- set_units(5, "m")
 
@@ -485,7 +485,7 @@ construction_fraction(drop_units(panel_6), type = "traditional", result = "tradi
 
 construction_fraction(drop_units(panel_6), type = "traditional", result = "traditional", fraction = 32)
 
-## ---- warning = FALSE, message = FALSE, tidy = TRUE---------------------------
+## ----warning = FALSE, message = FALSE, tidy = TRUE----------------------------
 
 librecad1a <- "6' 8 3/4 in"
 
@@ -496,7 +496,7 @@ librecad2a <- "6'-5 3/256\""
 
 construction_decimal_eng(librecad2a)
 
-## ---- echo = FALSE------------------------------------------------------------
+## ----echo = FALSE-------------------------------------------------------------
 
 loadNamespace("printr")
 

@@ -10,22 +10,22 @@ Re3(D, G, mu, gc = NULL, units = c("SI", "Eng"))
 \arguments{
 \item{D}{numeric vector that contains the hydraulic diameters "(four times
 the area in flow divided by the wetted surface) is a characteristic
-length" (m or ft)  {Reference: Lindeburg Manual}}
+length" (m or ft)  [Reference: Lindeburg Manual]}
 
 \item{G}{numeric vector that contains the 'mass flow rate per unit area'
-(kg/m^2-s or lbm/ft^2-sec)  {Reference: Lindeburg Manual}}
+(kg/m^2-s or lbm/ft^2-sec)  [Reference: Lindeburg Manual]}
 
 \item{mu}{numeric vector that contains the absolute or dynamic viscosity of
-the fluid (Pa-s or lbf-sec/ft^2)  {Reference: Lindeburg Manual}}
+the fluid (Pa-s or lbf-sec/ft^2)  [Reference: Lindeburg Manual]}
 
 \item{gc}{numeric vector that contains the gravitational constant (32.2
-lbm-ft/lbf-sec^2)  {Reference: Lindeburg Manual}}
+lbm-ft/lbf-sec^2)  [Reference: Lindeburg Manual]}
 
-\item{units}{character vector that contains the system of units {options are
+\item{units}{character vector that contains the system of units [options are
 \code{SI} for International System of Units, \code{Eng} for English units
 (United States Customary System in the United States and Imperial Units in
 the United Kingdom), and \code{slug} for the English unit slug which is a
-consistent unit of mass}}
+consistent unit of mass]}
 }
 \value{
 the Reynolds number as a numeric \code{\link[base]{vector}} for Re3

@@ -4,7 +4,7 @@
 #' measurements [based in the State Plane Coordinate System (SPCS)] in meters,
 #' international foot, or US survey foot and converts those values into
 #' geodetic coordinates of the World Geodetic System (WGS) (19)84 (EPSG:4326).
-#' [MapTiler Reference] Each latitude {Y} and longitude {X} point is verified to be
+#' [MapTiler Reference] Each latitude [Y] and longitude [X] point is verified to be
 #' located within Kentucky or Tennessee.
 #'
 #'
@@ -17,7 +17,7 @@
 #'     measurement in meters, international foot, or US survey foot
 #' @param units character vector that contains the system of units (options are
 #'     \code{survey_ft} (United States Customary System) [US survey foot],
-#'     \code{foot}, or \code{meters} (International System of Units) [meters]
+#'     \code{foot}, or \code{meters} (International System of Units) [meters])
 #' @param location character vector that contains the location name ('KY' for
 #'     Kentucky or 'TN' for Tennessee)
 #' @param output character vector that contains basic for the default result
@@ -28,10 +28,12 @@
 #'
 #'
 #'
-#' @return the projected associated latitude {Y} and longitude {X} coordinates in Decimal Degrees as a \code{\link[data.table]{data.table}} or as an enhanced
-#'   \code{\link[data.table]{data.table}} with the Northing and Easting coordinates in US
-#'   survey foot, foot, and meters in addition to the {Y} and {X} coordinates
-#'   for the begin, middle, and end points
+#' @return the projected associated latitude [Y] and longitude [X] coordinates
+#'     in Decimal Degrees as a \code{\link[data.table]{data.table}} or as an
+#'     enhanced \code{\link[data.table]{data.table}} with the latitude [Y] and
+#'     longitude [X] coordinates in Decimal Degrees, Degrees Minutes, Degrees
+#'     Minutes Seconds & the State Plane Northing and Easting coodinates in
+#'     meters, US survey foot, and the international foot
 #'
 #'
 #' @source
@@ -234,7 +236,7 @@
 #' @importFrom data.table data.table setnames copy set setattr setDF
 #' @importFrom stringi stri_detect_fixed stri_replace_all_fixed stri_length stri_extract_first_regex
 #' @importFrom sf st_as_sf st_transform st_coordinates
-#' @importFrom units set_units make_units
+#' @importFrom units set_units make_units drop_units
 #' @importFrom checkmate qtest
 #' @importFrom assertthat assert_that
 #' @importFrom round round_r3
@@ -355,7 +357,7 @@ units(distance$Easting) <- make_units(m)
 
 units(distance$Northing) <- make_units(m)
 
-for (col in change_class) set(distance, j = col, value = as.numeric(distance[[col]]))
+for (col in change_class) set(distance, j = col, value =  drop_units(distance[[col]]))
 # Source 3
 
 data <- data.table(X = distance[, Easting], Y = distance[, Northing])
@@ -375,7 +377,7 @@ units(distance$Easting) <- make_units(m)
 
 units(distance$Northing) <- make_units(m)
 
-for (col in change_class) set(distance, j = col, value = as.numeric(distance[[col]]))
+for (col in change_class) set(distance, j = col, value =  drop_units(distance[[col]]))
 # Source 3
 
 

@@ -14,13 +14,13 @@
 #'     \code{station_distance} (options are \code{foot}, \code{survey_ft}
 #'     (United States Customary System) [US survey foot], \code{meters} for
 #'     International System of Units meters, or \code{kilometers} for International System
-#'     of Units kilometers
+#'     of Units kilometers)
 #' @param output character vector that contains the system of units for the
 #'     horizontal length (options are \code{foot}, \code{survey_ft}
 #'     (United States Customary System) [US survey foot], \code{survey_mile}
 #'     (United States Customary System) [US survey mile], \code{mile},
 #'     \code{meters} for International System of Units meters, or \code{kilometers} for
-#'     International System of Units kilometers
+#'     International System of Units kilometers)
 #'
 #'
 #'
@@ -225,7 +225,7 @@ return(station_string)
 #'     \code{station_distance} (options are \code{foot}, \code{survey_ft}
 #'     (United States Customary System) [US survey foot], \code{meters} for
 #'     International System of Units meters, or \code{kilometers} for International System
-#'     of Units kilometers
+#'     of Units kilometers)
 #'
 #'
 #'

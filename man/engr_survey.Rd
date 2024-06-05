@@ -36,7 +36,7 @@ measurement in meters, international foot, or US survey foot}
 
 \item{units}{character vector that contains the system of units (options are
 \code{survey_ft} (United States Customary System) [US survey foot],
-\code{foot}, or \code{meters} (International System of Units) [meters]}
+\code{foot}, or \code{meters} (International System of Units) [meters])}
 
 \item{location}{character vector that contains the location name ('KY' for
 Kentucky or 'TN' for Tennessee)}
@@ -49,17 +49,19 @@ complex \code{\link[data.table]{data.table}}}
 provide the utm coordinates and 1 is to provide the utm coordinates}
 }
 \value{
-the projected associated latitude {Y} and longitude {X} coordinates in Decimal Degrees as a \code{\link[data.table]{data.table}} or as an enhanced
-  \code{\link[data.table]{data.table}} with the Northing and Easting coordinates in US
-  survey foot, foot, and meters in addition to the {Y} and {X} coordinates
-  for the begin, middle, and end points
+the projected associated latitude [Y] and longitude [X] coordinates
+    in Decimal Degrees as a \code{\link[data.table]{data.table}} or as an
+    enhanced \code{\link[data.table]{data.table}} with the latitude [Y] and
+    longitude [X] coordinates in Decimal Degrees, Degrees Minutes, Degrees
+    Minutes Seconds & the State Plane Northing and Easting coodinates in
+    meters, US survey foot, and the international foot
 }
 \description{
 Takes Kentucky or Tennessee-based Northing and Easting engineering survey
 measurements [based in the State Plane Coordinate System (SPCS)] in meters,
 international foot, or US survey foot and converts those values into
 geodetic coordinates of the World Geodetic System (WGS) (19)84 (EPSG:4326).
-[MapTiler Reference] Each latitude {Y} and longitude {X} point is verified to be
+[MapTiler Reference] Each latitude [Y] and longitude [X] point is verified to be
 located within Kentucky or Tennessee.
 }
 \note{
